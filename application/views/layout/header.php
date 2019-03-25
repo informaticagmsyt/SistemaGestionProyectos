@@ -19,6 +19,8 @@
   <link href="<?php echo base_url()?>public/css/bootstrap.min.css" rel="stylesheet" type="text/css">
   <link href="<?php echo base_url()?>public/css/pixeladmin.min.css" rel="stylesheet" type="text/css">
   <link href="<?php echo base_url()?>public/css/widgets.min.css" rel="stylesheet" type="text/css">
+  <link href="<?php echo base_url()?>public/css/bootstrap-datetimepicker.css" rel="stylesheet" type="text/css">
+  <link href="<?php echo base_url()?>public/css/daterangepicker.css" rel="stylesheet" type="text/css">
 
   <!-- Theme -->
   <link href="<?php echo base_url()?>public/css/themes/clean.min.css" rel="stylesheet" type="text/css">

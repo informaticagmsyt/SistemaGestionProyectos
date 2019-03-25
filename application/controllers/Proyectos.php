@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Welcome extends CI_Controller {
+class Proyectos extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -40,8 +40,26 @@ class Welcome extends CI_Controller {
 		$this->load->view('layout/nav');
 		$User['nombreUser']=$nombreUsuario['nombre'];
 		$this->load->view('layout/navar',$User);
-		$this->load->view('layout/scriptjs');	
-		$this->load->view('welcome_message');
+		
+		$this->load->view('layout/scriptjs');
+		$this->load->view('requerimiento/requerimientoview');
 		$this->load->view('layout/footer');
 	}
+
+
+
+
+public function registrar()
+{
+    $nombreUsuario = $this->session->userdata('user_data');
+    $this->load->view('layout/header');
+    $this->load->view('layout/nav');
+    $User['nombreUser']=$nombreUsuario['nombre'];
+    $this->load->view('layout/navar',$User);
+    
+    $this->load->view('layout/scriptjs');
+    $this->load->view('proyectos/registrar');
+    $this->load->view('layout/footer');
 }
+}
+

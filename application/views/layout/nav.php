@@ -19,6 +19,16 @@
       </li>
 
       <li class="px-nav-item px-nav-dropdown ">
+        <a href="#"><i class="px-nav-icon fas fa-book"></i><span class="px-nav-label">Proyectos</span></a>
+        <ul class="px-nav-dropdown-menu">
+        <li class="px-nav-item"><a href="<?php echo base_url('index.php/proyectos/registrar');?>"><i class="px-nav-icon fa fa-edit"></i><span class="px-nav-label">Registrar </span></a></li>
+
+          <li class="px-nav-item"><a href="index.html"><i class="px-nav-icon fas fa-book"></i><span class="px-nav-label">Listar Proyectos </span></a></li>
+          <li class="px-nav-item"><a href="dashboards-analytics.html"><i class="px-nav-icon fa fa-search"></i><span class="px-nav-label">Consultar</span></a></li>
+         </ul>
+      </li>
+
+      <li class="px-nav-item px-nav-dropdown ">
         <a href="#"><i class="px-nav-icon fa fa-user"></i><span class="px-nav-label">Tutor</span></a>
         <ul class="px-nav-dropdown-menu">
           <li class="px-nav-item"><a href="index.html"><i class="px-nav-icon fa fa-user-plus"></i><span class="px-nav-label">Registrar </span></a></li>
@@ -38,13 +48,6 @@
         </ul>
       </li>
 
-      <li class="px-nav-item px-nav-dropdown ">
-        <a href="#"><i class="px-nav-icon fas fa-book"></i><span class="px-nav-label">Proyectos</span></a>
-        <ul class="px-nav-dropdown-menu">
-          <li class="px-nav-item"><a href="index.html"><i class="px-nav-icon fa fa-user-plus"></i><span class="px-nav-label">Listar Proyectos </span></a></li>
-          <li class="px-nav-item"><a href="dashboards-analytics.html"><i class="px-nav-icon fa fa-search"></i><span class="px-nav-label">Consultar</span></a></li>
-         </ul>
-      </li>
 
     
  
@@ -68,7 +71,7 @@
          </ul>
       </li>
       <li class="px-nav-item">
-        <a href="utilities.html"><i class="px-nav-icon fas fa-sign-out-alt " ></i><span class="px-nav-label">Salir</span></a>
+        <a href="<?php echo base_url("index.php/login/logout"); ?>"><i class="px-nav-icon fas fa-sign-out-alt " ></i><span class="px-nav-label">Salir</span></a>
       </li>
     </ul>
   </nav>

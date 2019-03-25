@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Welcome extends CI_Controller {
+class Login extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -22,26 +22,39 @@ class Welcome extends CI_Controller {
 	function __construct(){
 
 		parent::__construct();
-	
-		$this->load->library('session');
 
-		
-		if(!is_logged_in()){
-			redirect('index.php/login');
+		$this->load->model('loginmodel');
 			
-		}
+		$this->load->helper('url');
+	
+	
 	}
-
 
 	public function index()
 	{
-		$nombreUsuario = $this->session->userdata('user_data');
-		$this->load->view('layout/header');
-		$this->load->view('layout/nav');
-		$User['nombreUser']=$nombreUsuario['nombre'];
-		$this->load->view('layout/navar',$User);
-		$this->load->view('layout/scriptjs');	
-		$this->load->view('welcome_message');
-		$this->load->view('layout/footer');
-	}
+
+
+
+		$this->load->view('login');
+
+    }
+
+    
+	public function verificarUsuario()
+	{
+		if($this->loginmodel->verificar($this->input->post('cedula'),
+																$this->input->post('clave'))){
+
+																	echo json_encode( array("response"=>true));
+
+																}else{
+														
+																	echo json_encode( array("response"=>false));
+																}
+
+    }
+		function logout(){
+			$this->session->unset_userdata('user_data');
+			redirect('index.php/login');
+    }
 }
