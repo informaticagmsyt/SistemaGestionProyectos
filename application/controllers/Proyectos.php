@@ -24,8 +24,9 @@ class Proyectos extends CI_Controller {
 		parent::__construct();
 	
 		$this->load->library('session');
-
-		
+		$this->load->model('proyectomodel');
+		$this->load->model('profesionModel');
+		$this->load->model('datospersonasmodel');
 		if(!is_logged_in()){
 			redirect('index.php/login');
 			
@@ -61,5 +62,30 @@ public function registrar()
     $this->load->view('proyectos/registrar');
     $this->load->view('layout/footer');
 }
+
+
+public function getProfesion(){
+
+	$result=$this->profesionModel->getProfesion($this->input->post_get('codigo'));
+
+	$this->output
+        ->set_content_type('application/json')
+        ->set_output(json_encode($result));
+
+}
+
+public function getDatosPersonasJSON(){
+
+	if(!empty($this->input->post_get('cedula'))) { 
+	$result=$this->datospersonasmodel->getDataPersona($this->input->post_get('cedula'));
+
+	$this->output
+        ->set_content_type('application/json')
+		->set_output(json_encode($result));
+		
+	}
+
+}
+
 }
 

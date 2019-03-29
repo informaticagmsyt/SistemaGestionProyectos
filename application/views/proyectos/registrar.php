@@ -93,7 +93,7 @@
               <div class="col-md-3">
                   <div class="form-group ">
                       <label>Apellidos</label>
-                  <input type="text" placeholder="Nombres" id="nombres"  name="nombres" class="form-control">
+                  <input type="text" placeholder="apellidos" id="apellidos"  name="apellidos" class="form-control">
                 </div>
                 </div>
 
@@ -115,7 +115,7 @@
            
            
            <div class="input-group date form_date col-md-8" data-date="" data-date-format="dd-mm-yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
-               <input class="form-control" size="5" type="text" name="fechanac" value="1990-09-25">
+               <input class="form-control" size="5" type="text" id="fechanac" name="fechanac" value="">
                <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span><i class="far fa-trash-alt"></i></span>
                <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span><i class="far fa-calendar-alt"></i></span>
                </div>
@@ -161,7 +161,9 @@
                   <div class="col-md-3">
                       <div class="form-group ">
                           <label>Profesión / Oficio</label>
-                      <input type="text" placeholder="profesión" id="profesion" name="profesion" class="form-control">
+                      <input type="text" placeholder="profesión"
+                       id="profesion" name="profesion" 
+                       class="form-control typeahead">
                     </div>
                     </div>
     
@@ -218,8 +220,8 @@
                     <div class="form-group">
                       <label>Estado </label>
                   
-                        <select class="custom-select form-control" id="parroquia_id" name="parroquia_id">
-                          <option value="">Seleccione un estado</option>
+                        <select class="custom-select form-control" id="estado_id" name="estado_id">
+                          <option value="0">Seleccione un estado</option>
                         </select>
                       
               </div>
@@ -230,7 +232,7 @@
                       <div class="form-group">
                         <label>Municipo </label>
                     
-                          <select class="custom-select form-control" id="parroquia_id" name="parroquia_id">
+                          <select class="custom-select form-control" id="municipio_id" name="municipio_id">
                             <option value="">Seleccione un Municipio</option>
                           </select>
                         
@@ -318,6 +320,8 @@
 
 </div>
 </div>
+<script> var urlbase="<?php echo base_url("index.php/"); ?>"; </script>
+<script src="<?php echo base_url()?>public/js/estadoMunParroquia.js"></script>
 <script>
 
   $(function() {
@@ -338,4 +342,70 @@
     $(".prev").addClass("fas fa-chevron-left")
     
     $(".next").addClass("fas fa-chevron-right")
+
+
+   
+    
+    var $input = $('#profesion').typeahead({
+	    source:  function (query, process) {
+        return $.get(urlbase+'proyectos/getProfesion', { codigo: query, action:"searchClient" }, function (data) {
+        		//console.log(data);
+            if(data.find){
+              return process(data.obj);
+            }else{
+           
+              var result= [{id: "0",
+               name:+query,
+              nombre:query}];
+              console.log(result)
+              return process(result);
+            }
+	           
+	        });
+      }
+ 
+  });
+
+
+
+
+
+
+function consultarPersona() {
+ var cedula =$("#cedula").val()
+if(cedula.length<4)
+alert("Ingrese un cédula correcta")
+var data={
+  cedula:cedula
+}
+
+$.ajax({
+  url: urlbase+"DatosPersonaC/findJSON" ,
+  type: "POST",
+  dataType: "JSON",
+  data: data,
+  success: function(res) {
+    console.log(res)
+   var data= res.data
+   console.log(data)
+if(res.response.status="ok"){
+
+  $("#nombres").val(data.nombres)
+  $("#apellidos").val(data.apellidos)
+  setValueSelect("sexo",data.sexo)
+  $("#fechanac").val(data.fec_nacimiento)
+  
+}
+
+
+
+
+  }
+    }).fail(function(re){
+console.log(re.responseText)
+    
+    });
+
+}
+
 </script>

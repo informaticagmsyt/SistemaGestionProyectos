@@ -33,7 +33,7 @@ Class loginModel  extends CI_Model{
         $query = $this->db->get();
 
         $row=$query->row();
-        if ($query->num_rows() == 1) {
+        if ($query->num_rows() > 0) {
       
             $data=array('user_data'=>array(
                 'user'=>$row->cedula,
