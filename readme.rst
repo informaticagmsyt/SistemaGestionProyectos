@@ -7,7 +7,9 @@ Sistema para la gestión de Proyectos y requerimientos
  Information
 *******************
 En postgres crear usuario admin. 
+
 password: admin123
+crear BD proyectos
 con todos los privilegios.
 realizar clone al proyecto .
 y crear un branch para trabajar en local
