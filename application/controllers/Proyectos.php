@@ -27,6 +27,7 @@ class Proyectos extends CI_Controller {
 		$this->load->model('proyectomodel');
 		$this->load->model('profesionModel');
 		$this->load->model('datospersonasmodel');
+		$this->load->model('personasmodel');
 		if(!is_logged_in()){
 			redirect('index.php/login');
 			
@@ -86,6 +87,39 @@ public function getDatosPersonasJSON(){
 	}
 
 }
+
+public function  regitrarPaso1(){
+
+
+	$datos = array(
+		'nacionaliidad' 	=> $this->input->post('nacionaliidad'),
+		'nombres' 			=> $this->input->post('nombres'),
+		'apellidos' 		=> $this->input->post('apellidos'),
+		'email' 			=> $this->input->post('email'),
+		'cedula'			=> $this->input->post('cedula'),
+		'sexo' 				=> $this->input->post('sexo'),
+		'direccion'			=>$this->input->post('direccion'),
+		'estado_id' 		=> $this->input->post('estado_id'),
+		'municipio_id' 		=> $this->input->post('municipio_id'),
+		'parroquia_id' 		=>$this->input->post('parroquia_id'),
+		'v_carnet' 			=>$this->input->post('v_carnet'),
+		'v_social' 			=> $this->input->post('v_social'),
+		'fecha_nac' 		=> $this->input->post('fecha_nac'), 
+		'posee_carnet'		=>  $this->input->post('posee_carnet'), 
+		'telefono'			=>  $this->input->post('telefono'), 
+		'telefono2'			=>  $this->input->post('telefono2'), 
+		'profesion' 		=>$this->input->post('profesion'), 
+		'institucion_id'	=>0,
+		'principal'			=> true
+		);
+
+	$result=$this->personasmodel->registrar($datos);
+	$this->output
+	->set_content_type('application/json')
+	->set_output(json_encode($result));
+	
+}
+
 
 }
 
