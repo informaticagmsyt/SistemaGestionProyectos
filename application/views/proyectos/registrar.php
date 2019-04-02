@@ -54,6 +54,11 @@
 
   <div class="wizard-content">
     <div class="wizard-pane" id="wizard-example-step1">
+  
+    <form  method="POST" role="form" id="formpaso1">
+
+
+    
       <div class="panel">
       
         <div class="panel-body">
@@ -70,7 +75,7 @@
                     </div>
               <div class="col-sm-4">
                 <label class="" for="grid-input-11">Cedula</label>
-                <input type="text" placeholder="Cedula" id="cedula"  name="cedula" class="form-control">
+                <input type="text" placeholder="Cedula" id="cedula"  name="cedula" class="form-control" required>
               </div>
               <div class=" col-sm-4">
                   <label class="" for="grid-input-11"></label>
@@ -86,14 +91,17 @@
               <div class="col-md-3">
                   <div class="form-group ">
                       <label>Nombres</label>
-                  <input type="text" placeholder="Nombres" id="nombres" name="nombres" class="form-control">
+                  <input type="text" placeholder="Nombres" id="nombres" name="nombres" class="form-control" required
+                  data-msg-required= "Ingrese un nombre">
                 </div>
                 </div>
 
               <div class="col-md-3">
                   <div class="form-group ">
                       <label>Apellidos</label>
-                  <input type="text" placeholder="apellidos" id="apellidos"  name="apellidos" class="form-control">
+                  <input type="text" placeholder="apellidos" id="apellidos"  name="apellidos"
+                  data-msg-required= "Ingrese un Apellido"
+                   class="form-control" required>
                 </div>
                 </div>
 
@@ -115,7 +123,7 @@
            
            
            <div class="input-group date form_date col-md-8" data-date="" data-date-format="dd-mm-yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
-               <input class="form-control" size="5" type="text" id="fechanac" name="fechanac" value="">
+               <input class="form-control" size="5" type="text" id="fechanac" name="fecha_nac" value="" >
                <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span><i class="far fa-trash-alt"></i></span>
                <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span><i class="far fa-calendar-alt"></i></span>
                </div>
@@ -133,14 +141,16 @@
                     <div class="col-md-3">
                         <div class="form-group ">
                             <label>Telefono</label>
-                        <input type="text" placeholder="telefono" id="telefono" name="telefono" class="form-control">
+                        <input type="text" placeholder="telefono" id="telefono"
+                        data-msg-required= "Ingrese un numero de teléfono"
+                         name="telefono" class="form-control" required>
                       </div>
                       </div>
       
                     <div class="col-md-3">
                         <div class="form-group ">
                             <label>Telefono 2</label>
-                        <input type="text" placeholder="telefono 2" id="telefono2"  name="telefono2" class="form-control">
+                        <input type="text" placeholder="telefono 2" id="telefono2"  name="telefono2" class="form-control" >
                       </div>
                       </div>
       
@@ -148,7 +158,10 @@
                       <div class="col-md-5">
                           <div class="form-group ">
                               <label>Email</label>
-                          <input type="email" placeholder="email@test.com" id="email"  name="email" class="form-control">
+                          <input type="email" 
+                          data-msg-required= "Ingrese un email"
+
+                          placeholder="email@test.com" id="email"  name="email" class="form-control" required>
                         </div>
                         </div>
                   </div>
@@ -163,7 +176,7 @@
                           <label>Profesión / Oficio</label>
                       <input type="text" placeholder="profesión"
                        id="profesion" name="profesion" 
-                       class="form-control typeahead">
+                       class="form-control typeahead" required>
                     </div>
                     </div>
     
@@ -256,7 +269,11 @@
               
                       <div class="form-group ">
                           <label>Dirección de Habitación</label>
-                      <textarea placeholder="" id="direccion"  name="direccion" class="form-control" > </textarea> 
+                      <textarea 
+                      id="direccion" 
+                      value=""
+                      data-msg-required= "Ingrese una direccion"
+                       name="direccion" class="form-control" required > </textarea> 
                   
 
                   </div>
@@ -265,10 +282,14 @@
         </div>
 
         <div class="pull-right">
-          <button type="button" class="btn btn-primary" data-wizard-action="next">Guardar y continuar</button>
+        <button type="submit" class="btn btn-primary" >Guardar y continuar</button>
+
+          <button type="button" class="btn btn-primary"
+            style="visibility:hidden"
+           data-wizard-action="next" id="paso1">Guardar y continuar</button>
         </div>
       </div>
-   
+      </form>
     </div>
     <div class="wizard-pane" id="wizard-example-step2">
       <h4>Step 2</h4>
@@ -322,6 +343,7 @@
 </div>
 <script> var urlbase="<?php echo base_url("index.php/"); ?>"; </script>
 <script src="<?php echo base_url()?>public/js/estadoMunParroquia.js"></script>
+<script src="<?php echo base_url()?>public/js/registrarProyecto.js"></script>
 <script>
 
   $(function() {
