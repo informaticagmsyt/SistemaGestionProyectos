@@ -78,11 +78,33 @@ public function getProfesion(){
 public function getDatosPersonasJSON(){
 
 	if(!empty($this->input->post_get('cedula'))) { 
-	$result=$this->datospersonasmodel->getDataPersona($this->input->post_get('cedula'));
+
+		//ver si tine prroyectos
+		$resultProyectos=$this->proyectomodel->findProyectosPersonas($this->input->post('cedula'));
+		if(!$resultProyectos['result']){
+
+			$obj=$this->datospersonasmodel->getDataPersona($this->input->post_get('cedula'));
+
+		}else{
+			$obj = new stdClass;
+			$obj->response=array(
+                "status"=>"ok",
+                "http_code"=>404
+            );
+           $obj->data=array(
+         
+          );
+          $obj->error=array("code"=>"","message"=>"");
+          $obj->comments="Esta persona ya posee un proyecto registrado";
+
+             
+
+               $obj;
+		}
 
 	$this->output
         ->set_content_type('application/json')
-		->set_output(json_encode($result));
+		->set_output(json_encode($obj));
 		
 	}
 
@@ -90,6 +112,64 @@ public function getDatosPersonasJSON(){
 
 public function  regitrarPaso1(){
 
+	//ver si tine proyectos
+	$resultProyectos=$this->proyectomodel->findProyectosPersonas($this->input->post('cedula'));
+	if(!$resultProyectos['result']){
+
+	//consultar si esta en la tabla personas
+	$resultPersonas=$this->personasmodel->find($this->input->post('cedula'));
+
+	//Actualizar
+	if($resultPersonas['result']){
+
+		
+		$datos = array(
+			'nacionaliidad' 	=> $this->input->post('nacionaliidad'),
+			'nombres' 			=> $this->input->post('nombres'),
+			'apellidos' 		=> $this->input->post('apellidos'),
+			'email' 			=> $this->input->post('email'),
+			'cedula'			=> $this->input->post('cedula'),
+			'sexo' 				=> $this->input->post('sexo'),
+			'direccion'			=> $this->input->post('direccion'),
+			'estado_id' 		=> $this->input->post('estado_id'),
+			'municipio_id' 		=> $this->input->post('municipio_id'),
+			'parroquia_id' 		=> $this->input->post('parroquia_id'),
+			'v_carnet' 			=> $this->input->post('v_carnet'),
+			'v_social' 			=> $this->input->post('v_social'),
+			'fecha_nac' 		=> $this->input->post('fecha_nac'), 
+			'posee_carnet'		=> $this->input->post('posee_carnet'), 
+			'telefono'			=> $this->input->post('telefono'), 
+			'telefono2'			=> $this->input->post('telefono2'), 
+			'profesion' 		=> $this->input->post('profesion'), 
+			'institucion_id'	=> 0,
+			'principal'			=> true
+			);
+
+			
+		$result=$this->personasmodel->actualizar($datos,$resultPersonas['data']->id);
+
+		if($result){
+
+			$response=array(
+				"result"	=>true,
+				"mensaje"	=>"Se guardaron los cambios exitosamente"
+			);
+
+
+		}else{
+
+			$response=array(
+				"result"	=>false,
+				"mensaje"	=>"Ocurrio un error, no se logro Guardar"
+			);
+		}
+	
+		$this->output
+		->set_content_type('application/json')
+		->set_output(json_encode($response));
+
+	}else{
+	//insertar
 
 	$datos = array(
 		'nacionaliidad' 	=> $this->input->post('nacionaliidad'),
@@ -98,28 +178,52 @@ public function  regitrarPaso1(){
 		'email' 			=> $this->input->post('email'),
 		'cedula'			=> $this->input->post('cedula'),
 		'sexo' 				=> $this->input->post('sexo'),
-		'direccion'			=>$this->input->post('direccion'),
+		'direccion'			=> $this->input->post('direccion'),
 		'estado_id' 		=> $this->input->post('estado_id'),
 		'municipio_id' 		=> $this->input->post('municipio_id'),
-		'parroquia_id' 		=>$this->input->post('parroquia_id'),
-		'v_carnet' 			=>$this->input->post('v_carnet'),
+		'parroquia_id' 		=> $this->input->post('parroquia_id'),
+		'v_carnet' 			=> $this->input->post('v_carnet'),
 		'v_social' 			=> $this->input->post('v_social'),
 		'fecha_nac' 		=> $this->input->post('fecha_nac'), 
-		'posee_carnet'		=>  $this->input->post('posee_carnet'), 
-		'telefono'			=>  $this->input->post('telefono'), 
-		'telefono2'			=>  $this->input->post('telefono2'), 
+		'posee_carnet'		=> $this->input->post('posee_carnet'), 
+		'telefono'			=> $this->input->post('telefono'), 
+		'telefono2'			=> $this->input->post('telefono2'), 
 		'profesion' 		=>$this->input->post('profesion'), 
 		'institucion_id'	=>0,
 		'principal'			=> true
 		);
 
-	$result=$this->personasmodel->registrar($datos);
-	$this->output
-	->set_content_type('application/json')
-	->set_output(json_encode($result));
-	
-}
+					$result=$this->personasmodel->registrar($datos);
 
+
+
+					$response=array(
+					"result"	=>true,
+					"mensaje"	=>"Se guardaron los cambios Exitosamente",
+					);
+
+
+
+					$this->output
+					->set_content_type('application/json')
+					->set_output(json_encode($response));
+
+	}
+
+
+			}else{
+			//tiene proyectos
+			$response=array(
+			"result"	=>false,
+			"mensaje"	=>"Ya existe un requerimiento registrado con esta cedula".$this->input->post('cedula') ,
+			);
+
+			$this->output
+			->set_content_type('application/json')
+			->set_output(json_encode($response));
+			}
+
+		}
 
 }
 

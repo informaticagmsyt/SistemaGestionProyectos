@@ -1,4 +1,12 @@
- 
+ <style>
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+input[type=number] { -moz-appearance:textfield; }
+ </style>
    
   <div class="container"> 
   <div class="row"> 
@@ -60,6 +68,7 @@
 
     
       <div class="panel">
+      <div id="msj"></div>
       
         <div class="panel-body">
       
@@ -75,7 +84,7 @@
                     </div>
               <div class="col-sm-4">
                 <label class="" for="grid-input-11">Cedula</label>
-                <input type="text" placeholder="Cedula" id="cedula"  name="cedula" class="form-control" required>
+                <input type="number" placeholder="Cedula" id="cedula"  name="cedula" class="form-control" required>
               </div>
               <div class=" col-sm-4">
                   <label class="" for="grid-input-11"></label>
@@ -141,7 +150,7 @@
                     <div class="col-md-3">
                         <div class="form-group ">
                             <label>Telefono</label>
-                        <input type="text" placeholder="telefono" id="telefono"
+                        <input type="number" placeholder="telefono" id="telefono"
                         data-msg-required= "Ingrese un numero de teléfono"
                          name="telefono" class="form-control" required>
                       </div>
@@ -150,7 +159,7 @@
                     <div class="col-md-3">
                         <div class="form-group ">
                             <label>Telefono 2</label>
-                        <input type="text" placeholder="telefono 2" id="telefono2"  name="telefono2" class="form-control" >
+                        <input type="number" placeholder="telefono 2" id="telefono2"  name="telefono2" class="form-control" >
                       </div>
                       </div>
       
@@ -199,7 +208,7 @@
                     <div class="col-md-3">
                         <div class="form-group ">
                             <label>Código Carnet de la Patria</label>
-                        <input type="text" placeholder="" id="email"  name="v_carnet" class="form-control">
+                        <input type="text" placeholder="" id="v_carnet"  name="v_carnet" class="form-control">
                       </div>
                       </div>
 
@@ -282,7 +291,7 @@
         </div>
 
         <div class="pull-right">
-        <button type="submit" class="btn btn-primary" >Guardar y continuar</button>
+        <button type="submit" class="btn btn-primary  pull-right" id="btnpaso1" >Guardar y continuar</button>
 
           <button type="button" class="btn btn-primary"
             style="visibility:hidden"
@@ -412,10 +421,32 @@ $.ajax({
    console.log(data)
 if(res.response.status="ok"){
 
-  $("#nombres").val(data.nombres)
-  $("#apellidos").val(data.apellidos)
-  setValueSelect("sexo",data.sexo)
-  $("#fechanac").val(data.fec_nacimiento)
+    $("#nombres").val(data.nombres)
+    $("#apellidos").val(data.apellidos)
+    setValueSelect("sexo",data.sexo)
+    $("#fechanac").val(data.fec_nacimiento)
+  
+    if(res.data.datapersona){
+   var datapersona = res.data.datapersona;
+
+            setValueSelect("estado_id", datapersona.estado_id)
+            municipio( datapersona.estado_id,"#municipio_id") 
+
+            parroquia(datapersona.municipio_id,"#parroquia_id") 
+
+            setTimeout(function(){
+              setValueSelect("municipio_id", datapersona.municipio_id)
+             setValueSelect("parroquia_id", datapersona.parroquia_id)
+            }, 1000);
+       
+        $("#telefono").val(datapersona.telefono)
+        $("#telefono2").val(datapersona.telefono2)
+        $("#direccion").val(datapersona.direccion)
+        $("#profesion").val(datapersona.profesion)
+        $("#v_carnet").val(datapersona.v_carnet)
+        $("#email").val(datapersona.email)
+      
+    }
   
 }
 
