@@ -45,11 +45,42 @@ Class personasModel  extends CI_Model{
         //$this->db->insert('users',$this);
         $this->db->insert('personas',$datos);
 
+        //retorna el id
         return $this->db->insert_id();
         
     }
- 
 
+            public function find($cedula){
+
+                $this->db->select('*');
+                $this->db->from('personas');
+                $this->db->limit(1);
+                $this->db->where('cedula', $cedula);
+                $query = $this->db->get();
+
+                
+        $row=$query->row();
+        if ($query->num_rows() > 0) {
+
+          return  array('result'=>true,
+                'data'=>  $row);
+        }
+
+        return  array('result'=>false,
+        ' data'=>  null);
+            }
     
+
+
+   public function actualizar($araycampos,$id){
+
+
+    $this->db->set($araycampos);
+    $this->db->where('id', $id);
+    $query= $this->db->update('personas');
+    return $query;
    
+    }
+
+
 }
