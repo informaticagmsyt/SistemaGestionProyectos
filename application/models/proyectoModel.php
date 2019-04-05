@@ -55,4 +55,66 @@ Class proyectoModel  extends CI_Model{
 
     
    
+       public function registrar($data){
+ 
+
+
+        $this->db->insert('proyectos',$data);
+
+        //retorna el id
+        return $this->db->insert_id();
+        
+    }
+
+
+
+        
+    function update($data,$id){
+
+        $this->db->set($data);
+        $this->db->where('id', $id);
+       return $this->db->update('proyectos');
+
+        }
+    
+
+    function getEstatusProyecto(){
+    
+      
+        $this->db->select('*');
+        
+        $this->db->from('estatus_proyecto');
+        
+       
+     $query = $this->db->get();
+
+        $row=$query->row();
+        $obj = new stdClass;
+        
+  
+ 
+        $index=array(); 
+        $i=0;      
+        foreach ($query->result() as $row)
+        {
+      
+
+            $obj->response=true;
+
+            $index[$i]["id"]=$row->id;
+            $index[$i]["descripcion"]=$row->descripcion;
+   
+         
+
+          $i++;
+     
+
+        }
+        $obj->data=$index;
+
+
+              return $obj;
+           
+        
+    }
 }
