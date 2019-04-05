@@ -25,6 +25,7 @@ class Proyectos extends CI_Controller {
 	
 		$this->load->library('session');
 		$this->load->model('proyectomodel');
+		$this->load->model('requerimientosmodel');
 		$this->load->model('profesionModel');
 		$this->load->model('datospersonasmodel');
 		$this->load->model('personasmodel');
@@ -61,7 +62,7 @@ public function registrar()
     
     $this->load->view('layout/scriptjs');
     $this->load->view('proyectos/registrar');
-    $this->load->view('layout/footer');
+
 }
 
 
@@ -112,7 +113,12 @@ public function getDatosPersonasJSON(){
 
 public function  regitrarPaso1(){
 
-	//ver si tine proyectos
+	if(empty($_SESSION['cedula'])){
+
+	 $_SESSION['cedula']= $this->input->post('cedula');
+	}
+
+
 	$resultProyectos=$this->proyectomodel->findProyectosPersonas($this->input->post('cedula'));
 	if(!$resultProyectos['result']){
 
@@ -225,5 +231,216 @@ public function  regitrarPaso1(){
 
 		}
 
+		public function  regitrarPaso2(){
+
+		$actualizar=false;
+		
+		$datatemp=$this->session->tempdata('requerimiento_id');
+		if(isset($datatemp))
+		{
+			 $actualizar=true;
+		}else{
+			$actualizar=false;
+
+		}
+	
+		$user=	$this->session->userdata('user_data');
+
+		$actualizar=false;
+		if(!empty($_SESSION['requerimiento_id'])){
+		
+			$actualizar=true;
+			
+		   }
+		   if($actualizar){
+
+			$datos = array(
+				'descripcion'           =>$this->input->post('descripcion'),
+				'categoria_id'         =>$this->input->post('categoria_id'),
+				'sub_categoria_id'      =>$this->input->post('sub_categoria_id'),
+				'user_id'           =>$user['id']						
+
+
+		);
+
+		//Actualizo paso
+		$this->proyectomodel->update(array("nombre"=>$this->input->post('nombrep')),
+		
+		$_SESSION['proyecto_id']);
+
+
+			$Urequerimiento=$this->requerimientosmodel->update($datos,$_SESSION['requerimiento_id']);
+			if($Urequerimiento){
+				$response=array(
+					"result"	=>true,
+					"mensaje"	=>"Se Actualizaron los datos exitosamente",
+			
+					);
+				}
+
+			else{
+
+				$response=array(
+					"result"	=>false,
+					"mensaje"	=>"Ocurrio un Error al intentar actualizar",
+			
+					);
+
+			}
+
+			$this->output
+			->set_content_type('application/json')
+			->set_output(json_encode($response));
+
+		    }else{
+
+
+		  	   
+			$datos = array(
+						'descripcion'           =>$this->input->post('descripcion'),
+						'categoria_id'         =>$this->input->post('categoria_id'),
+						'sub_categoria_id'      =>$this->input->post('sub_categoria_id'),
+						'user_id'           =>$user['id']						
+		
+	 
+				);
+
+				
+			$idrequerimiento=$this->requerimientosmodel->registrar($datos);
+
+			$resultpersonas=$this->personasmodel->find($_SESSION['cedula']);
+			$idpersonas=$resultpersonas['data']->id;
+
+
+			//aqui se relaciona las persona con el requerimiento
+			$this->requerimientosmodel->requerimientoPersona(
+				array(
+				'requerimiento_id'=>$idrequerimiento,
+				'persona_id'=>$idpersonas
+
+			));
+
+			
+
+			if($idrequerimiento>0){
+
+				$idproyecto=$this->proyectomodel->registrar(
+					array("nombre"=>$this->input->post('nombrep'))
+					);
+				
+
+			}
+
+			//creo session temporal para los id
+			$_SESSION['requerimiento_id']=$idrequerimiento;
+			$_SESSION['proyecto_id']=$idproyecto;
+			$_SESSION['persona_id']=$idpersonas;
+			
+
+			if($idproyecto>0){
+
+			$response=array(
+				"result"	=>true,
+				"mensaje"	=>"Se guardaron los datos exitosamente",
+				"idproyecto"=>$idproyecto,
+				"idrequerimiento"=>$idrequerimiento
+				);
+			}
+
+			
+			$this->output
+			->set_content_type('application/json')
+			->set_output(json_encode($response));
+		}
+		}
+
+
+		
+		public function  regitrarPaso3(){
+
+			$datos = array(
+				
+				'municipio_id'         =>$this->input->post('municipio_id'),
+				'parroquia_id'      =>$this->input->post('parroquia_id'),
+				'estado_id'      =>$this->input->post('estado_id'),
+				"ente_id"=>   0
+				// $this->input->post('inst_responsable')
+								
+
+
+		);
+
+		
+		$idrequerimiento=$this->requerimientosmodel->update($datos,$_SESSION['requerimiento_id']);
+
+		$datos=		array(
+			"codrif"=>$this->input->post('rif'),
+			"numero_rif"=>$this->input->post('numerorif'),
+			"nombre_empresa"=>$this->input->post('nombrerazonsocial'),
+			"empresa_registrada"=>$this->input->post('registrada'),
+			"codigo_situr"=>$this->input->post('codigo_situr'),
+			"codigo_sunagro"=>$this->input->post('codigo_sunagro'),
+			
+		);
+		$idproyecto=$this->proyectomodel->update($datos,$_SESSION['proyecto_id']);
+	
+			
+			if($idproyecto>0){
+				$response=array(
+					"result"	=>true,
+					"mensaje"	=>"Se guardaron los datos exitosamente",
+					"idproyecto"=>$idproyecto,
+					"idrequerimiento"=>$idrequerimiento
+					);
+
+			}else{
+
+				$response=array(
+					"result"	=>false,
+					"mensaje"	=>"Ocurrio un Error al intentar actualizar",
+			
+					);	
+			}
+
+						
+			$this->output
+			->set_content_type('application/json')
+			->set_output(json_encode($response));
+	
+		}
+
+
+
+		public function getCategoria(){
+			$response=	$this->requerimientosmodel->categoriaGet();
+
+			$this->output
+			->set_content_type('application/json')
+			->set_output(json_encode($response));
+			
+		
+		}
+
+		public function getSubCategoria(){
+			$response=	$this->requerimientosmodel->getSubCategoria($this->input->get('id'));
+
+			$this->output
+			->set_content_type('application/json')
+			->set_output(json_encode($response));
+			
+		
+		}
+
+
+		
+		public function getEstatusProyecto(){
+			$response=	$this->proyectomodel->getEstatusProyecto();
+
+			$this->output
+			->set_content_type('application/json')
+			->set_output(json_encode($response));
+			
+		
+		}
 }
 

@@ -33,7 +33,7 @@ input[type=number] { -moz-appearance:textfield; }
         </span>
       </li>
       <li data-target="#wizard-example-step3">
-        <span class="wizard-step-number">4</span>
+        <span class="wizard-step-number">3</span>
         <span class="wizard-step-complete"><i class="fa fa-check text-success"></i></span>
         <span class="wizard-step-caption">
           Paso 3
@@ -41,7 +41,7 @@ input[type=number] { -moz-appearance:textfield; }
         </span>
       </li>
       <li data-target="#wizard-example-step3">
-        <span class="wizard-step-number">3</span>
+        <span class="wizard-step-number">4</span>
         <span class="wizard-step-complete"><i class="fa fa-check text-success"></i></span>
         <span class="wizard-step-caption">
           Paso 4
@@ -242,8 +242,11 @@ input[type=number] { -moz-appearance:textfield; }
                     <div class="form-group">
                       <label>Estado </label>
                   
-                        <select class="custom-select form-control" id="estado_id" name="estado_id">
-                          <option value="0">Seleccione un estado</option>
+                        <select class="custom-select form-control" id="estado_id" 
+                        required
+                        name="estado_id">
+                          <option value=""
+                          >Seleccione un estado</option>
                         </select>
                       
               </div>
@@ -254,7 +257,12 @@ input[type=number] { -moz-appearance:textfield; }
                       <div class="form-group">
                         <label>Municipo </label>
                     
-                          <select class="custom-select form-control" id="municipio_id" name="municipio_id">
+                          <select 
+                          
+                          class="custom-select form-control" id="municipio_id" name="municipio_id"
+                          required
+                          data-msg-required= "Seleccione un Municipio"
+                          >
                             <option value="">Seleccione un Municipio</option>
                           </select>
                         
@@ -265,7 +273,9 @@ input[type=number] { -moz-appearance:textfield; }
                         <div class="form-group">
                           <label>Parroquia </label>
                       
-                            <select class="custom-select form-control" id="parroquia_id" name="parroquia_id">
+                            <select class="custom-select form-control" id="parroquia_id"
+                            required
+                            name="parroquia_id">
                               <option value="">Seleccione una parroquia</option>
                             </select>
                           
@@ -301,35 +311,237 @@ input[type=number] { -moz-appearance:textfield; }
       </form>
     </div>
     <div class="wizard-pane" id="wizard-example-step2">
-      <h4>Step 2</h4>
-      <p>
-        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
-        totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
-        dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit,
-        sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam
-        est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius
-        modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima
-        veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea
-        commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam
-        nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
-      </p>
-      <div class="pull-right">
-        <button type="button" class="btn" data-wizard-action="prev">Prev</button>
-        <button type="button" class="btn btn-primary" data-wizard-action="next">Next</button>
+
+
+    <div class="panel">
+      <form  method="post" id="formpaso2">
+
+
+      <div id="msj2"></div>
+      
+        <div class="panel-body">
+
+        <h5 class="text-center">Datos del Proyecto</h5>
+                  <hr>
+
+                  <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group ">
+                            <label>Nombre del proyecto</label>
+                        <input type="text" placeholder="nombre" id="nombrep"
+                        data-msg-required= "Ingrese un numero de teléfono"
+                         name="nombrep" class="form-control" required>
+                      </div>
+                      </div>
+      
+                    <div class="col-md-6">
+                   
+                      <div class="form-group">
+                        <label>Estatus del Proyecto </label>
+                    
+                          <select class="custom-select form-control" 
+                          id="estatus_proyecto_id" 
+                          name="estatus_proyecto_id">
+                            <option value="0">Seleccione un opcion</option>
+                          </select>
+                        
+                      </div>
+      
+
+                      
+                  </div>
       </div>
+
+
+      <div class="row">
+        <div class="col-md-6">
+            <div class="form-group ">
+                <label>Categoria</label>
+
+                <select class="custom-select form-control" 
+                id="categoria_id" 
+                name="categoria_id">
+                  <option value="">Seleccione un opcion</option>
+                </select>
+          </div>
+          </div>
+
+        <div class="col-md-6">
+       
+          <div class="form-group">
+            <label>Sub Categoria </label>
+        
+              <select class="custom-select form-control" 
+              id="sub_categoria_id" 
+              name="sub_categoria_id">
+                <option value="">Seleccione un opcion</option>
+              </select>
+            
+          </div>
+
+
+          
+      </div>
+</div>
+
+<div class="row">
+  <hr>
+  <div class="col-md-12">
+      <div class="form-group ">
+          <label>Descripcion del Proyecto</label>
+
+          <textarea 
+          id="descripcion" 
+          value=""
+          data-msg-required= "Ingrese una descripcion"
+           name="descripcion" class="form-control" required > </textarea> 
     </div>
-    <div class="wizard-pane" id="wizard-example-step3">
-      <h4>Step 3</h4>
-      <p>
-        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
-        totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
-        dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit,
-        sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
-      </p>
-      <div class="pull-right">
-        <button type="button" class="btn" data-wizard-action="prev">Prev</button>
-        <button type="button" class="btn btn-primary" data-wizard-action="next">Next</button>
+    </div>
+
+    <input type="hidden"  id="cedula2"  name="cedula2"  >
+    <input type="hidden"  id="cedula2"  name="cedula2"  >
+    <input type="hidden"  id="idrequerimiento"  name="idrequerimiento"  >
+    <input type="hidden"  id="idproyecto"  name="idrequerimiento"  >
+</div>
       </div>
+      <button type="button" class="btn btn-primary"
+      style="visibility:hidden"
+      data-wizard-action="next" id="paso2">Guardar y Continuar</button>
+
+      <div class="pull-right">
+        <button type="button" class="btn" data-wizard-action="prev">Regresar</button>
+        <button type="submit" class="btn btn-primary" id="btnpaso2" >Guardar y Continuar</button>
+      </div>
+    </form>
+    </div>
+
+  </div>
+    <div class="wizard-pane" id="wizard-example-step3">
+
+    <div class="panel">
+      <form  method="post" id="formpaso3">
+
+
+      <div id="msj3"></div>
+      
+        <div class="panel-body">
+
+            <h5 class="text-center">Datos de la Unidad de Producción
+              </h5>
+            <hr>
+
+       
+            <div class="row">
+                <div class=" col-sm-2 ">
+                    <label for="grid-input-5" class="col-md-3 control-label">Rif</label>
+                
+                      <select class="custom-select form-control" id="rif" name="rif">
+                       
+                        <option value="J">J</option>
+                        <option value="C">C</option>
+                        <option value="V">V</option>
+                        <option value="G">G</option>
+                      </select>
+                    </div>
+              <div class="col-sm-4">
+                <label class="" for="grid-input-11">Numero de Rif</label>
+                <input type="number" placeholder="" id="numerorif"  name="numerorif" class="form-control" required>
+              </div>
+              <div class=" col-sm-6">
+                  <div class="form-group ">
+                  <label class="" for="grid-input-11">Nombre o Razon Social</label>
+                  <input type="text" placeholder="" id="nombrerazonsocial"  name="nombrerazonsocial" class="form-control" required>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+                
+    
+                <div class="col-md-4">
+                
+                     
+                  <div class="form-group">
+                    <label>Estado </label>
+                
+                      <select class="custom-select form-control" id="estado" 
+                      required
+                      name="estado_id">
+                        <option value=""
+                        >Seleccione un estado</option>
+                      </select>
+                    
+            </div>
+                  </div>
+  
+
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label>Municipo </label>
+                  
+                        <select 
+                        
+                        class="custom-select form-control" id="municipio" name="municipio_id"
+                        required
+                        data-msg-required= "Seleccione un Municipio"
+                        >
+                          <option value="">Seleccione un Municipio</option>
+                        </select>
+                      
+              </div>
+                    </div>
+
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label>Parroquia </label>
+                    
+                          <select class="custom-select form-control" id="parroquia"
+                          required
+                          name="parroquia_id">
+                            <option value="">Seleccione una parroquia</option>
+                          </select>
+                        
+                </div>
+                    </div>
+              </div>
+
+           
+            <div class="row">
+                <div class="col-md-3">
+                        <label for="formGroupExampleInput">¿Esta Registrarda? <small>(La Empresa)</small> </label>
+                        <select name="registrada" class="form-control">
+                            <option value="true">Si</option>
+                            <option value="false">No</option>
+                        </select>
+                </div>
+                <div class="col-md-3">
+                        <label for="formGroupExampleInput">Codigo Situr</label>
+                        <input type="text" class="form-control" id="formGroupExampleInput" name="codigo_situr">
+                </div>
+                <div class="col-md-3">
+                        <label for="formGroupExampleInput">Codigo Sunagro</label>
+                        <input type="text" class="form-control" id="formGroupExampleInput" name="codigo_sunagro" placeholder="00000000">
+                </div>
+                <div class="col-md-3">
+                        <label for="formGroupExampleInput">Institucion Responsable</label>
+                        <input type="text" class="form-control" id="formGroupExampleInput" name="inst_responsable" required>
+                </div>
+                
+
+                </div>
+    </div>
+</div>
+
+    
+        <button type="button" class="btn btn-primary"
+        style="visibility:hidden"
+        data-wizard-action="next" id="paso3">Guardar y Continuar</button>
+
+        <div class="pull-right">
+        <button type="button" class="btn" data-wizard-action="prev">Regresar</button>
+        <button type="submit" class="btn btn-primary" id="btnpaso3" >Guardar y Continuar</button>
+        </div>
+      </form>
     </div>
     <div class="wizard-pane" id="wizard-example-step4">
       <h4>Finish</h4>
