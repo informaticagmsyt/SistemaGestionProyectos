@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-Class municipiosModel  extends CI_Model{
+Class EstadosModel  extends CI_Model{
 
 
         
@@ -15,15 +15,15 @@ Class municipiosModel  extends CI_Model{
     }
     
 
-    function get($id_estado){
+    function get(){
     
       
-        $this->db->select('id_municipio, id_estado, municipio');
-        $this->db->from('municipios');
-        $this->db->where('id_estado', $id_estado);
-         $query = $this->db->get();
-
+        $this->db->select(' id_estado, estado');
+        $this->db->from('estados');
        
+     $query = $this->db->get();
+
+        $row=$query->row();
         $obj = new stdClass;
         
   
@@ -39,8 +39,8 @@ Class municipiosModel  extends CI_Model{
                 "http_code"=>200
             );
 
-            $index[$i]["id"]=$row->id_municipio;
-            $index[$i]["municipio"]=$row->municipio;
+            $index[$i]["id"]=$row->id_estado;
+            $index[$i]["estado"]=$row->estado;
 
             
          

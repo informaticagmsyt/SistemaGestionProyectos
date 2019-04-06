@@ -25,7 +25,7 @@ class EstadosC extends CI_Controller {
 	
 		$this->load->library('session');
 
-		$this->load->model('estadosmodel');
+		$this->load->model('EstadosModel');
 		if(!is_logged_in()){
 			redirect('index.php/login');
 			
@@ -45,7 +45,7 @@ class EstadosC extends CI_Controller {
 public function get(){
 		//devuelve un objeto JSON para consumir por AJAX
 
-	$result=$this->estadosmodel->get();
+	$result=$this->EstadosModel->get();
 
 	$this->output
         ->set_content_type('application/json')

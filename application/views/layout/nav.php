@@ -29,9 +29,10 @@
       </li>
 
       <li class="px-nav-item px-nav-dropdown ">
-        <a href="#"><i class="px-nav-icon fa fa-user"></i><span class="px-nav-label">Tutor</span></a>
+        <a href="#"><i class="px-nav-icon fa fa-user"></i><span class="px-nav-label">Tutores</span></a>
         <ul class="px-nav-dropdown-menu">
-          <li class="px-nav-item"><a href="index.html"><i class="px-nav-icon fa fa-user-plus"></i><span class="px-nav-label">Registrar </span></a></li>
+          <li class="px-nav-item"><a href="<?php echo base_url();?>index.php/Tutores/registrar"><i class="px-nav-icon fa fa-user-plus"></i><span class="px-nav-label">Registrar </span></a></li>
+          <li class="px-nav-item"><a href="<?php echo base_url();?>index.php/Tutores/listado"><i class="px-nav-icon fas fa-book"></i><span class="px-nav-label">Listar Tutores</span></a></li>
           <li class="px-nav-item"><a href="dashboards-analytics.html"><i class="px-nav-icon fa fa-search"></i><span class="px-nav-label">Consultar</span></a></li>
          </ul>
       </li>

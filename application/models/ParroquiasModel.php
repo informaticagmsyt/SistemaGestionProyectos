@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-Class estadosModel  extends CI_Model{
+Class ParroquiasModel  extends CI_Model{
 
 
         
@@ -15,15 +15,15 @@ Class estadosModel  extends CI_Model{
     }
     
 
-    function get(){
+    function get($id_municipio){
     
       
-        $this->db->select(' id_estado, estado');
-        $this->db->from('estados');
-       
-     $query = $this->db->get();
+        $this->db->select('id_parroquia, id_municipio, parroquia');
+        $this->db->from('parroquias');
+        $this->db->where('id_municipio', $id_municipio);
+         $query = $this->db->get();
 
-        $row=$query->row();
+       
         $obj = new stdClass;
         
   
@@ -39,8 +39,8 @@ Class estadosModel  extends CI_Model{
                 "http_code"=>200
             );
 
-            $index[$i]["id"]=$row->id_estado;
-            $index[$i]["estado"]=$row->estado;
+            $index[$i]["id"]=$row->id_parroquia;
+            $index[$i]["parroquia"]=$row->parroquia;
 
             
          

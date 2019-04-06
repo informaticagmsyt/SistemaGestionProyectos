@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-Class personasModel  extends CI_Model{
+Class PersonasModel  extends CI_Model{
 
 
         public $nombre;

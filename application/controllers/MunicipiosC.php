@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class parroquiasC extends CI_Controller {
+class MunicipiosC extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -25,7 +25,7 @@ class parroquiasC extends CI_Controller {
 	
 		$this->load->library('session');
 
-		$this->load->model('parroquiasmodel');
+		$this->load->model('MunicipiosModel');
 		if(!is_logged_in()){
 			redirect('index.php/login');
 			
@@ -44,9 +44,9 @@ class parroquiasC extends CI_Controller {
 
 public function get(){
 		//devuelve un objeto JSON para consumir por AJAX
-        if(!empty($this->input->post_get('id_parroquia'))) { 
+        if(!empty($this->input->post_get('id_estado'))) { 
             
-	$result=$this->parroquiasmodel->get($this->input->post_get('id_parroquia'));
+	$result=$this->MunicipiosModel->get($this->input->post_get('id_estado'));
 
 	$this->output
         ->set_content_type('application/json')

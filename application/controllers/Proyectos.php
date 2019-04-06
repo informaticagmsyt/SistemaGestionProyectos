@@ -24,10 +24,10 @@ class Proyectos extends CI_Controller {
 		parent::__construct();
 	
 		$this->load->library('session');
-		$this->load->model('proyectomodel');
-		$this->load->model('profesionModel');
-		$this->load->model('datospersonasmodel');
-		$this->load->model('personasmodel');
+		$this->load->model('ProyectoModel');
+		$this->load->model('ProfesionModel');
+		$this->load->model('DatosPersonasModel');
+		$this->load->model('PersonasModel');
 		if(!is_logged_in()){
 			redirect('index.php/login');
 			
@@ -44,7 +44,7 @@ class Proyectos extends CI_Controller {
 		$this->load->view('layout/navar',$User);
 		
 		$this->load->view('layout/scriptjs');
-		$this->load->view('requerimiento/requerimientoview');
+		$this->load->view('requerimiento/requerimientoView');
 		$this->load->view('layout/footer');
 	}
 
@@ -113,7 +113,7 @@ public function  regitrarPaso1(){
 		'principal'			=> true
 		);
 
-	$result=$this->personasmodel->registrar($datos);
+	$result=$this->PersonasModel->registrar($datos);
 	$this->output
 	->set_content_type('application/json')
 	->set_output(json_encode($result));
@@ -122,4 +122,3 @@ public function  regitrarPaso1(){
 
 
 }
-

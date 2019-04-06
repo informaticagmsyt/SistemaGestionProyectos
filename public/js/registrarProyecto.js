@@ -28,12 +28,6 @@ function regitrarPaso1(){
         },
         success: function(res) {
           console.log(res)
-   
-    
-      
-      
-      
-      
         }
           }).fail(function(re){
       console.log(re.responseText)

@@ -205,7 +205,7 @@
 
                       <div class="col-md-3">
                         <div class="form-group">
-                          <label>Posee Cartne de la patria</label>
+                          <label>Vinculación Social</label>
                       
                             <select class="custom-select form-control" id="v_social" name="v_social">
                              
@@ -284,9 +284,9 @@
         <div class="pull-right">
         <button type="submit" class="btn btn-primary" >Guardar y continuar</button>
 
-          <button type="button" class="btn btn-primary"
+          <!--<button type="button" class="btn btn-primary"
             style="visibility:hidden"
-           data-wizard-action="next" id="paso1">Guardar y continuar</button>
+           data-wizard-action="next" id="paso1">Guardar y continuar</button>-->
         </div>
       </div>
       </form>
@@ -409,7 +409,7 @@ $.ajax({
   success: function(res) {
     console.log(res)
    var data= res.data
-   console.log(data)
+   //console.log(data)
 if(res.response.status="ok"){
 
   $("#nombres").val(data.nombres)
