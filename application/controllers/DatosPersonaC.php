@@ -25,7 +25,7 @@ class DatosPersonaC extends CI_Controller {
 	
 		$this->load->library('session');
 
-		$this->load->model('datospersonasmodel');
+		$this->load->model('DatosPersonasmodel');
 		if(!is_logged_in()){
 			redirect('index.php/login');
 			
@@ -47,7 +47,7 @@ public function findJSON(){
 	if(!empty($this->input->post_get('cedula'))) { 
 
 		
-	$result=$this->datospersonasmodel->getDataPersona($this->input->post_get('cedula'));
+	$result=$this->DatosPersonasmodel->getDataPersona($this->input->post_get('cedula'));
 
 	$this->output
         ->set_content_type('application/json')
@@ -60,7 +60,7 @@ public function findJSON(){
 	public function find(){
 
 		if(!empty($this->input->post_get('cedula'))) { 
-		$result=$this->datospersonasmodel->getDataPersona($this->input->post_get('cedula'));
+		$result=$this->DatosPersonasmodel->getDataPersona($this->input->post_get('cedula'));
 			
 		//devuelve un objeto array para consumir por PHP
 		//echo $result->data['nombres'];

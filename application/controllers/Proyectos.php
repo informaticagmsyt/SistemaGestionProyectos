@@ -24,11 +24,11 @@ class Proyectos extends CI_Controller {
 		parent::__construct();
 	
 		$this->load->library('session');
-		$this->load->model('proyectomodel');
-		$this->load->model('requerimientosmodel');
-		$this->load->model('profesionModel');
-		$this->load->model('datospersonasmodel');
-		$this->load->model('personasmodel');
+		$this->load->model('ProyectoModel');
+		$this->load->model('RequerimientosModel');
+		$this->load->model('ProfesionModel');
+		$this->load->model('DatosPersonasModel');
+		$this->load->model('PersonasModel');
 		if(!is_logged_in()){
 			redirect('index.php/login');
 			
@@ -56,7 +56,7 @@ public function registrar()
 {
 
 	
-	/*$resultProyectos=$this->proyectomodel->findProyectosPersonas('19969774');
+	/*$resultProyectos=$this->ProyectoModel->findProyectosPersonas('19969774');
 	$this->output
 	->set_content_type('application/json')
 	->set_output(json_encode($resultProyectos));*/
@@ -76,7 +76,7 @@ public function registrar()
 
 public function getProfesion(){
 
-	$result=$this->profesionModel->getProfesion($this->input->post_get('codigo'));
+	$result=$this->ProfesionModel->getProfesion($this->input->post_get('codigo'));
 
 	$this->output
         ->set_content_type('application/json')
@@ -89,10 +89,10 @@ public function getDatosPersonasJSON(){
 	if(!empty($this->input->post_get('cedula'))) { 
 
 		//ver si tine prroyectos
-		$resultProyectos=$this->proyectomodel->findProyectosPersonas($this->input->post('cedula'));
+		$resultProyectos=$this->ProyectoModel->findProyectosPersonas($this->input->post('cedula'));
 		if(!$resultProyectos['result']){
 
-			$obj=$this->datospersonasmodel->getDataPersona($this->input->post_get('cedula'));
+			$obj=$this->DatosPersonasModel->getDataPersona($this->input->post_get('cedula'));
 
 		}else{
 			$obj = new stdClass;
@@ -129,11 +129,11 @@ public function  regitrarPaso1(){
 	}
 
 
-	$resultProyectos=$this->proyectomodel->findProyectosPersonas($this->input->post('cedula'));
+	$resultProyectos=$this->ProyectoModel->findProyectosPersonas($this->input->post('cedula'));
 	if(!$resultProyectos['result']){
 
 	//consultar si esta en la tabla personas
-	$resultPersonas=$this->personasmodel->find($this->input->post('cedula'));
+	$resultPersonas=$this->PersonasModel->find($this->input->post('cedula'));
 
 	//Actualizar
 	if($resultPersonas['result']){
@@ -162,7 +162,7 @@ public function  regitrarPaso1(){
 			);
 
 			
-		$result=$this->personasmodel->actualizar($datos,$resultPersonas['data']->id);
+		$result=$this->PersonasModel->actualizar($datos,$resultPersonas['data']->id);
 
 		if($result){
 
@@ -209,13 +209,13 @@ public function  regitrarPaso1(){
 		'principal'			=> true
 		);
 
-					$idpersona=$this->personasmodel->registrar($datos);
+					$idpersona=$this->PersonasModel->registrar($datos);
 
 					$data=array("perfil_id"=>4,
 								"personas_id"=>	$idpersona);
 
 
-					$this->personasmodel->registrarPersonaPerfil($data);
+					$this->PersonasModel->registrarPersonaPerfil($data);
 					$response=array(
 					"result"	=>true,
 					"mensaje"	=>"Se guardaron los cambios Exitosamente",
@@ -268,7 +268,7 @@ public function  regitrarPaso1(){
 		);
 
 		//Actualizo paso
-		$this->proyectomodel->update(
+		$this->ProyectoModel->update(
 		array("nombre"=>$this->input->post('nombrep'),
 		"personas_beneficiadas"=>$this->input->post('personasbenificiadas'),
 		"poblacion_beneficiada"=>$this->input->post('poblacion')
@@ -277,7 +277,7 @@ public function  regitrarPaso1(){
 		$_SESSION['proyecto_id']);
 
 
-			$Urequerimiento=$this->requerimientosmodel->update($datos,$_SESSION['requerimiento_id']);
+			$Urequerimiento=$this->RequerimientosModel->update($datos,$_SESSION['requerimiento_id']);
 			if($Urequerimiento){
 				$response=array(
 					"result"	=>true,
@@ -314,14 +314,14 @@ public function  regitrarPaso1(){
 				);
 
 				
-			$idrequerimiento=$this->requerimientosmodel->registrar($datos);
+			$idrequerimiento=$this->RequerimientosModel->registrar($datos);
 
-			$resultpersonas=$this->personasmodel->find($_SESSION['cedula']);
+			$resultpersonas=$this->PersonasModel->find($_SESSION['cedula']);
 			$idpersonas=$resultpersonas['data']->id;
 
 
 			//aqui se relaciona las persona con el requerimiento
-			$this->requerimientosmodel->requerimientoPersona(
+			$this->RequerimientosModel->requerimientoPersona(
 				array(
 				'requerimiento_id'=>$idrequerimiento,
 				'persona_id'=>$idpersonas
@@ -332,7 +332,7 @@ public function  regitrarPaso1(){
 
 			if($idrequerimiento>0){
 
-				$idproyecto=$this->proyectomodel->registrar(
+				$idproyecto=$this->ProyectoModel->registrar(
 					
 					array("nombre"			=>$this->input->post('nombrep'),
 					"personas_beneficiadas" =>$this->input->post('personasbenificiadas'),
@@ -384,7 +384,7 @@ public function  regitrarPaso1(){
 		);
 
 		
-		$idrequerimiento=$this->requerimientosmodel->update($datos,$_SESSION['requerimiento_id']);
+		$idrequerimiento=$this->RequerimientosModel->update($datos,$_SESSION['requerimiento_id']);
 
 		$datos=		array(
 			"codrif"				=>$this->input->post('rif'),
@@ -395,7 +395,7 @@ public function  regitrarPaso1(){
 			"codigo_sunagro"		=>$this->input->post('codigo_sunagro'),
 			
 		);
-		$idproyecto=$this->proyectomodel->update($datos,$_SESSION['proyecto_id']);
+		$idproyecto=$this->ProyectoModel->update($datos,$_SESSION['proyecto_id']);
 	
 			
 			if($idproyecto>0){
@@ -444,7 +444,7 @@ public function  regitrarPaso1(){
 
 		);
 
-		$idproyecto=$this->proyectomodel->update($datos,$_SESSION['proyecto_id']);
+		$idproyecto=$this->ProyectoModel->update($datos,$_SESSION['proyecto_id']);
 	
 			
 			if($idproyecto>0){
@@ -474,14 +474,14 @@ public function  regitrarPaso1(){
 
 		public function  regitrarPaso5(){
 	
-			$codigoCaso=	$this->requerimientosmodel->generarCodigoCaso();
+			$codigoCaso=	$this->RequerimientosModel->generarCodigoCaso();
 		
 			$datosr = array(
 				"codcaso"=>	$codigoCaso['codigoCaso']
 	
 		);
 		
-		$this->requerimientosmodel->update($datosr,$_SESSION['requerimiento_id']);
+		$this->RequerimientosModel->update($datosr,$_SESSION['requerimiento_id']);
 
 
 						$datos = array(
@@ -499,7 +499,7 @@ public function  regitrarPaso1(){
 					);
 			
 				
-					$idproyecto=$this->proyectomodel->update($datos,$_SESSION['proyecto_id']);
+					$idproyecto=$this->ProyectoModel->update($datos,$_SESSION['proyecto_id']);
 				
 						
 						if($idproyecto>0){
@@ -535,7 +535,7 @@ public function  regitrarPaso1(){
 			
 
 		public function getCategoria(){
-			$response=	$this->requerimientosmodel->categoriaGet();
+			$response=	$this->RequerimientosModel->categoriaGet();
 
 			$this->output
 			->set_content_type('application/json')
@@ -545,7 +545,7 @@ public function  regitrarPaso1(){
 		}
 
 		public function getSubCategoria(){
-			$response=	$this->requerimientosmodel->getSubCategoria($this->input->get('id'));
+			$response=	$this->RequerimientosModel->getSubCategoria($this->input->get('id'));
 
 			$this->output
 			->set_content_type('application/json')
@@ -558,7 +558,7 @@ public function  regitrarPaso1(){
 		
 
 		public function getAllProyecto(){
-			$response=	$this->proyectomodel->getAll();
+			$response=	$this->ProyectoModel->getAll();
 
 			$this->output
 			->set_content_type('application/json')
@@ -567,7 +567,7 @@ public function  regitrarPaso1(){
 		
 		}
 		public function getEstatusProyecto(){
-			$response=	$this->proyectomodel->getEstatusProyecto();
+			$response=	$this->ProyectoModel->getEstatusProyecto();
 
 			$this->output
 			->set_content_type('application/json')

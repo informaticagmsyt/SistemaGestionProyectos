@@ -25,7 +25,7 @@ class ParroquiasC extends CI_Controller {
 	
 		$this->load->library('session');
 
-		$this->load->model('parroquiasmodel');
+		$this->load->model('ParroquiasModel');
 		if(!is_logged_in()){
 			redirect('index.php/login');
 			
@@ -46,7 +46,7 @@ public function get(){
 		//devuelve un objeto JSON para consumir por AJAX
         if(!empty($this->input->post_get('id_parroquia'))) { 
             
-	$result=$this->parroquiasmodel->get($this->input->post_get('id_parroquia'));
+	$result=$this->ParroquiasModel->get($this->input->post_get('id_parroquia'));
 
 	$this->output
         ->set_content_type('application/json')

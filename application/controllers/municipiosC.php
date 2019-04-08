@@ -25,7 +25,7 @@ class MunicipiosC extends CI_Controller {
 	
 		$this->load->library('session');
 
-		$this->load->model('municipiosmodel');
+		$this->load->model('MunicipiosModel');
 		if(!is_logged_in()){
 			redirect('index.php/login');
 			
@@ -46,7 +46,7 @@ public function get(){
 		//devuelve un objeto JSON para consumir por AJAX
         if(!empty($this->input->post_get('id_estado'))) { 
             
-	$result=$this->municipiosmodel->get($this->input->post_get('id_estado'));
+	$result=$this->MunicipiosModel->get($this->input->post_get('id_estado'));
 
 	$this->output
         ->set_content_type('application/json')
