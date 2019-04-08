@@ -23,7 +23,7 @@ class Login extends CI_Controller {
 
 		parent::__construct();
 
-		$this->load->model('loginmodel');
+		$this->load->model('LoginModel');
 			
 		$this->load->helper('url');
 	
@@ -42,7 +42,7 @@ class Login extends CI_Controller {
     
 	public function verificarUsuario()
 	{
-		if($this->loginmodel->verificar($this->input->post('cedula'),
+		if($this->LoginModel->verificar($this->input->post('cedula'),
 																$this->input->post('clave'))){
 
 																	echo json_encode( array("response"=>true));
