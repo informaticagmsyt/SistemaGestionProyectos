@@ -71,7 +71,13 @@ Class personasModel  extends CI_Model{
             }
     
 
+public function registrarPersonaPerfil($data){
 
+    $this->db->insert('persona_perfil',$data);
+
+            }
+
+            
    public function actualizar($araycampos,$id){
 
 

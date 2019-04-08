@@ -124,4 +124,18 @@ Class RequerimientosModel  extends CI_Model{
         
     }
 
+
+    function generarCodigoCaso(){
+
+        $this->db->select_max('id');
+        $query = $this->db->get('requerimientos'); 
+        $row=$query->row();
+        $fecha=date("dmys");
+       $idf= $row->id+1;
+        $id=str_pad( $idf, 6, "0", STR_PAD_LEFT);
+
+        $codigoCaso=array("codigoCaso"=>"CAS-".$fecha.$id);
+      return $codigoCaso;
+    }
+
 }
