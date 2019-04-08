@@ -24,6 +24,8 @@ document.querySelector("#formpaso1").addEventListener("submit", function(e){
 
 
          /*****PASO 2 */
+         $("#formpaso2").validate();
+
          document.querySelector("#formpaso2").addEventListener("submit", function(e){
                e.preventDefault();    //stop form from submitting
            var validate=   $("#formpaso2").valid();
@@ -38,6 +40,7 @@ document.querySelector("#formpaso1").addEventListener("submit", function(e){
 
 
                     /*****PASO 3 */
+                    $("#formpaso3").validate();
          document.querySelector("#formpaso3").addEventListener("submit", function(e){
           e.preventDefault();    //stop form from submitting
       var validate=   $("#formpaso3").valid();
@@ -49,6 +52,30 @@ document.querySelector("#formpaso1").addEventListener("submit", function(e){
          
       });
 
+
+        /*****PASO 5 */
+        $("#formpaso4").validate();
+        document.querySelector("#formpaso4").addEventListener("submit", function(e){
+          e.preventDefault();    //stop form from submitting
+      var validate=   $("#formpaso4").valid();
+        if(validate){
+
+        regitrarPaso4()
+      }
+               
+      });
+
+             /*****PASO 5 */
+             $("#formpaso5").validate();
+             document.querySelector("#formpaso5").addEventListener("submit", function(e){
+               e.preventDefault();    //stop form from submitting
+           var validate=   $("#formpaso5").valid();
+             if(validate){
+     
+             regitrarPaso5()
+           }
+          
+      });
          $("#categoria_id").change(function() {
          
             
@@ -90,7 +117,13 @@ function regitrarPaso1(){
         window.setTimeout(function () {
         $(".mensaje").fadeOut(3000, function () {
           $("#btnpaso1").text("Guardar y continuar")
-          $("#paso1").click()
+      
+
+          $(".wizard-pane,  .wizard").removeClass( "active" );
+          $(".wizard2").addClass( "active " );
+          $(".wizard1").addClass( " completed" );
+          $("#wizard-example-step2").addClass( "active" );
+
         });
         }, 2000);
 
@@ -146,7 +179,13 @@ $("#btnpaso2").text("Guardando...")
     window.setTimeout(function () {
     $(".mensaje").fadeOut(3000, function () {
       $("#btnpaso2").text("Guardar y continuar")
-      $("#paso2").click()
+
+      $(".wizard-pane,  .wizard").removeClass( "active" );
+      $(".wizard3").addClass( "active " );
+      $(".wizard2").addClass( " completed" );
+      $("#wizard-example-step3").addClass( "active" );
+     //$("#paso2").click()
+     return false;
     });
     }, 2000);
 
@@ -204,7 +243,10 @@ function regitrarPaso3(){
      window.setTimeout(function () {
      $(".mensaje").fadeOut(3000, function () {
        $("#btnpaso3").text("Guardar y continuar")
-       $("#paso3").click()
+       $(".wizard-pane,  .wizard").removeClass( "active" );
+       $(".wizard4").addClass( "active" );
+       $(".wizard3").addClass( " completed" );
+       $("#wizard-example-step4").addClass( "active" );
      });
      }, 2000);
  
@@ -238,6 +280,128 @@ function regitrarPaso3(){
  
  }
  
+
+ function regitrarPaso4(){
+
+
+    
+  $.ajax({
+    url: urlbase+"Proyectos/regitrarPaso4" ,
+    type: "POST",
+    dataType: "JSON",
+    data: $("#formpaso4").serialize(),
+  
+    beforeSend: function(data){
+$("#btnpaso4").text("Guardando...")
+  //$(selector).html("<option>Cargando...<option>");
+    },
+    success: function(res) {
+    
+      if(res.result){
+
+    $("#msj4").after('<div class="alert alert-success mensaje"><strong ><p style="text-align: center">'+
+                         res.mensaje+'</p></strong> </div>');
+    window.setTimeout(function () {
+    $(".mensaje").fadeOut(3000, function () {
+      $("#btnpaso4").text("Guardar y continuar")
+      $(".wizard-pane,  .wizard").removeClass( "active" );
+      $(".wizard5").addClass( "active" );
+      $("#wizard-example-step5").addClass( "active" );
+      $(".wizard4").addClass( " completed" );
+    });
+    }, 2000);
+
+      }else{
+
+
+        $("#msj4").after('<div class="alert alert-danger mensaje"><strong ><p style="text-align: center">'+
+              res.mensaje+'</p></strong> </div>');
+      window.setTimeout(function () {
+      $(".mensaje").fadeOut(3000, function () {
+        $("#btnpaso4").text("Guardar y continuar")
+      });
+      }, 5000);
+      }
+   
+  
+  
+  
+  
+    }
+      }).fail(function(re){
+        alert("Ocurrio un error")
+        $("#btnpaso4").text("Guardar y continuar")
+  console.log(re.responseText)
+      
+      });
+
+
+
+}
+
+
+function regitrarPaso5(){
+
+
+    
+  $.ajax({
+    url: urlbase+"Proyectos/regitrarPaso5" ,
+    type: "POST",
+    dataType: "JSON",
+    data: $("#formpaso5").serialize(),
+  
+    beforeSend: function(data){
+$("#btnpaso5").text("Guardando...")
+$("#btnpaso5").addClass("disabled")
+  //$(selector).html("<option>Cargando...<option>");
+    },
+    success: function(res) {
+    
+      if(res.result){
+
+        $("#modal-success").modal('show')
+        $("#codcaso").text(res.codigoCaso)
+
+    $("#msj5").after('<div class="alert alert-success mensaje"><strong ><p style="text-align: center">'+
+                         res.mensaje+'</p></strong> </div>');
+    window.setTimeout(function () {
+    $(".mensaje").fadeOut(3000, function () {
+      $("#btnpaso5").text("Guardar")
+      $(".wizard-pane,  .wizard").removeClass( "active" );
+      $(".wizard5").addClass( "active" );
+      $("#wizard-example-step5").addClass( "active" );
+      $(".wizard5").addClass( " completed" );
+    });
+    }, 2000);
+
+      }else{
+
+
+        $("#msj5").after('<div class="alert alert-danger mensaje"><strong ><p style="text-align: center">'+
+              res.mensaje+'</p></strong> </div>');
+      window.setTimeout(function () {
+      $(".mensaje").fadeOut(3000, function () {
+        $("#btnpaso5").text("Guardar ")
+      });
+      }, 5000);
+      }
+   
+  
+  
+  
+  
+    }
+      }).fail(function(re){
+        alert("Ocurrio un error")
+        $("#btnpaso5").text("Guardar")
+        $("#btnpaso5").removeClass("disabled")
+  console.log(re.responseText)
+      
+      });
+
+
+
+}
 
 
 function getCategoria(selector) {
@@ -380,4 +544,14 @@ $(selector+' option').each(function()  {$(this).remove(); });
         
         });
     
+    }
+
+    function regresar(paso){
+    var wizard=".wizard"+paso
+      $(".wizard-pane,  .wizard").removeClass( "active" );
+      $(wizard).addClass( "active" );
+      $("#wizard-example-step"+paso+"").addClass( "active" );
+
+      $(wizard).removeClass( " completed" );
+console.log(wizard)
     }

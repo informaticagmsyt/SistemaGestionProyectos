@@ -45,6 +45,8 @@ class DatosPersonaC extends CI_Controller {
 public function findJSON(){
 		//devuelve un objeto JSON para consumir por AJAX
 	if(!empty($this->input->post_get('cedula'))) { 
+
+		
 	$result=$this->datospersonasmodel->getDataPersona($this->input->post_get('cedula'));
 
 	$this->output
