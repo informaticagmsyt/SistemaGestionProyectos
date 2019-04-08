@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 Class PersonasModel  extends CI_Model{
 
-
+ 
         public $nombre;
         public $apellido;
         public $email;
