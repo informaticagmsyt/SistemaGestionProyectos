@@ -23,7 +23,7 @@ class Login extends CI_Controller {
 
 		parent::__construct();
 
-		$this->load->model('loginmodel');
+		$this->load->model('LoginModel');
 			
 		$this->load->helper('url');
 	
