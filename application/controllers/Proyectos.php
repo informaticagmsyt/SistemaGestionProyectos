@@ -138,7 +138,8 @@ public function  regitrarPaso1(){
 	//Actualizar
 	if($resultPersonas['result']){
 
-		
+		$cadena_f=$this->input->post('fecha_nac');
+		$fecha = DateTime::createFromFormat('Y-m-d', $cadena_f);
 		$datos = array(
 			'nacionaliidad' 	=> $this->input->post('nacionaliidad'),
 			'nombres' 			=> $this->input->post('nombres'),
@@ -152,7 +153,7 @@ public function  regitrarPaso1(){
 			'parroquia_id' 		=> $this->input->post('parroquia_id'),
 			'v_carnet' 			=> $this->input->post('v_carnet'),
 			'v_social' 			=> $this->input->post('v_social'),
-			'fecha_nac' 		=> $this->input->post('fecha_nac'), 
+			'fecha_nac' 		=> $fecha, 
 			'posee_carnet'		=> $this->input->post('posee_carnet'), 
 			'telefono'			=> $this->input->post('telefono'), 
 			'telefono2'			=> $this->input->post('telefono2'), 
@@ -186,7 +187,8 @@ public function  regitrarPaso1(){
 
 	}else{
 	//insertar
-
+	$cadena_f=$this->input->post('fecha_nac');
+	$fecha = DateTime::createFromFormat('Y-m-d', $cadena_f);
 	$datos = array(
 		'nacionaliidad' 	=> $this->input->post('nacionaliidad'),
 		'nombres' 			=> $this->input->post('nombres'),
@@ -200,7 +202,7 @@ public function  regitrarPaso1(){
 		'parroquia_id' 		=> $this->input->post('parroquia_id'),
 		'v_carnet' 			=> $this->input->post('v_carnet'),
 		'v_social' 			=> $this->input->post('v_social'),
-		'fecha_nac' 		=> $this->input->post('fecha_nac'), 
+		'fecha_nac' 		=> 	$fecha, 
 		'posee_carnet'		=> $this->input->post('posee_carnet'), 
 		'telefono'			=> $this->input->post('telefono'), 
 		'telefono2'			=> $this->input->post('telefono2'), 
