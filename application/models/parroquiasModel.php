@@ -11,7 +11,7 @@ Class ParroquiasModel  extends CI_Model{
    
         parent::__construct();
   
-
+ 
     }
     
 

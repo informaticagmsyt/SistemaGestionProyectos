@@ -59,7 +59,7 @@ Class DatosPersonasModel  extends CI_Model{
           $obj->error=array("code"=>"","message"=>"");
          $obj->comments="Recurso encontrado exitosamente";
 
-             
+              
 
               return $obj;
            

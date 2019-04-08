@@ -8,7 +8,7 @@ Class PersonasModel  extends CI_Model{
         public $apellido;
         public $email;
         public $contra;
-
+ 
     function __construct(){
 
    

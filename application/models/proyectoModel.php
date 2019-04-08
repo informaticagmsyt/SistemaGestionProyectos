@@ -11,7 +11,7 @@ Class ProyectoModel  extends CI_Model{
    
         parent::__construct();
    
-
+ 
     }
      
 

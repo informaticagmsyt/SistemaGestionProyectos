@@ -10,7 +10,7 @@ Class ProfesionModel  extends CI_Model{
         public $contra;
 
     function __construct(){
-
+ 
    
         parent::__construct();
         $this->load->library('session');
