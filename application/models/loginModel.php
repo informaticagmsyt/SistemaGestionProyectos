@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-Class loginModel  extends CI_Model{
+Class LoginModel  extends CI_Model{
 
 
         public $nombre;

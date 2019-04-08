@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-Class parroquiasModel  extends CI_Model{
+Class ParroquiasModel  extends CI_Model{
 
 
         
