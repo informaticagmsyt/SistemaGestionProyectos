@@ -92,7 +92,7 @@ document.querySelector("#formpaso1").addEventListener("submit", function(e){
 
 
 
-
+ 
 
 function regitrarPaso1(){
 

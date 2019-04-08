@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-Class estadosModel  extends CI_Model{
+Class EstadosModel  extends CI_Model{
 
 
         

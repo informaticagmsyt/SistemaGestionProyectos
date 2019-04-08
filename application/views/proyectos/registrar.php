@@ -274,14 +274,21 @@ if(res.response.status="ok" && res.response.http_code==200){
       
     }
   
-}else{
-$("#identificacion").addClass("form-loading");
+}else if(res.response.status="ok" && res.response.http_code==404){
+
   $("#msj").after('<div class="alert alert-danger mensaje"><strong >'+
    ' <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> <p style="text-align: center">'+
                          res.comments+'</p></strong>'+ 
                          
       '</div>');
   
+}else{
+  $("#msj").after('<div class="alert alert-danger mensaje"><strong >'+
+   ' <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> <p style="text-align: center">'+
+                         res.comments+'</p></strong>'+ 
+                         
+      '</div>');
+
 }
 
 
