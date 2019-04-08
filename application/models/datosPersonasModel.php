@@ -10,7 +10,7 @@ Class DatosPersonasModel  extends CI_Model{
 
    
         parent::__construct();
-        $this->load->model('personasmodel');
+        $this->load->model('PersonasModel');
 
     }
     
