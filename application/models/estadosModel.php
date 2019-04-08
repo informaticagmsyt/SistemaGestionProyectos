@@ -13,7 +13,7 @@ Class EstadosModel  extends CI_Model{
   
 
     }
-    
+     
 
     function get(){
     

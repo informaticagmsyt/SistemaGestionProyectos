@@ -13,7 +13,7 @@ Class ProyectoModel  extends CI_Model{
    
 
     }
-    
+     
 
     public function findProyectosPersonas($cedula){
 
@@ -24,7 +24,7 @@ Class ProyectoModel  extends CI_Model{
         $this->db->join('requerimiento_persona',
         'personas.id=requerimiento_persona.persona_id','inner');
 
-        $this->db->join('requerimientos',
+         $this->db->join('requerimientos',
         'requerimientos.id=requerimiento_persona.requerimiento_id','inner');
 
        $this->db->join('proyectos',

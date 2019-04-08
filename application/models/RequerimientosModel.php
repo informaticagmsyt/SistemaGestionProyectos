@@ -25,14 +25,14 @@ Class RequerimientosModel  extends CI_Model{
 
         
     }
-
+ 
     public function requerimientoPersona($data){
 
 
         $this->db->insert('requerimiento_persona',$data);
     
         //retorna el id
-        return $this->db->insert_id();
+         return $this->db->insert_id();
     
             
         }

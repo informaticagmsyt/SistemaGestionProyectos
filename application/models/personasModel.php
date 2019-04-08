@@ -15,7 +15,7 @@ Class PersonasModel  extends CI_Model{
         parent::__construct();
   
 
-    }
+    } 
     
     public function registrar($data){
         $datos = array(
@@ -23,7 +23,7 @@ Class PersonasModel  extends CI_Model{
             'nombres' => $data['nombres'],
             'apellidos' => $data['apellidos'],
             'email' => $data['email'],
-            'cedula' => $data['cedula'],
+             'cedula' => $data['cedula'],
             'sexo' => $data['sexo'],
             'direccion' =>$data['direccion'],
             'estado_id' => $data['estado_id'],
