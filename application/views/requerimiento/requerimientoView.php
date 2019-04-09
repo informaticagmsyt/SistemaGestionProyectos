@@ -1,20 +1,20 @@
 <div class="wizard" id="wizard-basic">
-  <div class="wizard-wrapper">
+  <!--div class="wizard-wrapper">
     <ul class="wizard-steps">
       <li data-target="#wizard-example-step1">
         <span class="wizard-step-number">1</span>
         <span class="wizard-step-complete"><i class="fa fa-check text-success"></i></span>
         <span class="wizard-step-caption">
-          Step 1
-          <span class="wizard-step-description">First step description</span>
+          Requerimiento
+          <span class="wizard-step-description">Registrar un requerimiento para un proyecto</span>
         </span>
       </li>
       <li data-target="#wizard-example-step2">
         <span class="wizard-step-number">2</span>
         <span class="wizard-step-complete"><i class="fa fa-check text-success"></i></span>
         <span class="wizard-step-caption">
-          Step 2
-          <span class="wizard-step-description">Second step description</span>
+          Tipo de asesoria
+          <span class="wizard-step-description">Ingrese el tipo de requerimiento</span>
         </span>
       </li>
       <li data-target="#wizard-example-step3">
@@ -33,9 +33,9 @@
         </span>
       </li>
     </ul>
-  </div>
+  </div-->
   <div class="wizard-content">
-    <div class="wizard-pane" id="wizard-example-step1">
+    <div class="" id="">
       <h4>Step 1</h4>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor

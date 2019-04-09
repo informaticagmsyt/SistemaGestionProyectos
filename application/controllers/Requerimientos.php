@@ -33,7 +33,7 @@ class Requerimientos extends CI_Controller {
 	}
 
 
-	public function index()
+	public function registrar()
 	{
 		$nombreUsuario = $this->session->userdata('user_data');
 		$this->load->view('layout/header');
@@ -42,7 +42,7 @@ class Requerimientos extends CI_Controller {
 		$this->load->view('layout/navar',$User);
 		
 		$this->load->view('layout/scriptjs');
-		$this->load->view('requerimiento/requerimientoview');
+		$this->load->view('requerimiento/requerimientoView');
 		$this->load->view('layout/footer');
 	}
 }
