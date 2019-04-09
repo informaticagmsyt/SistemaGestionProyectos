@@ -60,7 +60,7 @@
 
                 <div class="col-md-6">
                   <label for="tutor">Tutor</label>
-                      <select name="tutor" class="form-control">
+                      <select name="tutor" class="form-control"  id="tutor">
                           <option value="0">No Asignar</option>
                         </select>
              

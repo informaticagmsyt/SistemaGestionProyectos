@@ -479,7 +479,8 @@ public function  regitrarPaso1(){
 			$codigoCaso=	$this->RequerimientosModel->generarCodigoCaso();
 		
 			$datosr = array(
-				"codcaso"=>	$codigoCaso['codigoCaso']
+				"codcaso"	=>	$codigoCaso['codigoCaso'],
+				"tutor_id" 	=>	$this->input->post('tutor'),
 	
 		);
 		

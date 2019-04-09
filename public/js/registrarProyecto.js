@@ -2,6 +2,7 @@
 
 getCategoria("#categoria_id")
 getEstatusProyecto("#estatus_proyecto_id")
+getTutores("#tutor")
 
  $("#formpaso1").validate();
 
@@ -451,6 +452,59 @@ $(selector+' option').each(function()  {$(this).remove(); });
   
   }
 
+
+
+  
+function getTutores(selector) {
+
+  var data={
+  
+  }
+  
+  $.ajax({
+    url: urlbase+"Tutores/getJSON" ,
+    type: "GET",
+    dataType: "JSON",
+    data: data,
+    beforeSend: function(data){
+
+  $(selector).html("<option>Cargando...<option>");
+    },
+    success: function(res) {
+      console.log(res)
+
+ var data =res;
+
+ var html='';
+$(selector+' option').each(function()  {$(this).remove(); });
+
+
+  html='<option value="0">Sin Asignar</option>';
+  $(selector).append(html)
+   for (var i in data) {
+
+       html='<option value='+data[i].id+'>'+data[i].nombres+' '+data[i].apellidos+'</option>';
+       $(selector).append(html)
+   }
+
+    
+  
+  
+  
+  
+  
+    }
+      }).fail(function(re){
+        $(selector+' option').each(function()  {$(this).remove(); });
+
+
+  html='<option value="0">Sin Asignar</option>';
+  $(selector).append(html)
+  console.log(re.responseText)
+      
+      });
+  
+  }
 
   function getEstatusProyecto(selector) {
 
