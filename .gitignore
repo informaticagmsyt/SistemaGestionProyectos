@@ -6,6 +6,7 @@ application/cache/*
 application/logs/*
 !application/logs/index.html
 application/config/config.php
+*.vscode
 !application/*/.htaccess
 
 composer.lock
@@ -29,3 +30,4 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 *.sublime-project
 /tests/tests/
 /tests/results/
+.vscode/sftp.json
