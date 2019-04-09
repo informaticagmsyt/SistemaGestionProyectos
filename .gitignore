@@ -5,7 +5,7 @@ application/cache/*
 
 application/logs/*
 !application/logs/index.html
-
+application/config/config.php
 !application/*/.htaccess
 
 composer.lock
