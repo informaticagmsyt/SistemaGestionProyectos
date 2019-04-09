@@ -12,7 +12,7 @@
 
     <div class="collapse navbar-collapse" id="px-navbar-collapse">
       <ul class="nav navbar-nav">
-        <li><a href="#">Link</a></a>
+     
       </ul>
 
       <ul class="nav navbar-nav navbar-right">

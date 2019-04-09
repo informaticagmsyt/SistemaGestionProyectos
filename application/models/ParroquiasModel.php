@@ -21,11 +21,11 @@ Class ParroquiasModel  extends CI_Model{
         $this->db->select('id_parroquia, id_municipio, parroquia');
         $this->db->from('parroquias');
         $this->db->where('id_municipio', $id_municipio);
-         $query = $this->db->get();
+          $query = $this->db->get();
 
        
         $obj = new stdClass;
-        
+         
   
  
         $index=array(); 

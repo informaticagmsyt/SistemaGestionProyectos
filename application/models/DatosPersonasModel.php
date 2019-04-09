@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-Class datosPersonasModel  extends CI_Model{
+Class DatosPersonasModel  extends CI_Model{
 
 
         
@@ -10,7 +10,7 @@ Class datosPersonasModel  extends CI_Model{
 
    
         parent::__construct();
-  
+        $this->load->model('PersonasModel');
 
     }
     
@@ -23,7 +23,8 @@ Class datosPersonasModel  extends CI_Model{
         fec_registro, codigo_objecion, codigo_oficina, edo_civil, naturalizado, 
         sexo');
         $this->db->from('datos_personas');
-      
+
+ 
  
         $this->db->where('cedula', $cedula);
 
@@ -33,7 +34,13 @@ Class datosPersonasModel  extends CI_Model{
         $row=$query->row();
         $obj = new stdClass;
         
-  
+        $this->db->select('*');
+        $this->db->from('personas');
+        $this->db->limit(1);
+        $this->db->where('cedula', $cedula);
+        $query2 = $this->db->get();
+        $row2=$query2->row();
+
         if ($query->num_rows() > 0) {
       
             $obj->response=array(
@@ -47,6 +54,7 @@ Class datosPersonasModel  extends CI_Model{
             "apellidos"=>$row->tx_primer_apellido." ".$row->tx_segundo_apellido,
             "fec_nacimiento"=>$row->fec_nacimiento,
             "sexo"=>$row->sexo,
+            'datapersona' =>$row2
           );
           $obj->error=array("code"=>"","message"=>"");
          $obj->comments="Recurso encontrado exitosamente";
@@ -61,7 +69,9 @@ Class datosPersonasModel  extends CI_Model{
                 "status"=>"Not Found",
                 "http_code"=>404
             );
-           $obj->data=array();
+           $obj->data=array(
+            'datapersona' =>$row2
+           );
            $obj->error=array("code"=>"","message"=>"");
            $obj->comments="No se encotraron resultados";
            return $obj;
@@ -71,4 +81,4 @@ Class datosPersonasModel  extends CI_Model{
 
     
    
-}
+} 

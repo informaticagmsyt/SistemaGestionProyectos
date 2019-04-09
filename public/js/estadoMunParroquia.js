@@ -3,27 +3,49 @@
 $( document ).ready(function() {
     estado("#estado_id") 
 
-
+    estado("#estado") 
     
 
         $("#estado_id").change(function() {
          
             
-            if(this.value!="0")
+            if(this.value!="")
             municipio(this.value,"#municipio_id")
            else           
-        $("#municipio_id").html("<option value='0'>Seleccione un Municipio<option>");
+        $("#municipio_id").html("<option value=''>Seleccione un Municipio<option>");
 
         });
 
         
+        $("#estado").change(function() {
+         
+            
+          if(this.value!="")
+          municipio(this.value,"#municipio")
+         else           
+      $("#municipio").html("<option value=''>Seleccione un Municipio<option>");
+
+      });
+
+
+
+      
+      $("#municipio").change(function() {
+         
+            
+        if(this.value!="")
+        parroquia(this.value,"#parroquia")
+       else           
+      $("#parroquia").html("<option value=''>Seleccione una Parroquia<option>");
+
+    });
         $("#municipio_id").change(function() {
          
             
-            if(this.value!="0")
+            if(this.value!="")
             parroquia(this.value,"#parroquia_id")
            else           
-          $("#parroquia_id").html("<option value='0'>Seleccione una Parroquia<option>");
+          $("#parroquia_id").html("<option value=''>Seleccione una Parroquia<option>");
 
         });
 
@@ -96,7 +118,7 @@ function estado(selector) {
    
  $(selector+' option').each(function()  {$(this).remove(); });
 
- html='<option value="0">Seleccione un Municipio</option>';
+ html='<option value="">Seleccione un Municipio</option>';
  $(selector).append(html)
      for (var i in data) {
   
@@ -146,7 +168,7 @@ function estado(selector) {
      $(selector+' option').each(function()  {$(this).remove(); });
 
       
-        html='<option value="0">Seleccione una Parroquia</option>';
+        html='<option value="">Seleccione una Parroquia</option>';
         $(selector).append(html)
          for (var i in data) {
       

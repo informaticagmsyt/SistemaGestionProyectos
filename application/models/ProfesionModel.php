@@ -37,12 +37,12 @@ Class ProfesionModel  extends CI_Model{
                 foreach ($query->result() as $row)
                 {
                  
-                
+                 
                     
 
                         $objeto[$key]['name']=$row->desc_profesion;
                         $objeto[$key]['id']=$row->id_profesion;
-                      
+                       
                         $key++;
                                     
                 }

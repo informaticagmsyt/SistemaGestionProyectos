@@ -10,19 +10,19 @@ Class MunicipiosModel  extends CI_Model{
 
    
         parent::__construct();
-  
+   
 
     }
     
 
     function get($id_estado){
     
-      
+       
         $this->db->select('id_municipio, id_estado, municipio');
-        $this->db->from('municipios');
+         $this->db->from('municipios');
         $this->db->where('id_estado', $id_estado);
          $query = $this->db->get();
-
+ 
        
         $obj = new stdClass;
         

@@ -42,7 +42,7 @@ Class LoginModel  extends CI_Model{
                 'id'=>$row->id,
                 'perfil_id'=>$row->perfil_id,
                 'personas_id'=>$row->personas_id,
-           )
+             )
             );
             $this->session->set_userdata($data);
 

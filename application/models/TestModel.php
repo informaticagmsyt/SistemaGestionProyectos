@@ -20,7 +20,7 @@ Class TestModel  extends CI_Model{
 
         $datos = array(
             'nombre' => $data['nombre'],
-            'apellido' => $data['apellido'],
+             'apellido' => $data['apellido'],
             'email' => $data['email'],
             'date' => 'NOW',
             );
