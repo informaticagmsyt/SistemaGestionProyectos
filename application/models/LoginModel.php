@@ -20,7 +20,7 @@ Class LoginModel  extends CI_Model{
 
     function verificar($user,$contra){
     
-      
+        //echo "$user.'||'.$contra";
 
         $this->db->select('usuarios.cedula,clave,usuarios.personas_id,usuarios.id, nombres, apellidos,perfil_id');
         $this->db->from('usuarios');
@@ -33,6 +33,7 @@ Class LoginModel  extends CI_Model{
         $query = $this->db->get();
 
         $row=$query->row();
+        //echo $query->num_rows();
         if ($query->num_rows() > 0) {
       
             $data=array('user_data'=>array(

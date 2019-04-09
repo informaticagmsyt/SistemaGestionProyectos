@@ -3,7 +3,7 @@
   
     <div class="navbar-header">
       <a class="navbar-brand px-demo-brand" href="index.html">
-          <span class="px-demo-logo bg-primary">MSYT</span>
+          <span class="px-demo-logo bg-primary">GMSYT</span>
               <span class="px-demo-logo-1">
 
             </span> -Sistema de Caracterización</a>

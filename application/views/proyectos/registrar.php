@@ -71,9 +71,9 @@ input[type=number] { -moz-appearance:textfield; }
         <div class="pull-right">
         <button type="submit" class="btn btn-primary  pull-right" id="btnpaso1" >Guardar y continuar</button>
 
-          <button type="button" class="btn btn-primary"
+          <!--<button type="button" class="btn btn-primary"
             style="visibility:hidden"
-           data-wizard-action="next" id="paso1">Guardar y continuar</button>
+           data-wizard-action="next" id="paso1">Guardar y continuar</button>-->
         </div>
       </form>
       </div>
