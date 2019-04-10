@@ -57,6 +57,19 @@
                       <!---End Form-Group-->
                   </div>
                   <!--End Col-->
+
+                  <div class="col-sm-2">
+                      <div class="form-group">
+                          <label for="accion">Accion</label> <!--ESTO DEBE TRAER LOS DATOS DE LA TABLA ACCIONES-->
+                          <select class="custom-select form-control" name="accion" id="accion">
+                            <option value="recibido">Recibido</option>
+                            <option value="remitido">Remitido</option>
+                          </select>  
+                      </div>
+                      <!---End Form-Group-->
+                  </div>
+                  <!--End Col-->
+
           </div>
           <!--End Row-->
 
