@@ -204,7 +204,7 @@
                 <div class="col-sm-4">
                     <div class="form-group">
                         <label for="estado_id">Estado</label>
-                        <select class="custom-select form-control" name="estado_id" id="estado_id">
+                        <select class="custom-select form-control" name="estado_id" id="estado_id2">
                             <option value="0">Seleccione un estado</option>
                         </select>
                     </div>
@@ -236,7 +236,6 @@
 
             </div>
             <!--End Row-->
-
             <div class="row">
 
                 <div class="col-sm-12">
@@ -416,7 +415,7 @@ var $input = $('#profesion').typeahead({
     /**/
 
     //* Cargando los estados, municipios y parroquias
-    estado('#estado_id')
+    estado('#estado_id2')
     parroquia(<?php echo $datos['municipio_id'] ?>,"#parroquia_id");
     municipio(<?php echo $datos['estado_id'] ?>,"#municipio_id");
     /**/
@@ -426,14 +425,24 @@ var $input = $('#profesion').typeahead({
         $(document).ready(function(){
             $(selector).val(value);
             //console.log("Selector:"+selector+"\nValue:"+value)
+  
+
+           
+ 
         });
     }
     /**/
 
     //* Asignando a los value mediante la funccion Values
-    values(<?php echo $datos['estado_id']; ?>,"#estado_id")
-    values(<?php echo $datos['municipio_id']; ?>,"#municipio_id")
-    values(<?php echo $datos['parroquia_id']; ?>,"#parroquia_id")
+
     /**/
   
+    setTimeout(function(){
+                setValueSelect("estado_id2",<?php echo $datos['estado_id'] ?>)
+            }, 500);
+            setTimeout(function(){
+                setValueSelect("municipio_id",<?php echo $datos['municipio_id'] ?>)
+            setValueSelect("parroquia_id",<?php echo $datos['parroquia_id'] ?>)
+            }, 1000);
+
 </script>
