@@ -27,5 +27,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $this->db->insert('persona_perfil',$datos);
             return $this->db->insert_id();
         }
+
+        public function obtener($id){
+            $this->db->where('id',$id);
+            $query = $this->db->get('personas');
+            return $query->result();
+        }
     }
 ?>
