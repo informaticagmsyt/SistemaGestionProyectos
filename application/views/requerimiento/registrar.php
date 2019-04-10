@@ -35,7 +35,7 @@
     </ul>
   </div-->
   <div class="wizard-content">
-    <div class="" id="">
+    <div class="container">
       <h4>Step 1</h4>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
