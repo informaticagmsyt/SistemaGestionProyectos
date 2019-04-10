@@ -1,3 +1,31 @@
+<?php
+  $datos = array();
+//INGRESANDO DATOS DE LA PERSONA EN EL ARRAY 
+ foreach ($registro as $persona) {
+   $datos['id'] =  $persona->id;
+   $datos['nacionalidad'] = $persona->nacionaliidad;
+   $datos['cedula'] =  $persona->cedula;
+   $datos['nombres'] =  $persona->nombres;
+   $datos['sexo'] = $persona->sexo;
+   $datos['apellidos'] =  $persona->apellidos;
+   $datos['email'] = $persona->email;
+   $datos['cargo'] = $persona->cargo;
+   $datos['direccion'] = $persona->direccion;
+   $datos['estado_id'] = $persona->estado_id;
+   $datos['municipio_id'] = $persona->municipio_id;
+   $datos['parroquia_id'] = $persona->parroquia_id;
+   $datos['v_carnet'] = $persona->v_carnet;
+   $datos['v_social'] = $persona->v_social;
+   $datos['fecha_nac'] = $persona->fecha_nac;
+   $datos['posee_carnet'] = $persona->posee_carnet;
+   $datos['telefono'] = $persona->telefono;
+   $datos['telefono2'] = $persona->telefono2;
+   $datos['profesion'] = $persona->profesion;
+   $datos['institucion_id'] = $persona->institucion_id;
+ }
+
+ ?>
+
 <div class="container">
 
     <form method="POST" role="form" id="formTutor">
@@ -5,12 +33,12 @@
     <div class="panel">
 
         <div class="panel-body">
-            
+            <input type="text" name="id" value="<?php echo $datos['id']; ?>" hidden>
             <div class="row">
 
                     <div class="col-sm-2">
                         <label for="nacionalidad">Nacionalidad</label>
-                        <select class="custom-select form-control" name="nacionalidad" id="nacionalidad">
+                        <select class="custom-select form-control" name="nacionalidad" id="nacionalidad" disabled>
                             <option value="V">V</option>
                             <option value="E">E</option>
                         </select>
@@ -19,14 +47,14 @@
 
                     <div class="col-sm-4">
                         <label for="cedula">Cédula</label>
-                        <input class="form-control" type="text" id="cedula" name="cedula" placeholder="Cédula" required data-msg-required="Este campo es obligatorio">
+                        <input class="form-control" type="text" id="cedula" name="cedula" placeholder="Cédula" required data-msg-required="Este campo es obligatorio" value="<?php echo $datos['cedula']; ?>" disabled>
                     </div>
                     <!--End Col-->
 
                     <div class="col-sm-4">
                         <label for=""></label>
                         <br>
-                        <button class="btn btn-primary" onclick="consultarPersona();" type="button">Consultar</button>
+                        <button class="btn btn-primary" onclick="consultarPersona();" type="button" disabled>Consultar</button>
                     </div>
                     <!--End Col-->
             </div>
@@ -41,7 +69,7 @@
                 <div class="col-sm-3">
                     <div class="form-group">
                         <label for="nombres">Nombres</label>
-                        <input class="form-control" type="text" name="nombres" id="nombres" placeholder="Nombres" required data-msg-required="Ingrese un nombre">
+                        <input class="form-control" type="text" name="nombres" id="nombres" placeholder="Nombres" required data-msg-required="Ingrese un nombre" value="<?php echo $datos['nombres']; ?>">
                     </div>
                     <!---End Form-Group-->
                 </div>
@@ -50,7 +78,7 @@
                 <div class="col-sm-3">
                     <div class="form-group">
                         <label for="apellidos">Apellidos</label>
-                        <input class="form-control" type="text" name="apellidos" id="apellidos" placeholder="Apellidos" required data-msg-required="Ingrese un Apellido">
+                        <input class="form-control" type="text" name="apellidos" id="apellidos" placeholder="Apellidos" required data-msg-required="Ingrese un Apellido" value="<?php echo $datos['apellidos']; ?>">
                     </div>
                     <!---End Form-Group-->
                 </div>
@@ -70,9 +98,9 @@
 
                 <div class="col-sm-4">
                     <div class="form-group">
-                        <label for="fechanac">Fecha de nacimiento</label>
+                        <label for="fecha_nac">Fecha de nacimiento</label>
                         <div class="input-group date form_date col-md-8" data-date="" data-date-format="dd-mm-yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
-                            <input class="form-control" size="5" id="fechanac" name="fecha_nac" value="" type="date" >
+                            <input class="form-control" size="5" id="fecha_nac" name="fecha_nac" value="" type="date">
                             <!--<span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span><i class="far fa-trash-alt"></i></span>-->
                             <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span><i class="far fa-calendar-alt"></i></span>
                         </div>
@@ -89,7 +117,7 @@
                 <div class="col-sm-3">
                     <div class="form-group">
                         <label for="telefono">Teléfono</label>
-                        <input type="text" placeholder="telefono" id="telefono" name="telefono" class="form-control" required data-msg-required= "Ingrese un numero de teléfono">
+                        <input type="text" placeholder="telefono" id="telefono" name="telefono" class="form-control" required data-msg-required= "Ingrese un numero de teléfono" value="<?php echo $datos['telefono']; ?>">
                     </div>
                     <!--End Form-group-->
                 </div>
@@ -98,7 +126,7 @@
                 <div class="col-md-3">
                     <div class="form-group">
                         <label for="telefono2">Telefono 2</label>
-                        <input type="text" placeholder="telefono 2" id="telefono2"  name="telefono2" class="form-control">
+                        <input type="text" placeholder="telefono 2" id="telefono2"  name="telefono2" class="form-control" value="<?php echo $datos['telefono2']; ?>">
                     </div>
                     <!--End Form-group-->
                 </div>
@@ -107,7 +135,7 @@
                 <div class="col-sm-5">
                     <div class="form-group">
                         <label for="email">email</label>
-                        <input type="email" placeholder="email@test.com" id="email"  name="email" class="form-control" required data-msg-required= "Ingrese un email">
+                        <input type="email" placeholder="email@test.com" id="email"  name="email" class="form-control" required data-msg-required= "Ingrese un email" value="<?php echo $datos['email']; ?>">
                     </div>
                     <!--End Form-group-->
                 </div>
@@ -122,7 +150,7 @@
                 <div class="col-sm-3">
                     <div class="form-group">
                         <label for="profesion">Prefesión / Oficio</label>
-                        <input type="text" placeholder="Prefesión u Oficio" id="profesion" name="profesion" class="form-control typeahead" required data-msg-required="Ingrese una Profesion u Oficio">
+                        <input type="text" placeholder="Prefesión u Oficio" id="profesion" name="profesion" class="form-control typeahead" required data-msg-required="Ingrese una Profesion u Oficio" value="<?php echo $datos['profesion']; ?>">
                     </div>
                     <!--End Form-Group-->
                 </div>
@@ -143,7 +171,7 @@
                 <div class="col-sm-3">
                     <div class="form-group">
                         <label for="v_carnet">Código Carnet de la Patria</label>
-                        <input type="text" placeholder="Codigo del Carnet de la Patria" id="v_carnet"  name="v_carnet" class="form-control">
+                        <input type="text" placeholder="Codigo del Carnet de la Patria" id="v_carnet"  name="v_carnet" class="form-control" value="<?php echo $datos['v_carnet']; ?>">
                     </div>
                     <!--End Form-Group-->
                 </div>
@@ -213,7 +241,7 @@
 
                 <div class="col-sm-12">
                     <div class="form-group">
-                        <textarea name="direccion" id="direccion" required data-msg-required="Ingrese una Dirección" class="form-control"></textarea>
+                        <textarea name="direccion" id="direccion" required data-msg-required="Ingrese una Dirección" class="form-control" ><?php echo $datos['direccion']; ?></textarea>
                     </div>
                     <!--End Form-Group-->
                 </div>
@@ -271,39 +299,38 @@ $('#formTutor').submit(function(e){
     for(var i = 0; i < data.length; i++){
             console.log(data[i])
          }
-    /**/ 
-        $.ajax({
-            url: urlbase+"Tutores/registrarDatos" ,
-            type: "POST",
-            dataType: "JSON",
-            data: $('#formTutor').serialize(),
-            beforeSend: function(data){
-            },
-            success: function(res) {
-                if(res != false){
-                    swal({
-                        title:"Error al Registrar",
-                        text: "El tutor ya se encuentra registrado",
-                        icon:"error",
-                        button:"Aceptar"
-                    })
-                }else{
-                    //alert(res)
-                    swal({
-                        title: "Tutor Registrado",
-                        text: res,
-                        icon: "success",
-                        button: "Aceptar",
-                        }). then((value) => {location.href="<?php echo base_url(); ?>index.php/Tutores/listado";});
-                }
-            }
-            }).fail(function(re){
-                console.log(re.responseText)
-            });
+    /**/
 
+    $.ajax({
+        url: urlbase+"Tutores/actualizarDatos" ,
+        type: "POST",
+        dataType: "JSON",
+        data: $('#formTutor').serialize(),
+        beforeSend: function(data){
+
+        },
+        success: function(res) {
+          //alert(res)
+          if(res != 1){    
+          swal({
+            title: "Error al Actualizar Tutor",
+            text:res,
+            icon: "error",
+            button: "Aceptar",
+            }); 
+          }else{
+            swal({
+            title: "Tutor Actualizado",
+            icon: "success",
+            button: "Aceptar",
+            }). then((value) => {location.href="<?php echo base_url(); ?>index.php/Tutores/listado";});
+          }
+        }
+          }).fail(function(re){
+            console.log(re.responseText)
+          });
 
 });
-
 /*
 $('.form_date').datetimepicker({
       language:  'es',
@@ -374,4 +401,39 @@ var $input = $('#profesion').typeahead({
       }
  
   });
+
+
+
+</script>
+
+<script>
+    //* Asignando los value a los elementos 
+    $('#nacionalidad').val("<?php echo $datos['nacionalidad']; ?>")
+    $('#sexo').val("<?php echo $datos['sexo']; ?>");
+    $('#posee_carnet').val("<?php echo $datos['posee_carnet'];?>");
+    $('#v_social').val("<?php echo $datos['v_social']; ?>");
+    $('#fecha_nac').val("<?php echo $datos['fecha_nac']; ?>");
+    /**/
+
+    //* Cargando los estados, municipios y parroquias
+    estado('#estado_id')
+    parroquia(<?php echo $datos['municipio_id'] ?>,"#parroquia_id");
+    municipio(<?php echo $datos['estado_id'] ?>,"#municipio_id");
+    /**/
+
+    //* Funccion que servira para dar value a algunos elementos que se escriben despues de preparar el documento (estados,municipios, parrquias)
+    function values(value,selector){
+        $(document).ready(function(){
+            $(selector).val(value);
+            //console.log("Selector:"+selector+"\nValue:"+value)
+        });
+    }
+    /**/
+
+    //* Asignando a los value mediante la funccion Values
+    values(<?php echo $datos['estado_id']; ?>,"#estado_id")
+    values(<?php echo $datos['municipio_id']; ?>,"#municipio_id")
+    values(<?php echo $datos['parroquia_id']; ?>,"#parroquia_id")
+    /**/
+  
 </script>
