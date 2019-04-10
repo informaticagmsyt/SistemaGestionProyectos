@@ -71,6 +71,7 @@
         <div class="pull-right">
               <button class="btn btn-primary" type="submit">Guardar y continuar</button>
         </div>
+        <!--End pull-right-->
     </div>
     <!--End conatainer-->
   </div>
