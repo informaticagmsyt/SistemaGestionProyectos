@@ -116,6 +116,22 @@
           </div>
           <!--End Row-->
 
+          <h4 class="text-center">Responsable del Requerimiento</h4>
+          <hr>
+
+          <div class="row">
+
+                  <div class="col-sm-2">
+                      <div class="form-group">
+                          <label for="tutor">Tutor</label>
+                          <input type="text" placeholder="Ingrese un tutor" id="tutor" name="tutor" class="form-control" required data-msg-required="Ingrese un tutor">
+                      </div>
+                      <!---End Form-Group-->    
+                  </div>
+                  <!--End Col-->
+          </div>
+          <!--End Row-->
+
         </div>  
         <!--End panel-body-->
       </div>
