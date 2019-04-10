@@ -87,6 +87,12 @@ public function getProfesion(){
 public function getDatosPersonasJSON(){
 
 	if(!empty($this->input->post_get('cedula'))) { 
+		
+		$_SESSION['requerimiento_id']=NULL;
+		$_SESSION['proyecto_id']=NULL;
+		$_SESSION['persona_id']=NULL;
+		$_SESSION['cedula']=NULL;
+					
 
 		//ver si tine prroyectos
 		$resultProyectos=$this->ProyectoModel->findProyectosPersonas($this->input->post('cedula'));
