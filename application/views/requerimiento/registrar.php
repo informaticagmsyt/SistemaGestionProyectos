@@ -1,8 +1,4 @@
-<div class="wizard" id="wizard-basic">
-  
-  <div class="wizard-content">
-
-    <div class="container">
+<div class="container">
 
       <div class="panel">
 
@@ -140,12 +136,9 @@
               <button class="btn btn-primary" type="submit">Guardar y continuar</button>
         </div>
         <!--End pull-right-->
-    </div>
-    <!--End conatainer-->
-  </div>
-  <!--End wizar-content-->
 </div>
-<!--End wizard-->
+<!--End container-->
+
 
 <script>
   $(function() {
