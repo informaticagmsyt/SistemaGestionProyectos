@@ -36,58 +36,59 @@
   </div-->
   <div class="wizard-content">
     <div class="container">
-      <h4>Step 1</h4>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-        irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-        deserunt mollit anim id est laborum.
-      </p>
-      <div class="pull-right">
-        <button type="button" class="btn btn-primary" data-wizard-action="next">Next</button>
-      </div>
-    </div>
-    <div class="wizard-pane" id="wizard-example-step2">
-      <h4>Step 2</h4>
-      <p>
-        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
-        totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
-        dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit,
-        sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam
-        est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius
-        modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima
-        veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea
-        commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam
-        nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
-      </p>
-      <div class="pull-right">
-        <button type="button" class="btn" data-wizard-action="prev">Prev</button>
-        <button type="button" class="btn btn-primary" data-wizard-action="next">Next</button>
-      </div>
-    </div>
-    <div class="wizard-pane" id="wizard-example-step3">
-      <h4>Step 3</h4>
-      <p>
-        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
-        totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
-        dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit,
-        sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
-      </p>
-      <div class="pull-right">
-        <button type="button" class="btn" data-wizard-action="prev">Prev</button>
-        <button type="button" class="btn btn-primary" data-wizard-action="next">Next</button>
-      </div>
-    </div>
-    <div class="wizard-pane" id="wizard-example-step4">
-      <h4>Finish</h4>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-      </p>
-      <div class="pull-right">
+      <h4 class="text-center">Ingrese su requerimiento</h4>
+      <hr>
+        
+        <div class="row">
+                
+                <div class="col-sm-1">
+                    <div class="form-group">
+                        <label for="nombres">Descripcion</label>
+                        <input class="form-control" type="text" name="descripcion" id="descripcion" placeholder="Descripcion" required data-msg-required="Ingrese la descripcion del requerimiento">
+                    </div>
+                    <!---End Form-Group-->
+                </div>
+                <!--End Col-->
+
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <label for="categoria">Categoria</label> <!--ESTO DEBE TRAER LOS DATOS DE LA TABLA CATEGORIAS-->
+                        <select class="custom-select form-control" name="categoria" id="categoria">
+                          <option value="AL">Asesoria legal</option>
+                          <option value="AF">Asesoria financiera</option>
+                    </div>
+                    <!---End Form-Group-->
+                </div>
+                <!--End Col-->
+
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label for="subcategoria">Sub-categoria</label> <!--ESTO DEBE TRAER LOS DATOS DE LA TABLA SUB-CATEGORIAS-->
+                        <select class="custom-select form-control" name="subcategoria" id="subcategoria">
+                            <option value="J">Juridica</option>
+                            <option value="C">Civil</option>
+                        </select>
+                    </div>
+                    <!---End Form-Group-->
+                </div>
+                <!--End Col-->
+
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="fechanac">Fecha de nacimiento</label>
+                        <div class="input-group date form_date col-md-8" data-date="" data-date-format="dd-mm-yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                            <input class="form-control" size="5" id="fechanac" name="fecha_nac" value="" type="date" >
+                            <!--<span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span><i class="far fa-trash-alt"></i></span>-->
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span><i class="far fa-calendar-alt"></i></span>
+                        </div>
+                    </div>
+                    <!---End Form-Group-->
+                </div>
+                <!---End Col-->
+
+            </div>
+            <!--End Row-->
+      
         <button type="button" class="btn" data-wizard-action="prev">Prev</button>
         <button type="button" class="btn btn-primary" data-wizard-action="finish">Finish</button>
       </div>
