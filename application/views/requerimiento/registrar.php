@@ -70,6 +70,18 @@
                   </div>
                   <!--End Col-->
 
+                  <div class="col-sm-2">
+                      <div class="form-group">
+                          <label for="estatus">Estatus</label> <!--ESTO DEBE TRAER LOS DATOS DE LA TABLA ESTATUS-->
+                          <select class="custom-select form-control" name="estatus" id="estatus">
+                            <option value="recibido">Recibido</option>
+                            <option value="remitido">Remitido</option>
+                          </select>  
+                      </div>
+                      <!---End Form-Group-->
+                  </div>
+                  <!--End Col-->
+
           </div>
           <!--End Row-->
 
