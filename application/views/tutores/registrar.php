@@ -164,6 +164,33 @@
                 </div>
                 <!--End Col-->
 
+
+
+            </div>
+            <!--End Row-->
+
+            <div class="row">
+
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label for="institucion_id">Institucion a la que Pertenece</label>
+                        <select class="form-control custom-select" name="institucion_id" id="institucion_id">
+                            <option value="0">Seleccione una institución</option>
+                        </select>
+                    </div>
+                    <!--End Form-gorup-->
+                </div>
+                <!--End Col-->
+
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label for="cargo">Cargo que ejerce</label>
+                        <select class="form-control custom-select" name="cargo" id="cargo">
+                            <option value="0">Seccione Cargo</option>
+                        </select>
+                    </div>
+                </div>
+
             </div>
             <!--End Row-->
 
@@ -234,8 +261,10 @@
 <!--End Container-->
 <script> var urlbase="<?php echo base_url("index.php/"); ?>"; </script>
 <script src="<?php echo base_url()?>public/js/estadoMunParroquia.js"></script>
+<script src="<?php echo base_url()?>public/js/entes.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
+entes('#institucion_id');
 
 $(function() {
   $('#wizard-basic').pxWizard();
@@ -271,7 +300,9 @@ $('#formTutor').submit(function(e){
     for(var i = 0; i < data.length; i++){
             console.log(data[i])
          }
-    /**/ 
+    /**/
+
+    //* Registrar datos mediante ajax 
         $.ajax({
             url: urlbase+"Tutores/registrarDatos" ,
             type: "POST",
@@ -300,7 +331,7 @@ $('#formTutor').submit(function(e){
             }).fail(function(re){
                 console.log(re.responseText)
             });
-
+    /**/
 
 });
 
