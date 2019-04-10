@@ -6,6 +6,16 @@ $( document ).ready(function() {
     estado("#estado") 
     
 
+
+    $("#estado_id2").change(function() {
+         
+            
+      if(this.value!="")
+      municipio(this.value,"#municipio_id")
+     else           
+  $("#municipio_id").html("<option value=''>Seleccione un Municipio<option>");
+
+  });
         $("#estado_id").change(function() {
          
             
