@@ -64,6 +64,56 @@
           </div>
           <!--End Row-->
 
+          <h4 class="text-center">Ubicacion del Requerimiento</h4>
+          <hr>
+
+          <div class="row">
+
+                  <div class="col-sm-2">
+                      <div class="form-group">
+                          <label for="estado">Estado</label> <!--ESTO DEBE TRAER LOS DATOS DE LA TABLA ESTADOS-->
+                          <select class="custom-select form-control" name="estado" id="estado">
+                            <option value="distrito">Distrito Capital</option>
+                            <option value="miranda">Miranda</option>
+                          </select>  
+                      </div>
+                      <!---End Form-Group-->
+                  </div>
+                  <!--End Col-->
+
+                  <div class="col-sm-2">
+                      <div class="form-group">
+                          <label for="municipio">Municipio</label> <!--ESTO DEBE TRAER LOS DATOS DE LA TABLA MUNICIPIOS-->
+                          <select class="custom-select form-control" name="municipio" id="municipio">
+                              <option value="libertador">Libertador</option>
+                              <option value="guicaipuro">Guaicaipuro</option>
+                          </select>
+                      </div>
+                      <!---End Form-Group-->
+                  </div>
+                  <!--End Col-->
+
+                  <div class="col-sm-3">
+                      <div class="form-group">
+                          <label for="parroquia">Parroquia</label> <!--ESTO DEBE TRAER LOS DATOS DE LA TABLA PARROQUIAS-->
+                          <select class="custom-select form-control" name="parroquia" id="parroquia">
+                              <option value="san jose">San Jose</option>
+                              <option value="boleita">Boleita</option>
+                          </select>
+                      </div>
+                      <!---End Form-Group-->
+
+                  <div class="col-sm-3">
+                      <div class="form-group">
+                          <label for="ciudad">Ciudad</label>
+                          <input type="text" placeholder="ciudad" id="ciudad" name="ciudad" class="form-control typeahead" required data-msg-required="Ingrese una ciudad">
+                      </div>
+                      <!---End Form-Group-->    
+                  </div>
+                  <!--End Col-->
+          </div>
+          <!--End Row-->
+
         </div>  
         <!--End panel-body-->
       </div>
