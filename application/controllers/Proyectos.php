@@ -30,7 +30,7 @@ class Proyectos extends CI_Controller {
 		$this->load->model('DatosPersonasModel');
 		$this->load->model('PersonasModel');
 		if(!is_logged_in()){
-			redirect('index.php/login');
+			redirect('login');
 			
 		}
 	}
