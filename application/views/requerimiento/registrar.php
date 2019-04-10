@@ -46,7 +46,7 @@
                   </div>
                   <!--End Col-->
 
-                  <div class="col-sm-3">
+                  <div class="col-sm-4">
                       <div class="form-group">
                           <label for="ente">Ente</label> <!--ESTO DEBE TRAER LOS DATOS DE LA TABLA ENTES-->
                           <select class="custom-select form-control" name="ente" id="ente">
