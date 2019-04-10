@@ -11,7 +11,7 @@
                 
                   <div class="col-sm-12">
                       <div class="form-group">
-                          <label for="nombres">Descripcion</label>
+                          <label for="descripcion">Descripcion</label>
                           <textarea class="form-control" type="text" name="descripcion" id="descripcion" placeholder="Ingrese la descripcion del requerimiento" required data-msg-required="Ingrese la descripcion del requerimiento"></textarea>
                       </div>
                       <!---End Form-Group-->
@@ -122,6 +122,16 @@
                       <!---End Form-Group-->    
                   </div>
                   <!--End Col-->
+
+                  <div class="col-sm-12">
+                      <div class="form-group">
+                          <label for="direccion">Direccion</label>
+                          <textarea class="form-control" type="text" name="direccion" id="direccion" placeholder="Ingrese la direccion de su ubicacion" required data-msg-required="Ingrese la direccion de su ubicacion"></textarea>
+                      </div>
+                      <!---End Form-Group-->
+                  </div>
+                  <!--End Col-->
+
           </div>
           <!--End Row-->
 
