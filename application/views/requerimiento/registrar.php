@@ -123,7 +123,7 @@
 
                   <div class="col-sm-2">
                       <div class="form-group">
-                          <label for="tutor">Tutor</label> <!--ESTO DEBE TRAER LOS DATOS DE LA TABLA PERSONA>PERSONA_PERFIL-->
+                          <label for="tutor">Tutor</label> <!--ESTO DEBE TRAER LOS DATOS DE LA TABLA PERSONA>PERSONA_PERFIL>PERFILES-->
                           <input type="text" placeholder="Ingrese un tutor" id="tutor" name="tutor" class="form-control" required data-msg-required="Ingrese un tutor">
                       </div>
                       <!---End Form-Group-->    
