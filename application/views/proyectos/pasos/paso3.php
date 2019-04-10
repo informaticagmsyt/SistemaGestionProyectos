@@ -110,12 +110,18 @@
                         required
                          class="form-control" id="codigo_sunagro" name="codigo_sunagro" placeholder="00000000">
                 </div>
+
+
                 <div class="col-md-3">
-                        <label for="inst_responsable">Institucion Responsable</label>
-                        <input type="text" 
+                        <label for="inst_responsable">Institucion Responsable  </label>
+                        <select name="inst_responsable" 
+                        id="inst_responsable"
                         required
-                        class="form-control" id="inst_responsable" name="inst_responsable" required>
+                        class="form-control">
+                        
+                        </select>
                 </div>
+             
                 
 
                 </div>

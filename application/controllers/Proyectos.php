@@ -378,8 +378,7 @@ public function  regitrarPaso1(){
 				'municipio_id'         	=>$this->input->post('municipio_id'),
 				'parroquia_id'     		=>$this->input->post('parroquia_id'),
 				'estado_id'      		=>$this->input->post('estado_id'),
-				"ente_id"=>   0
-				// $this->input->post('inst_responsable')
+				"ente_id"=>   $this->input->post('inst_responsable')
 								
 
 

@@ -3,7 +3,7 @@
 getCategoria("#categoria_id")
 getEstatusProyecto("#estatus_proyecto_id")
 getTutores("#tutor")
-
+getEntes("#inst_responsable")
  $("#formpaso1").validate();
 
 document.querySelector("#formpaso1").addEventListener("submit", function(e){
@@ -453,6 +453,57 @@ $(selector+' option').each(function()  {$(this).remove(); });
   }
 
 
+  function getEntes(selector) {
+
+    var data={
+    
+    }
+    
+    $.ajax({
+      url: urlbase+"Entes/get" ,
+      type: "GET",
+      dataType: "JSON",
+      data: data,
+      beforeSend: function(data){
+  
+    $(selector).html("<option>Cargando...<option>");
+      },
+      success: function(res) {
+        console.log(res)
+  
+    if(res.response){
+   var data =res.data;
+  
+   var html='';
+  $(selector+' option').each(function()  {$(this).remove(); });
+  
+  
+    html='<option value="">Seleccione una Institucion</option>';
+    $(selector).append(html)
+     for (var i in data) {
+  
+         html='<option value='+data[i].id+'>'+data[i].descripcion+'</option>';
+         $(selector).append(html)
+     }
+  
+      
+    }else{
+      html='<option value="0">Seleccione una Institucion</option>';
+      $(selector).append(html)
+    }
+    
+    
+    
+    
+      }
+        }).fail(function(re){
+          html='<option value="0">Seleccione una Institucion</option>';
+          $(selector).append(html)
+    console.log(re.responseText)
+        
+        });
+    
+    }
 
   
 function getTutores(selector) {
