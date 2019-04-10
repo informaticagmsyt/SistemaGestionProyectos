@@ -93,7 +93,7 @@
                   </div>
                   <!--End Col-->
 
-                  <div class="col-sm-3">
+                  <div class="col-sm-2">
                       <div class="form-group">
                           <label for="parroquia">Parroquia</label> <!--ESTO DEBE TRAER LOS DATOS DE LA TABLA PARROQUIAS-->
                           <select class="custom-select form-control" name="parroquia" id="parroquia">
@@ -102,11 +102,13 @@
                           </select>
                       </div>
                       <!---End Form-Group-->
+                  </div>
+                  <!--End Col-->
 
-                  <div class="col-sm-3">
+                  <div class="col-sm-2">
                       <div class="form-group">
                           <label for="ciudad">Ciudad</label>
-                          <input type="text" placeholder="ciudad" id="ciudad" name="ciudad" class="form-control typeahead" required data-msg-required="Ingrese una ciudad">
+                          <input type="text" placeholder="Ingrese una ciudad" id="ciudad" name="ciudad" class="form-control" required data-msg-required="Ingrese una ciudad">
                       </div>
                       <!---End Form-Group-->    
                   </div>
