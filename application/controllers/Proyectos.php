@@ -583,5 +583,26 @@ public function  regitrarPaso1(){
 			
 		
 		}
+
+		
+public function  editar(){
+
+ $id=$data['segmento'] = $this->uri->segment(3);
+if(!empty( $id)){
+	$nombreUsuario = $this->session->userdata('user_data');
+    $this->load->view('layout/header');
+    $this->load->view('layout/nav');
+    $User['nombreUser']=$nombreUsuario['nombre'];
+    $this->load->view('layout/navar',$User);
+
+    $this->load->view('layout/scriptjs');
+	$this->load->view('proyectos/editarView');
+}else{
+	redirect('/proyectos');
+
+}
+
+}
+
 }
 

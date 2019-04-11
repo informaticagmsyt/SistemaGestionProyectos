@@ -25,8 +25,14 @@ color:black;
 </div>
 <script> var urlbase="<?php echo base_url("index.php/"); ?>"; </script>
 <script>
-  $(function() {
-    $('#datatablesProyectos').dataTable({
+
+
+
+
+listar();
+function listar() {
+
+   var table= $('#datatablesProyectos').dataTable({
       "language": idioma_espanol,
       "ajax":{
 
@@ -58,7 +64,10 @@ function (data, type, row )
 
     $('#datatablesProyectos_wrapper .table-caption').text('Proyectos Registrados');
     $('#datatablesProyectos_wrapper .dataTables_filter input').attr('placeholder', 'Buscar...');
-  });
+
+    data_editar("#datatablesProyectos tbody",table);
+    
+  }
 
   
   var idioma_espanol = {
@@ -93,4 +102,15 @@ function (data, type, row )
         }
         }
 
+        function data_editar  (tbody,table){
+
+$(tbody).on("click", "button.editar",function(){
+
+//var data=table.row($(this).parents("tr") ).data();
+var id =$(this).parents("tr")[0].children[0].innerText 
+
+window.location="proyectos/editar/"+id+"";         
+
+});
+        }
 </script>

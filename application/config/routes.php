@@ -51,5 +51,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $route['default_controller'] = 'welcome';
 $route['login'] = 'login';
+$route['proyectos/editar/:num'] = 'proyectos/editar';
+$route['proyectos/index']='preyectos';
+
 //$route['test'] = 'test/index';
 $route['translate_uri_dashes'] = FALSE;
