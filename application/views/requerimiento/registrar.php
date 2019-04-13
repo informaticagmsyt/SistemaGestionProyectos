@@ -58,18 +58,6 @@
                   </div>
                   <!--End Col-->
 
-                  <div class="col-sm-2">
-                      <div class="form-group">
-                          <label for="estatus">Estatus</label> <!--ESTO DEBE TRAER LOS DATOS DE LA TABLA ESTATUS-->
-                          <select class="custom-select form-control" name="estatus" id="estatus">
-                            <option value="recibido">Recibido</option>
-                            <option value="remitido">Remitido</option>
-                          </select>  
-                      </div>
-                      <!---End Form-Group-->
-                  </div>
-                  <!--End Col-->
-
           </div>
           <!--End Row-->
 
@@ -156,6 +144,18 @@
                               <option value="mincomuna">Ministerio del poder popular para las comunas y los movimientos sociales</option>
                               <option value="ffm">Frente Francisco de Miranda</option>
                           </select>
+                      </div>
+                      <!---End Form-Group-->
+                  </div>
+                  <!--End Col-->
+
+                  <div class="col-sm-2">
+                      <div class="form-group">
+                          <label for="estatus">Estatus</label> <!--ESTO DEBE TRAER LOS DATOS DE LA TABLA ESTATUS-->
+                          <select class="custom-select form-control" name="estatus" id="estatus">
+                            <option value="recibido">Recibido</option>
+                            <option value="remitido">Remitido</option>
+                          </select>  
                       </div>
                       <!---End Form-Group-->
                   </div>
