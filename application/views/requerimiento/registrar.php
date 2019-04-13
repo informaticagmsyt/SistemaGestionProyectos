@@ -148,8 +148,6 @@
                       <!---End Form-Group-->    
                   </div>
                   <!--End Col-->
-          </div>
-          <!--End Row-->
 
                   <div class="col-sm-4">
                       <div class="form-group">
@@ -162,6 +160,8 @@
                       <!---End Form-Group-->
                   </div>
                   <!--End Col-->
+          </div>
+          <!--End Row-->
 
         </div>  
         <!--End panel-body-->
