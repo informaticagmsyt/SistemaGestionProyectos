@@ -46,18 +46,6 @@
                   </div>
                   <!--End Col-->
 
-                  <div class="col-sm-4">
-                      <div class="form-group">
-                          <label for="ente">Ente</label> <!--ESTO DEBE TRAER LOS DATOS DE LA TABLA ENTES-->
-                          <select class="custom-select form-control" name="ente" id="ente">
-                              <option value="mincomuna">Ministerio del poder popular para las comunas y los movimientos sociales</option>
-                              <option value="ffm">Frente Francisco de Miranda</option>
-                          </select>
-                      </div>
-                      <!---End Form-Group-->
-                  </div>
-                  <!--End Col-->
-
                   <div class="col-sm-2">
                       <div class="form-group">
                           <label for="accion">Accion</label> <!--ESTO DEBE TRAER LOS DATOS DE LA TABLA ACCIONES-->
@@ -162,6 +150,18 @@
                   <!--End Col-->
           </div>
           <!--End Row-->
+
+                  <div class="col-sm-4">
+                      <div class="form-group">
+                          <label for="ente">Ente</label> <!--ESTO DEBE TRAER LOS DATOS DE LA TABLA ENTES-->
+                          <select class="custom-select form-control" name="ente" id="ente">
+                              <option value="mincomuna">Ministerio del poder popular para las comunas y los movimientos sociales</option>
+                              <option value="ffm">Frente Francisco de Miranda</option>
+                          </select>
+                      </div>
+                      <!---End Form-Group-->
+                  </div>
+                  <!--End Col-->
 
         </div>  
         <!--End panel-body-->
