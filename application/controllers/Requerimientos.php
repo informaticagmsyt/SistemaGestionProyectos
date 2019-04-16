@@ -42,7 +42,7 @@ class Requerimientos extends CI_Controller {
 		$this->load->view('layout/navar',$User);
 		
 		$this->load->view('layout/scriptjs');
-		$this->load->view('requerimiento/registrarnew');
+		$this->load->view('requerimiento/registrar');
 		$this->load->view('layout/footer');
 	}
 }

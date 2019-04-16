@@ -13,10 +13,10 @@
                     <div class="row">
                       <div class="col-md-6">
                           <div class="form-group ">
-                              <label>Descripcion del Requerimiento</label>
-                          <input type="text" placeholder="descripcion" id="descripcionreq"
-                          data-msg-required= "Ingrese una descripcion"
-                           name="descripcionreq" class="form-control" required>
+                              <label>Nombre del Requerimiento</label>
+                          <input type="text" placeholder="nombrereq" id="nombrereq"
+                          data-msg-required= "Ingrese un nombre"
+                           name="nombrereq" class="form-control" required>
                         </div>
                         </div>
         
@@ -64,38 +64,10 @@
                 name="sub_categoria_id"              required>
                   <option value="">Seleccione un opcion</option>
                 </select>
-              
             </div>
-  
-  
-            
-        </div>
-  </div>
-  
-  <hr>
-  <div class="row">
-    <div class="col-md-6">
-        <div class="form-group ">
-            <label>Personas beneficiadas</label>
-        <input type="number" placeholder="personasbenificiadas" id="personasbenificiadas"
-   
-         name="nombrep" class="form-control" required>
-      </div>
-      </div>
+          
+          </div>  
 
-    <div class="col-md-6">
-   
-        <div class="form-group ">
-            <label>Población Beneficiada</label>
-        <input type="number" placeholder="" id="poblacion"
-     
-         name="poblacion" class="form-control" required>
-      </div>
-
-
-      
-  </div>
-</div>
   <div class="row">
     <hr>
     <div class="col-md-12">
