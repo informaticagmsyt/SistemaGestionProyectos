@@ -7,27 +7,27 @@
         
           <div class="panel-body">
   
-          <h5 class="text-center">Datos del Proyecto</h5>
+          <h5 class="text-center">Datos del Requerimiento</h5>
                     <hr>
   
                     <div class="row">
                       <div class="col-md-6">
                           <div class="form-group ">
-                              <label>Nombre del proyecto</label>
-                          <input type="text" placeholder="nombre" id="nombrep"
-                          data-msg-required= "Ingrese un numero de teléfono"
-                           name="nombrep" class="form-control" required>
+                              <label>Descripcion del Requerimiento</label>
+                          <input type="text" placeholder="descripcion" id="descripcionreq"
+                          data-msg-required= "Ingrese una descripcion"
+                           name="descripcionreq" class="form-control" required>
                         </div>
                         </div>
         
                       <div class="col-md-6">
                      
                         <div class="form-group">
-                          <label>Estatus del Proyecto </label>
+                          <label>Estatus del Requerimiento </label>
                       
                             <select class="custom-select form-control" 
-                            id="estatus_proyecto_id" 
-                            name="estatus_proyecto_id">
+                            id="estatus_requerimiento_id" 
+                            name="estatus_requerimiento_id">
                               <option value="0">Seleccione un opcion</option>
                             </select>
                           
