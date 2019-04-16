@@ -1,8 +1,104 @@
-<div class="container">
+<div class="container"> 
 
       <div class="panel">
 
         <div class="panel-body">
+
+          <div class="row"> 
+
+            <div class="col-md-11"> 
+              <div class="wizard" id="wizard-basic">
+                <div class="wizard-wrapper">
+                  <ul class="wizard-steps">
+                    <li data-target="#wizard-example-step1" class="wizard1 wizard" >
+                      <span class="wizard-step-number">1</span>
+                        <span class="wizard-step-complete"><i class="fa fa-check text-success"></i></span>
+                        <span class="wizard-step-caption">
+                          Paso 1
+                        <span class="wizard-step-description">Identificación del Productor</span>
+                      </span>
+                      <!--End wizard-step-number-->
+                    </li>
+                    <!--End li-->
+
+                    <li data-target="#wizard-example-step2" class="wizard2 wizard">
+                      <span class="wizard-step-number">2</span>
+                        <span class="wizard-step-complete"><i class="fa fa-check text-success"></i></span>
+                        <span class="wizard-step-caption">
+                          Paso 2
+                        <span class="wizard-step-description">Datos del Requerimiento</span>
+                      </span>
+                      <!--End wizard-step-number-->
+                    </li>
+                    <!--End li-->
+                  </ul>
+                  <!--End ul-->
+                </div>
+                <!--End wizard-wrapper-->
+              </div>
+              <!--End wizard-->
+            </div>
+            <!--End col-->
+
+          </div>
+          <!--End row-->          
+            
+          <div class="wizard-content">
+            <div class="wizard-pane" id="wizard-example-step1">
+  
+              <form  method="POST" role="form" id="formpaso1">
+
+                <?php include'pasos/paso1.php'; ?>
+    
+
+                  <div class="pull-right">
+                    <button type="submit" class="btn btn-primary  pull-right" id="btnpaso1" >Guardar y continuar</button>
+                  </div>
+              </form>
+            </div>
+            <!--End wizard-pane-->
+ 
+            <div class="wizard-pane" id="wizard-example-step2">
+
+              <form  method="post" id="formpaso2">
+                
+                <?php include'pasos/paso2.php'; ?>
+                  <button type="button" class="btn btn-primary"
+                    style="visibility:hidden"
+                    data-wizard-action="next" id="paso2">Guardar y Continuar</button>
+
+                    <div class="pull-right">
+                      <button type="button" class="btn"  onclick="regresar(1)">Regresar</button>
+                      <button type="submit" class="btn btn-primary" id="btnpaso2" >Guardar y Continuar</button>
+                    </div>
+
+              </form>
+            </div>
+            <!--End wizard-pane-->
+          </div>
+          <!--End wizard-content-->
+
+          <div id="modal-success" class="modal fade modal-alert modal-success">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header"><i class="fa fa-check-circle"></i></div>
+                  <div class="modal-title">Proyecto registrado exitosamente</div>
+                    <div class="modal-body">
+                      <h5>Numero de Caso: 
+                        <br>
+                        <strong id="codcaso"> </strong>
+                      </h5>
+
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-success"onclick="location.reload()" >OK</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>      
 
           <h4 class="text-center">Ingrese su requerimiento</h4>
           <hr>
@@ -171,6 +267,8 @@
               <button class="btn btn-primary" type="submit">Guardar y continuar</button>
         </div>
         <!--End pull-right-->
+  </div>
+  <!--End Row-->      
 </div>
 <!--End container-->
 
