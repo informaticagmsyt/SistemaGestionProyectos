@@ -66,18 +66,6 @@ input[type=number] { -moz-appearance:textfield; }
     </form>
   </div>
 
-<button type="button" class="btn btn-primary"       style="visibility:hidden"
-      data-wizard-action="finish">Guardar</button>
-
-      <div class="pull-right">
-   
-        <button type="submit" class="btn btn-primary btnfinal"    id="btnpaso5"  
-        >Guardar</button>
-      </div>
-        </form>
-
-
-        
 <div id="modal-success" class="modal fade modal-alert modal-success">
   <div class="modal-dialog">
     <div class="modal-content">

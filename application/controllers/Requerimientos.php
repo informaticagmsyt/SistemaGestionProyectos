@@ -24,8 +24,8 @@ class Requerimientos extends CI_Controller {
 		parent::__construct();
 	
 		$this->load->library('session');
-
-		
+		$this->load->model('RequerimientosModel');
+        $this->load->model('PersonasModel');
 		if(!is_logged_in()){
 			redirect('index.php/login');
 			
