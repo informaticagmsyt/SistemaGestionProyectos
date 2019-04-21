@@ -31,7 +31,7 @@ class Requerimientos extends CI_Controller {
 			
 		}
 	}
-
+	/**END FUCTION CONSTRUCT**/
 
 	public function registrar()
 	{
@@ -45,5 +45,5 @@ class Requerimientos extends CI_Controller {
 		$this->load->view('requerimiento/registrar');
 		$this->load->view('layout/footer');
 	}
-
+	/**END FUCTION CONSTRUCT**/
 }
