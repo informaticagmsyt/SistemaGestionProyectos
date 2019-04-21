@@ -1,60 +1,72 @@
 <div class="panel">
-      <div id="msj"></div>
+  
+  <div id="msj"></div>
       
-        <div class="panel-body">
+    <div class="panel-body">
       
-            <div class="row ">
-                <div class=" col-sm-2 ">
-                    <label for="grid-input-5" class="col-md-3 control-label">Nacionalidad</label>
-                
-                      <select class="custom-select form-control" id="nacionaliidad" name="nacionaliidad">
-                       
-                        <option>V</option>
-                        <option>E</option>
-                      </select>
-                    </div>
-              <div class="col-sm-4">
-                <label class="" for="grid-input-11">Cedula</label>
-                <input type="number" placeholder="Cedula" id="cedula"  name="cedula" class="form-control" required>
-              </div>
-              <div class=" col-sm-4">
-                  <label class="" for="grid-input-11"></label>
-                  <br>
-                  <button type="button" class="btn btn-primary" onclick="consultarPersona()">Consultar</button>
-              </div>
-            </div>
-            <div id="identificacion">
-            <!---Identificación -->
-            <h4 class="text-center">Identificación </h4>
-            <hr>
-            <div class="row">
-              <div class="col-md-3">
-                  <div class="form-group ">
-                      <label>Nombres</label>
-                  <input type="text" placeholder="Nombres" id="nombres" name="nombres" class="form-control" required
-                  data-msg-required= "Ingrese un nombre">
-                </div>
-                </div>
+      <div class="row ">
 
-              <div class="col-md-3">
-                  <div class="form-group ">
-                      <label>Apellidos</label>
-                  <input type="text" placeholder="apellidos" id="apellidos"  name="apellidos"
-                  data-msg-required= "Ingrese un Apellido"
-                   class="form-control" required>
-                </div>
-                </div>
+        <div class=" col-sm-2 ">
 
-                <div class="col-md-2">
-                    <div class="form-group">
-                    <label for="" class=" control-label">Sexo</label>
+          <label for="grid-input-5" class="col-md-3 control-label">Nacionalidad</label>    
+            <select class="custom-select form-control" id="nacionaliidad" name="nacionaliidad">
+              <option>V</option>
+              <option>E</option>
+            </select>
+            <!--END CUSTOM-SELECT-->
+        </div>
+        <!--END COL-SM-2-->
+
+        <div class="col-sm-4">
                 
-                      <select class="custom-select form-control" id="sexo" name="sexo">
-                       
-                        <option value="M">Masculino</option>
-                        <option value="F">Femenino</option>
-                      </select>
-                    </div>
+          <label class="" for="grid-input-11">Cedula</label>
+            <input type="number" placeholder="Cedula" id="cedula"  name="cedula" class="form-control" required>
+        </div>
+        <!--END COL-SM-4-->
+
+        <div class=" col-sm-4">
+          <label class="" for="grid-input-11"></label>
+          <br>
+          <button type="button" class="btn btn-primary" onclick="consultarPersona()">Consultar</button>
+        </div>
+        <!--END COL-SM-4-->
+      </div>
+      <!--END ROW-->
+
+      <div id="identificacion">
+        <h4 class="text-center">Identificación </h4>
+        <hr>
+      <div class="row">
+        
+        <div class="col-md-3">
+                  
+          <div class="form-group">
+            <label>Nombres</label>
+            <input type="text" placeholder="Nombres" id="nombres" name="nombres" class="form-control" required data-msg-required= "Ingrese un nombre">
+          </div>
+          <!--END FORM-GROUP-->
+        </div>
+        <!--END COL-MD-3-->
+
+        <div class="col-md-3">
+                  
+          <div class="form-group">
+            <label>Apellidos</label>
+            <input type="text" placeholder="apellidos" id="apellidos"  name="apellidos" data-msg-required= "Ingrese un Apellido" class="form-control" required>
+          </div>
+          <!--END FORM-GROUP-->
+        </div>
+        <!--END COL-MD-3-->
+
+        <div class="col-md-2">
+
+          <div class="form-group">
+              <label for="" class=" control-label">Sexo</label>
+                <select class="custom-select form-control" id="sexo" name="sexo">
+                  <option value="M">Masculino</option>
+                  <option value="F">Femenino</option>
+                </select>
+          </div>
                     </div>
                 <div class="col-md-4">
                     <div class="form-group">
