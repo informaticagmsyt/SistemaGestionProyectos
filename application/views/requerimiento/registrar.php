@@ -102,9 +102,9 @@
       <!--END WIZARD-CONTENT-->
     </div>
     <!--END COL-MD-11-->
-  </div>
+  </div-->
   <!--END ROW-->
-</div>
+</div-->
 <!--END CONTAINER-->
 
 <script> var urlbase="<?php echo base_url("index.php/"); ?>"; </script>
