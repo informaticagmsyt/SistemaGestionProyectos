@@ -1,101 +1,107 @@
- <style>
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-  -webkit-appearance: none; 
-  margin: 0; 
-}
-
-input[type=number] { -moz-appearance:textfield; }
- </style>
-   
-  <div class="container"> 
+<div class="container"> 
+  
   <div class="row"> 
 
- <div class="col-md-11"> 
+    <div class="col-md-11"> 
 
-<div class="wizard" id="wizard-basic">
-  <div class="wizard-wrapper">
-    <ul class="wizard-steps">
-      <li data-target="#wizard-example-step1" class="wizard1 wizard" >
-        <span class="wizard-step-number">1</span>
-        <span class="wizard-step-complete"><i class="fa fa-check text-success"></i></span>
-        <span class="wizard-step-caption">
-          Paso 1
-          <span class="wizard-step-description">Identificación del Productor</span>
-        </span>
-      </li>
-      <li data-target="#wizard-example-step2" class="wizard2 wizard">
-        <span class="wizard-step-number">2</span>
-        <span class="wizard-step-complete"><i class="fa fa-check text-success"></i></span>
-        <span class="wizard-step-caption">
-         Paso 2
-          <span class="wizard-step-description">Datos del Requerimiento</span>
-        </span>
-      </li>
-    </ul>
-  </div>
+      <div class="wizard" id="wizard-basic">
+        <div class="wizard-wrapper">
+          <ul class="wizard-steps">
+            <li data-target="#wizard-example-step1" class="wizard1 wizard" >
+              <span class="wizard-step-number">1</span>
+              <span class="wizard-step-complete"><i class="fa fa-check text-success"></i></span>
+              <span class="wizard-step-caption">
+              Paso 1
+              <span class="wizard-step-description">Identificación del Productor</span>
+            </li>
+            <!--END LI-->
+            <li data-target="#wizard-example-step2" class="wizard2 wizard">
+              <span class="wizard-step-number">2</span>
+              <span class="wizard-step-complete"><i class="fa fa-check text-success"></i></span>
+              <span class="wizard-step-caption">
+              Paso 2
+              <span class="wizard-step-description">Datos del Requerimiento</span>
+            </li>
+            <!--END LI-->
+          </ul>
+          <!--END UL-->
+      </div>
+      <!--END WIZARD-->
 
-  <div class="wizard-content">
-    <div class="wizard-pane" id="wizard-example-step1">
+      <div class="wizard-content">
+        <div class="wizard-pane" id="wizard-example-step1">
   
-    <form  method="POST" role="form" id="formpaso1">
+          <form  method="POST" role="form" id="formpaso1">
 
-        <?php include'pasos/paso1.php'; ?>
+            <?php include'pasos/paso1.php'; ?>
     
 
-        <div class="pull-right">
-        <button type="submit" class="btn btn-primary  pull-right" id="btnpaso1" >Guardar y continuar</button>
-
+            <div class="pull-right">
+              <button type="submit" class="btn btn-primary  pull-right" id="btnpaso1" >Guardar y continuar</button>
+            </div>
+            <!--END PULL-RIGHT-->
+          </form>
+          <!--END FORM-->
+        
         </div>
-      </form>
-      </div>
+        <!--END WIZARD-PANE-->  
  
- 
-    <div class="wizard-pane" id="wizard-example-step2">
-      <form  method="post" id="formpaso2">
-        <?php include'pasos/paso2.php'; ?>
-      <button type="button" class="btn btn-primary"
-      style="visibility:hidden"
-      data-wizard-action="next" id="paso2">Guardar y Continuar</button>
+        <div class="wizard-pane" id="wizard-example-step2">
+          
+          <form  method="POST" role="form" id="formpaso2">
+            
+            <?php include'pasos/paso2.php'; ?>
+      
+            <button type="button" class="btn btn-primary" style="visibility:hidden" data-wizard-action="next" id="paso2">Guardar y Continuar</button>
 
-      <div class="pull-right">
-        <button type="button" class="btn"  onclick="regresar(1)">Regresar</button>
-        <button type="submit" class="btn btn-primary" id="btnpaso2" >Guardar y Continuar</button>
+            <div class="pull-right">
+              <button type="button" class="btn"  onclick="regresar(1)">Regresar</button>
+              <button type="submit" class="btn btn-primary" id="btnpaso2" >Guardar y Continuar</button>
+            </div>
+            <!--END PULL-RIGHT-->    
+          </form>
+          <!--END FORM-->
+        
+        </div>
+        <!--END WIZARD-PANE-->
+        
+        <div id="modal-success" class="modal fade modal-alert modal-success">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header"><i class="fa fa-check-circle"></i></div>
+              <div class="modal-title">Requerimiento registrado exitosamente</div>
+              <div class="modal-body">
+                <h5>Numero de Caso: 
+                  <br>
+                  <strong id="codcaso"> </strong>
+                </h5>
+              </div>
+              <!--END MODAL-BODY-->
+              <div class="modal-footer">
+                <button type="button" class="btn btn-success"onclick="location.reload()" >OK</button>
+              </div>
+              <!--END MODAL-FOOTER-->
+            </div>
+            <!--END MODAL-CONTENT-->
+          </div>
+          <!--END MODAL-DIALOG-->
+        </div>
+        <!--END MODAL-SUCCESS-->
       </div>
-
-    </form>
-  </div>
-
-<div id="modal-success" class="modal fade modal-alert modal-success">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header"><i class="fa fa-check-circle"></i></div>
-      <div class="modal-title">Requerimiento registrado exitosamente</div>
-      <div class="modal-body">
-        <h5>Numero de Caso: 
-          <br>
-          <strong id="codcaso"> </strong>
-        </h5>
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-success"onclick="location.reload()" >OK</button>
-      </div>
+      <!--END WIZARD-CONTENT-->
     </div>
+    <!--END COL-MD-11-->
   </div>
+  <!--END ROW-->
 </div>
-    </div>
-  </div>
-</div>
-</div>
-
-
-</div>
-</div>
+<!--END CONTAINER-->
 
 <script> var urlbase="<?php echo base_url("index.php/"); ?>"; </script>
+
 <script src="<?php echo base_url()?>public/js/estadoMunParroquia.js"></script>
+
 <script src="<?php echo base_url()?>public/js/registrarProyecto.js"></script>
+
 <script>
 
   $(function() {
@@ -139,9 +145,6 @@ input[type=number] { -moz-appearance:textfield; }
       }
  
   });
-
-
-
 
 
 

@@ -45,4 +45,5 @@ class Requerimientos extends CI_Controller {
 		$this->load->view('requerimiento/registrar');
 		$this->load->view('layout/footer');
 	}
+
 }
