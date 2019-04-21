@@ -82,7 +82,7 @@
                 'telefono2'			=>  $this->input->post('telefono2'), 
                 'profesion' 		=>$this->input->post('profesion'), 
                 'institucion_id'	=>0,
-                'principal'			=> true
+                'principal'			=> false
                 );
             
             //Consultar si existe alguna persona ya registrada con la cedula ingresada

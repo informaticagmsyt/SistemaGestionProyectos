@@ -32,7 +32,9 @@
                   <label class="" for="nombrerazonsocial">Nombre o Razon Social</label>
                   <input type="text" placeholder=""
                   
-                   id="nombrerazonsocial"  name="nombrerazonsocial" class="form-control" required>
+                   id="nombrerazonsocial" 
+                   value="<?php if (isset( $datos->nombre_empresa))echo $datos->nombre_empresa;?>"
+                    name="nombrerazonsocial" class="form-control" required>
                 </div>
               </div>
             </div>
@@ -48,7 +50,7 @@
                 
                       <select class="custom-select form-control" id="estado" 
                       required
-                      name="estado_id">
+                      name="estado">
                         <option value=""
                         >Seleccione un estado</option>
                       </select>
@@ -63,7 +65,7 @@
                   
                         <select 
                         
-                        class="custom-select form-control" id="municipio" name="municipio_id"
+                        class="custom-select form-control" id="municipio" name="municipio"
                         required
                         data-msg-required= "Seleccione un Municipio"
                         >
@@ -79,7 +81,7 @@
                     
                           <select class="custom-select form-control" id="parroquia"
                           required
-                          name="parroquia_id">
+                          name="parroquia">
                             <option value="">Seleccione una parroquia</option>
                           </select>
                         
@@ -101,6 +103,7 @@
                 <div class="col-md-3">
                         <label for="codigo_situr">Codigo Situr</label>
                         <input type="text" 
+                        value="<?php if (isset( $datos->codigo_situr))echo $datos->codigo_situr;?>"
                         required
                         class="form-control" id="codigo_situr" name="codigo_situr">
                 </div>
@@ -108,6 +111,7 @@
                         <label for="codigo_sunagro">Codigo Sunagro</label>
                         <input type="text"
                         required
+                        value="<?php if (isset( $datos->codigo_sunagro))echo $datos->codigo_sunagro;?>"
                          class="form-control" id="codigo_sunagro" name="codigo_sunagro" placeholder="00000000">
                 </div>
 

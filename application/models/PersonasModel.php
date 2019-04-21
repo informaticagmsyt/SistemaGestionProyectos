@@ -68,6 +68,8 @@ Class PersonasModel  extends CI_Model{
 
         return  array('result'=>false,
         ' data'=>  null);
+
+        
             }
     
 
@@ -89,4 +91,48 @@ public function registrarPersonaPerfil($data){
     }
 
 
+
+    public function getIntegrante($id){
+
+
+        $this->db->select('*');
+        $this->db->from('personas');
+
+        $this->db->join('requerimiento_persona',
+        'personas.id=requerimiento_persona.persona_id','inner');
+        
+        $this->db->join('persona_perfil',
+        'personas.id=persona_perfil.personas_id','inner');
+ 
+        $this->db->join('perfiles',
+        'persona_perfil.perfil_id=perfiles.id','inner');
+        $this->db->where('perfiles.id', 5);
+        $this->db->where('requerimiento_id',$id);
+    
+        $query = $this->db->get();
+
+
+        $index=array(); 
+        $i=0;
+        foreach ($query->result() as $row)
+        {
+
+
+            $index[]=$row;
+   
+         
+       
+
+        }
+       
+            if ($query->num_rows() > 0) {
+
+            return  array('result'=>true,
+                'data'=>  $index);
+            }
+
+            return  array('result'=>false,
+            ' data'=>  null);
+       
+        }
 }

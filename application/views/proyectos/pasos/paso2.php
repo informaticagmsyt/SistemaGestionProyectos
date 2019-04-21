@@ -14,7 +14,9 @@
                       <div class="col-md-6">
                           <div class="form-group ">
                               <label>Nombre del proyecto</label>
-                          <input type="text" placeholder="nombre" id="nombrep"
+                          <input type="text" placeholder="nombre" 
+                          value="<?php if (isset( $datos->profesion))echo $datos->nombres;?>"
+                          id="nombrep"
                           data-msg-required= "Ingrese un numero de teléfono"
                            name="nombrep" class="form-control" required>
                         </div>
@@ -27,8 +29,9 @@
                       
                             <select class="custom-select form-control" 
                             id="estatus_proyecto_id" 
+                            required
                             name="estatus_proyecto_id">
-                              <option value="0">Seleccione un opcion</option>
+                              <option value="">Seleccione un opcion</option>
                             </select>
                           
                         </div>
@@ -77,9 +80,11 @@
     <div class="col-md-6">
         <div class="form-group ">
             <label>Personas beneficiadas</label>
-        <input type="number" placeholder="personasbenificiadas" id="personasbenificiadas"
+        <input type="number"
+        value="<?php if (isset( $datos->personas_beneficiadas))echo $datos->personas_beneficiadas;?>"
+         placeholder="personasbenificiadas" id="personasbenificiadas"
    
-         name="nombrep" class="form-control" required>
+         name="personasbenificiadas" class="form-control" required>
       </div>
       </div>
 
@@ -88,7 +93,7 @@
         <div class="form-group ">
             <label>Población Beneficiada</label>
         <input type="number" placeholder="" id="poblacion"
-     
+        value="<?php if (isset( $datos->poblacion_beneficiada))echo $datos->poblacion_beneficiada;?>"
          name="poblacion" class="form-control" required>
       </div>
 
@@ -103,16 +108,16 @@
             <label>Descripcion del Proyecto</label>
   
             <textarea 
+        
             id="descripcion" 
-            value=""
+     
             data-msg-required= "Ingrese una descripcion"
-             name="descripcion" class="form-control" required > </textarea> 
+             name="descripcion" class="form-control" required > <?php if (isset( $datos->descripcion))echo $datos->descripcion;?></textarea>
       </div>
       </div>
   
       <input type="hidden"  id="cedula2"  name="cedula2"  >
       <input type="hidden"  id="cedula2"  name="cedula2"  >
-      <input type="hidden"  id="idrequerimiento"  name="idrequerimiento"  >
       <input type="hidden"  id="idproyecto"  name="idrequerimiento"  >
   </div>
         </div>

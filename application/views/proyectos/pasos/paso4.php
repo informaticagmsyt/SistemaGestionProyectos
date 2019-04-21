@@ -29,16 +29,19 @@
                 <div class="col-md-3">
                   <label class="" for="areaterreno"> 
                     Area de Terreno    <small>(M2)</small> </label>
-                  <input type="number" placeholder="" id="areaterreno" 
+                  <input type="number"
+                  
+                  value="<?php if (isset( $datos->area_terreno))echo $datos->area_terreno;?>"
+                   placeholder="" id="areaterreno" 
                   required
-                   name="numerorif" class="form-control" required>
+                   name="areaterreno" class="form-control" required>
                 </div>
                 <div class=" col-md-3">
                     <div class="form-group ">
                     <label class="" for="areaconstruccion"> Area de Construcción   
                         <small>(M2)</small></label>
                     <input type="number" placeholder=""
-                    
+                    value="<?php if (isset( $datos->area_construccion))echo $datos->area_construccion;?>"
                      id="areaconstruccion"  name="areaconstruccion" class="form-control" required>
                   </div>
                 </div>
@@ -62,9 +65,10 @@
       
                   <div class="col-md-12">
                       <label for="observaciones">Observaciones</label>
-                      <input type="text" 
+                    <textarea 
                       required
-                      class="form-control" id="observaciones" name="observaciones">
+                    
+                      class="form-control" id="observaciones" name="observaciones"><?php if (isset( $datos->observaciones))echo $datos->observaciones;?> </textarea> 
             
                     </div>
     
@@ -82,6 +86,7 @@
                   <div class="col-md-4">
                           <label for="acometida">Acometida <small>Aguas Blancas</small> </label>
                           <select name="acometida" 
+                          id="acometida"
                           required
                           class="form-control">
                               <option value="posee">Posee</option>
@@ -94,6 +99,7 @@
                   
                           <label for="vialidad">Vialidad  </label>
                           <select name="vialidad" 
+                          id="vialidad"
                           required
                           class="form-control">
                               <option value="Tierra">Tierra</option>
@@ -111,6 +117,7 @@
                        
                       </label>
                       <select name="aseourbano" 
+                      id="aseourbano"
                       required
                       class="form-control">
                           <option value="si">Si</option>
@@ -130,6 +137,7 @@
                       <div class="col-md-4">
                               <label for="servicioelectrico"> Servicio Electrico Acometida <small>acometida</small> </label>
                               <select name="servicioelectrico" 
+                              id="servicioelectrico"
                               required
                               class="form-control">
                                   <option value="posee">Posee</option>
@@ -143,6 +151,7 @@
                               <label for="serviciogas"> 
                                   Servicio de Gas  </label>
                               <select name="serviciogas" 
+                              id="serviciogas"
                               required
                               class="form-control">
                                   <option value="Directo">Directo</option>
@@ -155,7 +164,8 @@
                       </div>
                       <div class="col-md-4">
                           <label for="acometidaservidas">Acometida <small>Aguas Servidas</small> </label>
-                          <select name="acometidaservidas" 
+                          <select name="acometidaservidas"  
+                          id="acometidaservidas"
                           required
                           class="form-control">
                               <option value="posee">Posee</option>

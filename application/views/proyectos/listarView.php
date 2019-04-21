@@ -29,48 +29,9 @@ color:black;
 
 
 
-listar();
-function listar() {
 
-   var table= $('#datatablesProyectos').dataTable({
-      "language": idioma_espanol,
-      "ajax":{
 
-    "method":"GET",
-    "url":urlbase+"Proyectos/getAllProyecto"
-
-      },
-      "columns":[
-      {"data":"id_requerimiento"},
-      {"data":"nombre_proyecto"},
-      {"data":"descripcion"},
-      {"data":"categoria"},
-      {"data":"subcategoria"},
-      { 
-
-"render":
-function (data, type, row )
-  {
-
-    return (row['nombres'] + ' ' +  row['apellidos'] );
-  }
-
-},
-{"data":"codcaso"},
-{"defaultContent": "<button type='button' class='editar btn btn-info'><i class='fas fa-search'></i></button>  <button type='button' class=' btn btn-default'  ><i class='fas fa-clipboard-list'></i></button>"}
-
-      ]
-    });
-
-    $('#datatablesProyectos_wrapper .table-caption').text('Proyectos Registrados');
-    $('#datatablesProyectos_wrapper .dataTables_filter input').attr('placeholder', 'Buscar...');
-
-    data_editar("#datatablesProyectos tbody",table);
-    
-  }
-
-  
-  var idioma_espanol = {
+var idioma_espanol = {
             "sProcessing":     "Procesando...",
         "sLengthMenu": 'Mostrar <select>'+
             '<option value="10">10</option>'+
@@ -102,14 +63,75 @@ function (data, type, row )
         }
         }
 
+        listar(idioma_espanol);
+function listar(idioma_espanol) {
+
+   var table= $('#datatablesProyectos').dataTable({
+      "language": idioma_espanol,
+      "ajax":{
+
+    "method":"GET",
+    "url":urlbase+"Proyectos/getAllProyecto"
+
+      },
+      "columns":[
+      {"data":"id_requerimiento"},
+      {"data":"nombre_proyecto"},
+      {"data":"descripcion"},
+      {"data":"categoria"},
+      {"data":"subcategoria"},
+      { 
+
+"render":
+function (data, type, row )
+  {
+
+    return (row['nombres'] + ' ' +  row['apellidos'] );
+  }
+
+},
+{"data":"codcaso"},
+{"defaultContent":  " <button type='button' class='ver btn btn-primary'><i class='fas fa-search'></i></button> "+
+    " <button type='button' class='editar btn btn-info'><i class='far fa-edit'></i></button> "+
+    " <button type='button' class=' btn btn-default'  ><i class='fas fa-clipboard-list'></i></button> "}
+
+      ]
+    });
+
+    $('#datatablesProyectos_wrapper .table-caption').text('Proyectos Registrados');
+    $('#datatablesProyectos_wrapper .dataTables_filter input').attr('placeholder', 'Buscar...');
+
+    data_editar("#datatablesProyectos tbody",table);
+    data_ver ("#datatablesProyectos tbody",table)
+
+  }
+
+  
+
+
         function data_editar  (tbody,table){
+ var urlbase="<?php echo base_url(""); ?>"
 
 $(tbody).on("click", "button.editar",function(){
 
 //var data=table.row($(this).parents("tr") ).data();
 var id =$(this).parents("tr")[0].children[0].innerText 
 
-window.location="proyectos/editar/"+id+"";         
+window.location=urlbase+"proyectos/editar/"+id+"";         
+
+});
+        }
+
+
+        function data_ver (tbody,table){
+ var urlbase="<?php echo base_url(""); ?>"
+
+$(tbody).on("click", "button.ver",function(){
+
+//var data=table.row($(this).parents("tr") ).data();
+var id =$(this).parents("tr")[0].children[0].innerText 
+
+window.location=urlbase+"proyectos/ver/"+id+"";         
 
 });
         }
