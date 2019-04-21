@@ -35,9 +35,7 @@
             </li>
             <!--END LI-->
           </ul>
-          <!--END UL-->
-        <!--/div-->
-        <!--END WIZARD-WRAPPER-->  
+          <!--END UL-->  
       </div>
       <!--END WIZARD-->
 
