@@ -40,11 +40,10 @@ class Requerimientos extends CI_Controller {
 		$this->load->view('layout/nav');
 		$User['nombreUser']=$nombreUsuario['nombre'];
 		$this->load->view('layout/navar',$User);
-		
 		$this->load->view('layout/scriptjs');
 		$this->load->view('requerimiento/registrar');
 		$this->load->view('layout/footer');
 	}
-	/**END FUCTION CONSTRUCT**/
+	/**END FUCTION REGISTRAR**/
 }
 /**END CLASS**/

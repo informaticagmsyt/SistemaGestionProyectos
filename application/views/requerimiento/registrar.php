@@ -36,6 +36,8 @@
             <!--END LI-->
           </ul>
           <!--END UL-->
+        <!--/div-->
+        <!--END WIZARD-WRAPPER-->  
       </div>
       <!--END WIZARD-->
 
@@ -104,7 +106,7 @@
     <!--END COL-MD-11-->
   </div-->
   <!--END ROW-->
-</div-->
+</div>
 <!--END CONTAINER-->
 
 <script> var urlbase="<?php echo base_url("index.php/"); ?>"; </script>
