@@ -5,6 +5,7 @@
     <div class="col-md-11"> 
 
       <div class="wizard" id="wizard-basic">
+        
         <div class="wizard-wrapper">
           <ul class="wizard-steps">
             <li data-target="#wizard-example-step1" class="wizard1 wizard" >
@@ -15,6 +16,7 @@
               <span class="wizard-step-description">Identificación del Productor</span>
             </li>
             <!--END LI-->
+            
             <li data-target="#wizard-example-step2" class="wizard2 wizard">
               <span class="wizard-step-number">2</span>
               <span class="wizard-step-complete"><i class="fa fa-check text-success"></i></span>
@@ -29,13 +31,13 @@
       <!--END WIZARD-->
 
       <div class="wizard-content">
+        
         <div class="wizard-pane" id="wizard-example-step1">
   
           <form  method="POST" role="form" id="formpaso1">
 
             <?php include'pasos/paso1.php'; ?>
     
-
             <div class="pull-right">
               <button type="submit" class="btn btn-primary  pull-right" id="btnpaso1" >Guardar y continuar</button>
             </div>
