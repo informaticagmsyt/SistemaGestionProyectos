@@ -47,3 +47,4 @@ class Requerimientos extends CI_Controller {
 	}
 	/**END FUCTION CONSTRUCT**/
 }
+/**END CLASS**/
