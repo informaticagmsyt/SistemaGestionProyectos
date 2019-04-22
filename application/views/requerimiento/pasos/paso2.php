@@ -1,6 +1,6 @@
 <div class="panel">
   
-  <div id="msj2">
+  <div id="msj2"></div>
     
     <div class="panel-body">
   
@@ -84,7 +84,5 @@
       <input type="hidden"  id="idproyecto"  name="idrequerimiento"  >
     </div>
     <!--END PANEL-BODY-->
-  </div>
-  <!--END MSJ2-->
 </div>
 <!--END PANEL-->

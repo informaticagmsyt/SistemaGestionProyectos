@@ -241,7 +241,5 @@
       <!--END ROW-->
     </div>
     <!--END PANEL-BODY-->
-  </div>
-  <!--END MSJ-->
 </div>
 <!--END PANEL-->
