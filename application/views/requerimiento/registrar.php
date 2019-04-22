@@ -111,7 +111,7 @@
 
 <script src="<?php echo base_url()?>public/js/estadoMunParroquia.js"></script>
 
-<script src="<?php echo base_url()?>public/js/registrarProyecto.js"></script>
+<script src="<?php echo base_url()?>public/js/registrarRequerimiento.js"></script>
 
 <script>
 

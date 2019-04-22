@@ -1,6 +1,6 @@
 <div class="panel">
   
-  <div id="msj">
+  <div id="msj"></div>
       
     <div class="panel-body">
       
