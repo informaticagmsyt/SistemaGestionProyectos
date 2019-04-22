@@ -118,7 +118,7 @@ class Test extends CI_Controller {
 
 	public function html()
 	{
-			
+		$objPHPExcel = new PHPExcel();
 		$this->load->view('test/html');
 	}
 
