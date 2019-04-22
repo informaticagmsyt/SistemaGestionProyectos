@@ -177,11 +177,13 @@ $.ajax({
    var data= res.data
    console.log(data)
 if(res.response.status="ok" && res.response.http_code==200){
+  $('#formpaso1')[0].reset()//para limpiar los campos al introducir una cedula nueva
   $("#identificacion").removeClass("form-loading");
     $("#nombres").val(data.nombres)
     $("#apellidos").val(data.apellidos)
     setValueSelect("sexo",data.sexo)
     $("#fechanac").val(data.fec_nacimiento)
+    $('#cedula').val(data.cedula)//para mantener la cedula a consultar y que no se elimine
   
     if(res.data.datapersona){
    var datapersona = res.data.datapersona;

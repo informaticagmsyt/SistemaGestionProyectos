@@ -54,7 +54,7 @@ document.querySelector("#formpaso1").addEventListener("submit", function(e){
       });
 
 
-        /*****PASO 5 */
+        /*****PASO 4 */
         $("#formpaso4").validate();
         document.querySelector("#formpaso4").addEventListener("submit", function(e){
           e.preventDefault();    //stop form from submitting
