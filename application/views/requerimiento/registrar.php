@@ -30,76 +30,78 @@
               <span class="wizard-step-number">2</span>
               <span class="wizard-step-complete"><i class="fa fa-check text-success"></i></span>
               <span class="wizard-step-caption">
-              Paso 2
+              Final
               <span class="wizard-step-description">Datos del Requerimiento</span>
             </li>
             <!--END LI-->
           </ul>
           <!--END UL-->  
-      </div>
-      <!--END WIZARD-->
+        </div>
+        <!--END WIZARD-WRAPPER-->
 
-      <div class="wizard-content">
+        <div class="wizard-content">
         
-        <div class="wizard-pane" id="wizard-example-step1">
+          <div class="wizard-pane" id="wizard-example-step1">
   
-          <form  method="POST" role="form" id="formpaso1">
+            <form  method="POST" role="form" id="formpaso1">
 
-            <?php include'pasos/paso1.php'; ?>
+              <?php include'pasos/paso1.php'; ?>
     
-            <div class="pull-right">
-              <button type="submit" class="btn btn-primary  pull-right" id="btnpaso1" >Guardar y continuar</button>
-            </div>
-            <!--END PULL-RIGHT-->
-          </form>
-          <!--END FORM-->
-        
-        </div>
-        <!--END WIZARD-PANE-->  
- 
-        <div class="wizard-pane" id="wizard-example-step2">
-          
-          <form  method="POST" role="form" id="formpaso2">
-            
-            <?php include'pasos/paso2.php'; ?>
-      
-            <button type="button" class="btn btn-primary" style="visibility:hidden" data-wizard-action="next" id="paso2">Guardar y Continuar</button>
-
-            <div class="pull-right">
-              <button type="button" class="btn"  onclick="regresar(1)">Regresar</button>
-              <button type="submit" class="btn btn-primary" id="btnpaso2" >Guardar y Continuar</button>
-            </div>
-            <!--END PULL-RIGHT-->    
-          </form>
-          <!--END FORM-->
-        
-        </div>
-        <!--END WIZARD-PANE-->
-        
-        <div id="modal-success" class="modal fade modal-alert modal-success">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header"><i class="fa fa-check-circle"></i></div>
-              <div class="modal-title">Requerimiento registrado exitosamente</div>
-              <div class="modal-body">
-                <h5>Numero de Caso: 
-                  <br>
-                  <strong id="codcaso"> </strong>
-                </h5>
+              <div class="pull-right">
+                <button type="submit" class="btn btn-primary  pull-right" id="btnpaso1" >Guardar y continuar</button>
               </div>
-              <!--END MODAL-BODY-->
-              <div class="modal-footer">
-                <button type="button" class="btn btn-success"onclick="location.reload()" >OK</button>
-              </div>
-              <!--END MODAL-FOOTER-->
-            </div>
-            <!--END MODAL-CONTENT-->
+              <!--END PULL-RIGHT-->
+            </form>
+            <!--END FORM-->
+        
           </div>
-          <!--END MODAL-DIALOG-->
+          <!--END WIZARD-PANE-->  
+ 
+          <div class="wizard-pane" id="wizard-example-step2">
+          
+            <form  method="POST" role="form" id="formpaso2">
+            
+              <?php include'pasos/paso2.php'; ?>
+      
+              <button type="button" class="btn btn-primary" data-wizard-action="finish">Finalizar</button>
+
+              <div class="pull-right">
+                <button type="button" class="btn"  onclick="regresar(1)">Regresar</button>
+                <button type="submit" class="btn btn-primary" id="btnpaso2" >Guardar y Continuar</button>
+              </div>
+              <!--END PULL-RIGHT-->    
+            </form>
+            <!--END FORM-->
+        
+          </div>
+          <!--END WIZARD-PANE-->
+        
+          <div id="modal-success" class="modal fade modal-alert modal-success">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header"><i class="fa fa-check-circle"></i></div>
+                <div class="modal-title">Requerimiento registrado exitosamente</div>
+                <div class="modal-body">
+                  <h5>Numero de Caso: 
+                    <br>
+                    <strong id="codcaso"> </strong>
+                  </h5>
+                </div>
+                <!--END MODAL-BODY-->
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-success"onclick="location.reload()" >OK</button>
+                </div>
+                <!--END MODAL-FOOTER-->
+              </div>
+              <!--END MODAL-CONTENT-->
+            </div>
+            <!--END MODAL-DIALOG-->
+          </div>
+          <!--END MODAL-SUCCESS-->
         </div>
-        <!--END MODAL-SUCCESS-->
+        <!--END WIZARD-CONTENT-->
       </div>
-      <!--END WIZARD-CONTENT-->
+      <!--END WIZARD-->  
     </div>
     <!--END COL-MD-11-->
   </div-->

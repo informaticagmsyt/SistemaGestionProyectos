@@ -177,5 +177,17 @@ class Requerimientos extends CI_Controller {
 	{
 		
 	}
+
+	public function consultar()
+	{
+		$nombreUsuario = $this->session->userdata('user_data');
+		$this->load->view('layout/header');
+		$this->load->view('layout/nav');
+		$User['nombreUser']=$nombreUsuario['nombre'];
+		$this->load->view('layout/navar',$User);
+		$this->load->view('layout/scriptjs');
+		$this->load->view('requerimiento/consultar');
+	}
+	/**END FUNCTION CONSULTAR**/
 }
 /**END CLASS**/
