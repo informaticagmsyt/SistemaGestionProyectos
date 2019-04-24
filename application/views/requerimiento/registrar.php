@@ -25,7 +25,7 @@
               <span class="wizard-step-description">Identificación del Productor</span>
             </li>
             <!--END LI-->
-            
+              
             <li data-target="#wizard-example-step2" class="wizard2 wizard">
               <span class="wizard-step-number">2</span>
               <span class="wizard-step-complete"><i class="fa fa-check text-success"></i></span>
