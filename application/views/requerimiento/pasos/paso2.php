@@ -1,4 +1,4 @@
-    <div class="panel">
+<div class="panel">
   
   <div id="msj2"></div>
     
