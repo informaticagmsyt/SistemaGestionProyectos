@@ -1,4 +1,4 @@
-<style>
+<!--style>
   input[type=number]::-webkit-inner-spin-button, 
   input[type=number]::-webkit-outer-spin-button { 
   -webkit-appearance: none; 
@@ -6,7 +6,7 @@
   }
 
   input[type=number] { -moz-appearance:textfield; }
-</style>
+</style-->
 <div class="container"> 
   
   <div class="row"> 
@@ -101,7 +101,7 @@
         </div>
         <!--END WIZARD-CONTENT-->
       </div>
-      <!--END WIZARD-->  
+      <!--END WIZARD-->   
     </div>
     <!--END COL-MD-11-->
   </div-->
