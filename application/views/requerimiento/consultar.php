@@ -59,7 +59,7 @@
                 <div class=" col-sm-4">
                   <label class="" for="grid-input-11"></label>
                   <br>
-                  <button type="button" class="btn btn-primary" onclick="consultarPersona()">Consultar</button>
+                  <button type="button" class="btn btn-primary" onclick="getEstatusProyecto()">Consultar</button>
                 </div>
                 <!--END COL-SM-4-->
               </div>
