@@ -40,7 +40,7 @@ document.querySelector("#formpaso1").addEventListener("submit", function(e){
   
 
 
-                    /*****PASO 3 */
+                    /*****PASO 3 *
                     $("#formpaso3").validate();
          document.querySelector("#formpaso3").addEventListener("submit", function(e){
           e.preventDefault();    //stop form from submitting
@@ -54,7 +54,7 @@ document.querySelector("#formpaso1").addEventListener("submit", function(e){
       });
 
 
-        /*****PASO 4 */
+        /*****PASO 4 *
         $("#formpaso4").validate();
         document.querySelector("#formpaso4").addEventListener("submit", function(e){
           e.preventDefault();    //stop form from submitting
@@ -66,7 +66,7 @@ document.querySelector("#formpaso1").addEventListener("submit", function(e){
                
       });
 
-             /*****PASO 5 */
+             /*****PASO 5 *
              $("#formpaso5").validate();
              document.querySelector("#formpaso5").addEventListener("submit", function(e){
                e.preventDefault();    //stop form from submitting
@@ -85,7 +85,7 @@ document.querySelector("#formpaso1").addEventListener("submit", function(e){
          else           
       $("#sub_categoria_id").html("<option value=''>Seleccione una opcion<option>");
 
-      });
+      });*/
 
  
      
@@ -220,7 +220,7 @@ $("#btnpaso2").text("Guardando...")
 }
 
 
-
+/**
 function regitrarPaso3(){
 
 
@@ -403,7 +403,7 @@ $("#btnpaso5").addClass("disabled")
 
 
 }
-
+**/
 
 function getCategoria(selector) {
 
