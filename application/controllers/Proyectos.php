@@ -676,7 +676,7 @@ public function  GuardarEdit(){
 					"observaciones"				 =>$this->input->post('observaciones'),
 					"acometida_agua_blanca"		 =>$this->input->post('acometida'),
 					"aceo_urbano"		 		 =>$this->input->post('aseourbano'),
-
+				
 					"estatus_proyecto_id"		 		 =>$this->input->post('estatus_proyecto_id'),
 					"servicio_electrico"		 =>$this->input->post('servicioelectrico'),
 					"servicios_gas"		 		 =>$this->input->post('serviciogas'),
@@ -798,5 +798,7 @@ if(!$resultPersonas['result']){
 	->set_output(json_encode($result));
 
    }
+
+
 }
 

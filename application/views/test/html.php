@@ -35,6 +35,32 @@
             </tr>
 
             <tr>
+                <td><strong>Estado:</strong> </td>
+            </tr>
+            <tr>
+                <td><strong>Municipio:</strong> </td>
+            </tr>
+            <tr>
+                <td><strong>Parroquia:</strong> </td>
+            </tr>
+
+
+            <tr>
+                <th>Datos del productor</th>
+            </tr>
+
+            <tr>
+                <td><strong>Nombre:</strong></td>
+            </tr>
+
+            <tr>
+                <td><strong> Telafono :</strong>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>Correo:</strong> </td>
+            </tr>
+            <tr>
                 <th>Datos de la Unidad de Producción</th>
             </tr>
 
@@ -51,11 +77,23 @@
             </tr>
 
             <tr>
-                    <th>DATOS DE LA TAREA
-                        </th>
-                </tr>
-        </tbody>
+                <th>Seguimiento y Control
+                </th>
 
+
+            </tr>
+
+            <tr>
+                <td><strong> Obsersavación :</strong>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>Recomendaciones:</strong> </td>
+            </tr>
+
+
+        </tbody>
+                <img src="public/img/banner.png" alt="">
     </table>
 
 </body>

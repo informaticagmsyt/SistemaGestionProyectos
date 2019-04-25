@@ -93,7 +93,7 @@ function (data, type, row )
 {"data":"codcaso"},
 {"defaultContent":  " <button type='button' class='ver btn btn-primary'><i class='fas fa-search'></i></button> "+
     " <button type='button' class='editar btn btn-info'><i class='far fa-edit'></i></button> "+
-    " <button type='button' class=' btn btn-default'  ><i class='fas fa-clipboard-list'></i></button> "}
+    " <button type='button' class='verpdf btn btn-default'  ><i class='fas fa-clipboard-list'></i></button> "}
 
       ]
     });
@@ -103,7 +103,7 @@ function (data, type, row )
 
     data_editar("#datatablesProyectos tbody",table);
     data_ver ("#datatablesProyectos tbody",table)
-
+    data_verpdf  ("#datatablesProyectos tbody",table)
   }
 
   
@@ -132,6 +132,21 @@ $(tbody).on("click", "button.ver",function(){
 var id =$(this).parents("tr")[0].children[0].innerText 
 
 window.location=urlbase+"proyectos/ver/"+id+"";         
+
+});
+        }
+
+
+        
+        function data_verpdf (tbody,table){
+ var urlbase="<?php echo base_url(""); ?>"
+
+$(tbody).on("click", "button.verpdf",function(){
+
+//var data=table.row($(this).parents("tr") ).data();
+var id =$(this).parents("tr")[0].children[0].innerText 
+
+window.location=urlbase+"reportes/pdfproyecto/"+id+"";         
 
 });
         }

@@ -14,7 +14,7 @@
 
        
             <div class="row">
-                <div class=" col-sm-2 ">
+                <div class=" col-sm-1 ">
     
                     <label for="rif" class="col-md-3 control-label">Rif</label>
                   
@@ -26,8 +26,17 @@
                       <option value="G">G</option>
                     </select>
                     </div>
+
+                    <div class=" col-sm-4 ">
+                      <div class="form-group ">
+    <label for="rif" class=" control-label"> Numero Rif</label>
   
-              <div class=" col-sm-6">
+    <input class="custom-select form-control" id="numerorif" name="numerorif" required>
+    
+  </div>
+    </div>
+  
+              <div class=" col-sm-4">
                   <div class="form-group ">
                   <label class="" for="nombrerazonsocial">Nombre o Razon Social</label>
                   <input type="text" placeholder=""
