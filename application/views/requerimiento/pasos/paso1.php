@@ -242,4 +242,5 @@
     </div>
     <!--END PANEL-BODY-->
 </div>
+</div>
 <!--END PANEL-->
