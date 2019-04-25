@@ -62,12 +62,11 @@
             <form  method="POST" role="form" id="formpaso2">
             
               <?php include'pasos/paso2.php'; ?>
-      
-              <button type="button" class="btn btn-primary" data-wizard-action="finish">Finalizar</button>
+              
 
               <div class="pull-right">
                 <button type="button" class="btn"  onclick="regresar(1)">Regresar</button>
-                <button type="submit" class="btn btn-primary" id="btnpaso2" >Guardar y Continuar</button>
+                <button type="submit" class="btn btn-primary" id="btnpaso2" data-wizard-action="finish">Guardar y Continuar</button>
               </div>
               <!--END PULL-RIGHT-->    
             </form>

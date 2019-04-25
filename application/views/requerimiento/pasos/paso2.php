@@ -13,8 +13,8 @@
         <div class="col-md-6">
                           
           <div class="form-group ">
-            <label>Nombre del Requerimiento</label>
-              <input type="text" placeholder="nombrereq" id="nombrereq" data-msg-required= "Ingrese un nombre" name="nombrereq" class="form-control" required>
+            <label>Descripcion del Requerimiento</label>
+              <textarea type="text" placeholder="nombrereq" id="nombrereq" data-msg-required= "Ingrese un nombre" name="nombrereq" class="form-control" required="true"> </textarea>
           </div>
           <!--END FORM-GROUP-->
         </div>
