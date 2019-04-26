@@ -1,25 +1,23 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-?><!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-	<title>Curso CodeIgniter</title>
+?>
 
 
-</head>
-<body>
 
-<div id="container">
+<h1 class="text-center text-danger"> Sistema para la Gestión de Proyectos</h1>
 
+<div class="row">
+<div class="col-md-5 col-md-offset-4">
+<div class="logo" >
+<img src="public/img/gmsyt.png" alt="">
 
-	<div id="body">
-		
-	</div>
-
-	
 </div>
 
-</body>
-</html>
+
+
+
+</div>
+
+</div>
+<h5  class="text-center text-info"> Bienvenido: <b><?php echo $nombreUser; ?></b></h5>

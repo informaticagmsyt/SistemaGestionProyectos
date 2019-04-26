@@ -57,7 +57,7 @@
         <a href="#"><i class="px-nav-icon ion-stats-bars"></i><span class="px-nav-label">Reportes</span></a>
 
         <ul class="px-nav-dropdown-menu">
-          <li class="px-nav-item"><a href="#"><span class="px-nav-label">Flot.js</span></a></li>
+          <li class="px-nav-item"><a href="<?php echo base_url('reportes/excelProyecto');?>"><span class="px-nav-label">Proyectos Excel</span></a></li>
           <li class="px-nav-item"><a href="#"><span class="px-nav-label">Morris.js</span></a></li>
 
         </ul>

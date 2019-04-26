@@ -41,7 +41,7 @@ class Welcome extends CI_Controller {
 		$User['nombreUser']=$nombreUsuario['nombre'];
 		$this->load->view('layout/navar',$User);
 		$this->load->view('layout/scriptjs');	
-		$this->load->view('welcome_message');
+		$this->load->view('welcome_message',$User);
 		$this->load->view('layout/footer');
 	}
 }

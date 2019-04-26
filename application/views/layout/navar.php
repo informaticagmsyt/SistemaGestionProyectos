@@ -2,7 +2,7 @@
   <nav class="navbar px-navbar">
   
     <div class="navbar-header">
-      <a class="navbar-brand px-demo-brand" href="index.html">
+      <a class="navbar-brand px-demo-brand" href="<?php echo base_url();?>">
           <span class="px-demo-logo bg-primary">GMSYT</span>
               <span class="px-demo-logo-1">
 

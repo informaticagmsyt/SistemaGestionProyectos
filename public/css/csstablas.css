@@ -20,3 +20,10 @@
     background-color: #AB2206;
     color: white;
   }
+
+  .float-right{
+    float: right;
+    padding-left: 50%;
+    text-align: right;
+    font-size: 12px;
+  }

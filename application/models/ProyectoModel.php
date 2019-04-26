@@ -59,9 +59,12 @@ Class ProyectoModel  extends CI_Model{
     public function getAll(){
 
 
-        $this->db->select(' requerimientos.descripcion, codcaso,  proyectos.nombre as nombre_proyecto,categoria.descripcion as categoria,
+        $this->db->select(' requerimientos.descripcion, telefono,telefono2, personas.direccion, codcaso, estado,municipio,parroquia, 
+        proyectos.nombre as nombre_proyecto,estatus_proyecto.descripcion as estatus_proyecto,
+        
+        categoria.descripcion as categoria,proyectos.*,
         sub_categoria.descripcion as subcategoria, nombres, apellidos,
-         personas.id as id_persona, requerimientos.id as id_requerimiento');
+         personas.id as id_persona,personas.email, requerimientos.id as id_requerimiento');
         $this->db->from('personas');
       
         $this->db->join('requerimiento_persona',
@@ -80,6 +83,18 @@ Class ProyectoModel  extends CI_Model{
 
        $this->db->join('proyectos',
         'requerimientos.id=proyectos.requerimiento_id','inner');
+
+        $this->db->join('estados',
+        'estados.id_estado=requerimientos.estado_id','inner');
+
+        $this->db->join('municipios',
+        'municipios.id_municipio=requerimientos.municipio_id','inner');
+
+        $this->db->join('parroquias',
+        'parroquias.id_parroquia=requerimientos.parroquia_id','inner');
+
+        $this->db->join('estatus_proyecto',
+        'estatus_proyecto.id=estatus_proyecto_id','inner');
      
        
         $this->db->where('principal', true);
