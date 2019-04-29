@@ -56,4 +56,4 @@ $route['proyectos/index']='preyectos';
 
 //$route['test'] = 'test/index';
 $route['translate_uri_dashes'] = FALSE;
-//$route['tutores/registrar'] = 'tutores/registrar';
+$route['tutores/registrar'] = 'tutores';

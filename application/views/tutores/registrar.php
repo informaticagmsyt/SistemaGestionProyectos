@@ -10,7 +10,7 @@
 
                     <div class="col-sm-2">
                         <label for="nacionalidad">Nacionalidad</label>
-                        <select class="custom-select form-control" name="nacionalidad" id="nacionalidad">
+                        <select class="custom-select form-control" name="nacionalidad" id="nacionalidad" required>
                             <option value="V">V</option>
                             <option value="E">E</option>
                         </select>
@@ -59,7 +59,7 @@
                 <div class="col-sm-2">
                     <div class="form-group">
                         <label for="sexo">Sexo</label>
-                        <select class="custom-select form-control" name="sexo" id="sexo">
+                        <select class="custom-select form-control" name="sexo" id="sexo" required>
                             <option value="M">Masculino</option>
                             <option value="F">Femenino</option>
                         </select>
@@ -152,7 +152,8 @@
                 <div class="col-sm-3">
                     <div class="form-group">
                         <label for="v_social">Vinculación Social</label>
-                        <select class="custom-select form-control" name="v_social" id="v_social">
+                        <select class="custom-select form-control" name="v_social" id="v_social" required data-msg-required="Seleccione una Vinculacion Social">
+                            <option value="">Seleccione una Vinculacion Social</option>
                             <option value="clap">Estructura Clap</option>
                             <option value="consejo comunal">Consejo Comunal</option>
                             <option value="jefe de calle">Jefe de Calle</option>
@@ -174,8 +175,8 @@
                 <div class="col-sm-3">
                     <div class="form-group">
                         <label for="institucion_id">Institucion a la que Pertenece</label>
-                        <select class="form-control custom-select" name="institucion_id" id="institucion_id">
-                            <option value="0">Seleccione una institución</option>
+                        <select class="form-control custom-select" name="institucion_id" id="institucion_id" required data-msg-required="Seleccione una Institución">
+                            <option value="">Seleccione una institución</option>
                         </select>
                     </div>
                     <!--End Form-gorup-->
@@ -186,7 +187,7 @@
                     <div class="form-group">
                         <label for="cargo">Cargo que ejerce</label>
                         <select class="form-control custom-select" name="cargo" id="cargo">
-                            <option value="0">Seccione Cargo</option>
+                            <option value="1">Seccione Cargo</option>
                         </select>
                     </div>
                 </div>
@@ -203,8 +204,8 @@
                 <div class="col-sm-4">
                     <div class="form-group">
                         <label for="estado_id">Estado</label>
-                        <select class="custom-select form-control" name="estado_id" id="estado_id">
-                            <option value="0">Seleccione un estado</option>
+                        <select class="custom-select form-control" name="estado_id" id="estado_id" required data-msg-required="Seleccione un Estado">
+                            <option value="">Seleccione un estado</option>
                         </select>
                     </div>
                     <!--End Form-Group-->
@@ -214,7 +215,7 @@
                 <div class="col-sm-4">
                     <div class="form-group">
                         <label for="municipio_id">Municipio</label>
-                        <select class="custom-select form-control" name="municipio_id" id="municipio_id">
+                        <select class="custom-select form-control" name="municipio_id" id="municipio_id" required data-msg-required="Seleccione un Municipio">
                             <option value="">Seleccione un Municipio</option>
                         </select>
                     </div>
@@ -225,7 +226,7 @@
                 <div class="col-sm-4">
                     <div class="form-group">
                         <label for="parroquia_id">Parroquia</label>
-                        <select class="custom-select form-control" name="parroquia_id" id="parroquia_id">
+                        <select class="custom-select form-control" name="parroquia_id" id="parroquia_id" required data-msg-required="Seleccione un Parroquia">
                             <option value="">Seleccione una Parroquia</option>
                         </select>
                     </div>
@@ -257,6 +258,21 @@
     </div>
     <!--End Panel-->
 
+    <div id="modal" class="modal fade modal-alert modal-success">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header"><i class="fa fa-check-circle"></i></div>
+                <div class="modal-title">Tutor Registrado</div>
+                <div class="modal-body"></div>
+                <div class="modal-footer">
+                    <a class="btn btn-success" data-dismiss="modal">OK</a>
+                </div>
+            </div>
+            <!--End Modal Content-->
+        </div>
+        <!--End Modal dialog-->
+    </div>
+    <!--End Modal-->
 </div>
 <!--End Container-->
 <script> var urlbase="<?php echo base_url("index.php/"); ?>"; </script>
@@ -271,11 +287,12 @@ $(function() {
 });
 
 $("#formTutor").validate();
-
+    
 $('#formTutor').submit(function(e){
-  
     e.preventDefault(); 
-
+    var v  = $(this).valid();
+    //var vselect = validSelect();
+    
     //Arreglo que servira para enviar data mediante AJAX
     //data = []
     
@@ -294,14 +311,15 @@ $('#formTutor').submit(function(e){
          }
     }
     /**/
-    
     /* Recorrer y mostrar Data 
     console.log('----------DATA-------------')
     for(var i = 0; i < data.length; i++){
             console.log(data[i])
          }
     /**/
-
+    
+    if(v){
+       
     //* Registrar datos mediante ajax 
         $.ajax({
             url: urlbase+"Tutores/registrarDatos" ,
@@ -312,27 +330,40 @@ $('#formTutor').submit(function(e){
             },
             success: function(res) {
                 if(res != false){
-                    swal({
-                        title:"Error al Registrar",
-                        text: "El tutor ya se encuentra registrado",
-                        icon:"error",
-                        button:"Aceptar"
-                    })
+                    $('#modal .modal-title').text('Error al Registrar');
+                    $('#modal .modal-body').text('El tutor ya se encuentra registrado');
+                    $('#modal').removeClass('modal-success').addClass('modal-danger');
+                    $('#modal .fa').removeClass('fa-check-circle').addClass('fa-times-circle');
+                    $('#modal .btn').removeClass('btn-success').addClass('btn-danger');
+                    $('#modal').modal('show');
+                    //swal({
+                    //    title:"Error al Registrar",
+                    //    text: "El tutor ya se encuentra registrado",
+                    //    icon:"error",
+                    //    button:"Aceptar"
+                    //})
                 }else{
+                    $('#modal .modal-body').text(res);
+                    $('#modal .btn').setAttr('onclick','location.href="<?php echo base_url(); ?>index.php/Tutores/listado"');
+                    $('#modal').modal('show');
+                    
                     //alert(res)
-                    swal({
-                        title: "Tutor Registrado",
-                        text: res,
-                        icon: "success",
-                        button: "Aceptar",
-                        }). then((value) => {location.href="<?php echo base_url(); ?>index.php/Tutores/listado";});
+                    //swal({
+                    //    title: "Tutor Registrado",
+                    //    text: res,
+                    //    icon: "success",
+                    //    button: "Aceptar",
+                    //   }). then((value) => {location.href="<?php echo base_url(); ?>index.php/Tutores/listado";});
                 }
             }
             }).fail(function(re){
                 console.log(re.responseText)
             });
+        
     /**/
-
+        }else{
+            console.log('FALTAN CAMPOS POR COMPLETAR');
+        }
 });
 
 /*
@@ -347,6 +378,7 @@ $('.form_date').datetimepicker({
       forceParse: 0
   });
 /**/
+
   $(".prev").addClass("fas fa-chevron-left")
   
   $(".next").addClass("fas fa-chevron-right")
@@ -361,7 +393,7 @@ cedula:cedula
 }
 
 $.ajax({
-url: urlbase+"DatosPersonaC/findJSON" ,
+url: urlbase+"proyectos/getDatosPersonasJSON" ,
 type: "POST",
 dataType: "JSON",
 data: data,

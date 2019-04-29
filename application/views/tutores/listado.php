@@ -7,7 +7,7 @@
         <!--<div class="panel-body">-->
 
 
-            <div class="table-primary">
+            <div class="table-info">
                 <table class="table table-hover table-bordered" id="datatablesTutores">
                     <thead>
                         <th>Nombres</th>
@@ -33,7 +33,7 @@
                             </td>
                             <td><?php echo $persona->cargo?></td>
                             <td><?php echo $persona->institucion_id?></td>
-                            <td><a href="<?php echo base_url(); ?>index.php/Tutores/editar/<?php echo $persona->personas_id ?>" class="btn btn-primary"><i class="fas fa-edit"></i></a></td>
+                            <td><a href="<?php echo base_url(); ?>index.php/Tutores/editar/<?php echo $persona->personas_id ?>" class="btn btn-info"><i class="fas fa-edit"></i></a></td>
                         </tr>
                         <?php } ?>
                     </tbody>
