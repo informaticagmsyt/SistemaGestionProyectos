@@ -17,7 +17,7 @@
                         <th>Proyectos Asignados</th>
                         <th>Cargo</th>
                         <th>Institución a la que Pertenece</th>
-                        <th>Editar</th>
+                        <th>Acciones</th>
                     </thead>
                     <tbody>
                         <?php foreach($registros as $persona){ ?>
@@ -27,13 +27,16 @@
                             <td><?php echo $persona->email?></td>
                             <td><?php echo $persona->telefono?></td>
                             <td>
-                                <ul id="proyectos" style="list-style:none;">
-                                
-                                </ul>
+                                <a href="">Proyecto 1</a>
+                                <br>
+                                <a href="">Proyecto 2</a>
                             </td>
                             <td><?php echo $persona->cargo?></td>
                             <td><?php echo $persona->institucion_id?></td>
-                            <td><a href="<?php echo base_url(); ?>index.php/Tutores/editar/<?php echo $persona->personas_id ?>" class="btn btn-info"><i class="fas fa-edit"></i></a></td>
+                            <td>
+                            <a href="#" class="btn btn-info"><i class="fas fa-  search"></i></a>
+                            <a href="<?php echo base_url(); ?>index.php/Tutores/editar/<?php echo $persona->personas_id ?>" class="btn btn-info"><i class="fas fa-edit"></i></a>
+                            </td>
                         </tr>
                         <?php } ?>
                     </tbody>
@@ -91,10 +94,5 @@
   $('#datatablesTutores_wrapper .dataTables_filter input').attr('placeholder', 'Buscar...');
   $('select[name=datatablesTutores_length]').addClass('custom-select');
 
-
-</script>
-<script>
-var x = document.getElementById('proyectos');
-x.innerHTML = '<li>Proyecto1</li><li>Proyecto 2</li>';
 
 </script>
