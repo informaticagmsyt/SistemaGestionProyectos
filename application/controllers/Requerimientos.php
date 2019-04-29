@@ -175,7 +175,65 @@ class Requerimientos extends CI_Controller {
 
 	public function registrarPaso2()
 	{
+		$user=	$this->session->userdata('user_data');
+
+		$actualizar=false;
+		if(!empty($_SESSION['requerimiento_id'])){
 		
+			$actualizar=true;
+			
+		   }
+		   if($actualizar){
+
+			$datos = array(
+				'descripcion'           =>$this->input->post('descripcion'),
+				'categoria_id'         	=>$this->input->post('categoria_id'),
+				'sub_categoria_id'      =>$this->input->post('sub_categoria_id'),
+				'user_id'           =>$user['id']						
+
+
+		);
+
+			$_SESSION['requerimiento_id']);
+
+
+			$Urequerimiento=$this->RequerimientosModel->update($datos,$_SESSION['requerimiento_id']);
+			if($Urequerimiento){
+				$response=array(
+					"result"	=>true,
+					"mensaje"	=>"Se Actualizaron los datos exitosamente",
+			
+					);
+				}
+
+			else{
+
+				$response=array(
+					"result"	=>false,
+					"mensaje"	=>"Ocurrio un Error al intentar actualizar",
+			
+					);
+
+			}
+
+			$this->output
+			->set_content_type('application/json')
+			->set_output(json_encode($response));
+
+		    }else{
+
+
+		  	   
+			$datos = array(
+						'descripcion'           =>$this->input->post('descripcion'),
+						'categoria_id'         	=>$this->input->post('categoria_id'),
+						'sub_categoria_id'      =>$this->input->post('sub_categoria_id'),
+						'user_id'           	=>$user['id']						
+		
+	 
+				);
+
+			$idrequerimiento=$this->RequerimientosModel->registrar($datos);
 	}
 
 	public function consultar()

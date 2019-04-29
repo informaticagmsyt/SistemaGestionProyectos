@@ -63,21 +63,7 @@
         <!--END COL-MD-6-->
       </div>
       <!--END ROW-->
-      
-      <hr>
-        
-      <div class="row">
-        
-        <div class="col-md-12">
-        
-          <div class="form-group ">
-            <label>Descripcion del Proyecto</label>
-              <textarea id="descripcion" value="" data-msg-required= "Ingrese una descripcion" name="descripcion" class="form-control" required > </textarea> 
-          </div>
-          <!--END FORM-GROUP-->
-      </div>
-      <!--END ROW-->
-  
+
       <input type="hidden"  id="cedula2"  name="cedula2"  >
       <input type="hidden"  id="cedula2"  name="cedula2"  >
       <input type="hidden"  id="idrequerimiento"  name="idrequerimiento"  >
