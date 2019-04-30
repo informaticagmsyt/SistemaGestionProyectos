@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # Permite reescribir las peticiones de URL
+=======
+	# Permite reescribir las peticiones de URL
+>>>>>>> 83ec50915dab8876ef53c1270f6e89970122062e
 RewriteEngine On
 
 # Si el archivo y la carpeta no existen hacer siguiente reescritura
