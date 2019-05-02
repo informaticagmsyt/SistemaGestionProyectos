@@ -1,7 +1,6 @@
 <div class="container">
 
 
-    <form method="POST" role="form" id="formTutor">
     <div class="wizard" id="wizard-basic">
         <div class="wizard-wrapper">
             <ul class=wizard-steps>
@@ -29,7 +28,7 @@
         <div class="wizard-content">
             <div class="wizard-pane" id="wizard-example-step1">
                 <div class="panel">
-
+                <form method="POST" role="form" id="formTutor">
                     <div class="panel-body">
                         
                         <div class="row form-group">
@@ -230,14 +229,16 @@
                 <div class="pull-right">
                     <button class="btn btn-primary" type="submit"  data-wizard-action="next">Guardar y continuar</button>
                 </div>
+                </form>
                 <!--End Pull-right-->
             </div>
             <!--End Wizard-pane step1-->
 
             <div class="wizard-pane" id="wizard-example-step2">
                 <div class="panel">
-                    <div class="panel-body">
-                       <form id="form_usuarios" class="form-horizontal">
+                    <div class="panel-body" style="padding-top:6rem; padding-bottom:6rem;">
+                       <form id="form_usuario" class="form-horizontal">
+                        
                             <div class="row form-group">
                                     <div class="col-md-4" style="text-align:right;">
                                         <label for="usuario">Usuario:</label>
@@ -299,14 +300,15 @@
                     <!--End Panel-Body-->
                 </div>
                 <!--End Panel-->
+                
+                <div class="pull-right">
+                    <button class="btn btn-primary" id="submitUsuario" type="submit" data-wizard-action="finish">Guardar y continuar</button>
+                </div>
+                </form>
                 <div class="pull-left">
                     <button class="btn"  data-wizard-action="prev">Regresar</button>
                 </div>
                 
-                <div class="pull-right">
-                    <button class="btn btn-primary" type="submit"  data-wizard-action="finish">Guardar y continuar</button>
-                </div>
-                </form>
             </div>
             <!--End Wizard-pane step2-->
         </div>
@@ -319,7 +321,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header"><i class="fa fa-check-circle"></i></div>
-                <div class="modal-title">Tutor Registrado</div>
+                <div class="modal-title">Usuario Registrado</div>
                 <div class="modal-body"></div>
                 <div class="modal-footer">
                     <a class="btn btn-success" data-dismiss="modal">OK</a>
@@ -332,16 +334,31 @@
     <!--End Modal-->
 </div>
 <!--End Container-->
-
+<script> var urlbase="<?php echo base_url("index.php/"); ?>"; </script>
 <script>
   $(function() {
     $('#wizard-basic').pxWizard();
   });
 
- var form = document.getElementById('form_usuarios');
-
-form.addEventListener('submit',function(e){
-    e.preventDefault();
-    console.log(form.elements);
-});
+    $('#form_usuario').submit(function(e){
+        e.preventDefault();
+        
+        var clave = $('#clave').val();
+        var clavec = $('#clavec').val();
+        if(clavec != clave ){
+            console.log('La confirmacion de clave no coincide')
+        }else{
+            console.log('las claves coinciden')
+            
+        }
+        console.log($(this).serialize());
+        $.ajax({
+        url:"x",
+        type:"post",
+        data:$(this).serialize(),
+        success:function(res){
+            console.log(res);
+        }
+        });
+    });
 </script>
