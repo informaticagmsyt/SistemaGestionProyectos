@@ -120,6 +120,11 @@
     $('#wizard-basic').pxWizard();
   });
 
+  $('#categoria_id').change(function(){
+    console.log($(this).val())
+    getSubCategoria($(this).val(),'#sub_categoria_id')
+  })
+
   $('.form_date').datetimepicker({
         language:  'es',
         weekStart: 1,
