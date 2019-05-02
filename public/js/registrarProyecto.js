@@ -210,8 +210,7 @@ function regitrarPaso3(){
  function regitrarPaso4(){
 
 
-    
-  $.ajax({
+  $.ajax({ 
     url: urlbase+"Proyectos/regitrarPaso4" ,
     type: "POST",
     dataType: "JSON",
