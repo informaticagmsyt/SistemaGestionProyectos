@@ -175,7 +175,22 @@ class Requerimientos extends CI_Controller {
 
 	public function registrarPaso2()
 	{
+		$user=	$this->session->userdata('user_data');
+
+		$actualizar=false;
+		if(!empty($_SESSION['requerimiento_id'])){
 		
+			$actualizar=true;
+			
+		   }
+		   if($actualizar){
+
+			$datos = array(
+				'descripcion'           =>$this->input->post('descripcion'),
+				'categoria_id'         	=>$this->input->post('categoria_id'),
+				'sub_categoria_id'      =>$this->input->post('sub_categoria_id'),
+
+				'user_id'           =>$user['id']
 	}
 
 	public function consultar()
