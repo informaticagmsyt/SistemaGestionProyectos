@@ -31,7 +31,7 @@
                       <div class="form-group ">
     <label for="rif" class=" control-label"> Numero Rif</label>
   
-    <input class="custom-select form-control" id="numerorif" name="numerorif" required>
+    <input class="custom-select form-control" id="numerorif" name="numerorif" required value="<?php if (isset( $datos->nombre_empresa))echo $datos->numero_rif;?>">
     
   </div>
     </div>

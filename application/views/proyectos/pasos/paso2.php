@@ -15,7 +15,7 @@
                           <div class="form-group ">
                               <label>Nombre del proyecto</label>
                           <input type="text" placeholder="nombre" 
-                          value="<?php if (isset( $datos->profesion))echo $datos->nombres;?>"
+                          value="<?php if (isset( $datos->profesion))echo $datos->nombre;?>"
                           id="nombrep"
                           data-msg-required= "Ingrese un numero de teléfono"
                            name="nombrep" class="form-control" required>
