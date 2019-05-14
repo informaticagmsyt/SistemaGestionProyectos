@@ -28,7 +28,7 @@
         <div class="wizard-content">
             <div class="wizard-pane" id="wizard-example-step1">
                 <div class="panel">
-                <form method="POST" role="form" id="formTutor">
+                <form method="POST" class="form-help-text" role="form" id="formPersona">
                     <div class="panel-body">
                         
                         <div class="row form-group">
@@ -144,7 +144,7 @@
 
                         <div class="row form-group">
 
-                            <div class="col-sm-3">
+                            <div class="col-sm-5">
                                 <div class="form-group">
                                     <label for="institucion_id">Institucion a la que Pertenece</label>
                                     <select class="form-control custom-select" name="institucion_id" id="institucion_id" required data-msg-required="Seleccione una Institución">
@@ -159,7 +159,7 @@
                                 <div class="form-group">
                                     <label for="cargo">Cargo que ejerce</label>
                                     <select class="form-control custom-select" name="cargo" id="cargo">
-                                        <option value="1">Seccione Cargo</option>
+                                        <option value="0">Seccione Cargo</option>
                                     </select>
                                 </div>
                             </div>
@@ -227,7 +227,7 @@
                 </div>
                 <!--End Panel-->
                 <div class="pull-right">
-                    <button class="btn btn-primary" type="submit"  data-wizard-action="next">Guardar y continuar</button>
+                    <button class="btn btn-primary" type="submit" >Guardar y continuar</button>
                 </div>
                 </form>
                 <!--End Pull-right-->
@@ -237,7 +237,7 @@
             <div class="wizard-pane" id="wizard-example-step2">
                 <div class="panel">
                     <div class="panel-body" style="padding-top:6rem; padding-bottom:6rem;">
-                       <form id="form_usuario" class="form-horizontal">
+                       <form id="form_usuario" class="form-help-text">
                         
                             <div class="row form-group">
                                     <div class="col-md-4" style="text-align:right;">
@@ -245,7 +245,7 @@
                                     </div>
                                     <!--End Col-->
                                     <div class="col-md-4">
-                                        <input type="text" class="form-control" id="usuario" name="usuario">
+                                        <input type="text" class="form-control" id="usuario" name="usuario" required disabled>
                                     </div>
                                     <!--End Col-->
                             </div>
@@ -259,7 +259,7 @@
                                     <!--End Col-->
                                 
                                     <div class="col-md-4">
-                                        <input type="password" class="form-control" id="clave" name="clave">
+                                        <input type="password" class="form-control" id="clave" required name="clave">
                                     </div>
                                     <!--End Col-->
                 
@@ -274,7 +274,7 @@
                                 <!--End Col-->
                                 
                                 <div class="col-md-4">
-                                    <input type="password" class="form-control" id="clavec" name="clavec">
+                                    <input type="password" class="form-control" id="clavec" required name="clavec">
                                 </div>
                                 <!--End Col-->
                             </div>
@@ -287,7 +287,7 @@
                                 <!--End Col-->
 
                                 <div class="col-md-4">
-                                    <select name="tipo_usuario" id="tipo_usuario" class="form-control custom-select">
+                                    <select name="tipo_usuario" id="tipo_usuario" class="form-control custom-select" required>
                                         <option value="">Seleccione un Tipo de Usuario</option>
                                     </select>
                                 </div>
@@ -302,7 +302,7 @@
                 <!--End Panel-->
                 
                 <div class="pull-right">
-                    <button class="btn btn-primary" id="submitUsuario" type="submit" data-wizard-action="finish">Guardar y continuar</button>
+                    <button class="btn btn-primary" id="submitUsuario" type="submit">Guardar y continuar</button>
                 </div>
                 </form>
                 <div class="pull-left">
@@ -321,10 +321,10 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header"><i class="fa fa-check-circle"></i></div>
-                <div class="modal-title">Usuario Registrado</div>
+                <div class="modal-title">Persona Registrada</div>
                 <div class="modal-body"></div>
                 <div class="modal-footer">
-                    <a class="btn btn-success" data-dismiss="modal">OK</a>
+                    <button class="btn btn-success" data-dismiss="modal">OK</button>
                 </div>
             </div>
             <!--End Modal Content-->
@@ -335,30 +335,242 @@
 </div>
 <!--End Container-->
 <script> var urlbase="<?php echo base_url("index.php/"); ?>"; </script>
+<script src="<?php echo base_url()?>public/js/estadoMunParroquia.js"></script>
+<script src="<?php echo base_url()?>public/js/entes.js"></script>
 <script>
   $(function() {
     $('#wizard-basic').pxWizard();
   });
+  entes('#institucion_id');
+  perfiles('#tipo_usuario');
+    $('#formPersona').validate();
 
+    $('#formPersona').submit(function(e){
+        e.preventDefault();
+        if($(this).valid()){
+        //* Registrar datos mediante ajax 
+        $.ajax({
+            url: urlbase+"Usuarios/registrarPersona",
+            type: "POST",
+            dataType: "JSON",
+            data: $('#formPersona').serialize(),
+            beforeSend: function(data){
+            },
+            success: function(res) {
+                if(res != true){
+                    $('#usuario').val($('#cedula').val());
+                    
+                    //* Mostrar Modal en caso de que registre una nueva persona
+                    $('#modal').removeClass('modal-danger');
+                    $('#modal').addClass('modal-success');
+                    $('#modal .btn').removeClass('btn-danger');
+                    $('#modal .btn').addClass('btn-success');
+                    $('#modal .fa').removeClass('fa-times-circle');
+                    $('#modal .fa').addClass('fa-check-circle');
+                    $('#modal .modal-title').html('Persona registrada');
+                    $('#modal .modal-body').html(res);
+                    $('#modal .btn').attr("onclick","$('.wizard').pxWizard('goNext');");
+                    $('#modal').modal('show');
+                    /**/
+                }else{
+                    $('#usuario').val($('#cedula').val());
+                    $('.wizard').pxWizard('goNext');
+                }
+            }
+            }).fail(function(re){
+                console.log(re.responseText)
+            });
+           
+        }
+    });
+
+    $('#form_usuario').validate();
+    /* pxValidate 2da forma
+     $('#form_usuario').pxValidate({
+       // 'usuario':{
+       //   required: true
+       // },
+        'clave': {
+          required: true,
+          minlength: 6,
+          maxlength: 20
+        },
+        'clavec': {
+          required: true,
+          minlength: 6,
+          equalTo: '#clave'
+        },
+       // 'tipo_usuario':{
+       //     required:true
+       // }
+        });
+        /**/
+        
     $('#form_usuario').submit(function(e){
         e.preventDefault();
         
-        var clave = $('#clave').val();
-        var clavec = $('#clavec').val();
-        if(clavec != clave ){
-            console.log('La confirmacion de clave no coincide')
-        }else{
-            console.log('las claves coinciden')
+        if($(this).valid()){
+            var clave = $('#clave').val();
+            var clavec = $('#clavec').val();
+            if(clavec != clave ){
+                alert('La confirmacion de clave no coincide')
+            }else{
+                $('#usuario').removeAttr('disabled');   
+                //console.log($(this).serialize());
+                //* registrar usuario ajax
+                $.ajax({
+                url:urlbase+"Usuarios/registrar",
+                type:"post",
+                dataType:"JSON",
+                data:$(this).serialize(),
+                success:function(res){
+                    $('#usuario').attr('disabled',"");  
+                    if(res == false){
+                        $('#modal').removeClass('modal-success');
+                        $('#modal').addClass('modal-danger');
+                        $('#modal .btn').removeClass('btn-success');
+                        $('#modal .btn').addClass('btn-danger');
+                        $('#modal .fa').removeClass('fa-check-circle');
+                        $('#modal .fa').addClass('fa-times-circle');
+                        $('#modal .modal-title').html('Error');
+                        $('#modal .modal-body').html("El Usuario ya se encuentra registrado");
+                        $('#modal .btn').attr("onclick","$('.wizard').pxWizard('goPrev');");
+                        $('#modal').modal('show');                     
+                        //alert("el usuario ya se encuentra registrado");
+                    }else{
+                        $('#modal').removeClass('modal-danger');
+                        $('#modal').addClass('modal-success');
+                        $('#modal .btn').removeClass('btn-danger');
+                        $('#modal .btn').addClass('btn-success');
+                        $('#modal .fa').removeClass('fa-times-circle');
+                        $('#modal .fa').addClass('fa-check-circle');
+                        $('#modal .modal-title').html('Usuario Registrado');
+                        $('#modal .modal-body').html("ID del usuario: "+res);
+                        $('#modal .btn').attr("onclick","location.href='listado';");
+                        $('#modal').modal('show');
+                        //alert("usuario registrado \n ID: "+res);
+                        
+                    }
+                }
+                }).fail(function(res){
+                    $('#usuario').attr('disabled',"");  
+                    alert(res.responseText);
+                });
+                /**/
+            }
             
         }
-        console.log($(this).serialize());
-        $.ajax({
-        url:"x",
-        type:"post",
-        data:$(this).serialize(),
-        success:function(res){
-            console.log(res);
-        }
+        
+        
+        
         });
+        
+
+function consultarPersona() {
+ var cedula =$("#cedula").val()
+ $('#formPersona')[0].reset();
+if(cedula.length<4)
+alert("Ingrese un cédula correcta")
+var data={
+  cedula:cedula
+}
+
+$.ajax({
+  url: urlbase+"proyectos/getDatosPersonasJSON" ,
+  type: "POST",
+  dataType: "JSON",
+  data: data,
+  success: function(res) {
+    console.log(res)
+   var data= res.data
+   console.log(data)
+if(res.response.status="ok" && res.response.http_code==200){
+  $("#identificacion").removeClass("form-loading");
+    $("#cedula").val(data.cedula)
+    $("#nombres").val(data.nombres)
+    $("#apellidos").val(data.apellidos)
+    setValueSelect("sexo",data.sexo)
+    $("#fechanac").val(data.fec_nacimiento)
+  
+    if(res.data.datapersona){
+   var datapersona = res.data.datapersona;
+            setValueSelect("institucion_id",datapersona.institucion_id)
+            setValueSelect("estado_id", datapersona.estado_id)
+            municipio( datapersona.estado_id,"#municipio_id") 
+            parroquia(datapersona.municipio_id,"#parroquia_id") 
+
+            setTimeout(function(){
+              setValueSelect("municipio_id", datapersona.municipio_id)
+             setValueSelect("parroquia_id", datapersona.parroquia_id)
+            }, 1000);
+       
+        $("#telefono").val(datapersona.telefono)
+        $("#telefono2").val(datapersona.telefono2)
+        $("#direccion").val(datapersona.direccion)
+        $("#profesion").val(datapersona.profesion)
+        $("#v_carnet").val(datapersona.v_carnet)
+        $("#email").val(datapersona.email)
+      
+    }
+  
+}else if(res.response.status="ok" && res.response.http_code==404){
+
+  $("#msj").after('<div class="alert alert-danger mensaje"><strong >'+
+   ' <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> <p style="text-align: center">'+
+                         res.comments+'</p></strong>'+ 
+                         
+      '</div>');
+  
+}else{
+  $("#msj").after('<div class="alert alert-danger mensaje"><strong >'+
+   ' <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> <p style="text-align: center">'+
+                         res.comments+'</p></strong>'+ 
+                         
+      '</div>');
+
+}
+
+
+
+
+  }
+    }).fail(function(re){
+console.log(re.responseText)
+    
     });
+
+}
+
+
+function perfiles(selector) {
+
+var data={
+}
+$.ajax({
+   
+  url: urlbase+"usuarios/getPerfiles" ,
+  type: "GET",
+  dataType: "JSON",
+  data: data,
+  success: function(res) {
+    console.log(res)
+
+if(res.response.status="ok"){
+var data =res.data;
+
+var html='';
+
+ for (var i in data) {
+
+     html='<option value='+data[i].id+'>'+data[i].descripcion+'</option>';
+     $(selector).append(html)
+ }
+}
+  }
+    }).fail(function(re){
+console.log(re.responseText)
+    
+    });
+
+}
 </script>

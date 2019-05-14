@@ -384,37 +384,78 @@ $('.form_date').datetimepicker({
   $(".next").addClass("fas fa-chevron-right")
 
 
-function consultarPersona() {
-var cedula =$("#cedula").val()
+  function consultarPersona() {
+ var cedula =$("#cedula").val()
+ $('#formTutor')[0].reset();
 if(cedula.length<4)
 alert("Ingrese un cédula correcta")
 var data={
-cedula:cedula
+  cedula:cedula
 }
 
 $.ajax({
-url: urlbase+"proyectos/getDatosPersonasJSON" ,
-type: "POST",
-dataType: "JSON",
-data: data,
-success: function(res) {
-  console.log(res)
- var data= res.data
- //console.log(data)
-if(res.response.status="ok"){
-
-$("#nombres").val(data.nombres)
-$("#apellidos").val(data.apellidos)
-setValueSelect("sexo",data.sexo)
-$("#fechanac").val(data.fec_nacimiento)
-
-}
-
-}
-  }).fail(function(re){
-console.log(re.responseText)
+  url: urlbase+"proyectos/getDatosPersonasJSON" ,
+  type: "POST",
+  dataType: "JSON",
+  data: data,
+  success: function(res) {
+    console.log(res)
+   var data= res.data
+   console.log(data)
+if(res.response.status="ok" && res.response.http_code==200){
+  $("#identificacion").removeClass("form-loading");
+    $("#cedula").val(data.cedula)
+    $("#nombres").val(data.nombres)
+    $("#apellidos").val(data.apellidos)
+    setValueSelect("sexo",data.sexo)
+    $("#fechanac").val(data.fec_nacimiento)
   
-  });
+    if(res.data.datapersona){
+   var datapersona = res.data.datapersona;
+            setValueSelect("institucion_id",datapersona.institucion_id)
+            setValueSelect("estado_id", datapersona.estado_id)
+            municipio( datapersona.estado_id,"#municipio_id") 
+            parroquia(datapersona.municipio_id,"#parroquia_id") 
+
+            setTimeout(function(){
+              setValueSelect("municipio_id", datapersona.municipio_id)
+             setValueSelect("parroquia_id", datapersona.parroquia_id)
+            }, 1000);
+       
+        $("#telefono").val(datapersona.telefono)
+        $("#telefono2").val(datapersona.telefono2)
+        $("#direccion").val(datapersona.direccion)
+        $("#profesion").val(datapersona.profesion)
+        $("#v_carnet").val(datapersona.v_carnet)
+        $("#email").val(datapersona.email)
+      
+    }
+  
+}else if(res.response.status="ok" && res.response.http_code==404){
+
+  $("#msj").after('<div class="alert alert-danger mensaje"><strong >'+
+   ' <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> <p style="text-align: center">'+
+                         res.comments+'</p></strong>'+ 
+                         
+      '</div>');
+  
+}else{
+  $("#msj").after('<div class="alert alert-danger mensaje"><strong >'+
+   ' <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> <p style="text-align: center">'+
+                         res.comments+'</p></strong>'+ 
+                         
+      '</div>');
+
+}
+
+
+
+
+  }
+    }).fail(function(re){
+console.log(re.responseText)
+    
+    });
 
 }
 

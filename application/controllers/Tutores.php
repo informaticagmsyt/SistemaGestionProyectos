@@ -163,13 +163,12 @@
             ->set_output(json_encode($result));
         }
 
-        public function getJSON(){
+        function getPerfiles(){
+            $result=$this->usuariosModel->perfiles();
 
-
-        $registros = $this->TutoresModel->listar();
-        $this->output
-	        ->set_content_type('application/json')
-            ->set_output(json_encode( $registros));
+	        $this->output
+            ->set_content_type('application/json')
+		    ->set_output(json_encode($result));
         }
     }
 
