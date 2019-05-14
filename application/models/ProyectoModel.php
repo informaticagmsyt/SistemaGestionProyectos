@@ -56,8 +56,10 @@ Class ProyectoModel  extends CI_Model{
     }
 
 
-    public function getAll(){
+    public function getAll($param='ALL'){
 
+            $session = $this->session->userdata('user_data');
+            
 
         $this->db->select(' requerimientos.descripcion, telefono,telefono2, personas.direccion, codcaso, estado,municipio,parroquia, 
         proyectos.nombre as nombre_proyecto,estatus_proyecto.descripcion as estatus_proyecto,
@@ -99,6 +101,10 @@ Class ProyectoModel  extends CI_Model{
        
         $this->db->where('principal', true);
 
+        if($param<>'ALL'){
+
+            $this->db->where('personas.id', $session['personas_id']);
+        }
 
         $query = $this->db->get();
 

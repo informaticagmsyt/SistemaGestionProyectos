@@ -44,7 +44,7 @@
       <li class="px-nav-item px-nav-dropdown ">
         <a href="#"><i class="px-nav-icon fas fa-clipboard-list " ></i><span class="px-nav-label">Tareas</span></a>
         <ul class="px-nav-dropdown-menu">
-          <li class="px-nav-item"><a href="#"><i class="px-nav-icon fas fa-plus"></i><span class="px-nav-label">Nueva Tarea </span></a></li>
+          <li class="px-nav-item"><a href="<?php echo base_url();?>tareas"><i class="px-nav-icon fas fa-plus"></i><span class="px-nav-label">Nueva Tarea </span></a></li>
           <li class="px-nav-item"><a href="#"><i class="px-nav-icon fa fa-search"></i><span class="px-nav-label">Listar Tareas</span></a></li>
         </ul>
       </li>

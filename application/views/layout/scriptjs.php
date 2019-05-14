@@ -18,3 +18,4 @@
   <script src="<?php echo base_url()?>public/js/typeaheadB.js"></script>
   <!-- Your scripts -->
   <script src="<?php echo base_url()?>public/js/app.js"></script>
+  <script src="<?php echo base_url()?>public/js/dropzone.js"></script>

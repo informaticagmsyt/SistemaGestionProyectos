@@ -29,6 +29,8 @@ class Proyectos extends CI_Controller {
 		$this->load->model('ProfesionModel');
 		$this->load->model('DatosPersonasModel');
 		$this->load->model('PersonasModel');
+		$this->load->helper('file');
+
 		if(!is_logged_in()){
 			redirect('login');
 			
@@ -799,6 +801,63 @@ if(!$resultPersonas['result']){
 
    }
 
+   public function cargarImagenes(){
+	$id=$data['segmento'] = $this->uri->segment(3);
+	$nombreUsuario = $this->session->userdata('user_data');
+    $this->load->view('layout/header');
+    $this->load->view('layout/nav');
+    $User['nombreUser']=$nombreUsuario['nombre'];
+    $this->load->view('layout/navar',$User);
+	$this->load->view('layout/scriptjs');
+	$this->load->view('proyectos/imagenesView',compact('id'));
 
+   }
+   
+   public function subirImagenes(){
+
+	$id=$data['segmento'] = $this->uri->segment(3);
+	$Cempresa = APPPATH.'storage/'.$id;
+	if (!file_exists($Cempresa)) {
+		mkdir($Cempresa, 0777, true);
+		}
+	
+
+		
+        $config['upload_path'] = $Cempresa;
+
+
+        
+        /*
+        *Formatos permitidos
+        */  
+        $config['allowed_types'] = 'gif|jpg|png|jpeg|csv|xls|xlsb|xlsm|xlsx|xlt|xltm|xltx|odf|ott|sxw|odf|sxm|mml|odp|otp|sxi|sti|odg|otg|ods|ots|sxc|stc|pdf|eps|pot|potm|potx|pps|ppsm|ppsx|ppt|pptm|pptx|doc|docm|docx|dot|dotm|dotx|wps|rtf|text|txt|wpd|wps';
+
+        /*
+        *Nombre del archivo
+        */                                
+        $config['file_name'] = "img".$id;
+        //  $config['allowed_types'] = "*";
+        $config['max_size'] = 10000;
+        /*     $config['max_width']            = 1024;
+        $config['max_height']           = 768;*/
+
+        $this->load->library('upload', $config);
+
+        $data = $this->upload->data('file');
+
+        if (!$this->upload->do_upload('file')) {
+           $data = array('result' => false,
+                'error' => $this->upload->display_errors());
+
+        } else {
+          $data = array('result' => true,
+
+                'upload_data' => $this->upload->data());
+
+        }
+		$this->output
+		->set_content_type('application/json')
+		->set_output(json_encode($data));
+   }
 }
 
