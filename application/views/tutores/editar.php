@@ -406,7 +406,7 @@ var $input = $('#profesion').typeahead({
 </script>
 
 <script>
-    //* Asignando los value a los elementos 
+    /* Asignando los value a los elementos 
     $('#nacionalidad').val("<?php echo $datos['nacionalidad']; ?>")
     $('#sexo').val("<?php echo $datos['sexo']; ?>");
     $('#posee_carnet').val("<?php echo $datos['posee_carnet'];?>");
@@ -439,6 +439,11 @@ var $input = $('#profesion').typeahead({
   
     setTimeout(function(){
                 setValueSelect("estado_id2",<?php echo $datos['estado_id'] ?>)
+                setValueSelect("v_social","<?php echo $datos['v_social'] ?>")
+                setValueSelect("posee_carnet","<?php echo $datos['posee_carnet'];?>")
+                setValueSelect("nacionalidad","<?php echo $datos['nacionalidad']; ?>")
+                setValueSelect("sexo","<?php echo $datos['sexo']; ?>")
+                $('#fecha_nac').val("<?php echo $datos['fecha_nac']; ?>");
             }, 500);
             setTimeout(function(){
                 setValueSelect("municipio_id",<?php echo $datos['municipio_id'] ?>)

@@ -24,6 +24,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 $config['base_url'] = 'http://localhost/SistemaGestionProyectos';
+//$config['base_url'] = 'http://172.16.22.23/SistemaGestionProyectos';
+
 
 
 /*

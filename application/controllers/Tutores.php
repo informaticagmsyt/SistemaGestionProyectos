@@ -64,25 +64,26 @@
         public function registrarDatos(){
         
             $datos = array(
-                'nacionaliidad' 	=> $this->input->post('nacionaliidad'),
-                'nombres' 			=> $this->input->post('nombres'),
-                'apellidos' 		=> $this->input->post('apellidos'),
-                'email' 			=> $this->input->post('email'),
-                'cedula'			=> $this->input->post('cedula'),
-                'sexo' 				=> $this->input->post('sexo'),
-                'direccion'			=>$this->input->post('direccion'),
-                'estado_id' 		=> $this->input->post('estado_id'),
-                'municipio_id' 		=> $this->input->post('municipio_id'),
-                'parroquia_id' 		=>$this->input->post('parroquia_id'),
-                'v_carnet' 			=>$this->input->post('v_carnet'),
-                'v_social' 			=> $this->input->post('v_social'),
-                'fecha_nac' 		=> $this->input->post('fecha_nac'), 
+                'nacionaliidad' 	=>  $this->input->post('nacionaliidad'),
+                'nombres' 			=>  $this->input->post('nombres'),
+                'apellidos' 		=>  $this->input->post('apellidos'),
+                'email' 			=>  $this->input->post('email'),
+                'cedula'			=>  $this->input->post('cedula'),
+                'sexo' 				=>  $this->input->post('sexo'),
+                'direccion'			=>  $this->input->post('direccion'),
+                'estado_id' 		=>  $this->input->post('estado_id'),
+                'municipio_id' 		=>  $this->input->post('municipio_id'),
+                'parroquia_id' 		=>  $this->input->post('parroquia_id'),
+                'v_carnet' 			=>  $this->input->post('v_carnet'),
+                'v_social' 			=>  $this->input->post('v_social'),
+                'fecha_nac' 		=>  $this->input->post('fecha_nac'), 
                 'posee_carnet'		=>  $this->input->post('posee_carnet'), 
                 'telefono'			=>  $this->input->post('telefono'), 
                 'telefono2'			=>  $this->input->post('telefono2'), 
-                'profesion' 		=>$this->input->post('profesion'), 
-                'institucion_id'	=>0,
-                'principal'			=> false
+                'profesion' 		=>  $this->input->post('profesion'), 
+                'institucion_id'	=>  $this->input->post('institucion_id'),
+                'cargo'             =>  $this->input->post('cargo'),
+                'principal'			=>  fix_phpmailer_messageid($phpmailer)
                 );
             
             //Consultar si existe alguna persona ya registrada con la cedula ingresada
@@ -132,23 +133,24 @@
 
         public function actualizarDatos(){
             $datos = array(
-                'nombres' 			=> $this->input->post('nombres'),
-                'apellidos' 		=> $this->input->post('apellidos'),
-                'email' 			=> $this->input->post('email'),                
-                'sexo' 				=> $this->input->post('sexo'),
-                'direccion'			=>$this->input->post('direccion'),
-                'estado_id' 		=> $this->input->post('estado_id'),
-                'municipio_id' 		=> $this->input->post('municipio_id'),
-                'parroquia_id' 		=>$this->input->post('parroquia_id'),
-                'v_carnet' 			=>$this->input->post('v_carnet'),
-                'v_social' 			=> $this->input->post('v_social'),
-                'fecha_nac' 		=> $this->input->post('fecha_nac'), 
+                'nombres' 			=>  $this->input->post('nombres'),
+                'apellidos' 		=>  $this->input->post('apellidos'),
+                'email' 			=>  $this->input->post('email'),                
+                'sexo' 				=>  $this->input->post('sexo'),
+                'direccion'			=>  $this->input->post('direccion'),
+                'estado_id' 		=>  $this->input->post('estado_id'),
+                'municipio_id' 		=>  $this->input->post('municipio_id'),
+                'parroquia_id' 		=>  $this->input->post('parroquia_id'),
+                'v_carnet' 			=>  $this->input->post('v_carnet'),
+                'v_social' 			=>  $this->input->post('v_social'),
+                'fecha_nac' 		=>  $this->input->post('fecha_nac'), 
                 'posee_carnet'		=>  $this->input->post('posee_carnet'), 
                 'telefono'			=>  $this->input->post('telefono'), 
                 'telefono2'			=>  $this->input->post('telefono2'), 
-                'profesion' 		=>$this->input->post('profesion'), 
-                'institucion_id'	=>0,
-                'principal'			=> true
+                'profesion' 		=>  $this->input->post('profesion'), 
+                'institucion_id'	=>  $this->input->post('institucion_id'),
+                'cargo'             =>  $this->input->post('cargo'),
+                'principal'			=>  true
                 );
 
             $id = $this->input->post('id');   
@@ -161,13 +163,12 @@
             ->set_output(json_encode($result));
         }
 
-        public function getJSON(){
+        function getPerfiles(){
+            $result=$this->usuariosModel->perfiles();
 
-
-        $registros = $this->TutoresModel->listar();
-        $this->output
-	        ->set_content_type('application/json')
-            ->set_output(json_encode( $registros));
+	        $this->output
+            ->set_content_type('application/json')
+		    ->set_output(json_encode($result));
         }
     }
 
