@@ -276,18 +276,57 @@ if(res.response.status="ok" && res.response.http_code==200){
   
 }else if(res.response.status="ok" && res.response.http_code==404){
 
+  if(res.data.datapersona){
+   var datapersona = res.data.datapersona;
+
+            setValueSelect("estado_id", datapersona.estado_id)
+            municipio( datapersona.estado_id,"#municipio_id") 
+
+            parroquia(datapersona.municipio_id,"#parroquia_id") 
+
+            setTimeout(function(){
+              setValueSelect("municipio_id", datapersona.municipio_id)
+             setValueSelect("parroquia_id", datapersona.parroquia_id)
+            }, 1000);
+            $("#nombres").val(datapersona.nombres)
+    $("#apellidos").val(datapersona.apellidos)
+        $("#telefono").val(datapersona.telefono)
+        $("#telefono2").val(datapersona.telefono2)
+        $("#direccion").val(datapersona.direccion)
+        $("#profesion").val(datapersona.profesion)
+        $("#v_carnet").val(datapersona.v_carnet)
+        $("#email").val(datapersona.email)
+      
+    }else{
+
+ 
+  window.setTimeout(function () {
+    $(".mensaje").fadeOut(3000, function () {
   $("#msj").after('<div class="alert alert-danger mensaje"><strong >'+
+   ' <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> <p style="text-align: center">'+
+                         res.comments+'</p></strong>'+ 
+                         
+      '</div>');
+
+    });
+    }, 2000);
+
+  }
+  
+}else{
+
+
+      window.setTimeout(function () {
+    $(".mensaje").fadeOut(3000, function () {
+
+      $("#msj").after('<div class="alert alert-danger mensaje"><strong >'+
    ' <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> <p style="text-align: center">'+
                          res.comments+'</p></strong>'+ 
                          
       '</div>');
   
-}else{
-  $("#msj").after('<div class="alert alert-danger mensaje"><strong >'+
-   ' <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> <p style="text-align: center">'+
-                         res.comments+'</p></strong>'+ 
-                         
-      '</div>');
+    });
+    }, 2000);
 
 }
 
@@ -301,5 +340,93 @@ console.log(re.responseText)
     });
 
 }
+
+
+try {
+
+
+$("#formpaso1").validate();
+
+
+$( "#formpaso1" ).submit(function( e ) {
+
+
+
+      e.preventDefault();    //stop form from submitting
+
+      var validate=   $("#formpaso1").valid();
+
+      if(validate){
+
+        regitrarPaso1()
+      }
+   
+     
+
+        
+       });
+
+
+       /*****PASO 2 */
+       $("#formpaso2").validate();
+
+       
+$( "#formpaso2" ).submit(function( e ) {
+             e.preventDefault();    //stop form from submitting
+         var validate=   $("#formpaso2").valid();
+          if(validate){
+
+          regitrarPaso2()
+        }
+             
+            
+         });
+
+
+
+                  /*****PASO 3 */
+                  $("#formpaso3").validate();
+       document.querySelector("#formpaso3").addEventListener("submit", function(e){
+        e.preventDefault();    //stop form from submitting
+    var validate=   $("#formpaso3").valid();
+     if(validate){
+
+     regitrarPaso3()
+   }
+        
+       
+    });
+
+
+      /*****PASO 5 */
+      $("#formpaso4").validate();
+      document.querySelector("#formpaso4").addEventListener("submit", function(e){
+        e.preventDefault();    //stop form from submitting
+    var validate=   $("#formpaso4").valid();
+      if(validate){
+
+      regitrarPaso4()
+    }
+             
+    });
+
+           /*****PASO 5 */
+           $("#formpaso5").validate();
+           document.querySelector("#formpaso5").addEventListener("submit", function(e){
+             e.preventDefault();    //stop form from submitting
+         var validate=   $("#formpaso5").valid();
+           if(validate){
+   
+           regitrarPaso5()
+         }
+        
+    });
+      
+
+
+  } catch (error) {
+ 
+    console.error(error)
+  }
 
 </script>

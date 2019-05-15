@@ -12,8 +12,8 @@
         <a href="#"><i class="px-nav-icon far fa-address-card"></i><span class="px-nav-label">Requerimiento</span></a>
 
         <ul class="px-nav-dropdown-menu">
-          <li class="px-nav-item"><a href="index.html"><i class="px-nav-icon fa fa-edit"></i><span class="px-nav-label">Registrar </span></a></li>
-          <li class="px-nav-item"><a href="dashboards-analytics.html"><i class="px-nav-icon fa fa-search"></i><span class="px-nav-label">Consultar</span></a></li>
+          <li class="px-nav-item"><a href="#"><i class="px-nav-icon fa fa-edit"></i><span class="px-nav-label">Registrar </span></a></li>
+          <li class="px-nav-item"><a href="#"><i class="px-nav-icon fa fa-search"></i><span class="px-nav-label">Consultar</span></a></li>
          
         </ul>
       </li>
@@ -21,10 +21,10 @@
       <li class="px-nav-item px-nav-dropdown ">
         <a href="#"><i class="px-nav-icon fas fa-book"></i><span class="px-nav-label">Proyectos</span></a>
         <ul class="px-nav-dropdown-menu">
-        <li class="px-nav-item"><a href="<?php echo base_url('index.php/proyectos/registrar');?>"><i class="px-nav-icon fa fa-edit"></i><span class="px-nav-label">Registrar </span></a></li>
+        <li class="px-nav-item"><a href="<?php echo base_url('proyectos/registrar');?>"><i class="px-nav-icon fa fa-edit"></i><span class="px-nav-label">Registrar </span></a></li>
 
-          <li class="px-nav-item"><a href="<?php echo base_url('index.php/proyectos/');?>""><i class="px-nav-icon fas fa-book"></i><span class="px-nav-label">Listar Proyectos </span></a></li>
-          <li class="px-nav-item"><a href="dashboards-analytics.html"><i class="px-nav-icon fa fa-search"></i><span class="px-nav-label">Consultar</span></a></li>
+          <li class="px-nav-item"><a href="<?php echo base_url('proyectos/');?>""><i class="px-nav-icon fas fa-book"></i><span class="px-nav-label">Listar Proyectos </span></a></li>
+          <li class="px-nav-item"><a href="#"><i class="px-nav-icon fa fa-search"></i><span class="px-nav-label">Consultar</span></a></li>
          </ul>
       </li>
 
@@ -33,7 +33,7 @@
         <ul class="px-nav-dropdown-menu">
           <li class="px-nav-item"><a href="<?php echo base_url();?>index.php/Tutores/registrar"><i class="px-nav-icon fa fa-user-plus"></i><span class="px-nav-label">Registrar </span></a></li>
           <li class="px-nav-item"><a href="<?php echo base_url();?>index.php/Tutores/listado"><i class="px-nav-icon fas fa-book"></i><span class="px-nav-label">Listar Tutores</span></a></li>
-          <li class="px-nav-item"><a href="dashboards-analytics.html"><i class="px-nav-icon fa fa-search"></i><span class="px-nav-label">Consultar</span></a></li>
+          <li class="px-nav-item"><a href="#"><i class="px-nav-icon fa fa-search"></i><span class="px-nav-label">Consultar</span></a></li>
          </ul>
       </li>
 
@@ -44,8 +44,8 @@
       <li class="px-nav-item px-nav-dropdown ">
         <a href="#"><i class="px-nav-icon fas fa-clipboard-list " ></i><span class="px-nav-label">Tareas</span></a>
         <ul class="px-nav-dropdown-menu">
-          <li class="px-nav-item"><a href="index.html"><i class="px-nav-icon fas fa-plus"></i><span class="px-nav-label">Nueva Tarea </span></a></li>
-          <li class="px-nav-item"><a href="dashboards-analytics.html"><i class="px-nav-icon fa fa-search"></i><span class="px-nav-label">Listar Tareas</span></a></li>
+          <li class="px-nav-item"><a href="<?php echo base_url();?>tareas"><i class="px-nav-icon fas fa-plus"></i><span class="px-nav-label">Nueva Tarea </span></a></li>
+          <li class="px-nav-item"><a href="#"><i class="px-nav-icon fa fa-search"></i><span class="px-nav-label">Listar Tareas</span></a></li>
         </ul>
       </li>
 
@@ -57,8 +57,8 @@
         <a href="#"><i class="px-nav-icon ion-stats-bars"></i><span class="px-nav-label">Reportes</span></a>
 
         <ul class="px-nav-dropdown-menu">
-          <li class="px-nav-item"><a href="charts-flot.html"><span class="px-nav-label">Flot.js</span></a></li>
-          <li class="px-nav-item"><a href="charts-morris.html"><span class="px-nav-label">Morris.js</span></a></li>
+          <li class="px-nav-item"><a href="<?php echo base_url('reportes/excelProyecto');?>"><span class="px-nav-label">Proyectos Excel</span></a></li>
+          <li class="px-nav-item"><a href="#"><span class="px-nav-label">Morris.js</span></a></li>
 
         </ul>
       </li>

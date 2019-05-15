@@ -1,3 +1,5 @@
+
+
 <div class="panel">
       <div id="msj"></div>
       
@@ -15,12 +17,17 @@
                     </div>
               <div class="col-sm-4">
                 <label class="" for="grid-input-11">Cedula</label>
-                <input type="number" placeholder="Cedula" id="cedula"  name="cedula" class="form-control" required>
+                <input type="number" placeholder="Cedula" id="cedula" 
+                 name="cedula" 
+                 value="<?php if (isset( $datos->cedula))echo $datos->cedula;?>"
+                 class="form-control disabled" required>
               </div>
               <div class=" col-sm-4">
                   <label class="" for="grid-input-11"></label>
                   <br>
-                  <button type="button" class="btn btn-primary" onclick="consultarPersona()">Consultar</button>
+                  <button type="button" class="btn btn-primary"
+                  id="btnconsultar"
+                   onclick="consultarPersona()">Consultar</button>
               </div>
             </div>
             <div id="identificacion">
@@ -31,7 +38,9 @@
               <div class="col-md-3">
                   <div class="form-group ">
                       <label>Nombres</label>
-                  <input type="text" placeholder="Nombres" id="nombres" name="nombres" class="form-control" required
+                  <input type="text" placeholder="Nombres" id="nombres"
+                  value="<?php if (isset( $datos->nombres))echo $datos->nombres;?>"
+                   name="nombres" class="form-control" required
                   data-msg-required= "Ingrese un nombre">
                 </div>
                 </div>
@@ -39,7 +48,9 @@
               <div class="col-md-3">
                   <div class="form-group ">
                       <label>Apellidos</label>
-                  <input type="text" placeholder="apellidos" id="apellidos"  name="apellidos"
+                  <input type="text" placeholder="apellidos"
+                  value="<?php if (isset( $datos->apellidos))echo $datos->apellidos;?>"
+                   id="apellidos"  name="apellidos"
                   data-msg-required= "Ingrese un Apellido"
                    class="form-control" required>
                 </div>
@@ -63,7 +74,7 @@
            
            
            <div class="input-group date form_date col-md-8" data-date="" data-date-format="dd-mm-yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
-               <input class="form-control" size="5" type="text" id="fechanac" name="fecha_nac" value="" >
+               <input class="form-control" size="5" type="text" id="fechanac" name="fecha_nac"        value="<?php if (isset( $datos->fecha_nac))echo $datos->fecha_nac;?>" >
                <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span><i class="far fa-trash-alt"></i></span>
                <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span><i class="far fa-calendar-alt"></i></span>
                </div>
@@ -83,6 +94,7 @@
                             <label>Telefono</label>
                         <input type="number" placeholder="telefono" id="telefono"
                         data-msg-required= "Ingrese un numero de teléfono"
+                        value="<?php if (isset( $datos->telefono))echo $datos->telefono;?>"
                          name="telefono" class="form-control" required>
                       </div>
                       </div>
@@ -90,7 +102,9 @@
                     <div class="col-md-3">
                         <div class="form-group ">
                             <label>Telefono 2</label>
-                        <input type="number" placeholder="telefono 2" id="telefono2"  name="telefono2" class="form-control" >
+                        <input type="number" placeholder="telefono 2" 
+                        value="<?php if (isset( $datos->telefono2))echo $datos->telefono2;?>"
+                        id="telefono2"  name="telefono2" class="form-control" >
                       </div>
                       </div>
       
@@ -101,7 +115,9 @@
                           <input type="email" 
                           data-msg-required= "Ingrese un email"
 
-                          placeholder="email@test.com" id="email"  name="email" class="form-control" required>
+                          placeholder="email@test.com" id="email"
+                          value="<?php if (isset( $datos->email))echo $datos->email;?>"
+                            name="email" class="form-control" required>
                         </div>
                         </div>
                   </div>
@@ -116,7 +132,9 @@
                           <label>Profesión / Oficio</label>
                       <input type="text" placeholder="profesión"
                        id="profesion" name="profesion" 
-                       class="form-control typeahead" required>
+                       class="form-control typeahead"
+                       value="<?php if (isset( $datos->profesion))echo $datos->profesion;?>"
+                        required>
                     </div>
                     </div>
     
@@ -139,7 +157,9 @@
                     <div class="col-md-3">
                         <div class="form-group ">
                             <label>Código Carnet de la Patria</label>
-                        <input type="text" placeholder="" id="v_carnet"  name="v_carnet" class="form-control">
+                        <input type="text" placeholder="" id="v_carnet" 
+                        value="<?php if (isset( $datos->v_carnet))echo $datos->v_carnet;?>"
+                         name="v_carnet" class="form-control">
                       </div>
                       </div>
 
@@ -220,10 +240,11 @@
                       <div class="form-group ">
                           <label>Dirección de Habitación</label>
                       <textarea 
+                      type="text"
                       id="direccion" 
-                      value=""
+   
                       data-msg-required= "Ingrese una direccion"
-                       name="direccion" class="form-control" required > </textarea> 
+                       name="direccion" class="form-control" required > <?php if (isset( $datos->direccion))echo $datos->direccion;?></textarea>
                   
 
                   </div>

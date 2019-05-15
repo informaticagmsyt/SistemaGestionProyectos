@@ -4,91 +4,16 @@ getCategoria("#categoria_id")
 getEstatusProyecto("#estatus_proyecto_id")
 getTutores("#tutor")
 getEntes("#inst_responsable")
- $("#formpaso1").validate();
 
-document.querySelector("#formpaso1").addEventListener("submit", function(e){
-
- 
-        e.preventDefault();    //stop form from submitting
-
-        var validate=   $("#formpaso1").valid();
-
-        if(validate){
-
-          regitrarPaso1()
-        }
-     
-       
-
-          
-         });
-
-
-         /*****PASO 2 */
-         $("#formpaso2").validate();
-
-         document.querySelector("#formpaso2").addEventListener("submit", function(e){
-               e.preventDefault();    //stop form from submitting
-           var validate=   $("#formpaso2").valid();
-            if(validate){
-  
-            regitrarPaso2()
-          }
-               
-              
-           });
-  
-
-
-                    /*****PASO 3 */
-                    $("#formpaso3").validate();
-         document.querySelector("#formpaso3").addEventListener("submit", function(e){
-          e.preventDefault();    //stop form from submitting
-      var validate=   $("#formpaso3").valid();
-       if(validate){
-
-       regitrarPaso3()
-     }
-          
-         
-      });
-
-
-        /*****PASO 5 */
-        $("#formpaso4").validate();
-        document.querySelector("#formpaso4").addEventListener("submit", function(e){
-          e.preventDefault();    //stop form from submitting
-      var validate=   $("#formpaso4").valid();
-        if(validate){
-
-        regitrarPaso4()
-      }
-               
-      });
-
-             /*****PASO 5 */
-             $("#formpaso5").validate();
-             document.querySelector("#formpaso5").addEventListener("submit", function(e){
-               e.preventDefault();    //stop form from submitting
-           var validate=   $("#formpaso5").valid();
-             if(validate){
-     
-             regitrarPaso5()
-           }
-          
-      });
-         $("#categoria_id").change(function() {
+$("#categoria_id").change(function() {
          
             
-          if(this.value!="")
-          getSubCategoria(this.value,"#sub_categoria_id")
-         else           
-      $("#sub_categoria_id").html("<option value=''>Seleccione una opcion<option>");
+  if(this.value!="")
+  getSubCategoria(this.value,"#sub_categoria_id")
+ else           
+$("#sub_categoria_id").html("<option value=''>Seleccione una opcion<option>");
 
-      });
-
- 
-     
+});
 
 
 
@@ -104,7 +29,7 @@ function regitrarPaso1(){
         url: urlbase+"Proyectos/regitrarPaso1" ,
         type: "POST",
         dataType: "JSON",
-        data: $("#formpaso1").serialize(),
+        data: $("#formpaso1,textarea").serialize(),
         beforeSend: function(data){
   $("#btnpaso1").text("Guardando...")
       //$(selector).html("<option>Cargando...<option>");
@@ -285,8 +210,7 @@ function regitrarPaso3(){
  function regitrarPaso4(){
 
 
-    
-  $.ajax({
+  $.ajax({ 
     url: urlbase+"Proyectos/regitrarPaso4" ,
     type: "POST",
     dataType: "JSON",

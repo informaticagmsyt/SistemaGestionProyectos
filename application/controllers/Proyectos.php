@@ -29,6 +29,8 @@ class Proyectos extends CI_Controller {
 		$this->load->model('ProfesionModel');
 		$this->load->model('DatosPersonasModel');
 		$this->load->model('PersonasModel');
+		$this->load->helper('file');
+
 		if(!is_logged_in()){
 			redirect('login');
 			
@@ -159,7 +161,7 @@ public function  regitrarPaso1(){
 			'parroquia_id' 		=> $this->input->post('parroquia_id'),
 			'v_carnet' 			=> $this->input->post('v_carnet'),
 			'v_social' 			=> $this->input->post('v_social'),
-			'fecha_nac' 		=> $fecha, 
+			'fecha_nac' 		=> $this->input->post('fecha_nac'), 
 			'posee_carnet'		=> $this->input->post('posee_carnet'), 
 			'telefono'			=> $this->input->post('telefono'), 
 			'telefono2'			=> $this->input->post('telefono2'), 
@@ -208,7 +210,7 @@ public function  regitrarPaso1(){
 		'parroquia_id' 		=> $this->input->post('parroquia_id'),
 		'v_carnet' 			=> $this->input->post('v_carnet'),
 		'v_social' 			=> $this->input->post('v_social'),
-		'fecha_nac' 		=> 	$fecha, 
+		'fecha_nac' 		=> $this->input->post('fecha_nac'), 
 		'posee_carnet'		=> $this->input->post('posee_carnet'), 
 		'telefono'			=> $this->input->post('telefono'), 
 		'telefono2'			=> $this->input->post('telefono2'), 
@@ -270,6 +272,7 @@ public function  regitrarPaso1(){
 				'descripcion'           =>$this->input->post('descripcion'),
 				'categoria_id'         	=>$this->input->post('categoria_id'),
 				'sub_categoria_id'      =>$this->input->post('sub_categoria_id'),
+
 				'user_id'           =>$user['id']						
 
 
@@ -279,7 +282,9 @@ public function  regitrarPaso1(){
 		$this->ProyectoModel->update(
 		array("nombre"=>$this->input->post('nombrep'),
 		"personas_beneficiadas"=>$this->input->post('personasbenificiadas'),
-		"poblacion_beneficiada"=>$this->input->post('poblacion')
+		"poblacion_beneficiada"=>$this->input->post('poblacion'),
+		"estatus_proyecto_id" =>$this->input->post('estatus_proyecto_id'),
+
 	),
 		
 		$_SESSION['proyecto_id']);
@@ -345,6 +350,7 @@ public function  regitrarPaso1(){
 					array("nombre"			=>$this->input->post('nombrep'),
 					"personas_beneficiadas" =>$this->input->post('personasbenificiadas'),
 					"poblacion_beneficiada" =>$this->input->post('poblacion'),
+					"estatus_proyecto_id" =>$this->input->post('estatus_proyecto_id'),
 					"requerimiento_id"		=>$idrequerimiento)
 
 					);
@@ -381,9 +387,9 @@ public function  regitrarPaso1(){
 
 			$datos = array(
 				
-				'municipio_id'         	=>$this->input->post('municipio_id'),
-				'parroquia_id'     		=>$this->input->post('parroquia_id'),
-				'estado_id'      		=>$this->input->post('estado_id'),
+				'municipio_id'         	=>$this->input->post('municipio'),
+				'parroquia_id'     		=>$this->input->post('parroquia'),
+				'estado_id'      		=>$this->input->post('estado'),
 				"ente_id"=>   $this->input->post('inst_responsable')
 								
 
@@ -437,15 +443,16 @@ public function  regitrarPaso1(){
 				
 				'edificacion'        		 =>$this->input->post('edificacion'),
 				'area_terreno'      		 =>$this->input->post('areaterreno'),
+				'area_construccion'      	 =>$this->input->post('areaconstruccion'),
 				'servicios_sanitarios'       =>$this->input->post('instalaciones'),
 				"observaciones"				 =>$this->input->post('observaciones'),
 				"acometida_agua_blanca"		 =>$this->input->post('acometida'),
 				"aceo_urbano"		 		 =>$this->input->post('aseourbano'),
 				"servicio_electrico"		 =>$this->input->post('servicioelectrico'),
 				"servicios_gas"		 		 =>$this->input->post('serviciogas'),
-				"acometida_agua_negra"		 =>$this->input->post('acometidaservidas')
+				"acometida_agua_negra"		 =>$this->input->post('acometidaservidas'),
 			
-				// $this->input->post('inst_responsable')
+			//"ente_id"		 =>			 $this->input->post('inst_responsable')
 								
 
 
@@ -594,9 +601,12 @@ if(!empty( $id)){
     $this->load->view('layout/nav');
     $User['nombreUser']=$nombreUsuario['nombre'];
     $this->load->view('layout/navar',$User);
+	$response=$this->ProyectoModel->getProyectoId($id);
+	$datos=$response['data'][0];
+	
 
     $this->load->view('layout/scriptjs');
-	$this->load->view('proyectos/editarView');
+	$this->load->view('proyectos/editarView',compact('datos'));
 }else{
 	redirect('/proyectos');
 
@@ -604,5 +614,251 @@ if(!empty( $id)){
 
 }
 
+public function  GuardarEdit(){ 
+
+	$user=	$this->session->userdata('user_data');
+	$datosP = array(
+		'nacionaliidad' 	=> $this->input->post('nacionaliidad'),
+		'nombres' 			=> $this->input->post('nombres'),
+		'apellidos' 		=> $this->input->post('apellidos'),
+		'email' 			=> $this->input->post('email'),
+		
+		'sexo' 				=> $this->input->post('sexo'),
+		'direccion'			=> $this->input->post('direccion'),
+		'estado_id' 		=> $this->input->post('estado_id'),
+		'municipio_id' 		=> $this->input->post('municipio_id'),
+		'parroquia_id' 		=> $this->input->post('parroquia_id'),
+		'v_carnet' 			=> $this->input->post('v_carnet'),
+		'v_social' 			=> $this->input->post('v_social'),
+		'fecha_nac' 		=> $this->input->post('fecha_nac'), 
+		'posee_carnet'		=> $this->input->post('posee_carnet'), 
+		'telefono'			=> $this->input->post('telefono'), 
+		'telefono2'			=> $this->input->post('telefono2'), 
+		'profesion' 		=>$this->input->post('profesion'), 
+		'institucion_id'	=>0,
+		'principal'			=> true
+		);
+   
+
+		$result=$this->PersonasModel->actualizar($datosP,$this->input->post('personas_id'));
+
+
+
+
+		
+		$datos = array(
+				
+			'municipio_id'         	=>$this->input->post('municipio'),
+			'parroquia_id'     		=>$this->input->post('parroquia'),
+			'estado_id'      		=>$this->input->post('estado'),
+			"ente_id"=>   $this->input->post('inst_responsable'),
+			'descripcion'           =>$this->input->post('descripcion'),
+			'categoria_id'         	=>$this->input->post('categoria_id'),
+			'sub_categoria_id'      =>$this->input->post('sub_categoria_id'),
+			'user_id'           =>$user['id']		
+							
+
+
+	);
+
+	
+	$idrequerimiento=$this->RequerimientosModel->update($datos,		$this->input->post('idrequerimiento'));
+	
+	$datapro=array("nombre"=>$this->input->post('nombrep'),
+					"personas_beneficiadas"=>$this->input->post('personasbenificiadas'),
+					"poblacion_beneficiada"=>$this->input->post('poblacion'),
+					"codrif"				=>$this->input->post('rif'),
+					"numero_rif"			=>$this->input->post('numerorif'),
+					"nombre_empresa"		=>$this->input->post('nombrerazonsocial'),
+					"empresa_registrada"	=>$this->input->post('registrada'),
+					"codigo_situr"			=>$this->input->post('codigo_situr'),
+					"codigo_sunagro"		=>$this->input->post('codigo_sunagro'),
+					'edificacion'        		 =>$this->input->post('edificacion'),
+					'area_terreno'      		 =>$this->input->post('areaterreno'),
+					'servicios_sanitarios'       =>$this->input->post('instalaciones'),
+					"observaciones"				 =>$this->input->post('observaciones'),
+					"acometida_agua_blanca"		 =>$this->input->post('acometida'),
+					"aceo_urbano"		 		 =>$this->input->post('aseourbano'),
+				
+					"estatus_proyecto_id"		 		 =>$this->input->post('estatus_proyecto_id'),
+					"servicio_electrico"		 =>$this->input->post('servicioelectrico'),
+					"servicios_gas"		 		 =>$this->input->post('serviciogas'),
+					"acometida_agua_negra"		 =>$this->input->post('acometidaservidas'),
+					'capacidad_instalada'        		 =>$this->input->post('capacidadinstalada'),
+					'cap_produccion_actual'      		 =>$this->input->post('produccionactual'),
+					'unidad_metrica'       				 =>$this->input->post('unidadmedida'),
+					"funcionamiento_operativo"			 =>$this->input->post('funcionamientooperativo'),
+			
+);
+	
+$result=$this->ProyectoModel->update(	$datapro,$this->input->post('proyecto_id'));
+	if($result){
+		redirect('/proyectos');
+	}else{
+
+	
+		redirect('/proyectos/editar/'.$this->input->post('idrequerimiento'));
+	}
+
+
+   }
+
+
+
+   public function  ver(){
+
+	$id=$data['segmento'] = $this->uri->segment(3);
+   if(!empty( $id)){
+	   $nombreUsuario = $this->session->userdata('user_data');
+	   $this->load->view('layout/header');
+	   $this->load->view('layout/nav');
+	   $User['nombreUser']=$nombreUsuario['nombre'];
+	   $this->load->view('layout/navar',$User);
+	   $response=$this->ProyectoModel->getProyectoId($id);
+	   $datos=$response['data'][0];
+
+	   $integrantes=$this->PersonasModel->getIntegrante( $id);
+	   $this->load->view('layout/scriptjs');
+	   $this->load->view('proyectos/verView',compact('datos','integrantes'));
+	      
+	
+   }else{
+	   redirect('/proyectos');
+   
+   }
+   
+   }
+
+
+   public function  agregarIntegrante(){
+
+
+	$datos = array(
+		'nacionaliidad' 	=> 'V',
+		'nombres' 			=> $this->input->post('nombres'),
+		'apellidos' 		=> $this->input->post('apellidos'),
+		'email' 			=> '',
+		'cedula'			=> $this->input->post('cedula'),
+		'sexo' 				=> $this->input->post('sexo'),
+		'direccion'			=> '',
+		'estado_id' 		=> $this->input->post('estado_id'),
+		'municipio_id' 		=> $this->input->post('municipio_id'),
+		'parroquia_id' 		=> $this->input->post('parroquia_id'),
+		'v_carnet' 			=>'',
+		'v_social' 			=> '',
+		'fecha_nac' 		=> $this->input->post('fecha_nac'), 
+		'posee_carnet'		=> 0, 
+		'telefono'			=> $this->input->post('telefono'), 
+		'telefono2'			=> 0, 
+		'profesion' 		=> $this->input->post('profesion'), 
+		'institucion_id'	=> 0,
+		'principal'			=> false
+		);
+
+
+//consultar si esta en la tabla personas
+$resultPersonas=$this->PersonasModel->find($this->input->post('cedula'));
+
+
+if(!$resultPersonas['result']){
+					$idpersona=$this->PersonasModel->registrar($datos);
+
+					$data=array("perfil_id"=>5,
+								"personas_id"=>	$idpersona);
+
+
+					$this->PersonasModel->registrarPersonaPerfil($data);
+					$response=array(
+					"result"	=>true,
+					"mensaje"	=>"Se guardaron los cambios Exitosamente",
+					);
+
+						//aqui se relaciona las persona con el requerimiento
+			$this->RequerimientosModel->requerimientoPersona(
+				array(
+				'requerimiento_id'=>$this->input->post('idrequerimiento'),
+				'persona_id'=>$idpersona
+
+			));
+		}else{
+			$response=array(
+				"result"	=>false,
+				"mensaje"	=>"Ya exite un registro con esta cedula",
+				);
+		}
+
+					$this->output
+					->set_content_type('application/json')
+					->set_output(json_encode($response));
+
+   }
+
+   public function getIntegratesJSON(){
+
+	$result=$this->PersonasModel->getIntegrante($this->input->post('idrequerimiento'));
+	$this->output
+	->set_content_type('application/json')
+	->set_output(json_encode($result));
+
+   }
+
+   public function cargarImagenes(){
+	$id=$data['segmento'] = $this->uri->segment(3);
+	$nombreUsuario = $this->session->userdata('user_data');
+    $this->load->view('layout/header');
+    $this->load->view('layout/nav');
+    $User['nombreUser']=$nombreUsuario['nombre'];
+    $this->load->view('layout/navar',$User);
+	$this->load->view('layout/scriptjs');
+	$this->load->view('proyectos/imagenesView',compact('id'));
+
+   }
+   
+   public function subirImagenes(){
+
+	$id=$data['segmento'] = $this->uri->segment(3);
+	$Cempresa = APPPATH.'storage/'.$id;
+	if (!file_exists($Cempresa)) {
+		mkdir($Cempresa, 0777, true);
+		}
+	
+
+		
+        $config['upload_path'] = $Cempresa;
+
+
+        
+        /*
+        *Formatos permitidos
+        */  
+        $config['allowed_types'] = 'gif|jpg|png|jpeg|csv|xls|xlsb|xlsm|xlsx|xlt|xltm|xltx|odf|ott|sxw|odf|sxm|mml|odp|otp|sxi|sti|odg|otg|ods|ots|sxc|stc|pdf|eps|pot|potm|potx|pps|ppsm|ppsx|ppt|pptm|pptx|doc|docm|docx|dot|dotm|dotx|wps|rtf|text|txt|wpd|wps';
+
+        /*
+        *Nombre del archivo
+        */                                
+        $config['file_name'] = "img".$id;
+        //  $config['allowed_types'] = "*";
+        $config['max_size'] = 10000;
+        /*     $config['max_width']            = 1024;
+        $config['max_height']           = 768;*/
+
+        $this->load->library('upload', $config);
+
+        $data = $this->upload->data('file');
+
+        if (!$this->upload->do_upload('file')) {
+           $data = array('result' => false,
+                'error' => $this->upload->display_errors());
+
+        } else {
+          $data = array('result' => true,
+
+                'upload_data' => $this->upload->data());
+
+        }
+		$this->output
+		->set_content_type('application/json')
+		->set_output(json_encode($data));
+   }
 }
 

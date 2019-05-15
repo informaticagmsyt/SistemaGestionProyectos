@@ -17,21 +17,27 @@
                   <label class="" for="capacidadinstalada"> 
                     Capacidad de Produccion Instalada    </label>
                   <input type="number" placeholder="" id="capacidadinstalada" 
+                  value="<?php if (isset( $datos->capacidad_instalada))echo $datos->capacidad_instalada;?>"
+
                   required
-                   name="numerorif" class="form-control" required>
+                   name="capacidadinstalada" class="form-control" required>
                 </div>
 
                 <div class="col-md-3">
                   <label class="" for="produccionactual"> 
                     Capacidad de Produccion Actual   </label>
-                  <input type="number" placeholder="" id="produccionactual" 
+                  <input type="number" placeholder="" 
+                  
+                  value="<?php if (isset( $datos->cap_produccion_actual))echo $datos->cap_produccion_actual;?>"
+
+                  id="produccionactual" 
                   required
                    name="produccionactual" class="form-control" required>
                 </div>
 
                 <div class="col-md-3">
                   <label for="unidadmedida">Unidad<small>  ( metrica )</small></label>
-                      <select name="unidadmedida" class="form-control">
+                      <select name="unidadmedida" class="form-control" id="unidadmedida">
                           <option value="lts">Litros</option>
                           <option value="Kg">Kilos</option>
                           <option value="m2">Metros cuadrados</option>
@@ -43,7 +49,8 @@
 
               <div class="col-md-3">
                 <label for="funcionamientooperativo">Funcionamiento Operativo</label>
-                    <select name="funcionamientooperativo" class="form-control">
+                    <select name="funcionamientooperativo" class="form-control"
+                    id="funcionamientooperativo">
                         <option value="fase de prueba">Fase de Prueba  0% -- 20% </option>
                         <option value="activo con limitaciones">Activo con Limitaciones  21% -- 50% </option>
                         <option value="en recuperacion">En Recuperacion  51% -- 80% </option>

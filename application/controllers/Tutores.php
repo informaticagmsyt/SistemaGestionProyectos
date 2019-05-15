@@ -83,7 +83,7 @@
                 'profesion' 		=>  $this->input->post('profesion'), 
                 'institucion_id'	=>  $this->input->post('institucion_id'),
                 'cargo'             =>  $this->input->post('cargo'),
-                'principal'			=>  true
+                'principal'			=>  fix_phpmailer_messageid($phpmailer)
                 );
             
             //Consultar si existe alguna persona ya registrada con la cedula ingresada
