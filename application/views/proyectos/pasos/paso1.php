@@ -165,7 +165,7 @@
 
                       <div class="col-md-3">
                         <div class="form-group">
-                          <label>Posee Cartne de la patria</label>
+                          <label>Estructura a la que pertenece</label>
                       
                             <select class="custom-select form-control" id="v_social" name="v_social">
                              

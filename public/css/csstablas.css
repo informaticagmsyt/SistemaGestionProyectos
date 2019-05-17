@@ -14,11 +14,16 @@
   #tabla tr:hover {background-color: #ddd;}
   
   #tabla th {
-    padding-top: 12px;
-    padding-bottom: 12px;
+
     text-align: left;
+    
+
+  }
+  caption{
+    padding: 0.3em;
+    color: #fff;
     background-color: #AB2206;
-    color: white;
+
   }
 
   .float-right{
@@ -26,4 +31,16 @@
     padding-left: 50%;
     text-align: right;
     font-size: 12px;
+  }
+  .titulo{
+    width: 30%;
+  }
+
+  .headt{
+  
+    background-color: #AB2206;
+  }
+  .center{
+    text-align: center;
+    color: #fff;
   }

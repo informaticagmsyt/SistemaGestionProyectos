@@ -15,19 +15,29 @@
 
     <table class="table" id="tabla">
         <thead>
-            <tr>
-                <th>Datos del proyecto</th>
-            </tr>
+        <tr>
+        <th colspan="2" class="headt" ><span class="center">Anthony</span></th>
+        
+</tr>
         </thead>
 
         <tbody>
-            <tr>
+            <tr scope="row">
+    
+                <th class=""><strong>Nombre del Proyecto:</strong></th>
                 <td><strong>Nombre del Proyecto:</strong></td>
             </tr>
 
             <tr>
+
+ 
+
+<th colspan="2" class="headt" ><span class="center">Anthony</span></th>
+            </tr>
+            <tr>
+            <th class="titulo"><strong>Nombre del Proyecto:</strong></th>
                 <td><strong>Descripción del Proyecto:</strong>
-                    <p> a</p>
+         
                 </td>
             </tr>
             <tr>

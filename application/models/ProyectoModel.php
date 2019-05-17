@@ -61,7 +61,7 @@ Class ProyectoModel  extends CI_Model{
             $session = $this->session->userdata('user_data');
             
 
-        $this->db->select(' requerimientos.descripcion, telefono,telefono2, personas.direccion, codcaso, estado,municipio,parroquia, 
+        $this->db->select(' requerimientos.descripcion, telefono,telefono2, personas.direccion, entes.descripcion as institucion, codcaso, estado,municipio,parroquia, 
         proyectos.nombre as nombre_proyecto,estatus_proyecto.descripcion as estatus_proyecto,
         
         categoria.descripcion as categoria,proyectos.*,
@@ -98,6 +98,7 @@ Class ProyectoModel  extends CI_Model{
         $this->db->join('estatus_proyecto',
         'estatus_proyecto.id=estatus_proyecto_id','inner');
      
+        $this->db->join('entes','ente_id=entes.id','inner');
        
         $this->db->where('principal', true);
 
@@ -211,7 +212,7 @@ Class ProyectoModel  extends CI_Model{
     public function getProyectoId($id){
 
 
-        $this->db->select("proyectos.id as proyecto_id, ente_id, to_char(requerimientos.fecha_creacion, 'DD-MM-YYYY ') as fecha, requerimiento_persona.requerimiento_id, requerimientos.descripcion,requerimientos.categoria_id,tutor_id,requerimientos.sub_categoria_id, personas.*,codcaso,  proyectos.*,
+        $this->db->select("proyectos.id as proyecto_id, ente_id, entes.descripcion as institucion, to_char(requerimientos.fecha_creacion, 'DD-MM-YYYY ') as fecha, requerimiento_persona.requerimiento_id, requerimientos.descripcion,requerimientos.categoria_id,tutor_id,requerimientos.sub_categoria_id, personas.*,codcaso,  proyectos.*,
         categoria.descripcion as categoria,estado,municipio,parroquia,
         sub_categoria.descripcion as subcategoria, nombres, apellidos,estatus_proyecto.descripcion as estatus_proyecto,
          personas.id as id_persona, requerimientos.id as id_requerimiento");
@@ -246,7 +247,7 @@ Class ProyectoModel  extends CI_Model{
 
         $this->db->join('estatus_proyecto',
         'estatus_proyecto.id=estatus_proyecto_id','inner');
-     
+        $this->db->join('entes','ente_id=entes.id','inner');
         $this->db->where('requerimientos.id', $id);
      
         $query = $this->db->get();

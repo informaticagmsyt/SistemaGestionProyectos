@@ -82,6 +82,7 @@ input[type=number] { -moz-appearance:textfield; }
     <div class="wizard-pane" id="wizard-example-step2">
       <form  method="post" id="formpaso2">
         <?php include'pasos/paso2.php'; ?>
+
       <button type="button" class="btn btn-primary"
       style="visibility:hidden"
       data-wizard-action="next" id="paso2">Guardar y Continuar</button>
@@ -92,6 +93,9 @@ input[type=number] { -moz-appearance:textfield; }
       </div>
 
     </form>
+    <br>
+    <br>
+    <br>
   </div>
 
     <div class="wizard-pane" id="wizard-example-step3">

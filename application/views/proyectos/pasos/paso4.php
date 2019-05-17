@@ -113,7 +113,7 @@
                   <div class="col-md-4">
                         
                   
-                      <label for="aseourbano">Tiene sceo Urbano 
+                      <label for="aseourbano">Tiene Aseo Urbano 
                        
                       </label>
                       <select name="aseourbano" 
