@@ -285,6 +285,13 @@ public function  regitrarPaso1(){
 		"poblacion_beneficiada"=>$this->input->post('poblacion'),
 		"estatus_proyecto_id" =>$this->input->post('estatus_proyecto_id'),
 
+		"infraestructurabs"=>$this->input->post('infraestructura'),
+		"maquinariasbs"=>$this->input->post('maquinariasEquipos'),
+		"insumos_materiasbs" =>$this->input->post('insumosMateriaPrima'),
+		"fuerza_trabajo" =>$this->input->post('FuerzaTrabajo'),
+		"servicios" =>$this->input->post('mservicios'),
+		"monto" =>$this->input->post('inversionTotal')
+
 	),
 		
 		$_SESSION['proyecto_id']);
@@ -688,6 +695,13 @@ public function  GuardarEdit(){
 					'cap_produccion_actual'      		 =>$this->input->post('produccionactual'),
 					'unidad_metrica'       				 =>$this->input->post('unidadmedida'),
 					"funcionamiento_operativo"			 =>$this->input->post('funcionamientooperativo'),
+				
+					"infraestructurabs"=>$this->input->post('infraestructura'),
+					"maquinariasbs"=>$this->input->post('maquinariasEquipos'),
+					"insumos_materiasbs" =>$this->input->post('insumosMateriaPrima'),
+					"fuerza_trabajo" =>$this->input->post('FuerzaTrabajo'),
+					"servicios" =>$this->input->post('mservicios'),
+					"monto" =>$this->input->post('inversionTotal')
 			
 );
 	

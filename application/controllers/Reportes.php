@@ -550,7 +550,7 @@ class Reportes extends CI_Controller
 	</tr>
 
 	<tr>
-	<th colspan="5" class="headt" ><span class="center"> Total</span></th>
+	<th colspan="5" class="headt" ><span class="center"> Inversión Total</span></th>
 	</tr>
 
 	<tr>

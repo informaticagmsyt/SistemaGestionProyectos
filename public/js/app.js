@@ -103,3 +103,37 @@ $(function() {
   $('body > .px-nav').pxNav();
   $('body > .px-footer').pxFooter();
 });
+
+
+$(function() {
+
+	$( "#infraestructura, #maquinariasEquipos, #mservicios, #insumosMateriaPrima, #FuerzaTrabajo" ).change(function() {
+		total()
+	  });
+	
+    console.log( "ready!" );
+});
+
+
+function total(){
+
+var Infraestructura  =$("#infraestructura").val(),
+	maquinarias=$("#maquinariasEquipos").val(),
+	insumos=$("#insumosMateriaPrima").val(),
+	servicios=$("#mservicios").val(),
+	fuerzaTrabajo=$("#FuerzaTrabajo").val();
+
+	if(Number.isNaN(parseInt(Infraestructura)))
+	Infraestructura=0;
+	if(Number.isNaN(parseInt(maquinarias)))
+	maquinarias=0;
+	if(Number.isNaN(parseInt(servicios)))
+	servicios=0;
+	if(Number.isNaN(parseInt(fuerzaTrabajo)))
+	fuerzaTrabajo=0;
+	if(Number.isNaN(parseInt(insumos)))
+	insumos=0;
+
+	var total =parseInt(Infraestructura)+ parseInt(maquinarias)+ parseInt(insumos)+ parseInt(fuerzaTrabajo) + parseInt(servicios);
+	$("#inversionTotal").val(total);
+}

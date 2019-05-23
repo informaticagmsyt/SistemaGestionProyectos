@@ -96,8 +96,12 @@ input[type=number] { -moz-appearance:textfield; }
     <br>
     <br>
     <br>
-  </div>
 
+  </div>
+  <br>
+    <br>
+    <br>
+    
     <div class="wizard-pane" id="wizard-example-step3">
       <form  method="post" id="formpaso3">
     
