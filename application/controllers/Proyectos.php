@@ -358,6 +358,13 @@ public function  regitrarPaso1(){
 					"personas_beneficiadas" =>$this->input->post('personasbenificiadas'),
 					"poblacion_beneficiada" =>$this->input->post('poblacion'),
 					"estatus_proyecto_id" =>$this->input->post('estatus_proyecto_id'),
+					"infraestructurabs"=>$this->input->post('infraestructura'),
+					"maquinariasbs"=>$this->input->post('maquinariasEquipos'),
+					"insumos_materiasbs" =>$this->input->post('insumosMateriaPrima'),
+					"fuerza_trabajo" =>$this->input->post('FuerzaTrabajo'),
+					"servicios" =>$this->input->post('mservicios'),
+					"monto" =>$this->input->post('inversionTotal'),
+					
 					"requerimiento_id"		=>$idrequerimiento)
 
 					);

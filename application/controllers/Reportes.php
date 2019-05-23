@@ -542,11 +542,11 @@ class Reportes extends CI_Controller
 	</tr>
 
 	<tr>
-	<td> 0 </td>
-	<td> 0 </td>
-	<td>0</td>
-	<td>0</td>
-	<td>0</td>
+	<td>' . $datos->infraestructurabs. '  </td>
+	<td>' . $datos->maquinariasbs. '  </td>
+	<td>' . $datos->insumos_materiasbs. ' </td>
+	<td>' . $datos->fuerza_trabajo. ' </td>
+	<td>' . $datos->servicios. ' </td>
 	</tr>
 
 	<tr>
@@ -554,7 +554,7 @@ class Reportes extends CI_Controller
 	</tr>
 
 	<tr>
-	<td  colspan="5"> 0 </td>
+	<td  colspan="5"> ' . $datos->monto. ' </td>
 
 	</tr>
 
