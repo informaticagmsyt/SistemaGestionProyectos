@@ -536,7 +536,7 @@ class Reportes extends CI_Controller
 
 	<th> Infraestructura (Bs) </th>
 	<th> Maquinaria, Equipos y Herramientas (Bs) </th>
-	<th>Insumos, Equipos y Materias Primas (Bs)</th>
+	<th>Insumos y Materias Primas (Bs)</th>
 	<th>Fuerza de Trabajo (Bs)</th>
 	<th>Servicios(Bs)</th>
 	</tr>
