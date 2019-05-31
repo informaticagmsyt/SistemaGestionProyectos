@@ -121,7 +121,7 @@
 
                 <div class="col-sm-3">
                     <div class="form-group">
-                        <label for="profesion">Prefesión / Oficio</label>
+                        <label for="profesion">Profesión / Oficio</label>
                         <input type="text" placeholder="Prefesión u Oficio" id="profesion" name="profesion" class="form-control typeahead" required data-msg-required="Ingrese una Profesion u Oficio">
                     </div>
                     <!--End Form-Group-->
