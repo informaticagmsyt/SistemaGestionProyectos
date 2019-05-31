@@ -187,7 +187,7 @@
                     <div class="form-group">
                         <label for="cargo">Cargo que ejerce</label>
                         <select class="form-control custom-select" name="cargo" id="cargo">
-                            <option value="1">Seccione Cargo</option>
+                            <option value="">Seccione Cargo</option>
                         </select>
                     </div>
                 </div>
