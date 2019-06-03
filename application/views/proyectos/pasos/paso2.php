@@ -206,6 +206,22 @@
     
           </div>
         </div>
+
+        <div class="row">
+      <div class="col-md-3">
+
+          <div class="form-group">
+            <label>Calculo de tiempo: </label>
+    
+              <select class="custom-select form-control" id="tiempoinversion" name="tiempoinversion" required>
+            <option value="">Seleccione un opción</option>
+            <option value="30">Mensual</option>
+            <option value="90">Trimestral</option>
+            <option value="365">Anual</option>
+          </select>
+    
+          </div>
+        </div>
     <div class="col-md-4">
         <div class="form-group">
             <label> Inversion Total
