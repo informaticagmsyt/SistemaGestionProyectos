@@ -122,7 +122,7 @@ var Infraestructura  =$("#infraestructura").val(),
 	insumos=$("#insumosMateriaPrima").val(),
 	servicios=$("#mservicios").val(),
 	fuerzaTrabajo=$("#FuerzaTrabajo").val(),
-	tiempoinversion=$("#tiempoinversion").val();
+	tiempoinversion=$("#tiempoinversion").val(30, 90, 365);
 
 	if(Number.isNaN(parseInt(Infraestructura)))
 	Infraestructura=0;
