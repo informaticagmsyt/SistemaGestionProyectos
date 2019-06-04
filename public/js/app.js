@@ -119,10 +119,10 @@ function total(){
 
 var Infraestructura  =$("#infraestructura").val(),
 	maquinarias=$("#maquinariasEquipos").val(),
-	insumos=$("#insumosMateriaPrima").val(),
-	servicios=$("#mservicios").val(),
-	fuerzaTrabajo=$("#FuerzaTrabajo").val(),
-	tiempoinversion=$("#tiempoinversion").val(30, 90, 365);
+	insumos=$("#insumosMateriaPrima").val() * $("#tiempoinversion").val(),
+	servicios=$("#mservicios").val() * $("#tiempoinversion").val(),
+	fuerzaTrabajo=$("#FuerzaTrabajo").val() * $("#tiempoinversion").val(),
+	tiempoinversion=$("#tiempoinversion").change(function);
 
 	if(Number.isNaN(parseInt(Infraestructura)))
 	Infraestructura=0;
@@ -137,6 +137,6 @@ var Infraestructura  =$("#infraestructura").val(),
 	if(Number.isNan(parseInt(tiempoinversion)))
 	tiempoinversion=0;
 
-	var total =parseInt(Infraestructura) + parseInt(maquinarias) + parseInt(insumos) + parseInt(fuerzaTrabajo) + parseInt(servicios) * parseInt(tiempoinversion);
+	var total =parseInt(Infraestructura) + parseInt(maquinarias) + parseInt(insumos) + parseInt(fuerzaTrabajo) + parseInt(servicios);
 	$("#inversionTotal").val(total);
 }
