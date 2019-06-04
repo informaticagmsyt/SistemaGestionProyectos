@@ -134,8 +134,7 @@ var Infraestructura  =$("#infraestructura").val(),
 	fuerzaTrabajo=0;
 	if(Number.isNaN(parseInt(insumos)))
 	insumos=0;
-	if(Number.isNan(parseInt(tiempoinversion)))
-	tiempoinversion=0;
+
 
 	var total =parseInt(Infraestructura) + parseInt(maquinarias) + parseInt(insumos) + parseInt(fuerzaTrabajo) + parseInt(servicios);
 	$("#inversionTotal").val(total);
