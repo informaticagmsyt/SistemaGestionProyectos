@@ -46,6 +46,25 @@
                   </div>
                 </div>
 
+                <div class="col-md-3">
+                  <label class="" for="poseealmacenamiento"> 
+                    Posee lugar para almacenar materia prima?   </label>
+                  <select name="poseealmacenamiento" class="form-control" id="poseealmacenamiento">
+                          <option value="Si">Si</option>
+                          <option value="No">No</option>
+                  </select>
+                </div>
+
+                <div class=" col-md-3">
+                    <div class="form-group ">
+                    <label class="" for="areaalmacenamiento"> Area de Almacenamiento   
+                        <small>(M2)</small></label>
+                    <input type="number" placeholder=""
+                    value="<?php if (isset( $datos->area_almacenamiento))echo $datos->area_almacenamiento;?>"
+                     id="areaalmacenamiento"  name="areaalmacenamiento" class="form-control" required>
+                  </div>
+                </div>
+
                 <div class=" col-md-3 ">
                    
                   <label for="edificacion" class="" >Instalaciones Sanitarias</label>
