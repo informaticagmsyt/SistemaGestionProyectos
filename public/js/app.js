@@ -136,7 +136,7 @@ var Infraestructura=$("#infraestructura").val(),
 	insumos=0;
 
 
-	var total =parseInt(Infraestructura) + parseInt(maquinarias) + parseInt(insumos) + parseInt(fuerzaTrabajo) + parseInt(servicios),
+	var total =parseInt(Infraestructura) + parseInt(maquinarias) + parseInt(insumos) + parseInt(fuerzaTrabajo) + parseInt(servicios);
 		total1 =total * parseInt(tiempoinversion);
 	$("#inversionTotal").val(total1);
 }
