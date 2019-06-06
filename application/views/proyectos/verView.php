@@ -290,8 +290,24 @@
 <input type="hidden"  id="parroquia_id1"  name="parroquia_idi"  value="<?php echo $datos->parroquia_id;?>" >
 </form>
 
+<a href="<?php echo base_url("proyectos/cargarImagenes/$idproyecyo")?>"  class="btn btn-default">Subir Imagenes</a>
+<div class="row">
+  <div class="col-xs-6 col-md-3">
 
+    <a href="#" class="thumbnail">
+        <?php 
 
+                  foreach ($imagenes as $key => $value) {
+                    # code...
+                
+        ?>
+      <img src="<?php echo $url. $value   ?>" alt="...">
+      <?php  }
+        ?>
+    </a>
+  </div>
+  ...
+</div>
 
 </div>
 

@@ -730,6 +730,10 @@ $result=$this->ProyectoModel->update(	$datapro,$this->input->post('proyecto_id')
 
 	$id=$data['segmento'] = $this->uri->segment(3);
    if(!empty( $id)){
+
+	$imagenes = get_filenames(APPPATH."storage/$id/");
+	$url=base_url()."application/storage/$id/";
+
 	   $nombreUsuario = $this->session->userdata('user_data');
 	   $this->load->view('layout/header');
 	   $this->load->view('layout/nav');
@@ -737,10 +741,10 @@ $result=$this->ProyectoModel->update(	$datapro,$this->input->post('proyecto_id')
 	   $this->load->view('layout/navar',$User);
 	   $response=$this->ProyectoModel->getProyectoId($id);
 	   $datos=$response['data'][0];
-
+	   $idproyecyo=$id;
 	   $integrantes=$this->PersonasModel->getIntegrante( $id);
 	   $this->load->view('layout/scriptjs');
-	   $this->load->view('proyectos/verView',compact('datos','integrantes'));
+	   $this->load->view('proyectos/verView',compact('datos','integrantes','imagenes','url','idproyecyo'));
 	      
 	
    }else{
