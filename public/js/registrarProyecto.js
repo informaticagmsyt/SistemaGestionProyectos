@@ -143,9 +143,25 @@ $("#btnpaso2").text("Guardando...")
 
 
 }
-
-
-
+//*INICIALIZA EL INPUT EN DESHABILITADO
+$('#codigo_situr').attr('disabled','')
+$('#codigo_sunagro').attr('disabled', '')
+/**/
+//* ESTO DESACTIVA EL INPUT DE LOS CODIGOS SI ES NO
+$('#registrada').change(function()
+  { 
+    if($(this).val()=== 'false')
+  { 
+    $('#codigo_situr').attr('disabled','')
+    $('#codigo_sunagro').attr('disabled', '') //disabled = ''
+  }
+    else if($(this).val()=== 'true')
+    { 
+      $('#codigo_situr').removeAttr('disabled')
+      $('#codigo_sunagro').removeAttr('disabled') 
+    } 
+  })
+/**/
 function regitrarPaso3(){
 
 
@@ -205,7 +221,20 @@ function regitrarPaso3(){
  
  
  }
- 
+
+//* ESTO DESACTIVA EL INPUT DE AREA ALMACENAMIENTO SI ES NO
+$('#poseealmacenamiento').change(function()
+  { 
+    if($(this).val()=== 'No')
+  { 
+    $('#areaalmacenamiento').attr('disabled','') 
+  }
+    else if($(this).val()=== 'Si')
+    { 
+      $('#areaalmacenamiento').removeAttr('disabled') 
+    } 
+  })
+/**/
 
  function regitrarPaso4(){
 
