@@ -143,7 +143,7 @@ $("#btnpaso2").text("Guardando...")
 
 
 }
-//*INICIALIZA EL INPUT EN DESHABILITADO
+//*INICIALIZA EL INPUT EN DESHABILITADO 
 $('#codigo_situr').attr('disabled','')
 $('#codigo_sunagro').attr('disabled', '')
 /**/
@@ -475,12 +475,12 @@ function getTutores(selector) {
   $(selector).html("<option>Cargando...<option>");
     },
     success: function(res) {
-      console.log(res)
+      //console.log(res)
 
  var data =res;
 
  var html='';
-$(selector+' option').each(function()  {$(this).remove(); });
+  $(selector+' option').each(function()  {$(this).remove(); });
 
 
   html='<option value="0">Sin Asignar</option>';
@@ -499,7 +499,8 @@ $(selector+' option').each(function()  {$(this).remove(); });
   
     }
       }).fail(function(re){
-        $(selector+' option').each(function()  {$(this).remove(); });
+        $(selector+' option').each(function()  {$(this).remove(); 
+        });
 
 
   html='<option value="0">Sin Asignar</option>';
@@ -507,8 +508,9 @@ $(selector+' option').each(function()  {$(this).remove(); });
   console.log(re.responseText)
       
       });
-  
+  /**/
   }
+
 
   function getEstatusProyecto(selector) {
 
