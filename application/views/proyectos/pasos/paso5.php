@@ -45,6 +45,51 @@
                            <option value="piezas">Piezas</option>
                           <option value="pares">Pares</option>
                       </select>
+                </div>
+
+                <div class="col-md-3">
+                  <label class="" for="productoterminado"> 
+                    Producto Terminado </label>
+                  <input type="text" placeholder="ingrese el tipo de producto" 
+                  
+                  value="<?php if (isset( $datos->tip_producto_terminado))echo $datos->tip_producto_terminado;?>"
+
+                  id="productoterminado" 
+                  required
+                   name="productoterminado" class="form-control" required>
+                </div>
+
+                <div class="col-md-3">
+                  <label for="tiempoproduccion">Tiempo de Producción</label>
+                      <select name="tiempoproduccion" class="form-control" id="tiempoproduccion">
+                          <option value="30">Mensual</option>
+                          <option value="90">Trimestral</option>
+                          <option value="365">Anual</option>
+                      </select>
+                </div>
+
+                 <div class="col-md-3">
+                  <label class="" for="cantidadproducto"> 
+                    Cantidad de Producto Terminado </label>
+                  <input type="number" placeholder="ingrese total de producto" 
+                  
+                  value="<?php if (isset( $datos->cant_producto_terminado))echo $datos->cant_producto_terminado;?>"
+
+                  id="cantidadproducto" 
+                  required
+                   name="cantidadproducto" class="form-control" required>
+                </div>
+
+                <div class="col-md-3">
+                  <label for="unidadmedida">Unidad<small>  ( metrica )</small></label>
+                      <select name="unidadmedida" class="form-control" id="unidadmedida">
+                          <option value="lts">Litros</option>
+                          <option value="Kg">Kilos</option>
+                          <option value="m2">Metros cuadrados</option>
+                          <option value="m3">Metros cubicos</option>
+                           <option value="piezas">Piezas</option>
+                          <option value="pares">Pares</option>
+                      </select>     
               </div>
 
               <div class="col-md-3">
