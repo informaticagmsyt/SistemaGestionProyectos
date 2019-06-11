@@ -221,7 +221,9 @@ function regitrarPaso3(){
  
  
  }
-
+ //*INICIALIZA EL INPUT EN DESHABILITADO
+$('#areaalmacenamiento').attr('disabled', '')
+/**/
 //* ESTO DESACTIVA EL INPUT DE AREA ALMACENAMIENTO SI ES NO
 $('#poseealmacenamiento').change(function()
   { 

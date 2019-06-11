@@ -50,8 +50,8 @@
                   <label class="" for="poseealmacenamiento"> 
                     Posee lugar para almacenar materia prima?   </label>
                   <select name="poseealmacenamiento" class="form-control" id="poseealmacenamiento">
-                          <option value="Si">Si</option>
                           <option value="No">No</option>
+                          <option value="Si">Si</option>
                   </select>
                 </div>
 
