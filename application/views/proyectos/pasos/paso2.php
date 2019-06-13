@@ -109,119 +109,119 @@
 
     <h5 class="text-center">Inversión Solicitada</h5>
     <hr>
-  </div>
-
-  <div class="row">
-    <div class="col-md-2">
-      <div class="form-group ">
-        <label>Infraestructura (Bs)        </label>
-        <input type="text" 
-          id="infraestructura" 
-          data-msg-required="Ingrese un monto" 
-          name="infraestructura" class="form-control" 
-          value="<?php if (isset( $datos->infraestructurabs))echo $datos->infraestructurabs;?>"
-           
-           required>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-
-      <div class="form-group">
-        <label>Maquinaria,
-          Equipos y
-          Herramientas
-          (Bs) </label>
-
-          <input type="text"
-          id="maquinariasEquipos"
-           data-msg-required="Ingrese un monto" 
-           name="maquinariasEquipos" class="form-control" 
-           value="<?php if (isset( $datos->maquinariasbs))echo $datos->maquinariasbs;?>"
-           
-            
-            required>
-
+  
+    <div class="row">
+      <div class="col-md-2">
+        <div class="form-group ">
+          <label>Infraestructura (Bs)        </label>
+          <input type="text" 
+            id="infraestructura" 
+            data-msg-required="Ingrese un monto" 
+            name="infraestructura" class="form-control" 
+            value="<?php if (isset( $datos->infraestructurabs))echo $datos->infraestructurabs;?>"
+             
+             required>
+        </div>
       </div>
 
+      <div class="col-md-4">
 
+        <div class="form-group">
+          <label>Maquinaria,
+            Equipos y
+            Herramientas
+            (Bs) </label>
 
-    </div>
-
-    <div class="col-md-3">
-
-      <div class="form-group">
-        <label>Insumos
-          y
-          Materias Primas
-          (Bs) </label>
-
-          <input type="text"
-          id="insumosMateriaPrima"
-           data-msg-required="Ingrese un monto" 
-           name="insumosMateriaPrima" class="form-control"
-           value="<?php if (isset( $datos->insumos_materiasbs))echo $datos->insumos_materiasbs;?>"
-
+            <input type="text"
+            id="maquinariasEquipos"
+             data-msg-required="Ingrese un monto" 
+             name="maquinariasEquipos" class="form-control" 
+             value="<?php if (isset( $datos->maquinariasbs))echo $datos->maquinariasbs;?>"
+             
+              
               required>
 
+        </div>
       </div>
-    </div>
 
-    
-    <div class="col-md-3">
-
-      <div class="form-group">
-        <label>Fuerza de
-          Trabajo
-          (Bs) </label>
-
-          <input type="text"
-          id="FuerzaTrabajo" 
-          data-msg-required="Ingrese un monto" 
-          name="FuerzaTrabajo" class="form-control" 
-          value="<?php if (isset( $datos->fuerza_trabajo))echo $datos->fuerza_trabajo;?>"
-           
-           required
-           
-           >
 
       </div>
-    </div>
-  </div>
 
-  <div class="row">
       <div class="col-md-3">
 
-          <div class="form-group">
-            <label>Servicios
-              (Bs) </label>
-    
-              <input type="text"
-              id="mservicios"
-               data-msg-required="Ingrese un monto"
-                name="mservicios" class="form-control"
-                value="<?php if (isset( $datos->servicios))echo $datos->servicios;?>"
-                  
-                  required>
-    
-          </div>
+        <div class="form-group">
+          <label>Insumos
+            y
+            Materias Primas
+            (Bs) </label>
+
+            <input type="text"
+            id="insumosMateriaPrima"
+             data-msg-required="Ingrese un monto" 
+             name="insumosMateriaPrima" class="form-control"
+             value="<?php if (isset( $datos->insumos_materiasbs))echo $datos->insumos_materiasbs;?>"
+
+                required>
+
         </div>
-
-  <div class="row">
-    <div class="col-md-3">
-
-      <div class="form-group">
-          <label>Calculo de tiempo: </label>
-    
-              <select class="custom-select form-control" id="tiempoinversion" name="tiempoinversion" required>
-                <option value="">Seleccione un opción</option>
-                <option value="30">Mensual</option>
-                <option value="90">Trimestral</option>
-                <option value="365">Anual</option>
-              </select>
-    
       </div>
+
+      
+      <div class="col-md-3">
+
+        <div class="form-group">
+          <label>Fuerza de
+            Trabajo
+            (Bs) </label>
+
+            <input type="text"
+            id="FuerzaTrabajo" 
+            data-msg-required="Ingrese un monto" 
+            name="FuerzaTrabajo" class="form-control" 
+            value="<?php if (isset( $datos->fuerza_trabajo))echo $datos->fuerza_trabajo;?>"
+             
+             required
+             
+             >
+
+        </div>
+      </div>
+      </div>
+
+    <div class="row">
+        <div class="col-md-3">
+
+            <div class="form-group">
+              <label>Servicios
+                (Bs) </label>
+      
+                <input type="text"
+                id="mservicios"
+                 data-msg-required="Ingrese un monto"
+                  name="mservicios" class="form-control"
+                  value="<?php if (isset( $datos->servicios))echo $datos->servicios;?>"
+                    
+                    required>
+      
+            </div>
+          </div>
     </div>
+          
+    <div class="row">
+      <div class="col-md-3">
+
+        <div class="form-group">
+            <label>Calculo de tiempo: </label>
+      
+                <select class="custom-select form-control" id="tiempoinversion" name="tiempoinversion" required>
+                  <option value="">Seleccione un opción</option>
+                  <option value="30">Mensual</option>
+                  <option value="90">Trimestral</option>
+                  <option value="365">Anual</option>
+                </select>
+      
+        </div>
+      </div>
 
     <div class="col-md-4">
         <div class="form-group">
