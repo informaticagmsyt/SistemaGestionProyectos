@@ -51,6 +51,7 @@
 <?php include'pasos/paso3.php'; ?>
 <?php include'pasos/paso4.php'; ?>
 <?php include'pasos/paso5.php'; ?>
+<?php include'pasos/paso6.php'; ?>
       </div>
     </div>
   </div>
