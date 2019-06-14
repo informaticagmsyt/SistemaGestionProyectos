@@ -52,8 +52,17 @@ input[type=number] { -moz-appearance:textfield; }
         <span class="wizard-step-number">5</span>
         <span class="wizard-step-complete"><i class="fa fa-check text-success"></i></span>
         <span class="wizard-step-caption">
-        Fin
+        Paso 5
         <span class="wizard-step-description">Datos de Producción y Operatividad</span>  
+
+        </span>
+      </li>
+      <li data-target="#wizard-example-step6" class="wizard6 wizard">
+        <span class="wizard-step-number">6</span>
+        <span class="wizard-step-complete"><i class="fa fa-check text-success"></i></span>
+        <span class="wizard-step-caption">
+        Fin
+        <span class="wizard-step-description">Mano de Obra e Inversion Total</span>  
 
         </span>
       </li>
@@ -145,17 +154,31 @@ input[type=number] { -moz-appearance:textfield; }
         <div id="msj5"></div>
         
 
+
+      <div class="pull-right">
+   
+        <button type="button" class="btn"   onclick="regresar(4)">Regresar</button>
+        <button type="submit" class="btn btn-primary" id="btnpaso5" >Guardar y Continuar</button>
+      </div>
+        </form>
+
+    <div class="wizard-pane" id="wizard-example-step6">
+
+        <form  method="post" id="formpaso6">
+  
+          <?php include'pasos/paso6.php'; ?>
+        <div id="msj6"></div>
+        
+
       <button type="button" class="btn btn-primary"       style="visibility:hidden"
       data-wizard-action="finish">Guardar</button>
 
       <div class="pull-right">
    
-        <button type="submit" class="btn btn-primary btnfinal"    id="btnpaso5"  
+        <button type="submit" class="btn btn-primary btnfinal"    id="btnpaso6"  
         >Guardar</button>
       </div>
         </form>
-
-
         
 <div id="modal-success" class="modal fade modal-alert modal-success">
   <div class="modal-dialog">
@@ -406,7 +429,7 @@ $( "#formpaso2" ).submit(function( e ) {
     });
 
 
-      /*****PASO 5 */
+      /*****PASO 4 */
       $("#formpaso4").validate();
       document.querySelector("#formpaso4").addEventListener("submit", function(e){
         e.preventDefault();    //stop form from submitting
@@ -426,6 +449,17 @@ $( "#formpaso2" ).submit(function( e ) {
            if(validate){
    
            regitrarPaso5()
+         }
+        
+    });
+           /*****PASO 6 */
+           $("#formpaso6").validate();
+           document.querySelector("#formpaso6").addEventListener("submit", function(e){
+             e.preventDefault();    //stop form from submitting
+         var validate=   $("#formpaso6").valid();
+           if(validate){
+   
+           regitrarPaso6()
          }
         
     });
