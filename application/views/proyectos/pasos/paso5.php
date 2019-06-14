@@ -151,7 +151,7 @@
 </div>
   <script>
 //*MATERIA PRIMA E INSUMOS    
-    //*DANDO EVENTO AL BOTON PARA AGREGAR OTRA FILA
+    //DANDO EVENTO AL BOTON PARA AGREGAR OTRA FILA
     $('#addInsumo').click(function(){
         //OBTENIENDO LA LISTA DE INSUMOS
         var listaInsumos = $('#listaInsumos');
