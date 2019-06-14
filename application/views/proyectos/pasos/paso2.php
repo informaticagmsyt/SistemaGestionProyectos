@@ -29,8 +29,6 @@
 
         </div>
 
-
-
       </div>
     </div>
 
@@ -59,12 +57,11 @@
 
         </div>
 
-
-
       </div>
     </div>
 
     <hr>
+
     <div class="row">
       <div class="col-md-6">
         <div class="form-group ">
@@ -84,8 +81,6 @@
             value="<?php if (isset( $datos->poblacion_beneficiada))echo $datos->poblacion_beneficiada;?>"
             name="poblacion" class="form-control" required>
         </div>
-
-
 
       </div>
     </div>
@@ -108,6 +103,7 @@
 
 
     <h5 class="text-center">Inversión Solicitada</h5>
+
     <hr>
   
     <div class="row">
@@ -140,12 +136,10 @@
              
               
               required>
-
         </div>
-      </div>
-
 
       </div>
+
 
       <div class="col-md-3">
 
@@ -162,8 +156,8 @@
              value="<?php if (isset( $datos->insumos_materiasbs))echo $datos->insumos_materiasbs;?>"
 
                 required>
-
         </div>
+
       </div>
 
       
@@ -180,16 +174,12 @@
             name="FuerzaTrabajo" class="form-control" 
             value="<?php if (isset( $datos->fuerza_trabajo))echo $datos->fuerza_trabajo;?>"
              
-             required
-             
-             >
-
+             required>
         </div>
-      </div>
+
       </div>
 
-    <div class="row">
-        <div class="col-md-3">
+      <div class="col-md-3">
 
             <div class="form-group">
               <label>Servicios
@@ -202,12 +192,10 @@
                   value="<?php if (isset( $datos->servicios))echo $datos->servicios;?>"
                     
                     required>
-      
             </div>
-          </div>
-    </div>
+
+      </div>
           
-    <div class="row">
       <div class="col-md-3">
 
         <div class="form-group">
@@ -219,11 +207,12 @@
                   <option value="90">Trimestral</option>
                   <option value="365">Anual</option>
                 </select>
-      
         </div>
+
       </div>
 
-    <div class="col-md-4">
+      <div class="col-md-4">
+
         <div class="form-group">
             <label> Inversion Total
               (Bs) </label>
@@ -235,8 +224,7 @@
               value="<?php if (isset( $datos->monto))echo $datos->monto;?>"
                
                required>
-    
-          </div>
+        </div>
           
       </div>
     </div> 
