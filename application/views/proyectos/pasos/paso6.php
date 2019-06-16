@@ -5,7 +5,9 @@
         <div id="msj6"></div>
         
           <div class="panel-body">
-          <!-- INSERTE CODIGO DESDE AQUI -->                
+          <!-- 
+          	INSERTE CODIGO DESDE AQUI 
+          -->                
           </div>
 </div>
   <script>
