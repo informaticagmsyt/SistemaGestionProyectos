@@ -157,10 +157,16 @@
                   </form>
                 </li>
               </ul>
+
           </div>
 </div>
+<<<<<<< HEAD
   <script src="<?php echo base_url()?>/public/js/registrarrFormLista.js"></script>
   <script>
+=======
+
+<script>
+>>>>>>> 2fa5bd26787f58012d3c675139b601c9fbc74fc5
 //*MATERIA PRIMA E INSUMOS    
     //DANDO EVENTO AL BOTON PARA AGREGAR OTRA FILA
     $('#addInsumo').click(function(){
@@ -198,6 +204,7 @@
       var equiposcomp = listaEquiposcomp.find('li:first').clone();
       equiposcomp.appendTo('#listaEquiposcomp');
     })
+<<<<<<< HEAD
 /**/     
 
 $('#btn-paso5-test').click(function(){
@@ -207,4 +214,8 @@ $('#btn-paso5-test').click(function(){
   
 })
   </script>
+=======
+/**/       
+</script>
+>>>>>>> 2fa5bd26787f58012d3c675139b601c9fbc74fc5
   
