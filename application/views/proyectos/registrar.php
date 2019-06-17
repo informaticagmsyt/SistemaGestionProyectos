@@ -155,7 +155,13 @@ input[type=number] { -moz-appearance:textfield; }
         <button type="submit" class="btn btn-primary" id="btnpaso5" >Guardar y Continuar</button>
       </div>
 
-      
+        <!-- </form> -->
+    </div>
+
+    <div class="wizard-pane" id="wizard-example-step6">
+
+        <form  method="post" id="formpaso6">
+  
           <?php include'pasos/paso6.php'; ?>
         <div id="msj6"></div>
         
