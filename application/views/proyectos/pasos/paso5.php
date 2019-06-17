@@ -147,10 +147,11 @@
                   </div>
                 </li>
               </ul>
-              
+
           </div>
 </div>
-  <script>
+
+<script>
 //*MATERIA PRIMA E INSUMOS    
     //DANDO EVENTO AL BOTON PARA AGREGAR OTRA FILA
     $('#addInsumo').click(function(){
@@ -189,5 +190,5 @@
       equiposcomp.appendTo('#listaEquiposcomp');
     })
 /**/       
-  </script>
+</script>
   
