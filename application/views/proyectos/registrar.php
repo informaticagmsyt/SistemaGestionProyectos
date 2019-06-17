@@ -161,6 +161,7 @@ input[type=number] { -moz-appearance:textfield; }
         <button type="submit" class="btn btn-primary" id="btnpaso5" >Guardar y Continuar</button>
       </div>
         </form>
+    </div>
 
     <div class="wizard-pane" id="wizard-example-step6">
 
@@ -179,6 +180,7 @@ input[type=number] { -moz-appearance:textfield; }
         >Guardar</button>
       </div>
         </form>
+    </div>
         
 <div id="modal-success" class="modal fade modal-alert modal-success">
   <div class="modal-dialog">
