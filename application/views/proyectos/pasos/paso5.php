@@ -5,6 +5,8 @@
         <div id="msj5"></div>
         
           <div class="panel-body">
+                <!-- BOTON PROVISIONAL MIENTRAS SE ARMA TODA LA ESTRUCTURA -->
+                <button class="btn btn-warning" id="btn-paso5-test">RegistrarTest</button>
                 <!-- INICIO MATERIA PRIMA E INSUMOS -->  
                 <h5 class="text-center">Materia Prima e Insumos</h5>
                 <div style="display: flex; justify-content: flex-end;">
@@ -14,29 +16,31 @@
   
               <ul id="listaInsumos" style="list-style: none">
                 <li>
-                  <div class="form-group row">
+                  <form>
+                    <div class="form-group row">
 
-                      <div class="col-sm-4">
-                        <label>Concepto (Actividad / Rubro)</label>
-                        <input type="text" class="form-control">
-                      </div>
+                        <div class="col-sm-4">
+                          <label>Concepto (Actividad / Rubro)</label>
+                          <input type="text" name="conceptoMateriap" class="form-control">
+                        </div>
 
-                      <div class="col-sm-3">
-                        <label>Unidad de Medida</label>
-                        <input type="text" class="form-control">
-                      </div>
+                        <div class="col-sm-3">
+                          <label>Unidad de Medida</label>
+                          <input type="text" class="form-control">
+                        </div>
 
-                      <div class="col-sm-3">
-                        <label>Precio Unitario(Bs)</label>
-                        <input type="text" class="form-control">
-                      </div>
+                        <div class="col-sm-3">
+                          <label>Precio Unitario(Bs)</label>
+                          <input type="text" class="form-control">
+                        </div>
 
-                      <div class="col-sm-2">
-                        <label>Cantidad</label>
-                        <input type="text" class="form-control">
-                      </div>
+                        <div class="col-sm-2">
+                          <label>Cantidad</label>
+                          <input type="text" class="form-control">
+                        </div>
 
-                  </div>
+                    </div>
+                  </form>
                 </li>
               </ul>
               <!-- FIN MATERIA PRIMA E INSUMOS -->
@@ -50,29 +54,31 @@
   
               <ul id="listaEquipostrabajo" style="list-style: none">
                 <li>
-                  <div class="form-group row">
+                  <form>
+                    <div class="form-group row">
 
-                      <div class="col-sm-4">
-                        <label>Concepto (Actividad / Rubro)</label>
-                        <input type="text" class="form-control">
-                      </div>
+                        <div class="col-sm-4">
+                          <label>Concepto (Actividad / Rubro)</label>
+                          <input type="text" class="form-control">
+                        </div>
 
-                      <div class="col-sm-3">
-                        <label>Unidad de Medida</label>
-                        <input type="text" class="form-control">
-                      </div>
+                        <div class="col-sm-3">
+                          <label>Unidad de Medida</label>
+                          <input type="text" class="form-control">
+                        </div>
 
-                      <div class="col-sm-3">
-                        <label>Precio Unitario(Bs)</label>
-                        <input type="text" class="form-control">
-                      </div>
+                        <div class="col-sm-3">
+                          <label>Precio Unitario(Bs)</label>
+                          <input type="text" class="form-control">
+                        </div>
 
-                      <div class="col-sm-2">
-                        <label>Cantidad</label>
-                        <input type="text" class="form-control">
-                      </div>
+                        <div class="col-sm-2">
+                          <label>Cantidad</label>
+                          <input type="text" class="form-control">
+                        </div>
 
-                  </div>
+                    </div>
+                  </form>
                 </li>
               </ul>
               <!-- FIN HERRAMIENTAS Y EQUIPOS DE TRABAJO -->
@@ -86,29 +92,31 @@
   
               <ul id="listaEquipostecno" style="list-style: none">
                 <li>
-                  <div class="form-group row">
+                  <form>
+                    <div class="form-group row">
 
-                      <div class="col-sm-4">
-                        <label>Concepto (Actividad / Rubro)</label>
-                        <input type="text" class="form-control">
-                      </div>
+                        <div class="col-sm-4">
+                          <label>Concepto (Actividad / Rubro)</label>
+                          <input type="text" class="form-control">
+                        </div>
 
-                      <div class="col-sm-3">
-                        <label>Unidad de Medida</label>
-                        <input type="text" class="form-control">
-                      </div>
+                        <div class="col-sm-3">
+                          <label>Unidad de Medida</label>
+                          <input type="text" class="form-control">
+                        </div>
 
-                      <div class="col-sm-3">
-                        <label>Precio Unitario(Bs)</label>
-                        <input type="text" class="form-control">
-                      </div>
+                        <div class="col-sm-3">
+                          <label>Precio Unitario(Bs)</label>
+                          <input type="text" class="form-control">
+                        </div>
 
-                      <div class="col-sm-2">
-                        <label>Cantidad</label>
-                        <input type="text" class="form-control">
-                      </div>
+                        <div class="col-sm-2">
+                          <label>Cantidad</label>
+                          <input type="text" class="form-control">
+                        </div>
 
-                  </div>
+                    </div>
+                  </form>
                 </li>
               </ul>
               <!-- FIN HERRAMIENTAS Y EQUIPOS TECNOLOGICOS -->
@@ -122,36 +130,43 @@
   
               <ul id="listaEquiposcomp" style="list-style: none">
                 <li>
-                  <div class="form-group row">
+                  <form>
+                    <div class="form-group row">
 
-                      <div class="col-sm-4">
-                        <label>Concepto (Actividad / Rubro)</label>
-                        <input type="text" class="form-control">
-                      </div>
+                        <div class="col-sm-4">
+                          <label>Concepto (Actividad / Rubro)</label>
+                          <input type="text" class="form-control">
+                        </div>
 
-                      <div class="col-sm-3">
-                        <label>Unidad de Medida</label>
-                        <input type="text" class="form-control">
-                      </div>
+                        <div class="col-sm-3">
+                          <label>Unidad de Medida</label>
+                          <input type="text" class="form-control">
+                        </div>
 
-                      <div class="col-sm-3">
-                        <label>Precio Unitario(Bs)</label>
-                        <input type="text" class="form-control">
-                      </div>
+                        <div class="col-sm-3">
+                          <label>Precio Unitario(Bs)</label>
+                          <input type="text" class="form-control">
+                        </div>
 
-                      <div class="col-sm-2">
-                        <label>Cantidad</label>
-                        <input type="text" class="form-control">
-                      </div>
+                        <div class="col-sm-2">
+                          <label>Cantidad</label>
+                          <input type="text" class="form-control">
+                        </div>
 
-                  </div>
+                    </div>
+                  </form>
                 </li>
               </ul>
 
           </div>
 </div>
+<<<<<<< HEAD
+  <script src="<?php echo base_url()?>/public/js/registrarrFormLista.js"></script>
+  <script>
+=======
 
 <script>
+>>>>>>> 2fa5bd26787f58012d3c675139b601c9fbc74fc5
 //*MATERIA PRIMA E INSUMOS    
     //DANDO EVENTO AL BOTON PARA AGREGAR OTRA FILA
     $('#addInsumo').click(function(){
@@ -189,6 +204,18 @@
       var equiposcomp = listaEquiposcomp.find('li:first').clone();
       equiposcomp.appendTo('#listaEquiposcomp');
     })
+<<<<<<< HEAD
+/**/     
+
+$('#btn-paso5-test').click(function(){
+  //BOTON PROVISIONAL MIENTRAS SE ARMA TODA LA ESTRUCTURA
+  registrarForms('#listaInsumos')
+  registrarForms('#listaEquipostrabajo');
+  
+})
+  </script>
+=======
 /**/       
 </script>
+>>>>>>> 2fa5bd26787f58012d3c675139b601c9fbc74fc5
   
