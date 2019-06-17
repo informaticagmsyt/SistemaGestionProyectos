@@ -21,22 +21,22 @@
 
                         <div class="col-sm-4">
                           <label>Concepto (Actividad / Rubro)</label>
-                          <input type="text" name="conceptoMateriap" class="form-control">
+                          <input type="text" name="conceptoInsumo" class="form-control">
                         </div>
 
                         <div class="col-sm-3">
                           <label>Unidad de Medida</label>
-                          <input type="text" class="form-control">
+                          <input name="unidadmedida" type="text" class="form-control">
                         </div>
 
                         <div class="col-sm-3">
                           <label>Precio Unitario(Bs)</label>
-                          <input type="text" class="form-control">
+                          <input name="precio" type="text" class="form-control">
                         </div>
 
                         <div class="col-sm-2">
                           <label>Cantidad</label>
-                          <input type="text" class="form-control">
+                          <input name="cantidad" type="text" class="form-control">
                         </div>
 
                     </div>
@@ -58,23 +58,18 @@
                     <div class="form-group row">
 
                         <div class="col-sm-4">
-                          <label>Concepto (Actividad / Rubro)</label>
-                          <input type="text" class="form-control">
-                        </div>
-
-                        <div class="col-sm-3">
-                          <label>Unidad de Medida</label>
-                          <input type="text" class="form-control">
+                          <label>Concepto (Herramienta / Equipo)</label>
+                          <input name="conceptoHerraminenta" type="text" class="form-control">
                         </div>
 
                         <div class="col-sm-3">
                           <label>Precio Unitario(Bs)</label>
-                          <input type="text" class="form-control">
+                          <input name="precio" type="text" class="form-control">
                         </div>
 
                         <div class="col-sm-2">
                           <label>Cantidad</label>
-                          <input type="text" class="form-control">
+                          <input name="cantidad" type="text" class="form-control">
                         </div>
 
                     </div>
@@ -83,8 +78,8 @@
               </ul>
               <!-- FIN HERRAMIENTAS Y EQUIPOS DE TRABAJO -->
 
-              <!-- INICIO HERRAMIENTAS Y EQUIPOS TECNOLOGICOS -->
-              <h5 class="text-center">Herramientas y Equipos Tecnologicos</h5>
+              <!-- INICIO MAQUINAS Y EQUIPOS TECNOLOGICOS -->
+              <h5 class="text-center">Maquinas y Equipos Tecnologicos</h5>
                 <div style="display: flex; justify-content: flex-end;">
                 <button type="button" id="addEquipostecno" class="btn btn-primary"><i class="fas fa-plus"></i></button>  
                 </div>
@@ -96,30 +91,25 @@
                     <div class="form-group row">
 
                         <div class="col-sm-4">
-                          <label>Concepto (Actividad / Rubro)</label>
-                          <input type="text" class="form-control">
-                        </div>
-
-                        <div class="col-sm-3">
-                          <label>Unidad de Medida</label>
-                          <input type="text" class="form-control">
+                          <label>Concepto (Maquina / Equipo)</label>
+                          <input name="conceptoMaquina" type="text" class="form-control">
                         </div>
 
                         <div class="col-sm-3">
                           <label>Precio Unitario(Bs)</label>
-                          <input type="text" class="form-control">
+                          <input name="precio" type="text" class="form-control">
                         </div>
 
                         <div class="col-sm-2">
                           <label>Cantidad</label>
-                          <input type="text" class="form-control">
+                          <input name="cantidad" type="text" class="form-control">
                         </div>
 
                     </div>
                   </form>
                 </li>
               </ul>
-              <!-- FIN HERRAMIENTAS Y EQUIPOS TECNOLOGICOS -->
+              <!-- FIN MAQUINAS Y EQUIPOS TECNOLOGICOS -->
 
               <!-- INICIO MOBILIARIO Y EQUIPOS COMPLEMENTARIOS -->
               <h5 class="text-center">Mobiliario y Equipos Complementarios</h5>
@@ -134,23 +124,18 @@
                     <div class="form-group row">
 
                         <div class="col-sm-4">
-                          <label>Concepto (Actividad / Rubro)</label>
-                          <input type="text" class="form-control">
+                          <label>Concepto (Mobiliario / Equipo)</label>
+                          <input name="conceptoMobiliario" type="text" class="form-control">
                         </div>
-
-                        <div class="col-sm-3">
-                          <label>Unidad de Medida</label>
-                          <input type="text" class="form-control">
-                        </div>
-
+                        
                         <div class="col-sm-3">
                           <label>Precio Unitario(Bs)</label>
-                          <input type="text" class="form-control">
+                          <input name="precio" type="text" class="form-control">
                         </div>
 
                         <div class="col-sm-2">
                           <label>Cantidad</label>
-                          <input type="text" class="form-control">
+                          <input name="cantidad" type="text" class="form-control">
                         </div>
 
                     </div>
@@ -184,7 +169,7 @@
     })
 /**/
 
-//*HERRAMIENTAS Y EQUIPOS TECNOLOGICOS
+//*MAQUINAS Y EQUIPOS TECNOLOGICOS
     $('#addEquipostecno').click(function()
     {
       var listaEquipostecno = $('#listaEquipostecno');
@@ -204,8 +189,10 @@
 
 $('#btn-paso5-test').click(function(){
   //BOTON PROVISIONAL MIENTRAS SE ARMA TODA LA ESTRUCTURA
-  registrarForms('#listaInsumos')
+  registrarForms('#listaInsumos');
   registrarForms('#listaEquipostrabajo');
+  registrarForms('#listaEquipostecno');
+  registrarForms('#listaEquiposcomp');
   
 })
 

@@ -27,6 +27,11 @@
 	          			<br>
 	          			<input class="form-control" type="number" name="cantidadperadmin" required>
 	          		</div>
+	          		<div class="input-group">
+  						<span class="input-group-addon">Bs</span>
+  						<input class="form-control" id="salariominimo" name="salariominimo" placeholder="Monto" type="number">
+  						<span class="input-group-addon">.00</span>
+					</div>
 
 	          	</div>
 
