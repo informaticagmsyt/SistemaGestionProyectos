@@ -5,6 +5,9 @@
         <div id="msj5"></div>
         
           <div class="panel-body">
+                <?php 
+                /*
+                ?>
                 <!-- BOTON PROVISIONAL MIENTRAS SE ARMA TODA LA ESTRUCTURA -->
                 <button class="btn btn-warning" id="btn-paso5-test">RegistrarTest</button>
                 <!-- INICIO MATERIA PRIMA E INSUMOS -->  
@@ -158,7 +161,11 @@
                 </li>
               </ul>
 
+          
+          <?php  /**/
+          ?>
           </div>
+          
 </div>
   <script src="<?php echo base_url()?>/public/js/registrarrFormLista.js"></script>
 
@@ -202,12 +209,13 @@
     })
 /**/     
 
-$('#btn-paso5-test').click(function(){
-  //BOTON PROVISIONAL MIENTRAS SE ARMA TODA LA ESTRUCTURA
-  registrarForms('#listaInsumos')
-  registrarForms('#listaEquipostrabajo');
-  
-})
+//* EVENTO DEL BOTON PROVISIONAL
+    $('#btn-paso5-test').click(function(){
+      //BOTON PROVISIONAL MIENTRAS SE ARMA TODA LA ESTRUCTURA
+      registrarForms('#listaInsumos')
+      registrarForms('#listaEquipostrabajo');
+      
+    })
 
 /**/       
 </script>
