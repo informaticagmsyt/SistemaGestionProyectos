@@ -57,3 +57,12 @@ function registrarForms(lista){
     });
     */
 }
+
+function eleminarForm(lista,li){
+    //OBTENIENDO CANTIDAD DE FILAS QUE HAY EN LA LISTA
+    let cantFilas = $(lista + ' li').length;
+    //SI HAY MAS DE UNA FILA ELMINA LA FILA
+    if(cantFilas > 1){
+        li.remove();
+    }
+}

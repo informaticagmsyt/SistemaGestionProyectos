@@ -7,9 +7,7 @@
           <div class="panel-body">
             <button class="btn btn-warning" id="btn-paso5-test">RegistrarTest</button>
             <hr>
-                <?php
-                //*
-                ?>
+
             <div class="panel-group panel-group-success" id="acordion-materiales">
               
               <div class="panel">
@@ -30,7 +28,7 @@
                         <form>
                           <div class="form-group row">
 
-                              <div class="col-sm-4">
+                              <div class="col-sm-3">
                                 <label>Concepto (Actividad / Rubro)</label>
                                 <input type="text" name="conceptoInsumo" class="form-control">
                               </div>
@@ -49,7 +47,16 @@
                                 <label>Cantidad</label>
                                 <input name="cantidad" type="text" class="form-control">
                               </div>
-
+                              <div class="col-sm-1">
+                                <label for=""></label>
+                                <br>
+                                <button 
+                                  type="button" 
+                                  class="btn btn-danger" 
+                                  name="btn-rmv-fila" 
+                                  onclick="eleminarForm('#listaInsumos',$(this).parent().parent().parent().parent())"
+                                  > <i class="fa fa-minus"></i> </button>
+                              </div>
                           </div>
                         </form>
                       </li>
@@ -92,7 +99,16 @@
                                 <label>Cantidad</label>
                                 <input name="cantidad" type="text" class="form-control">
                               </div>
-
+                              <div class="col-sm-1">
+                                <label for=""></label>
+                                <br>
+                                <button 
+                                  type="button" 
+                                  class="btn btn-danger" 
+                                  name="btn-rmv-fila" 
+                                  onclick="eleminarForm('#listaEquipostrabajo',$(this).parent().parent().parent().parent())"
+                                  > <i class="fa fa-minus"></i> </button>
+                              </div>
                           </div>
                         </form>
                       </li>
@@ -135,7 +151,16 @@
                                 <label>Cantidad</label>
                                 <input name="cantidad" type="text" class="form-control">
                               </div>
-
+                              <div class="col-sm-1">
+                                <label for=""></label>
+                                <br>
+                                <button 
+                                  type="button" 
+                                  class="btn btn-danger" 
+                                  name="btn-rmv-fila" 
+                                  onclick="eleminarForm('#listaEquipostecno',$(this).parent().parent().parent().parent())"
+                                  > <i class="fa fa-minus"></i> </button>
+                              </div>
                           </div>
                         </form>
                       </li>
@@ -179,7 +204,16 @@
                                 <label>Cantidad</label>
                                 <input name="cantidad" type="text" class="form-control">
                               </div>
-
+                              <div class="col-sm-1">
+                                <label for=""></label>
+                                <br>
+                                <button 
+                                  type="button" 
+                                  class="btn btn-danger" 
+                                  name="btn-rmv-fila" 
+                                  onclick="eleminarForm('#listaEquiposcomp',$(this).parent().parent().parent().parent())"
+                                  > <i class="fa fa-minus"></i> </button>
+                              </div>
                           </div>
                         </form>
                       </li>
@@ -187,48 +221,7 @@
                   </div>
                 </div>
               </div>          
-
             </div>
-            <?php /**/ ?>
-
-                <?php 
-                /*
-                ?>
-              <!-- INICIO MOBILIARIO Y EQUIPOS COMPLEMENTARIOS -->
-              <h5 class="text-center">Mobiliario y Equipos Complementarios</h5>
-                <div style="display: flex; justify-content: flex-end;">
-                <button type="button" id="addEquiposcomp" class="btn btn-primary"><i class="fas fa-plus"></i></button>  
-                </div>
-              <hr>
-  
-              <ul id="listaEquiposcomp" style="list-style: none">
-                <li>
-                  <form>
-                    <div class="form-group row">
-
-                        <div class="col-sm-4">
-                          <label>Concepto (Mobiliario / Equipo)</label>
-                          <input name="conceptoMobiliario" type="text" class="form-control">
-                        </div>
-                        
-                        <div class="col-sm-3">
-                          <label>Precio Unitario(Bs)</label>
-                          <input name="precio" type="text" class="form-control">
-                        </div>
-
-                        <div class="col-sm-2">
-                          <label>Cantidad</label>
-                          <input name="cantidad" type="text" class="form-control">
-                        </div>
-
-                    </div>
-                  </form>
-                </li>
-              </ul>
-
-          
-          <?php  /**/
-          ?>
           </div>
           
 </div>
