@@ -21,9 +21,13 @@ function recorrerForms(lista){
             let elemento = elementosForm[j] //ELEMENTO QUE TOMA EN EL RECORRIDO
             let elementoName = elemento.name //NOMBRE DEL ELEMENTO
             let elementoValue = elemento.value //VALUE(VALOR) QUE TIENE EL ELEMENTO
-            //AGREGAR AL OBJETO DE LOS DATOS QUE SE VAN RECORRIENDO DANDOLE
-            //COMO LLAVE EL NOMBRE(NAME) DEL ELEMENTO(INPUT) Y COMO CONTENIDO EL VALOR(VALUE)
-            datosFila[`${elementoName}`] = elementoValue;
+            
+            //CONDICIONANDO QUE EN CASO QUE NO SEA EL ELEMENTO DE TIPO BUTTON
+            if(elemento.tagName != 'BUTTON'){
+                //AGREGAR AL OBJETO DE LOS DATOS QUE SE VAN RECORRIENDO DANDOLE
+                //COMO LLAVE EL NOMBRE(NAME) DEL ELEMENTO(INPUT) Y COMO CONTENIDO EL VALOR(VALUE)
+                datosFila[`${elementoName}`] = elementoValue;
+            }
         }
         //MOSTRAR POR CONSOLA EL OBJETO QUE CONTIENE 
         //LOS DATOS ACTUALES A ESTE RECORRIDO(CICLO FOR)
@@ -63,6 +67,11 @@ function eleminarForm(lista,li){
     let cantFilas = $(lista + ' li').length;
     //SI HAY MAS DE UNA FILA ELMINA LA FILA
     if(cantFilas > 1){
-        li.remove();
+        li.remove();//ELMINIAR FILA 
+
+    }else{ // SINO  HAY MAS DE UNA FILA
+        //OBTENER EL FORMULARIO DE LA FILA
+        let form = li.find('form');
+        form[0].reset(); //VACIAR(RESETEAR) FORMULARIO
     }
 }
