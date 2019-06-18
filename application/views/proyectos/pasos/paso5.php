@@ -14,7 +14,7 @@
                 
                 <div class="panel-heading">
                   <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion-example-success" href="#collapse-insumos">
-                  Materia Prima e Insumos
+                  MATERIA PRIMA E INSUMOS
                   </a>
                 </div>
                 
@@ -35,7 +35,13 @@
 
                               <div class="col-sm-3">
                                 <label>Unidad de Medida</label>
-                                <input name="unidadmedida" type="text" class="form-control">
+                                <select id="unidadmedida" name="unidadmedida" class="form-control">
+                                  <option value="lts">Litros</option>
+                                  <option value="Kg">Kilos</option>
+                                  <option value="sacos">Saco</option>
+                                  <option value="bulto">Bulto</option>
+                                  <option value="Caja">Cajas</option>
+                                </select>
                               </div>
 
                               <div class="col-sm-3">
