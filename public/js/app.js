@@ -107,7 +107,7 @@ $(function() {
 
 $(function() {
 
-	$( "#infraestructura, #maquinariasEquipos, #mservicios, #insumosMateriaPrima, #FuerzaTrabajo, #tiempoinversion" ).blur(function() {
+	$( "#infraestructura, #maquinariasEquipos, #mservicios, #insumosMateriaPrima, #FuerzaTrabajo, #tiempoinversion" ).change(function() {
 		total()
 	  });
 	
