@@ -104,7 +104,7 @@ $(function() {
   $('body > .px-footer').pxFooter();
 });
 
-
+//*
 $(function() {
 
 	$( "#infraestructura, #maquinariasEquipos, #mservicios, #insumosMateriaPrima, #FuerzaTrabajo, #tiempoinversion" ).change(function() {
@@ -140,3 +140,26 @@ var Infraestructura=$("#infraestructura").val(),
 		total1 =total * parseInt(tiempoinversion);
 	$("#inversionTotal").val(total1);
 }
+/**/
+
+/* SCRIPT DE PRUEBA PARA LA SUMA
+$(function()
+{
+	$("#precioInsumos").change(function()
+	{
+		total()
+	});
+	console.log("ready!");
+});
+
+function total()
+{
+	var insumos = $("#precioInsumos").val();
+
+	if (Number.isNaN(parseInt(insumos)))
+	insumos=0;
+
+	var total = parseInt(insumos) * $("#cantidad").val();
+	$("#costoInsumo").val(total);
+}
+/**/
