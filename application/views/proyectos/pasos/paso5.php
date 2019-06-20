@@ -46,7 +46,7 @@
 
                               <div class="col-sm-3">
                                 <label>Precio Unitario(Bs)</label>
-                                <input name="precio" type="text" class="form-control">
+                                <input name="precioinsumos" type="text" class="form-control">
                               </div>
 
                               <div class="col-sm-2">
@@ -98,7 +98,7 @@
 
                               <div class="col-sm-3">
                                 <label>Precio Unitario(Bs)</label>
-                                <input name="precio" type="text" class="form-control">
+                                <input name="precioherramientas" type="text" class="form-control">
                               </div>
 
                               <div class="col-sm-2">
@@ -150,7 +150,7 @@
 
                               <div class="col-sm-3">
                                 <label>Precio Unitario(Bs)</label>
-                                <input name="precio" type="text" class="form-control">
+                                <input name="preciomaquinas" type="text" class="form-control">
                               </div>
 
                               <div class="col-sm-2">
@@ -203,7 +203,7 @@
                               
                               <div class="col-sm-3">
                                 <label>Precio Unitario(Bs)</label>
-                                <input name="precio" type="text" class="form-control">
+                                <input name="preciomobiliarios" type="text" class="form-control">
                               </div>
 
                               <div class="col-sm-2">
