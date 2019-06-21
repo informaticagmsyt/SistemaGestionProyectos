@@ -44,23 +44,6 @@ function recorrerForms(lista){
     /**/
 }   
 
-// FUNCTION PARA ENVIAR AL SERVIDOR(PHP) LA
-function registrarForms(lista){
-    let data = recorrerForms(lista);
-    let json = "data=" + JSON.stringify(data);
-    console.log(data);
-    
-    /* REGISTRAR MEDIANTE AJAX
-    $.ajax({
-        type: "POST",
-        url: "controlador",
-        data: json,
-        success: function(res){
-            console.log(res);
-        },
-    });
-    */
-}
 
 function eleminarForm(lista,li){
     //OBTENIENDO CANTIDAD DE FILAS QUE HAY EN LA LISTA
@@ -68,10 +51,75 @@ function eleminarForm(lista,li){
     //SI HAY MAS DE UNA FILA ELMINA LA FILA
     if(cantFilas > 1){
         li.remove();//ELMINIAR FILA 
-
+        
     }else{ // SINO  HAY MAS DE UNA FILA
         //OBTENER EL FORMULARIO DE LA FILA
         let form = li.find('form');
         form[0].reset(); //VACIAR(RESETEAR) FORMULARIO
     }
+}
+
+
+function registrarInsumos(lista){
+    let data = recorrerForms(lista);
+    let json = "data=" + JSON.stringify(data);
+    console.log(data);
+    //* REGISTRAR MEDIANTE AJAX
+    $.ajax({
+        type: "POST",
+        url: urlbase + "Complemento/registrarInsumos",
+        data: json,
+        success: function(res){
+            console.log(res);
+        },
+    });
+    /**/
+}
+
+function registrarHerramientas(lista){
+    let data = recorrerForms(lista);
+    let json = "data=" + JSON.stringify(data);
+    console.log(data);
+    //* REGISTRAR MEDIANTE AJAX
+    $.ajax({
+        type: "POST",
+        url: urlbase + "Complemento/registrarHerramientas",
+        data: json,
+        success: function(res){
+            console.log(res);
+        },
+    });
+    /**/
+}
+
+function registrarMaquinas(lista){
+    let data = recorrerForms(lista);
+    let json = "data=" + JSON.stringify(data);
+    console.log(data);
+    //* REGISTRAR MEDIANTE AJAX
+    $.ajax({
+        type: "POST",
+        url: urlbase + "Complemento/registrarMaquinas",
+        data: json,
+        success: function(res){
+            console.log(res);
+        },
+    });
+    /**/
+}
+
+function registrarMobiliario(lista){
+    let data = recorrerForms(lista);
+    let json = "data=" + JSON.stringify(data);
+    console.log(data);
+    //* REGISTRAR MEDIANTE AJAX
+    $.ajax({
+        type: "POST",
+        url: urlbase + "Complemento/registarMobiliario",
+        data: json,
+        success: function(res){
+            console.log(res);
+        },
+    });
+    /**/
 }

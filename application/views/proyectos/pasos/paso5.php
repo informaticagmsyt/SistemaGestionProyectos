@@ -93,7 +93,7 @@
 
                               <div class="col-sm-4">
                                 <label>Concepto (Herramienta / Equipo)</label>
-                                <input name="conceptoHerraminenta" type="text" class="form-control">
+                                <input name="conceptoHerramienta" type="text" class="form-control">
                               </div>
 
                               <div class="col-sm-3">
@@ -285,10 +285,10 @@
 
 $('#btn-paso5-test').click(function(){
   //BOTON PROVISIONAL MIENTRAS SE ARMA TODA LA ESTRUCTURA
-  registrarForms('#listaInsumos');
-  registrarForms('#listaEquipostrabajo');
-  registrarForms('#listaEquipostecno');
-  registrarForms('#listaEquiposcomp');
+  registrarInsumos('#listaInsumos');
+  registrarHerramientas('#listaEquipostrabajo');
+  registrarMaquinas('#listaEquipostecno');
+  registrarMobiliario('#listaEquiposcomp');
   
 })
 
