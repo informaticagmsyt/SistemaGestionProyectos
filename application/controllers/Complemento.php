@@ -20,6 +20,11 @@ class Complemento extends CI_Controller{
     }
 
     function listarHerramientas(){
+      //header('Access-Control-Allow-Origin: localhost:3000');
+      //header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
+      //header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE');
+      header('content-type: application/json; charset=utf-8');
+
       $json = json_encode($this->ComplementoModel->listarHerramientas());
       echo $json;
     }
@@ -65,7 +70,8 @@ class Complemento extends CI_Controller{
           'precioinsumos'  => $insumo->precioinsumos,
           'cantidad'       => $insumo->cantidad
         );
-        var_dump( $this->ComplementoModel->registrarInsumos($data));
+        $result = $this->ComplementoModel->registrarInsumos($data);
+        echo $result;
       }
 
     }
@@ -80,7 +86,9 @@ class Complemento extends CI_Controller{
           'precioherramientas'  => $herramienta->precioherramientas,
           'cantidad'       => $herramienta->cantidad
         );
-        var_dump( $this->ComplementoModel->registrarHerramientas($data));
+        $result = $this->ComplementoModel->registrarHerramientas($data);
+        echo $result;
+
       }
 
     }
@@ -95,7 +103,8 @@ class Complemento extends CI_Controller{
           'preciomaquinas'  => $maquina->preciomaquinas,
           'cantidad'       => $maquina->cantidad
         );
-        var_dump($this->ComplementoModel->registrarMaquinas($data));
+        $result = $this->ComplementoModel->registrarMaquinas($data);
+        echo $result;
       }
 
     }
@@ -110,7 +119,8 @@ class Complemento extends CI_Controller{
           'preciomobiliarios'  => $mobiliario->preciomobiliarios,
           'cantidad'       => $mobiliario->cantidad
         );
-        var_dump($this->ComplementoModel->registrarMobiliario($data));
+        $result = $this->ComplementoModel->registrarMobiliario($data);
+        echo $result;
       }
 
     }

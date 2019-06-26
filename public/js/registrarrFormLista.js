@@ -70,7 +70,11 @@ function registrarInsumos(lista){
         url: urlbase + "Complemento/registrarInsumos",
         data: json,
         success: function(res){
-            console.log(res);
+            if(res == true){
+                console.log('INSUMO REGISTRADO');
+            }else{
+                console.log('ERROR AL REGISTRAR INSUMO');
+            }
         },
     });
     /**/

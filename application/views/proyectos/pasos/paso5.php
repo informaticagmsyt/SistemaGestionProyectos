@@ -243,6 +243,8 @@
         var insumo = listaInsumos.find('li:first').clone();
         //OBTENER FORMULARIO DENTRO DE LA LISTA
         var form = insumo.find('form');
+        //OBTENER INPUT PARA AUTOCOMPLETADO
+        var input = form.find('input[name=conceptoInsumo]');
         //RESETEAR(VACIAR) FORMULARIO
         form[0].reset();
         //AÑADIENDO FILA CLONADA A LA LISTA
@@ -292,6 +294,26 @@ $('#btn-paso5-test').click(function(){
   
 })
 
-/**/       
+/**/
+
+var inputinit = $('input[name=conceptoInsumo]').typeahead({
+	    source:  function (query, process) {
+        return $.get(urlbase+'proyectos/getProfesion', { codigo: query, action:"searchClient" }, function (data) {
+        		//console.log(data);
+            if(data.find){
+              return process(data.obj);
+            }else{
+           
+              var result= [{id: "0",
+               name:+query,
+              nombre:query}];
+              console.log(result)
+              return process(result);
+            }
+	           
+	        });
+      }
+ 
+  });
 </script>
   

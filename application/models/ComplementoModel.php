@@ -82,41 +82,51 @@ Class ComplementoModel  extends CI_Model{
   //REGISTRAR COMPLEMENTO SEGUN SU TIPO
   function registrarInsumos($data){
     $datos = array(
-      'conceptoInsumo' => $data['conceptoInsumo'],
-      'unidadmedida' => $data['unidadmedida'],
-      'precioinsumos' => $data['precioinsumos'],
-      'cantidad' => $data['cantidad']
+      'complemento' => $data['conceptoInsumo'],
+      'unidadMedida' => $data['unidadmedida'],
+      'precio' => $data['precioinsumos'],
+      'cantidad' => $data['cantidad'],
+      'id_tipo_complemento' => 1,
+      'id_proyecto' => 0
     );
-    return $datos;
+    $result = $this->db->insert('proyecto_complementos',$datos);
+    return $result;
   }
 
   function registrarHerramientas($data){
     $datos = array(
-      'conceptoHerramienta' => $data['conceptoHerramienta'],
-      'precioherramientas' => $data['precioherramientas'],
-      'cantidad' => $data['cantidad']
+      'complemento' => $data['conceptoHerramienta'],
+      'precio' => $data['precioherramientas'],
+      'cantidad' => $data['cantidad'],
+      'id_tipo_complemento' => 2,
+      'id_proyecto' => 0
     );
-    return $datos;
+    $result = $this->db->insert('proyecto_complementos',$datos);
+    return $result;
   }
 
   function registrarMaquinas($data){
     $datos = array(
-      'conceptoMaquina' => $data['conceptoMaquina'],
-      'preciomaquinas' => $data['preciomaquinas'],
-      'cantidad' => $data['cantidad']
+      'complemento' => $data['conceptoMaquina'],
+      'precio' => $data['preciomaquinas'],
+      'cantidad' => $data['cantidad'],
+      'id_tipo_complemento' => 3,
+      'id_proyecto' => 0
     );
-
-    return $query->result();
+    $result = $this->db->insert('proyecto_complementos',$datos);
+    return $result;
   }
 
   function registrarMobiliario($data){
     $datos = array(
-      'conceptoMobiliario' => $data['conceptoMobiliario'],
-      'preciomobiliarios' => $data['preciomobiliarios'],
-      'cantidad' => $data['cantidad']
+      'complemento' => $data['conceptoMobiliario'],
+      'precio' => $data['preciomobiliarios'],
+      'cantidad' => $data['cantidad'],
+      'id_tipo_complemento' => 4,
+      'id_proyecto' => 0
     );
-
-    return $datos;
+    $result = $this->db->insert('proyecto_complementos',$datos);
+    return $result;
   }
 
 }

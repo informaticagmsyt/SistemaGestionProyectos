@@ -296,7 +296,7 @@ $('#formTutor').submit(function(e){
     //Arreglo que servira para enviar data mediante AJAX
     //data = []
     
-    //* Recorrer los elementos del formulario
+    /* Recorrer los elementos del formulario
     var elements = document.querySelector('#formTutor').elements;
     console.log('---------ELEMENTS------------')
     for (var i = 0; i < elements.length ; i++) {
