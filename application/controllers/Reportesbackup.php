@@ -258,7 +258,7 @@ class Reportes extends CI_Controller
 	   <thead>
 		   <tr>
 
-			   <th colspan="4" class="headt" ><span class="center"> Datos del proyecto   </span></th>
+			   <th colspan="4" class="headt" ><span class="center">Datos del proyecto   </span></th>
 		   </tr>
 	   </thead>
 
@@ -344,7 +344,7 @@ class Reportes extends CI_Controller
 		   </tr>
 
 		   <tr>
-		   <th class="titulo">Nombres y Apellidos: </th>
+		   <th class="titulo">Nombres </th>
 			   <td colspan="3">
 			   ' . $datos->nombres . '  ' . $datos->apellidos . '
 			   </td>
@@ -399,7 +399,7 @@ class Reportes extends CI_Controller
 		   </tr>
 		   <tr>
 		   <th class="titulo">Teléfono:  </th>
-			   <td colspan="3">  ' . $datos->telefono . '</td>
+			   <td colspan="3">  ' . $datos->telefono_empresa . '</td>
 		   </tr>
 
 		<tr>
