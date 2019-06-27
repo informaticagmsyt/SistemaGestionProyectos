@@ -139,23 +139,3 @@ function registrarMobiliario(lista){
     });
     /**/
 }
-
-function busquedaInput(input,urlConsulta){
-    input.typeahead({
-        source:  function (query, process) {
-        return $.get(urlbase + urlConsulta, { codigo: query, action:"searchClient" }, function (data) {
-          //console.log(data);
-            if(data.find){
-              return process(data.obj);
-              }else{ 
-                var result= [{id: "0",
-                  name:+query,
-                  nombre:query}];
-                  //console.log(result)
-                  return process(result);
-                }
-                });
-          }
-     
-      });
-}
