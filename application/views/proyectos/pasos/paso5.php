@@ -260,7 +260,6 @@
       var listaEquipostrabajo = $('#listaEquipostrabajo');
       var equipostrabajo = listaEquipostrabajo.find('li:first').clone();
       var form = listaEquipostrabajo.find('form');
-      let input = form.find('input[name=conceptoHerramienta]');
       form[0].reset();
       equipostrabajo.appendTo('#listaEquipostrabajo');
     })
@@ -303,35 +302,25 @@ $('#btn-paso5-test').click(function(){
   //FUNCION PARA BUSCAR POSIBLES RELACIONES AL TIPIEAR EN EL INPUTS
   var busquedaInsumo = $('input[name=conceptoInsumo]').typeahead({
     source:  function (query, process) {
-    return $.get(urlbase + 'Insumos/busquedaInsumos', { codigo: query, action:"searchClient" }, function (data) {
-    //console.log(data);
-      if(data.find){
-        return process(data.obj);
-        }else{ 
-          var result= [{id: "0",
-            name:+query,
-            nombre:query}];
-            //console.log(result)
-            return process(result);
+      return $.get(urlbase + 'Insumos/busquedaInsumos', { codigo: query, action:"searchClient" }, 
+        function (data) {
+        //console.log(data);
+          if(data.find){
+            return process(data.obj);
           }
-          });
-        }
+        });
+      }
      
     });
 
-  var busquedaHerramienta =  $('input[name=conceptoHerramienta]').typeahead({
+  var busquedaHerramienta =  $('input[name=conceptoHerramienta]:first').typeahead({
     source:  function (query, process) {
-    return $.get(urlbase + 'Herramientas/busquedaHerramientas', { codigo: query, action:"searchClient" }, function (data) {
+    return $.get(urlbase + 'Herramientas/busquedaHerramientas', { codigo: query, action:"searchClient" }, 
+    function (data) {
     //console.log(data);
       if(data.find){
         return process(data.obj);
-        }else{ 
-          var result= [{id: "0",
-            name:+query,
-            nombre:query}];
-            //console.log(result)
-            return process(result);
-          }
+        }
           });
         }
      
@@ -339,19 +328,13 @@ $('#btn-paso5-test').click(function(){
 
   var busquedaMaquina =  $('input[name=conceptoMaquina]').typeahead({
     source:  function (query, process) {
-    return $.get(urlbase + 'Maquinas/busquedaMaquinas', { codigo: query, action:"searchClient" }, function (data) {
-    //console.log(data);
-      if(data.find){
-        return process(data.obj);
-        }else{ 
-          var result= [{id: "0",
-            name:+query,
-            nombre:query}];
-            //console.log(result)
-            return process(result);
+      return $.get(urlbase + 'Maquinas/busquedaMaquinas', { codigo: query, action:"searchClient" }, function (data) {
+          //console.log(data);
+          if(data.find){
+            return process(data.obj);
           }
-          });
-        }
+        });
+      }
      
     });
 
@@ -361,13 +344,7 @@ $('#btn-paso5-test').click(function(){
     //console.log(data);
       if(data.find){
         return process(data.obj);
-        }else{ 
-          var result= [{id: "0",
-            name:+query,
-            nombre:query}];
-            //console.log(result)
-            return process(result);
-          }
+        }
           });
         }
      

@@ -42,8 +42,8 @@ Class MaquinasModel  extends CI_Model{
   function busquedaMaquinas($complemento){
   
     $search = $complemento;
-    $SCAPE="%' ESCAPE '!' LIMIT 5";
-    $sql = "SELECT id, descripcion FROM complementos WHERE id_tipo_complemento = $this->id_maquina AND descripcion LIKE '%" 
+    $SCAPE="%') ESCAPE '!' LIMIT 5";
+    $sql = "SELECT id, descripcion FROM complementos WHERE id_tipo_complemento = $this->id_maquina AND descripcion LIKE upper('%" 
     .$this->db->escape_like_str($search).$SCAPE;
 
     $query=$this->db->query($sql);

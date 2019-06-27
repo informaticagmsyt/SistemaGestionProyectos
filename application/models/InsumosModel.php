@@ -43,8 +43,8 @@ Class InsumosModel  extends CI_Model{
   function busquedaInsumos($complemento){
   
     $search = $complemento;
-    $SCAPE="%' ESCAPE '!' LIMIT 5";
-    $sql = "SELECT id, descripcion FROM complementos WHERE id_tipo_complemento = $this->id_insumo AND descripcion LIKE '%" 
+    $SCAPE="%') ESCAPE '!' LIMIT 5";
+    $sql = "SELECT id, descripcion FROM complementos WHERE id_tipo_complemento = $this->id_insumo AND descripcion LIKE upper('%" 
     .$this->db->escape_like_str($search).$SCAPE;
 
     $query=$this->db->query($sql);
