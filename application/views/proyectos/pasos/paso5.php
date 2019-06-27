@@ -231,7 +231,7 @@
           </div>
           
 </div>
-  <script src="<?php echo base_url()?>/public/js/registrarrFormLista.js"></script>
+  <script src="<?php echo base_url()?>/public/js/complementos.js"></script>
 
 <script>
 //*MATERIA PRIMA E INSUMOS    
@@ -244,7 +244,9 @@
         //OBTENER FORMULARIO DENTRO DE LA LISTA
         var form = insumo.find('form');
         //OBTENER INPUT PARA AUTOCOMPLETADO
-        var input = form.find('input[name=conceptoInsumo]');
+        let input = form.find('input[name=conceptoInsumo]');
+        //DARLE LA FUNCION DE BUSQUEDA AL INPUT DEL CONCEPTO
+        busquedaInput(input,'Insumos/busquedaInsumos');
         //RESETEAR(VACIAR) FORMULARIO
         form[0].reset();
         //AÑADIENDO FILA CLONADA A LA LISTA
@@ -257,7 +259,9 @@
     {
       var listaEquipostrabajo = $('#listaEquipostrabajo');
       var equipostrabajo = listaEquipostrabajo.find('li:first').clone();
-      var form = equipostrabajo.find('form');
+      var form = listaEquipostrabajo.find('form');
+      let input1 = form.find('input[name=conceptoHerramienta]');
+      busquedaInput(input,'Herramientas/busquedaHerramientas');
       form[0].reset();
       equipostrabajo.appendTo('#listaEquipostrabajo');
     })
@@ -269,6 +273,8 @@
       var listaEquipostecno = $('#listaEquipostecno');
       var equipostecno = listaEquipostecno.find('li:first').clone();
       var form = listaEquipostecno.find('form');
+      let input = form.find('input[name=conceptoMaquina]');
+      busquedaInput(input,'Maquinas/busquedaMaquinas');
       form[0].reset();
       equipostecno.appendTo('#listaEquipostecno');
     })
@@ -280,6 +286,8 @@
       var listaEquiposcomp = $('#listaEquiposcomp');
       var equiposcomp = listaEquiposcomp.find('li:first').clone();
       var form = listaEquiposcomp.find('form');
+      let input = form.find('input[name=conceptoMobiliario]');
+      busquedaInput(input,'Mobiliario/busquedaMobiliario');
       form[0].reset();
       equiposcomp.appendTo('#listaEquiposcomp');
     })
@@ -295,25 +303,10 @@ $('#btn-paso5-test').click(function(){
 })
 
 /**/
-
-var inputinit = $('input[name=conceptoInsumo]').typeahead({
-	    source:  function (query, process) {
-        return $.get(urlbase+'proyectos/getProfesion', { codigo: query, action:"searchClient" }, function (data) {
-        		//console.log(data);
-            if(data.find){
-              return process(data.obj);
-            }else{
-           
-              var result= [{id: "0",
-               name:+query,
-              nombre:query}];
-              console.log(result)
-              return process(result);
-            }
-	           
-	        });
-      }
- 
-  });
+  //FUNCION PARA BUSCAR POSIBLES RELACIONES AL TIPIEAR EN EL INPUTS
+  busquedaInput($('input[name=conceptoInsumo]'),'Insumos/busquedaInsumos');
+  busquedaInput($('input[name=conceptoHerramienta]'),'Herramientas/busquedaHerramientas');
+  busquedaInput($('input[name=conceptoMaquina]'),'Maquinas/busquedaMaquinas');
+  busquedaInput($('input[name=conceptoMobiliario]'),'Mobiliario/busquedaMobiliario');
 </script>
   

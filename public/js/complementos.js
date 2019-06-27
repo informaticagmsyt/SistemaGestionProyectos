@@ -67,13 +67,13 @@ function registrarInsumos(lista){
     //* REGISTRAR MEDIANTE AJAX
     $.ajax({
         type: "POST",
-        url: urlbase + "Complemento/registrarInsumos",
+        url: urlbase + "Insumos/registrarInsumos",
         data: json,
         success: function(res){
             if(res == true){
                 console.log('INSUMO REGISTRADO');
             }else{
-                console.log('ERROR AL REGISTRAR INSUMO');
+                console.log('ERROR AL REGISTRAR INSUMO',res);
             }
         },
     });
@@ -87,10 +87,14 @@ function registrarHerramientas(lista){
     //* REGISTRAR MEDIANTE AJAX
     $.ajax({
         type: "POST",
-        url: urlbase + "Complemento/registrarHerramientas",
+        url: urlbase + "Herramientas/registrarHerramientas",
         data: json,
         success: function(res){
-            console.log(res);
+            if(res == true){
+                console.log('HERRAMIENTA REGISTRADA');
+            }else{
+                console.log('ERROR AL REGISTRAR HERRAMIENTA',res);
+            }
         },
     });
     /**/
@@ -103,10 +107,14 @@ function registrarMaquinas(lista){
     //* REGISTRAR MEDIANTE AJAX
     $.ajax({
         type: "POST",
-        url: urlbase + "Complemento/registrarMaquinas",
+        url: urlbase + "Maquinas/registrarMaquinas",
         data: json,
         success: function(res){
-            console.log(res);
+            if(res == true){
+                console.log('MAQUINA REGISTRADA');
+            }else{
+                console.log('ERROR AL REGISTRAR MAQUINA',res);
+            }
         },
     });
     /**/
@@ -119,11 +127,35 @@ function registrarMobiliario(lista){
     //* REGISTRAR MEDIANTE AJAX
     $.ajax({
         type: "POST",
-        url: urlbase + "Complemento/registarMobiliario",
+        url: urlbase + "Mobiliario/registarMobiliario",
         data: json,
         success: function(res){
-            console.log(res);
+            if(res == true){
+                console.log('MOBILIARIO REGISTRADO');
+            }else{
+                console.log('ERROR AL REGISTRAR MOBILIARIO',res);
+            }
         },
     });
     /**/
+}
+
+function busquedaInput(input,urlConsulta){
+    input.typeahead({
+        source:  function (query, process) {
+        return $.get(urlbase + urlConsulta, { codigo: query, action:"searchClient" }, function (data) {
+          //console.log(data);
+            if(data.find){
+              return process(data.obj);
+              }else{ 
+                var result= [{id: "0",
+                  name:+query,
+                  nombre:query}];
+                  //console.log(result)
+                  return process(result);
+                }
+                });
+          }
+     
+      });
 }
