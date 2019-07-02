@@ -63,7 +63,7 @@ function eleminarForm(lista,li){
 function registrarInsumos(lista){
     let data = recorrerForms(lista);
     let json = "data=" + JSON.stringify(data);
-    console.log(data);
+    //console.log(data);
     //* REGISTRAR MEDIANTE AJAX
     $.ajax({
         type: "POST",
@@ -71,7 +71,7 @@ function registrarInsumos(lista){
         data: json,
         success: function(res){
             if(res == true){
-                console.log('INSUMO REGISTRADO');
+                console.log(' - INSUMO REGISTRADO');
             }else{
                 console.log('ERROR AL REGISTRAR INSUMO',res);
             }
@@ -83,7 +83,7 @@ function registrarInsumos(lista){
 function registrarHerramientas(lista){
     let data = recorrerForms(lista);
     let json = "data=" + JSON.stringify(data);
-    console.log(data);
+    //console.log(data);
     //* REGISTRAR MEDIANTE AJAX
     $.ajax({
         type: "POST",
@@ -91,7 +91,7 @@ function registrarHerramientas(lista){
         data: json,
         success: function(res){
             if(res == true){
-                console.log('HERRAMIENTA REGISTRADA');
+                console.log(' - HERRAMIENTA REGISTRADA');
             }else{
                 console.log('ERROR AL REGISTRAR HERRAMIENTA',res);
             }
@@ -103,7 +103,7 @@ function registrarHerramientas(lista){
 function registrarMaquinas(lista){
     let data = recorrerForms(lista);
     let json = "data=" + JSON.stringify(data);
-    console.log(data);
+    //console.log(data);
     //* REGISTRAR MEDIANTE AJAX
     $.ajax({
         type: "POST",
@@ -111,7 +111,7 @@ function registrarMaquinas(lista){
         data: json,
         success: function(res){
             if(res == true){
-                console.log('MAQUINA REGISTRADA');
+                console.log(' - MAQUINA REGISTRADA');
             }else{
                 console.log('ERROR AL REGISTRAR MAQUINA',res);
             }
@@ -123,7 +123,7 @@ function registrarMaquinas(lista){
 function registrarMobiliario(lista){
     let data = recorrerForms(lista);
     let json = "data=" + JSON.stringify(data);
-    console.log(data);
+    //console.log(data);
     //* REGISTRAR MEDIANTE AJAX
     $.ajax({
         type: "POST",
@@ -131,11 +131,28 @@ function registrarMobiliario(lista){
         data: json,
         success: function(res){
             if(res == true){
-                console.log('MOBILIARIO REGISTRADO');
+                console.log(' - MOBILIARIO REGISTRADO');
             }else{
                 console.log('ERROR AL REGISTRAR MOBILIARIO',res);
             }
         },
     });
     /**/
+}
+
+function registrarComplementos(){
+    
+  $('#collapse-insumos,#collapse-herramientas,#collapse-maquinas,#collapse-mobiliario').collapse('show')
+  
+  if($('#listaInsumos form').valid() && $('#listaInsumos form').valid() && 
+    $('#listaEquipostrabajo form').valid() && $('#listaEquipostecno form').valid() &&
+    $('#listaEquiposcomp form').valid()){
+
+    registrarInsumos('#listaInsumos')
+    registrarHerramientas('#listaEquipostrabajo')
+    registrarMaquinas('#listaEquipostecno')
+    registrarMobiliario('#listaEquiposcomp')
+    
+    $('.wizard').pxWizard('goNext')
+  }
 }

@@ -34,7 +34,8 @@ class Mobiliario extends CI_Controller{
         $data = array(
           'conceptoMobiliario' => $mobiliario->conceptoMobiliario,
           'preciomobiliarios'  => (float)$mobiliario->preciomobiliarios,
-          'cantidad'       => (int)$mobiliario->cantidad
+          'cantidad'       => (int)$mobiliario->cantidad,
+          'id_proyecto' => $_SESSION['proyecto_id']
         );
         $result = $this->MobiliarioModel->registrarMobiliario($data);
         echo $result;

@@ -37,7 +37,8 @@ class Herramientas extends CI_Controller{
       $data = array(
         'conceptoHerramienta' => $herramienta->conceptoHerramienta,
         'precioherramientas'  => (float)$herramienta->precioherramientas,
-        'cantidad'       => (int)$herramienta->cantidad
+        'cantidad'       => (int)$herramienta->cantidad,
+        'id_proyecto' => $_SESSION['proyecto_id']
       );
       $result = $this->HerramientasModel->registrarHerramientas($data);
       echo $result;

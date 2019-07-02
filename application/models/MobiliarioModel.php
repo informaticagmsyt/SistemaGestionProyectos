@@ -33,7 +33,7 @@ Class MobiliarioModel  extends CI_Model{
       'precio' => $data['preciomobiliarios'],
       'cantidad' => $data['cantidad'],
       'id_tipo_complemento' => $this->id_mobiliario,
-      'id_proyecto' => 0
+      'id_proyecto' => $data['id_proyecto']
     );
     $result = $this->db->insert('proyecto_complementos',$datos);
     return $result;

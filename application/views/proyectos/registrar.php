@@ -152,7 +152,7 @@ input[type=number] { -moz-appearance:textfield; }
       <div class="pull-right">
    
         <button type="button" class="btn"   onclick="regresar(4)">Regresar</button>
-        <button type="submit" class="btn btn-primary" id="btnpaso5" >Guardar y Continuar</button>
+        <button type="submit" class="btn btn-primary" id="btnpaso5" onclick="registrarComplementos()">Guardar y Continuar</button>
       </div>
 
         <!-- </form> -->

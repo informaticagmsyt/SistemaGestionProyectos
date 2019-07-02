@@ -34,7 +34,8 @@ class Insumos extends CI_Controller{
         'conceptoInsumo' => $insumo->conceptoInsumo,
         'unidadmedida'   => $insumo->unidadmedida,
         'precioinsumos'  => (float)$insumo->precioinsumos,
-        'cantidad'       => (int)$insumo->cantidad
+        'cantidad'       => (int)$insumo->cantidad,
+        'id_proyecto' => $_SESSION['proyecto_id']
       );
       $result = $this->InsumosModel->registrarInsumos($data);
       echo $result;

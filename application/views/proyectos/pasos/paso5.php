@@ -5,8 +5,8 @@
         <div id="msj5"></div>
         
           <div class="panel-body">
-            <button class="btn btn-warning" id="btn-paso5-test">RegistrarTest</button>
-            <hr>
+            <!--<button class="btn btn-warning" id="btn-paso5-test">RegistrarTest</button>
+            <hr>-->
 
             <div class="panel-group panel-group-success" id="acordion-materiales">
               
@@ -30,12 +30,12 @@
 
                               <div class="col-sm-3">
                                 <label>Concepto (Actividad / Rubro)</label>
-                                <input type="text" name="conceptoInsumo" class="form-control">
+                                <input type="text" name="conceptoInsumo" class="form-control" required>
                               </div>
 
                               <div class="col-sm-3">
                                 <label>Unidad de Medida</label>
-                                <select id="unidadmedida" name="unidadmedida" class="form-control">
+                                <select id="unidadmedida" name="unidadmedida" class="form-control" required>
                                   <option value="lts">Litros</option>
                                   <option value="Kg">Kilos</option>
                                   <option value="sacos">Saco</option>
@@ -46,12 +46,12 @@
 
                               <div class="col-sm-3">
                                 <label>Precio Unitario(Bs)</label>
-                                <input name="precioinsumos" type="text" class="form-control">
+                                <input name="precioinsumos" type="text" class="form-control" required>
                               </div>
 
                               <div class="col-sm-2">
                                 <label>Cantidad</label>
-                                <input name="cantidad" type="text" class="form-control">
+                                <input name="cantidad" type="text" class="form-control" required>
                               </div>
                               <div class="col-sm-1">
                                 <label for=""></label>
@@ -93,17 +93,17 @@
 
                               <div class="col-sm-4">
                                 <label>Concepto (Herramienta / Equipo)</label>
-                                <input name="conceptoHerramienta" type="text" class="form-control">
+                                <input name="conceptoHerramienta" type="text" class="form-control" required>
                               </div>
 
                               <div class="col-sm-3">
                                 <label>Precio Unitario(Bs)</label>
-                                <input name="precioherramientas" type="text" class="form-control">
+                                <input name="precioherramientas" type="text" class="form-control" required>
                               </div>
 
                               <div class="col-sm-2">
                                 <label>Cantidad</label>
-                                <input name="cantidad" type="text" class="form-control">
+                                <input name="cantidad" type="text" class="form-control" required>
                               </div>
                               <div class="col-sm-1">
                                 <label for=""></label>
@@ -145,17 +145,17 @@
 
                               <div class="col-sm-4">
                                 <label>Concepto (Maquina / Equipo)</label>
-                                <input name="conceptoMaquina" type="text" class="form-control">
+                                <input name="conceptoMaquina" type="text" class="form-control" required>
                               </div>
 
                               <div class="col-sm-3">
                                 <label>Precio Unitario(Bs)</label>
-                                <input name="preciomaquinas" type="text" class="form-control">
+                                <input name="preciomaquinas" type="text" class="form-control" required>
                               </div>
 
                               <div class="col-sm-2">
                                 <label>Cantidad</label>
-                                <input name="cantidad" type="text" class="form-control">
+                                <input name="cantidad" type="text" class="form-control" required>
                               </div>
                               <div class="col-sm-1">
                                 <label for=""></label>
@@ -198,17 +198,17 @@
 
                               <div class="col-sm-4">
                                 <label>Concepto (Mobiliario / Equipo)</label>
-                                <input name="conceptoMobiliario" type="text" class="form-control">
+                                <input name="conceptoMobiliario" type="text" class="form-control" required>
                               </div>
                               
                               <div class="col-sm-3">
                                 <label>Precio Unitario(Bs)</label>
-                                <input name="preciomobiliarios" type="text" class="form-control">
+                                <input name="preciomobiliarios" type="text" class="form-control" required>
                               </div>
 
                               <div class="col-sm-2">
                                 <label>Cantidad</label>
-                                <input name="cantidad" type="text" class="form-control">
+                                <input name="cantidad" type="text" class="form-control" required>
                               </div>
                               <div class="col-sm-1">
                                 <label for=""></label>
@@ -291,10 +291,19 @@
 
 $('#btn-paso5-test').click(function(){
   //BOTON PROVISIONAL MIENTRAS SE ARMA TODA LA ESTRUCTURA
-  registrarInsumos('#listaInsumos');
-  registrarHerramientas('#listaEquipostrabajo');
-  registrarMaquinas('#listaEquipostecno');
-  registrarMobiliario('#listaEquiposcomp');
+
+  $('#collapse-insumos,#collapse-herramientas,#collapse-maquinas,#collapse-mobiliario').collapse('show')
+  if($('#listaInsumos form').valid() && $('#listaInsumos form').valid() && 
+    $('#listaEquipostrabajo form').valid() && $('#listaEquipostecno form').valid() &&
+    $('#listaEquiposcomp form').valid()){
+
+    registrarInsumos('#listaInsumos')
+    registrarHerramientas('#listaEquipostrabajo')
+    registrarMaquinas('#listaEquipostecno')
+    registrarMobiliario('#listaEquiposcomp')
+    
+    $('.wizard').pxWizard('goNext')
+  }
   
 })
 /**/

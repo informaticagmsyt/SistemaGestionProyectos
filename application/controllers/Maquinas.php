@@ -34,7 +34,8 @@ class Maquinas extends CI_Controller{
       $data = array(
         'conceptoMaquina' => $maquina->conceptoMaquina,
         'preciomaquinas'  => (float)$maquina->preciomaquinas,
-        'cantidad'       => (int)$maquina->cantidad
+        'cantidad'       => (int)$maquina->cantidad,
+        'id_proyecto' => $_SESSION['proyecto_id']
       );
       $result = $this->MaquinasModel->registrarMaquinas($data);
       echo $result;

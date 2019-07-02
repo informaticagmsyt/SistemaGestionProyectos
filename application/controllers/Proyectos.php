@@ -551,7 +551,7 @@ public function  regitrarPaso1(){
 						}
 			
 						$_SESSION['requerimiento_id']=NULL;
-						$_SESSION['proyecto_id']=NULL;
+						//$_SESSION['proyecto_id']=NULL;
 						$_SESSION['persona_id']=NULL;
 						$_SESSION['cedula']=NULL;
 									

@@ -33,7 +33,7 @@ Class HerramientasModel  extends CI_Model{
       'precio' => $data['precioherramientas'],
       'cantidad' => $data['cantidad'],
       'id_tipo_complemento' => $this->id_herramienta,
-      'id_proyecto' => 0
+      'id_proyecto' => $data['id_proyecto']
     );
     $result = $this->db->insert('proyecto_complementos',$datos);
     return $result;
