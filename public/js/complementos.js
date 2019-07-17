@@ -60,99 +60,127 @@ function eleminarForm(lista,li){
 }
 
 
-function registrarInsumos(lista){
-    let data = recorrerForms(lista);
-    let json = "data=" + JSON.stringify(data);
-    //console.log(data);
-    //* REGISTRAR MEDIANTE AJAX
-    $.ajax({
-        type: "POST",
-        url: urlbase + "Insumos/registrarInsumos",
-        data: json,
-        success: function(res){
-            if(res == true){
-                console.log(' - INSUMO REGISTRADO');
-            }else{
-                console.log('ERROR AL REGISTRAR INSUMO',res);
-            }
-        },
-    });
-    /**/
-}
-
-function registrarHerramientas(lista){
-    let data = recorrerForms(lista);
-    let json = "data=" + JSON.stringify(data);
-    //console.log(data);
-    //* REGISTRAR MEDIANTE AJAX
-    $.ajax({
-        type: "POST",
-        url: urlbase + "Herramientas/registrarHerramientas",
-        data: json,
-        success: function(res){
-            if(res == true){
-                console.log(' - HERRAMIENTA REGISTRADA');
-            }else{
-                console.log('ERROR AL REGISTRAR HERRAMIENTA',res);
-            }
-        },
-    });
-    /**/
-}
-
-function registrarMaquinas(lista){
-    let data = recorrerForms(lista);
-    let json = "data=" + JSON.stringify(data);
-    //console.log(data);
-    //* REGISTRAR MEDIANTE AJAX
-    $.ajax({
-        type: "POST",
-        url: urlbase + "Maquinas/registrarMaquinas",
-        data: json,
-        success: function(res){
-            if(res == true){
-                console.log(' - MAQUINA REGISTRADA');
-            }else{
-                console.log('ERROR AL REGISTRAR MAQUINA',res);
-            }
-        },
-    });
-    /**/
-}
-
-function registrarMobiliario(lista){
-    let data = recorrerForms(lista);
-    let json = "data=" + JSON.stringify(data);
-    //console.log(data);
-    //* REGISTRAR MEDIANTE AJAX
-    $.ajax({
-        type: "POST",
-        url: urlbase + "Mobiliario/registarMobiliario",
-        data: json,
-        success: function(res){
-            if(res == true){
-                console.log(' - MOBILIARIO REGISTRADO');
-            }else{
-                console.log('ERROR AL REGISTRAR MOBILIARIO',res);
-            }
-        },
-    });
-    /**/
-}
-
 function registrarComplementos(){
-    
-  $('#collapse-insumos,#collapse-herramientas,#collapse-maquinas,#collapse-mobiliario').collapse('show')
-  
-  if($('#listaInsumos form').valid() && $('#listaInsumos form').valid() && 
-    $('#listaEquipostrabajo form').valid() && $('#listaEquipostecno form').valid() &&
-    $('#listaEquiposcomp form').valid()){
+ 
+  let data = []
+  data['Insumos'] = recorrerForms('#listaInsumos')
+  data['Herramientas'] = recorrerForms('#listaEquipostrabajo') 
+  data['Maquinas'] = recorrerForms('#listaEquipostecno')
+  data['Mobiliario'] = recorrerForms('#listaEquiposcomp')
 
-    registrarInsumos('#listaInsumos')
-    registrarHerramientas('#listaEquipostrabajo')
-    registrarMaquinas('#listaEquipostecno')
-    registrarMobiliario('#listaEquiposcomp')
-    
-    $('.wizard').pxWizard('goNext')
-  }
+  console.log('Data general de complementos: ',data)
+
+  $(".wizard-pane,  .wizard").removeClass( "active" );
+  $(".wizard6").addClass( "active" );
+  $("#wizard-example-step6").addClass( "active" );
+  $(".wizard5").addClass( " completed" );
 }
+
+
+
+
+//*MATERIA PRIMA E INSUMOS    
+    //DANDO EVENTO AL BOTON PARA AGREGAR OTRA FILA
+    $('#addInsumo').click(function(){
+        //OBTENIENDO LA LISTA DE INSUMOS
+        var listaInsumos = $('#listaInsumos');
+        //OBTENER LA PRIMERA FILA BUSCANDOLA EN LA LISTA DE INSUMOS
+        var insumo = listaInsumos.find('li:first').clone();
+        //OBTENER FORMULARIO DENTRO DE LA LISTA
+        var form = insumo.find('form');
+        //OBTENER INPUT PARA AUTOCOMPLETADO
+        let input = form.find('input[name=conceptoInsumo]');
+        //DARLE LA FUNCION DE BUSQUEDA AL INPUT DEL CONCEPTO
+        //
+        //RESETEAR(VACIAR) FORMULARIO
+        form[0].reset();
+        //AÑADIENDO FILA CLONADA A LA LISTA
+        insumo.appendTo('#listaInsumos');  
+      })
+/**/
+
+//*HERRAMIENTAS Y EQUIPOS DE TRABAJO
+    $('#addEquipostrabajo').click(function()
+    {
+      var listaEquipostrabajo = $('#listaEquipostrabajo');
+      var equipostrabajo = listaEquipostrabajo.find('li:first').clone();
+      var form = listaEquipostrabajo.find('form');
+      form[0].reset();
+      equipostrabajo.appendTo('#listaEquipostrabajo');
+    })
+/**/
+
+//*MAQUINAS Y EQUIPOS TECNOLOGICOS
+    $('#addEquipostecno').click(function()
+    {
+      var listaEquipostecno = $('#listaEquipostecno');
+      var equipostecno = listaEquipostecno.find('li:first').clone();
+      var form = listaEquipostecno.find('form');
+      let input = form.find('input[name=conceptoMaquina]');
+      form[0].reset();
+      equipostecno.appendTo('#listaEquipostecno');
+    })
+/**/
+
+//*MOBILIARIO Y EQUIPOS COMPLEMENTARIOS
+    $('#addEquiposcomp').click(function()
+    {
+      var listaEquiposcomp = $('#listaEquiposcomp');
+      var equiposcomp = listaEquiposcomp.find('li:first').clone();
+      var form = listaEquiposcomp.find('form');
+      let input = form.find('input[name=conceptoMobiliario]');
+      form[0].reset();
+      equiposcomp.appendTo('#listaEquiposcomp');
+    })
+/**/     
+
+  //FUNCION PARA BUSCAR POSIBLES RELACIONES AL TIPIEAR EN EL INPUTS
+  var busquedaInsumo = $('input[name=conceptoInsumo]').typeahead({
+    source:  function (query, process) {
+      return $.get(urlbase + 'Insumos/busquedaInsumos', { codigo: query, action:"searchClient" }, 
+        function (data) {
+        //console.log(data);
+          if(data.find){
+            return process(data.obj);
+          }
+        });
+      }
+     
+    });
+
+  var busquedaHerramienta =  $('input[name=conceptoHerramienta]:first').typeahead({
+    source:  function (query, process) {
+    return $.get(urlbase + 'Herramientas/busquedaHerramientas', { codigo: query, action:"searchClient" }, 
+    function (data) {
+    //console.log(data);
+      if(data.find){
+        return process(data.obj);
+        }
+          });
+        }
+     
+    });
+
+  var busquedaMaquina =  $('input[name=conceptoMaquina]').typeahead({
+    source:  function (query, process) {
+      return $.get(urlbase + 'Maquinas/busquedaMaquinas', { codigo: query, action:"searchClient" }, function (data) {
+          //console.log(data);
+          if(data.find){
+            return process(data.obj);
+          }
+        });
+      }
+     
+    });
+
+  var busquedaMobiliario = $('input[name=conceptoMobiliario]').typeahead({
+    source:  function (query, process) {
+    return $.get(urlbase + 'Mobiliario/busquedaMobiliario', { codigo: query, action:"searchClient" }, function (data) {
+    //console.log(data);
+      if(data.find){
+        return process(data.obj);
+        }
+          });
+        }
+     
+    });
