@@ -1,49 +1,55 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-Class MaquinasModel  extends CI_Model{
-
-  private $id_maquina;
+Class ComplementosModel  extends CI_Model{
 
   function __construct(){
     parent::__construct();
-    $this->id_maquina = 3;
   }
 
-  function listarMaquinas(){
-    $this->db->select('*');
-    $this->db->from('complementos');
-    $this->db->where('id_tipo_complemento',$this->id_maquina);
-    $query = $this->db->get();
-    return $query->result();
-  }
-
-  function getMaquinas($id){
-    $this->db->select('*');
-    $this->db->from('complementos');
-    $this->db->where('id',$id);
-    $this->db->where('id_tipo_complemento',$this->id_maquina);
-    $query = $this->db->get();
-    return $query->result();
-  }
-
-  function registrarMaquinas($data){
+  function registrarComplementos($data){
     $datos = array(
-      'concepto' => $data['conceptoMaquina'],
-      'precio' => $data['preciomaquinas'],
+      'concepto' => $data['concepto'],
+      "unidadMedida" => $data['unidadMedida'],
+      'precio' => $data['precio'],
       'cantidad' => $data['cantidad'],
-      'id_tipo_complemento' => $this->id_maquina,
+      'id_tipo_complemento' => $data['id_tipo_complemento'],
       'id_proyecto' => $data['id_proyecto']
     );
     $result = $this->db->insert('proyecto_complementos',$datos);
-    return $result;
+    $obj = new stdClass;
+    if($result){
+      $obj->complemento = $data['concepto'];
+      $obj->status = "registrado";
+      return $obj;
+    }else{
+      $obj->complemento = $data['concepto'];
+      $obj->status = "Error al registrar";
+      return $obj;
+    }
+    
   }
-  
-  function busquedaMaquinas($complemento){
+
+  function listar_todos(){
+    $this->db->select('*');
+    $this->db->from('complementos');
+    $query = $this->db->get();
+    return $query->result();
+  }
+
+  function listar_tipo($id){
+    $this->db->select('*');
+    $this->db->from('complementos');
+    $this->db->where('id_tipo_complemento',$id);
+    $query = $this->db->get();
+    return $query->result();
+  }
+
+  function busquedaComplementos($complemento,$id){
   
     $search = $complemento;
     $SCAPE="%') ESCAPE '!' LIMIT 5";
-    $sql = "SELECT id, descripcion FROM complementos WHERE id_tipo_complemento = $this->id_maquina AND descripcion LIKE upper('%" 
+    $sql = "SELECT id, descripcion FROM complementos WHERE id_tipo_complemento = '$id' AND descripcion LIKE upper('%"
     .$this->db->escape_like_str($search).$SCAPE;
 
     $query=$this->db->query($sql);
@@ -76,7 +82,5 @@ Class MaquinasModel  extends CI_Model{
 
     }
   }
-
+  
 }
-
-?>

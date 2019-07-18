@@ -295,7 +295,7 @@ $("#btnpaso4").text("Guardando...")
 
 }
 
-
+/*
 function regitrarPaso5(){
 
 
@@ -358,6 +358,7 @@ $("#btnpaso5").addClass("disabled")
 
 
 }
+/**/
 
 
 function getCategoria(selector) {

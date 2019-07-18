@@ -1,0 +1,186 @@
+<?php 
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+class Complementos extends CI_Controller{
+
+  private $id_tipo_insumos;
+  private $id_tipo_herramientas;
+  private $id_tipo_maquinas;
+  private $id_tipo_mobiliario;
+
+  function __construct(){
+    parent::__construct();
+    $this->load->library('session');
+    if(!is_logged_in()){
+      redirect('index.php/login');
+      
+    }
+    $this->load->helper('url');
+    $this->load->model('ComplementosModel');
+
+    $this->id_tipo_insumos = 1;
+    $this->id_tipo_herramientas = 2;
+    $this->id_tipo_maquinas = 3;
+    $this->id_tipo_mobiliario = 4;
+  }
+
+  function registrarComplementos(){
+    $dataComplementos = $this->input->post('data');
+    $dataComplementos = json_decode($dataComplementos);
+    
+    $registrosInsumos = [];
+
+    foreach ($dataComplementos->Insumos as $complemento){
+      $datos = array(
+        'concepto' => $complemento->conceptoInsumo,
+        "unidadMedida" => $complemento->unidadmedida,
+        'precio' => $complemento->precioinsumos,
+        'cantidad' => $complemento->cantidad,
+        'id_tipo_complemento' => $this->id_tipo_insumos,
+        'id_proyecto' => 0
+      );
+      $result = $this->ComplementosModel->registrarComplementos($datos);
+      array_push($registrosInsumos,$result);
+    }
+
+    $registrosHerramientas = [];
+    foreach ($dataComplementos->Herramientas as $complemento){
+      $datos = array(
+        'concepto' => $complemento->conceptoHerramienta,
+        "unidadMedida" => "",
+        'precio' => $complemento->precioherramientas,
+        'cantidad' => $complemento->cantidad,
+        'id_tipo_complemento' => $this->id_tipo_herramientas,
+        'id_proyecto' => 0
+      );
+      $result = $this->ComplementosModel->registrarComplementos($datos);
+      array_push($registrosHerramientas,$result);
+   }
+
+   $registrosMaquinas = [];
+    foreach ($dataComplementos->Maquinas as $complemento){
+      $datos = array(
+        'concepto' => $complemento->conceptoMaquina,
+        "unidadMedida" => "",
+        'precio' => $complemento->preciomaquinas,
+        'cantidad' => $complemento->cantidad,
+        'id_tipo_complemento' => $this->id_tipo_maquinas,
+        'id_proyecto' => 0
+      );
+      $result = $this->ComplementosModel->registrarComplementos($datos);
+      array_push($registrosMaquinas,$result);
+   }
+
+   $registrosMobiliario = [];
+    foreach ($dataComplementos->Mobiliario as $complemento){
+      $datos = array(
+        'concepto' => $complemento->conceptoMobiliario,
+        "unidadMedida" => "",
+        'precio' => $complemento->preciomobiliarios,
+        'cantidad' => $complemento->cantidad,
+        'id_tipo_complemento' => $this->id_tipo_mobiliario,
+        'id_proyecto' => 0
+      );
+      $result = $this->ComplementosModel->registrarComplementos($datos);
+      array_push($registrosMobiliario,$result);
+    }
+
+    $registros = array(
+      "Insumos" => $registrosInsumos,
+      "Herramientas" => $registrosHerramientas,
+      "Maquinas" => $registrosMaquinas,
+      "Mobiliario" => $registrosMobiliario
+    );
+
+    $obj = new stdClass;
+    $obj->complementosRegistrados = $registros;
+    $obj->status = true;
+    $this->output->set_content_type('application/json')->set_output(json_encode($obj));
+  }
+  
+  /**
+   * ===============================================================
+   * LISTAR COMPLEMENTOS, Y LISTAR SEGUN SU TIPO DE COMPLEMENTO
+   * ===============================================================
+   */
+
+  function listar_todos(){
+    $result = $this->ComplementosModel->listar_todos();
+    $this->output->set_content_type('application/json')->set_output(json_encode($result));
+  }
+
+  function listar_insumos(){
+    $result = $this->ComplementosModel->listar_tipo($this->id_tipo_insumos);
+    $this->output->set_content_type('application/json')->set_output(json_encode($result));
+  }
+
+  function listar_herramientas(){
+    $result = $this->ComplementosModel->listar_tipo($this->id_tipo_herramientas);
+    $this->output->set_content_type('application/json')->set_output(json_encode($result));
+  }
+
+  function listar_maquinas(){
+    $result = $this->ComplementosModel->listar_tipo($this->id_tipo_maquinas);
+    $this->output->set_content_type('application/json')->set_output(json_encode($result));
+  }
+
+  function listar_mobiliario(){
+    $result = $this->ComplementosModel->listar_tipo($this->id_tipo_mobiliario);
+    $this->output->set_content_type('application/json')->set_output(json_encode($result));
+  }
+
+   /**
+   * ===============================================================
+   *        BUQUEDA DE LOS TIPOS DE COMPLEMENTOS
+   * ===============================================================
+   */
+
+  public function busquedaInsumos(){
+
+    $result=$this->ComplementosModel->busquedaComplementos(
+      $this->input->post_get('codigo'),
+      $this->id_tipo_insumos
+    );
+  
+    $this->output
+          ->set_content_type('application/json')
+          ->set_output(json_encode($result));
+  }
+
+  public function busquedaHerramientas(){
+
+    $result=$this->ComplementosModel->busquedaComplementos(
+      $this->input->post_get('codigo'),
+      $this->id_tipo_herramientas
+    );
+  
+    $this->output
+          ->set_content_type('application/json')
+          ->set_output(json_encode($result));
+  }
+
+  public function busquedaMaquinas(){
+
+    $result=$this->ComplementosModel->busquedaComplementos(
+      $this->input->post_get('codigo'),
+      $this->id_tipo_maquinas
+    );
+  
+    $this->output
+          ->set_content_type('application/json')
+          ->set_output(json_encode($result));
+  }
+
+  public function busquedaMobiliario(){
+
+    $result=$this->ComplementosModel->busquedaComplementos(
+      $this->input->post_get('codigo'),
+      $this->id_tipo_mobiliario
+    );
+  
+    $this->output
+          ->set_content_type('application/json')
+          ->set_output(json_encode($result));
+  }
+
+}

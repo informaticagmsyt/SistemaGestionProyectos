@@ -62,18 +62,33 @@ function eleminarForm(lista,li){
 
 function registrarComplementos(){
  
-  let data = []
+  let data = {}
   data['Insumos'] = recorrerForms('#listaInsumos')
   data['Herramientas'] = recorrerForms('#listaEquipostrabajo') 
   data['Maquinas'] = recorrerForms('#listaEquipostecno')
   data['Mobiliario'] = recorrerForms('#listaEquiposcomp')
 
-  console.log('Data general de complementos: ',data)
+  //console.log('Data general de complementos: ',data)
 
-  $(".wizard-pane,  .wizard").removeClass( "active" );
-  $(".wizard6").addClass( "active" );
-  $("#wizard-example-step6").addClass( "active" );
-  $(".wizard5").addClass( " completed" );
+  $.ajax({
+    type:'POST',
+    url: urlbase + 'Complementos/registrarComplementos',
+    data: 'data='+ JSON.stringify(data),
+    success: function(r){
+      if(r.status){
+        console.log(r.complementosRegistrados)
+        $(".wizard-pane,  .wizard").removeClass( "active" )
+        $(".wizard6").addClass( "active" )
+        $("#wizard-example-step6").addClass( "active" )
+        $(".wizard5").addClass( " completed" )
+        $("#btnpaso5").removeClass("disabled")
+      }
+    },
+    beforeSend: function(){
+      $("#btnpaso5").text("Guardando...")
+      $("#btnpaso5").addClass("disabled")
+    }
+  })
 }
 
 
@@ -137,7 +152,7 @@ function registrarComplementos(){
   //FUNCION PARA BUSCAR POSIBLES RELACIONES AL TIPIEAR EN EL INPUTS
   var busquedaInsumo = $('input[name=conceptoInsumo]').typeahead({
     source:  function (query, process) {
-      return $.get(urlbase + 'Insumos/busquedaInsumos', { codigo: query, action:"searchClient" }, 
+      return $.get(urlbase + 'Complementos/busquedaInsumos', { codigo: query, action:"searchClient" }, 
         function (data) {
         //console.log(data);
           if(data.find){
@@ -150,7 +165,7 @@ function registrarComplementos(){
 
   var busquedaHerramienta =  $('input[name=conceptoHerramienta]:first').typeahead({
     source:  function (query, process) {
-    return $.get(urlbase + 'Herramientas/busquedaHerramientas', { codigo: query, action:"searchClient" }, 
+    return $.get(urlbase + 'Complementos/busquedaHerramientas', { codigo: query, action:"searchClient" }, 
     function (data) {
     //console.log(data);
       if(data.find){
@@ -163,7 +178,7 @@ function registrarComplementos(){
 
   var busquedaMaquina =  $('input[name=conceptoMaquina]').typeahead({
     source:  function (query, process) {
-      return $.get(urlbase + 'Maquinas/busquedaMaquinas', { codigo: query, action:"searchClient" }, function (data) {
+      return $.get(urlbase + 'Complementos/busquedaMaquinas', { codigo: query, action:"searchClient" }, function (data) {
           //console.log(data);
           if(data.find){
             return process(data.obj);
@@ -175,7 +190,7 @@ function registrarComplementos(){
 
   var busquedaMobiliario = $('input[name=conceptoMobiliario]').typeahead({
     source:  function (query, process) {
-    return $.get(urlbase + 'Mobiliario/busquedaMobiliario', { codigo: query, action:"searchClient" }, function (data) {
+    return $.get(urlbase + 'Complementos/busquedaMobiliario', { codigo: query, action:"searchClient" }, function (data) {
     //console.log(data);
       if(data.find){
         return process(data.obj);
