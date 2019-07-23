@@ -75,6 +75,7 @@ function registrarComplementos(){
     url: urlbase + 'Complementos/registrarComplementos',
     data: 'data='+ JSON.stringify(data),
     success: function(r){
+      
       if(r.status){
         console.log(r.complementosRegistrados)
         $(".wizard-pane,  .wizard").removeClass( "active" )
@@ -89,6 +90,41 @@ function registrarComplementos(){
       $("#btnpaso5").addClass("disabled")
     }
   })
+  .fail( function( jqXHR, textStatus ) {
+    
+    $("#btnpaso5").removeClass("disabled")
+
+    if (jqXHR.status === 0) {
+  
+      alert('Sin conexion, revisar red');
+  
+    } else if (jqXHR.status == 404) {
+  
+      alert('Error [404] no encuentra la direccion');
+  
+    } else if (jqXHR.status == 500) {
+  
+      alert('Error Interno del lado del servidor [500].');
+  
+    } else if (textStatus === 'parsererror') {
+  
+      alert('Peticion de Parseo a Formato JSON fallido');
+  
+    } else if (textStatus === 'timeout') {
+  
+      alert('excedido limite de tiempo de respuesta ');
+  
+    } else if (textStatus === 'abort') {
+  
+      alert('Peticion Ajax abortada');
+  
+    } else {
+  
+      alert('Uncaught Error: ' + jqXHR.responseText);
+  
+    }
+  
+  });
 }
 
 

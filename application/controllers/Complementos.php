@@ -37,7 +37,7 @@ class Complementos extends CI_Controller{
         'precio' => $complemento->precioinsumos,
         'cantidad' => $complemento->cantidad,
         'id_tipo_complemento' => $this->id_tipo_insumos,
-        'id_proyecto' => 0
+        'id_proyecto' => $_SESSION['proyecto_id']
       );
       $result = $this->ComplementosModel->registrarComplementos($datos);
       array_push($registrosInsumos,$result);
@@ -51,7 +51,7 @@ class Complementos extends CI_Controller{
         'precio' => $complemento->precioherramientas,
         'cantidad' => $complemento->cantidad,
         'id_tipo_complemento' => $this->id_tipo_herramientas,
-        'id_proyecto' => 0
+        'id_proyecto' => $_SESSION['proyecto_id']
       );
       $result = $this->ComplementosModel->registrarComplementos($datos);
       array_push($registrosHerramientas,$result);
@@ -65,7 +65,7 @@ class Complementos extends CI_Controller{
         'precio' => $complemento->preciomaquinas,
         'cantidad' => $complemento->cantidad,
         'id_tipo_complemento' => $this->id_tipo_maquinas,
-        'id_proyecto' => 0
+        'id_proyecto' => $_SESSION['proyecto_id']
       );
       $result = $this->ComplementosModel->registrarComplementos($datos);
       array_push($registrosMaquinas,$result);
@@ -79,7 +79,7 @@ class Complementos extends CI_Controller{
         'precio' => $complemento->preciomobiliarios,
         'cantidad' => $complemento->cantidad,
         'id_tipo_complemento' => $this->id_tipo_mobiliario,
-        'id_proyecto' => 0
+        'id_proyecto' => $_SESSION['proyecto_id']
       );
       $result = $this->ComplementosModel->registrarComplementos($datos);
       array_push($registrosMobiliario,$result);
