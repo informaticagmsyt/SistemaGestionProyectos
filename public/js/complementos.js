@@ -96,31 +96,31 @@ function registrarComplementos(){
 
     if (jqXHR.status === 0) {
   
-      alert('Sin conexion, revisar red');
+      console.log('Sin conexion, revisar red');
   
     } else if (jqXHR.status == 404) {
   
-      alert('Error [404] no encuentra la direccion');
+      consola.log('Error [404] no encuentra la direccion');
   
     } else if (jqXHR.status == 500) {
   
-      alert('Error Interno del lado del servidor [500].');
+      console.log('Error Interno del lado del servidor: ',jqXHR.responseText/*{status:500, msj:'Error Interno del lado del servidor',responseText:jqXHR.responseText}*/);
   
     } else if (textStatus === 'parsererror') {
   
-      alert('Peticion de Parseo a Formato JSON fallido');
+      console.log('Peticion de Parseo a Formato JSON fallido');
   
     } else if (textStatus === 'timeout') {
   
-      alert('excedido limite de tiempo de respuesta ');
+      console.log('excedido limite de tiempo de respuesta ');
   
     } else if (textStatus === 'abort') {
   
-      alert('Peticion Ajax abortada');
+      console.log('Peticion Ajax abortada');
   
     } else {
   
-      alert('Uncaught Error: ' + jqXHR.responseText);
+      console.log('Uncaught Error: ' + jqXHR.responseText);
   
     }
   
