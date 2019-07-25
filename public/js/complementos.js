@@ -91,7 +91,7 @@ function registrarComplementos(){
     }
   })
   .fail( function( jqXHR, textStatus ) {
-    
+    $("#btnpaso5").text("Guardar y Continuar")
     $("#btnpaso5").removeClass("disabled")
 
     if (jqXHR.status === 0) {
