@@ -77,12 +77,20 @@ function registrarComplementos(){
     success: function(r){
       
       if(r.status){
-        console.log(r.complementosRegistrados)
+        console.log(r)
         $(".wizard-pane,  .wizard").removeClass( "active" )
         $(".wizard6").addClass( "active" )
         $("#wizard-example-step6").addClass( "active" )
         $(".wizard5").addClass( " completed" )
         $("#btnpaso5").removeClass("disabled")
+        $("#btnpaso5").text("Guardar y Continuar")
+        
+        agregar_costos_complementos(
+          r.Costos_generales_complementos.insumos,
+          r.Costos_generales_complementos.herramientas,
+          r.Costos_generales_complementos.maquinas,
+          r.Costos_generales_complementos.mobiliario
+        )
       }
     },
     beforeSend: function(){
@@ -96,11 +104,11 @@ function registrarComplementos(){
 
     if (jqXHR.status === 0) {
   
-      console.log('Sin conexion, revisar red');
+      console.log('Sin conexion, revisar red',jqXHR.responseText);
   
     } else if (jqXHR.status == 404) {
   
-      consola.log('Error [404] no encuentra la direccion');
+      console.log('Error [404] no encuentra la direccion',jqXHR.responseText);
   
     } else if (jqXHR.status == 500) {
   
@@ -108,15 +116,15 @@ function registrarComplementos(){
   
     } else if (textStatus === 'parsererror') {
   
-      console.log('Peticion de Parseo a Formato JSON fallido');
+      console.log('Peticion de Parseo a Formato JSON fallido', jqXHR.responseText);
   
     } else if (textStatus === 'timeout') {
   
-      console.log('excedido limite de tiempo de respuesta ');
+      console.log('excedido limite de tiempo de respuesta ',jqXHR.responseText);
   
     } else if (textStatus === 'abort') {
   
-      console.log('Peticion Ajax abortada');
+      console.log('Peticion Ajax abortada',jqXHR.responseText);
   
     } else {
   

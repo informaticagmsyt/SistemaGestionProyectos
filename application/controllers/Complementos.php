@@ -27,9 +27,14 @@ class Complementos extends CI_Controller{
   function registrarComplementos(){
     $dataComplementos = $this->input->post('data');
     $dataComplementos = json_decode($dataComplementos);
-    
-    $registrosInsumos = [];
+    $costos = array(
+      'insumos' => 0,
+      'herramientas' => 0,
+      'maquinas' => 0,
+      'mobiliario' => 0
+    );
 
+    $registrosInsumos = [];
     foreach ($dataComplementos->Insumos as $complemento){
       $datos = array(
         'concepto' => $complemento->conceptoInsumo,
@@ -37,10 +42,12 @@ class Complementos extends CI_Controller{
         'precio' => $complemento->precioinsumos,
         'cantidad' => $complemento->cantidad,
         'id_tipo_complemento' => $this->id_tipo_insumos,
-        'id_proyecto' => $_SESSION['proyecto_id']
+        'id_proyecto' =>  $_SESSION['proyecto_id']
       );
       $result = $this->ComplementosModel->registrarComplementos($datos);
       array_push($registrosInsumos,$result);
+
+      $costos['insumos'] = $costos['insumos'] + ($complemento->precioinsumos * $complemento->cantidad); 
     }
 
     $registrosHerramientas = [];
@@ -51,10 +58,12 @@ class Complementos extends CI_Controller{
         'precio' => $complemento->precioherramientas,
         'cantidad' => $complemento->cantidad,
         'id_tipo_complemento' => $this->id_tipo_herramientas,
-        'id_proyecto' => $_SESSION['proyecto_id']
+        'id_proyecto' =>  $_SESSION['proyecto_id']
       );
       $result = $this->ComplementosModel->registrarComplementos($datos);
       array_push($registrosHerramientas,$result);
+
+      $costos['herramientas'] = $costos['herramientas'] + ($complemento->precioherramientas * $complemento->cantidad); 
    }
 
    $registrosMaquinas = [];
@@ -65,10 +74,12 @@ class Complementos extends CI_Controller{
         'precio' => $complemento->preciomaquinas,
         'cantidad' => $complemento->cantidad,
         'id_tipo_complemento' => $this->id_tipo_maquinas,
-        'id_proyecto' => $_SESSION['proyecto_id']
+        'id_proyecto' =>  $_SESSION['proyecto_id']
       );
       $result = $this->ComplementosModel->registrarComplementos($datos);
       array_push($registrosMaquinas,$result);
+
+      $costos['maquinas'] = $costos['maquinas'] + ($complemento->preciomaquinas * $complemento->cantidad); 
    }
 
    $registrosMobiliario = [];
@@ -79,10 +90,12 @@ class Complementos extends CI_Controller{
         'precio' => $complemento->preciomobiliarios,
         'cantidad' => $complemento->cantidad,
         'id_tipo_complemento' => $this->id_tipo_mobiliario,
-        'id_proyecto' => $_SESSION['proyecto_id']
+        'id_proyecto' =>  $_SESSION['proyecto_id']
       );
       $result = $this->ComplementosModel->registrarComplementos($datos);
       array_push($registrosMobiliario,$result);
+
+      $costos['mobiliario'] = $costos['mobiliario'] + ($complemento->preciomobiliarios * $complemento->cantidad); 
     }
 
     $registros = array(
@@ -93,7 +106,8 @@ class Complementos extends CI_Controller{
     );
 
     $obj = new stdClass;
-    $obj->complementosRegistrados = $registros;
+    $obj->Complementos_Registrados = $registros;
+    $obj->Costos_generales_complementos = $costos;
     $obj->status = true;
     $this->output->set_content_type('application/json')->set_output(json_encode($obj));
   }

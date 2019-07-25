@@ -466,7 +466,7 @@ $( "#formpaso2" ).submit(function( e ) {
          var validate=   $("#formpaso6").valid();
            if(validate){
    
-           regitrarPaso6()
+           //regitrarPaso6()
          }
         
     });
