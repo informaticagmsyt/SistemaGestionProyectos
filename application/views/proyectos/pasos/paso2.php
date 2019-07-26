@@ -102,7 +102,7 @@
     </div>
 
 
-    <h5 class="text-center">Inversión Solicitada</h5>
+    <!--h5 class="text-center">Inversión Solicitada</h5>
 
     <hr>
   
@@ -227,6 +227,6 @@
         </div>
           
       </div>
-    </div> 
+    </div--> 
   </div>
 </div>
