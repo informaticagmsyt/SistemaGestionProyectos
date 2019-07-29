@@ -31,6 +31,7 @@ class Reportes extends CI_Controller
         $this->load->model('ProfesionModel');
         $this->load->model('DatosPersonasModel');
         $this->load->model('PersonasModel');
+        $this->load->model('ComplementosModel');
 
         if (!is_logged_in()) {
             redirect('index.php/login');
@@ -242,327 +243,257 @@ class Reportes extends CI_Controller
 
         $mpdf = new \Mpdf\Mpdf();
 
-        $mpdf->SetHTMLHeader('
-	   <div style="text-align: center; font-weight: bold; margin-buttom:20px;">
-
-	   <br>
-	   </div>');
         $mpdf->writeHTML($css, 1);
         $html = '
-	   <div style="text-align: center; font-weight: bold; margin-buttom:20px;">
-	   <img src="public/img/banner.png" alt="">
-	   <br>
-	   </div>
+	   	<div>
+	   		<img src="public/img/banner.png">
+	   	</div>
 
-	   <table class="table" id="tabla">
-	   <thead>
-		   <tr>
+	   	<table class="tabla" id="tabla">
+		<tbody>	   
+		   	<tr>
+				<th colspan="4" class="headt" style="color: #fff"> Datos del proyecto </th>
+		   	</tr>
 
-			   <th colspan="4" class="headt" ><span class="center"> Datos del proyecto   </span></th>
-		   </tr>
-	   </thead>
+		   	<tr>
+			   <th class="titulo" > Nombre del Proyecto: </th>
+			   <td colspan="3"> ' . $datos->nombre . '.</td>
+		   	</tr>
 
-	   <tbody>
-		   <tr>
-			   <th class="titulo" ><strong>Nombre del Proyecto: </strong></th>
-			   <td  colspan="3"> ' . $datos->nombre . '.          </td>
+		   	<tr>
+			   <th class="titulo" > Codigo: </th>
+			   <td colspan="3">' . $datos->codcaso . '</td>
+		   	</tr>
 
-		   </tr>
-		   <tr>
-			   <th class="titulo" ><strong>Codigo: </strong></th>
-			   <td  colspan="3">' . $datos->codcaso . '        </td>
-
-		   </tr>
-
-	 <tr>
-			   <th class="titulo">Descripción del Proyecto: </th>
-				   <td   colspan="3"> ' . $datos->descripcion . '</td>
-
-	</tr>
-
-
-
-		<tr>
-			<th class="titulo"  colspan="2" >Categoria</th>
-				<th   colspan="2">Ambito</th>
-		</tr>
-<tr>
-<td colspan="2">
-' . $datos->categoria . '
-</td>
-<td colspan="2">
-' . $datos->subcategoria . '
-</td>
-</tr>
-
- <tr>
- <th class="titulo"  colspan="2" >Personas beneficiadas</th>
- <th   colspan="2">Población Beneficiada</th>
-</tr>
-<tr>
-<td colspan="2">
-' . $datos->personas_beneficiadas . '
-</td>
-<td colspan="2">
-' . $datos->poblacion_beneficiada . '
-</td>
-</tr>
-
-
-
-		   <tr>
-		   <th class="titulo">Situación Actual: </th>
-			   <td   colspan="3"> ' . $datos->estatus_proyecto . '</td>
-		   </tr>
-
-	 <tr>
-		   <th colspan="4" class="headt" ><span class="center">Ubicación Geográfica</span></th>
-	</tr>
-
-	 <tr>
-		   <th class="titulo">Estado: <strong> ' . $datos->estado . '</strong></th>
-
-
-
-		   <th class="titulo">Municipio: <span> ' . $datos->municipio . '</span></td>
-
-			   <td colspan="2"><strong>Parroquia: </strong>' . $datos->parroquia . ' </td>
-	</tr>
-
-	  <tr>
-
-
-	<tr>
-		   <th class="titulo">Dirección </th>
-		   <td colspan="3">' . $datos->direccion . ' </td>
-	 </tr>
-
-		   <tr>
-
-
-			   <th colspan="4" class="headt" ><span class="center">Datos del productor </span></th>
-		   </tr>
-
-		   <tr>
-		   <th class="titulo">Nombres y Apellidos: </th>
-			   <td colspan="3">
-			   ' . $datos->nombres . '  ' . $datos->apellidos . '
-			   </td>
-		   </tr>
-
-	 <tr>
-		<th class="titulo">Telefono:  </th>
-			   <td colspan="3">' . $datos->telefono . '
-			   </td>
-	 </tr>
-	
-	 <tr>
-		   <th class="titulo">Correo:  </th>
-			   <td colspan="3">' . $datos->email . '  </td>
-	  </tr>
-	
-	  <tr>
-	  <th class="titulo">Profesión / Oficio <strong> </strong></th>
-
-
-
-	  <th class="titulo">Sexo:<span> </span></td>
-
-		  <td colspan="2"><strong>Fecha de Nacimiento		  </strong></td>
-</tr>
-		   <tr>
-
-		   <tr>
-		   <td class="titulo">' . $datos->profesion . '  </strong></td>
-	 
-	 
-	 
-		   <td class="titulo">' . $datos->sexo . '</td>
-	 
-			   <td colspan="2">' . $datos->fecha_nac . '	  </td>
-	 </tr>
-				<tr>
-		   <th colspan="4" class="headt" ><span class="center"> Unidad de Producción </span></th>
-
-		   </tr>
-
-		   <tr>
-		   <th class="titulo">Rif:  </th>
-			   <td colspan="3">' . $datos->codrif . '-' . $datos->numero_rif . '</td>
-		   </tr>
-
-		   <tr>
-		   <th class="titulo">Nombre empresa:  </th>
-			   <td colspan="3">
-			   ' . $datos->nombre_empresa . '
-			   </td>
-		   </tr>
-		   <tr>
-		   <th class="titulo">Teléfono:  </th>
-			   <td colspan="3">  ' . $datos->telefono . '</td>
-		   </tr>
-
-		<tr>
-		   <th class="titulo"> Codigo Situr </th>
-	 
-	 
-	 
-		   <th class="titulo">Codigo Sunagro</th>
-	 
-			   <th colspan="2">   Institución Responsable	  </th>
-	 </tr>
-
-
-	 <tr>
-	 <td class="titulo">   ' .$datos->codigo_situr . ' </td>
-
-
-
-	 <td class="titulo"> ' .$datos->codigo_sunagro. '</td>
-
-		 <td colspan="2">   ' .$datos->institucion. '  </td>
-</tr>
-
-
-
-	   </tbody>
-	   </table>
-
-	';
-
-	$html .=' 
-	<br>  
-	<div style="text-align: center; font-weight: bold; margin-buttom:20px;">
-	<img src="public/img/banner.png" alt="">
-	
-	</div>	
-	<table class="table" id="tabla">
-	<tbody>	
-			<tr>
-
-				<th colspan="5" class="headt" ><span class="center">Espacios y Edificación
-				</span></th>
+	 		<tr>
+			   <th class="titulo"> Descripción del Proyecto: </th>
+			   <td colspan="3"> ' . $datos->descripcion . '</td>
 			</tr>
-				
+
+			<tr>
+				<th class="titulo"  colspan="2" > Categoria </th>
+				<th class ="titulo" colspan="2"> Ambito </th>
+			</tr>
+
+			<tr>
+				<td colspan="2">' . $datos->categoria . '</td>
+				<td colspan="2">' . $datos->subcategoria . '</td>
+			</tr>
+
+ 			<tr>
+ 				<th class="titulo"  colspan="2" > Personas beneficiadas </th>
+ 				<th class="titulo" colspan="2"> Población Beneficiada </th>
+			</tr>
+
+			<tr>
+				<td colspan="2">' . $datos->personas_beneficiadas . '</td>
+				<td colspan="2">' . $datos->poblacion_beneficiada . '</td>
+			</tr>
+
+			<tr>
+			   <th class="titulo">Situación Actual: </th>
+			   <td colspan="3">' . $datos->estatus_proyecto . '</td>
+		   	</tr>
+
+	 		<tr>
+		   	   <th colspan="4" class="headt" style="color: #fff"> Ubicación Geográfica </th>
+			</tr>
+
+	 		<tr>
+		   		<th class="titulo">Estado: ' . $datos->estado . '</th>
+				<th class="titulo">Municipio: ' . $datos->municipio . '</th>
+				<th class="titulo" colspan="2">Parroquia: ' . $datos->parroquia . '</th>
+			</tr>
+		<tr>
+			<tr>
+		   		<th class="titulo">Dirección: </th>
+		   		<td colspan="3">' . $datos->direccion . '</td>
+	 		</tr>
+
+		   	<tr>
+				<th colspan="4" class="headt" style="color: #fff">Datos del productor </th>
+		   	</tr>
+
+			<tr>
+		   		<th class="titulo">Nombres y Apellidos: </th>
+			   	<td colspan="3">' . $datos->nombres . '  ' . $datos->apellidos . '</td>
+		   	</tr>
+
+	 		<tr>
+				<th class="titulo">Telefono:  </th>
+			   	<td colspan="3">' . $datos->telefono . '</td>
+	 		</tr>
+	
+	 		<tr>
+		   		<th class="titulo"> Correo: </th>
+			   	<td colspan="3">' . $datos->email . '</td>
+	  		</tr>
+	
+	  		<tr>
+	  			<th class="titulo">Profesión / Oficio </th>
+				<th class="titulo">Sexo: </th>
+				<th class="titulo" colspan="2"> Fecha de Nacimiento </th>
+			</tr>
+		<tr>
+			<tr>
+		   		<td class="titulo">' . $datos->profesion . '</td>
+	 			<td class="titulo">' . $datos->sexo . '</td>
+	 			<td colspan="2">' . $datos->fecha_nac . '</td>
+	 		</tr>
+
+			<tr>
+		   		<th colspan="4" class="headt" style="color: #fff"> Unidad de Producción </th>
+			</tr>
+
+		   	<tr>
+		   		<th class="titulo"> Rif:  </th>
+			   	<td colspan="3">' . $datos->codrif . '-' . $datos->numero_rif . '</td>
+		   	</tr>
+
+		   	<tr>
+		   		<th class="titulo"> Nombre empresa:  </th>
+			   	<td colspan="3">' . $datos->nombre_empresa . '</td>
+		   	</tr>
+
+		   	<tr>
+		   		<th class="titulo"> Teléfono:  </th>
+			   	<td colspan="3">' . $datos->telefono . '</td>
+		   	</tr>
+
+			<tr>
+		   		<th class="titulo"> Codigo Situr </th>
+				<th class="titulo">Codigo Sunagro</th>
+	 			<th class="titulo" colspan="2"> Institución Responsable </th>
+	 		</tr>
+
+			<tr>
+	 			<td>   ' .$datos->codigo_situr . ' </td>
+				<td> ' .$datos->codigo_sunagro. '</td>
+				<td colspan="2">   ' .$datos->institucion. '  </td>
+			</tr>
+		</tbody>
+	   	</table>';
+
+		$html .= '  
+		<div>
+		<img src="public/img/banner.png" alt="">
+		</div>
+
+		<table class="table" id="tabla">
+		<tbody>
+
+			<tr>
+				<th colspan="6" class="headt" style="color: #fff"> Espacios y Edificación </th>
+			</tr>
+
+			<tr>
+				<th class="titulo"> Edificación </th>
+				<th class="titulo"> Area de Terreno (M2) </th>
+				<th class="titulo"> Area de Construcción (M2) </th>
+				<th class="titulo" colspan="3"> Instalaciones Sanitarias </th>
+			</tr>
+
+			<tr>
+				<td> ' .$datos->edificacion. 	' </td>
+				<td> ' .$datos->area_terreno. 	' </td>
+				<td> ' .$datos->area_construccion. 	' </td>
+				<td colspan="3"> ' .$datos->servicios_sanitarios. ' </td>
+			</tr>
+
+			<tr> 
+				<th class="titulo" colspan="6"> Obervaciones </th>
+			</tr>
+
+			<tr> 
+				<td colspan="6">  ' .$datos->observaciones. ' </td>
+			</tr>
+
+			<tr>
+				<th colspan="6" class="headt" style="color: #fff"> Servicios Publicos </th>
+			</tr>
 			
 			<tr>
-
-			<th> Edificación </th>
-			<th> Area de Terreno (M2) </th>
-			<th> Area de Construcción (M2) </th>
-			<th  colspan="2"> Instalaciones Sanitarias </th>
+				<th class="titulo"> Aguas Blancas </th>
+				<th class="titulo"> Vialidad </th>
+				<th class="titulo"> Tiene Aseo Urbano </th>
+				<th class="titulo" colspan="3"> Aguas Servidas </th>
 			</tr>
 
 			<tr>
-
-			<td> ' .$datos->institucion. 	' </td>
-			<td> ' .$datos->area_terreno. 	' </td>
-			<td> ' .$datos->edificacion. 	' </td>
-			<td colspan="2"> ' .$datos->servicios_sanitarios. ' </td>
+				<td>' .$datos->acometida_agua_blanca . '</td>
+				<td> ' .$datos->vialidad. '</td>
+				<td>' . $datos->aceo_urbano . '</td>
+				<td colspan="3">' .$datos->acometida_agua_negra . '</td>
 			</tr>
 
-			<tr> 
-
-			<td colspan="5">  Obervaciones </td>
-			</tr>
-			<tr> 
-			<td colspan="5">  ' .$datos->observaciones. ' </td>
-			</tr>
 			<tr>
+				<th class="titulo" colspan="3"> Servicio de Gas </th>
+				<th class="titulo" colspan="4"> Servicio Electrico </th>
+			</tr>
 
-			<th colspan="5" class="headt" ><span class="center">Servicios Publicos
+			<tr>
+				<td colspan="3">  ' . $datos->servicios_gas. '</td>
+				<td colspan="4">  ' . $datos->servicio_electrico . '</td>
+			</tr>
 
-			</span></th>
-		</tr>
-
-					
-		<tr>
-
-		<th>  Aguas Blancas </th>
-		<th> Vialidad </th>
-		<th>Tiene Aseo Urbano </th>
-		<th colspan="2"> Aguas Servidas </th>
-		</tr>
-
-		<tr>
-
-		<th>' .$datos->acometida_agua_blanca . ' </th>
-		<th> ' .$datos->vialidad. '</th>
-		<th>' . $datos->aceo_urbano . ' </th>
-		<th colspan="2"> Instalaciones Sanitarias' .$datos->acometida_agua_negra . ' </th>
-		</tr>
-
-		<tr>
-		<th colspan="3">  Servicio de Gas </th>
+			<tr>
+				<th colspan="6" class="headt" style="color: #fff"> Producción y Operatividad </th>
+			</tr>
 		
-		<th colspan="2">  Servicio Electrico </th>
-		</tr>
+			<tr> 
+				<th class="titulo"> Materia Prima e Insumos </th>
+				<td colspan="5">  </td> <!--AGREGAR VARIABLES PARA OBTENER LOS DATOS-->
+			</tr>
+			
+			<tr> 
+				<th class="titulo"> Herramientas y Equipos de Trabajo </th>
+				<td colspan="5">  </td> <!--AGREGAR VARIABLES PARA OBTENER LOS DATOS-->
+			</tr>
 
-		<tr>
-		<th colspan="3">  ' . $datos->servicios_gas. '</th>
+			<tr> 
+				<th class="titulo"> Maquinas y Equipos Tecnologicos </th>
+				<td colspan="5">  </td> <!--AGREGAR VARIABLES PARA OBTENER LOS DATOS-->
+			</tr>
+
+			<tr>	
+				<th class="titulo"> Mobiliario y Equipos Complementarios </th>
+				<td colspan="5">  </td> <!--AGREGAR VARIABLES PARA OBTENER LOS DATOS-->
+			</tr>			
 		
-		<th colspan="2">  ' . $datos->servicio_electrico . ' </th>
-		</tr>
-		<tr>
-		<th colspan="5" class="headt" ><span class="center"> Producción y Operatividad</span></th>
-		
+			<tr>
+				<th colspan="6" class="headt" style="color: #fff"> Estructura de Costos </th>
+			</tr>
 
-	</tr>
+			<tr>
+				<th class="titulo"> Materia Prima e Insumos </th>
+				<th class="titulo"> Herramientas y Equipos de Trabajo </th>
+				<th class="titulo"> Maquinas y Equipos Tecnologicos </th>
+				<th class="titulo"> Mobiliario y Equipos Complementarios </th>
+				<th class="titulo"> Mano de Obra </th>
+				<th class="titulo"> Servicios </th>
+			</tr>
 
-	<tr>
+			<tr>
+				<td>' . $datos->infraestructurabs. ' Bs</td>
+				<td>' . $datos->maquinariasbs. ' Bs</td>
+				<td>' . $datos->insumos_materiasbs. ' Bs</td>
+				<td>' . $datos->fuerza_trabajo. ' Bs</td>
+				<td>' . $datos->servicios. ' Bs</td>
+				<td>' . $datos->servicios. ' Bs</td>
+			</tr>
 
-	<th> Capacidad de Produccion Instalada </th>
-	<th> Capacidad de Produccion Actual </th>
-	<th>Unidad ( metrica ) </th>
-	<th colspan="2"> Funcionamiento Operativo</th>
-	</tr>
+			<tr>
+				<th colspan="6" class="headt" style="color: #fff"> Inversión Total </th>
+			</tr>
 
-	<tr>
-
-	
-	<tr>
-
-	<td> ' . $datos->capacidad_instalada. ' </td>
-	<td>  ' . $datos->cap_produccion_actual. '  </td>
-	<td>' .  $datos->unidad_metrica. '  </td>
-	<td colspan="2">  ' .  $datos->funcionamiento_operativo. '</td>
-	</tr>
-
-	
-	<tr>
-
-	<th colspan="5" class="headt" ><span class="center"> Inversión Fragmentada</span></th>
-	<tr>
-
-	<th> Infraestructura (Bs) </th>
-	<th> Maquinaria, Equipos y Herramientas (Bs) </th>
-	<th>Insumos y Materias Primas (Bs)</th>
-	<th>Fuerza de Trabajo (Bs)</th>
-	<th>Servicios(Bs)</th>
-	</tr>
-
-	<tr>
-	<td>' . $datos->infraestructurabs. '  </td>
-	<td>' . $datos->maquinariasbs. '  </td>
-	<td>' . $datos->insumos_materiasbs. ' </td>
-	<td>' . $datos->fuerza_trabajo. ' </td>
-	<td>' . $datos->servicios. ' </td>
-	</tr>
-
-	<tr>
-	<th colspan="5" class="headt" ><span class="center"> Inversión Total</span></th>
-	</tr>
-
-	<tr>
-	<td  colspan="5"> ' . $datos->monto. ' </td>
-
-	</tr>
-
-</tbody>
-			</table>';
+			<tr>
+				<td  colspan="6">' . $datos->monto. ' Bs</td>
+			</tr>
+		</tbody>
+		</table>';
         $mpdf->WriteHTML($html);
 
-        $mpdf->Output($datos->codcaso . '.pdf', 'I');
+        $mpdf->Output($datos->nombre . '.pdf', 'I');
 
     }
 
