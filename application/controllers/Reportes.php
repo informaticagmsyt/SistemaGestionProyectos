@@ -237,7 +237,36 @@ class Reportes extends CI_Controller
 
         $id = $data['segmento'] = $this->uri->segment(3);
         $response = $this->ProyectoModel->getProyectoId($id);
+        $responseCom = $this->ComplementosModel->getComplementosProyectoId($id);
+        
         $datos = $response['data'][0];
+        $dataCom = $responseCom['data'];
+        
+        $htmlCom =array(
+            'insumos' => '',
+            'herramientas' => '',
+            'maquinas' => '',
+            'mobiliario' => ''
+        );
+        foreach($dataCom as $com){
+            if($com->id_tipo_complemento == 1){
+                $htmlCom['insumos'].='
+                <td colspan="5"> '.$com->concepto.'</td>
+                ';
+            }else if($com->id_tipo_complemento == 2){
+                $htmlCom['herramientas'].='
+                <td colspan="5"> '.$com->concepto.'</td>
+                ';
+            }else if($com->id_tipo_complemento == 3){
+                $htmlCom['maquinas'].='
+                <td colspan="5"> '.$com->concepto.'</td>
+                ';
+            }else if($com->id_tipo_complemento == 4){
+                $htmlCom['mobiliario'].='
+                <td colspan="5"> '.$com->concepto.'</td>
+                ';
+            }
+        }
 
         $css = file_get_contents('./public/css/csstablas.css');
 
@@ -442,22 +471,22 @@ class Reportes extends CI_Controller
 		
 			<tr> 
 				<th class="titulo"> Materia Prima e Insumos </th>
-				<td colspan="5">  </td> <!--AGREGAR VARIABLES PARA OBTENER LOS DATOS-->
+				'.$htmlCom['insumos'].' <!--AGREGAR VARIABLES PARA OBTENER LOS DATOS-->
 			</tr>
 			
 			<tr> 
 				<th class="titulo"> Herramientas y Equipos de Trabajo </th>
-				<td colspan="5">  </td> <!--AGREGAR VARIABLES PARA OBTENER LOS DATOS-->
+				'.$htmlCom['herramientas'].' <!--AGREGAR VARIABLES PARA OBTENER LOS DATOS-->
 			</tr>
 
 			<tr> 
 				<th class="titulo"> Maquinas y Equipos Tecnologicos </th>
-				<td colspan="5">  </td> <!--AGREGAR VARIABLES PARA OBTENER LOS DATOS-->
+				'.$htmlCom['maquinas'].' <!--AGREGAR VARIABLES PARA OBTENER LOS DATOS-->
 			</tr>
 
 			<tr>	
 				<th class="titulo"> Mobiliario y Equipos Complementarios </th>
-				<td colspan="5">  </td> <!--AGREGAR VARIABLES PARA OBTENER LOS DATOS-->
+				'.$htmlCom['mobiliario'].' <!--AGREGAR VARIABLES PARA OBTENER LOS DATOS-->
 			</tr>			
 		
 			<tr>

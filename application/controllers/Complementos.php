@@ -198,11 +198,4 @@ class Complementos extends CI_Controller{
           ->set_output(json_encode($result));
   }
 
-  function index(){
-    $proyecto = $this->ComplementosModel->getComplementosProyectoId(8);
-    $this->output
-          ->set_content_type('application/json')
-          ->set_output(json_encode($proyecto));
-  }
-
 }
