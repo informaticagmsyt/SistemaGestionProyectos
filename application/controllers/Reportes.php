@@ -31,6 +31,7 @@ class Reportes extends CI_Controller
         $this->load->model('ProfesionModel');
         $this->load->model('DatosPersonasModel');
         $this->load->model('PersonasModel');
+        $this->load->model('ComplementosModel');
 
         if (!is_logged_in()) {
             redirect('index.php/login');

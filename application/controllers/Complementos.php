@@ -17,6 +17,7 @@ class Complementos extends CI_Controller{
     }
     $this->load->helper('url');
     $this->load->model('ComplementosModel');
+    $this->load->model('ProyectoModel');
 
     $this->id_tipo_insumos = 1;
     $this->id_tipo_herramientas = 2;
@@ -195,6 +196,13 @@ class Complementos extends CI_Controller{
     $this->output
           ->set_content_type('application/json')
           ->set_output(json_encode($result));
+  }
+
+  function index(){
+    $proyecto = $this->ComplementosModel->getComplementosProyectoId(8);
+    $this->output
+          ->set_content_type('application/json')
+          ->set_output(json_encode($proyecto));
   }
 
 }

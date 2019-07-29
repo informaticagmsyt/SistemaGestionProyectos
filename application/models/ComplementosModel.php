@@ -82,5 +82,37 @@ Class ComplementosModel  extends CI_Model{
 
     }
   }
-  
+ 
+  function getComplementosProyectoId($id){
+    $this->db->select('proyecto_complementos.*');
+    $this->db->from('proyecto_complementos,proyectos');
+    $this->db->where('proyectos.id',$id);
+
+    $query = $this->db->get();
+    
+    $row=$query->row();
+    $index=array(); 
+    
+    foreach ($query->result() as $row){
+      $index[]=$row;
+    }
+    if ($query->num_rows() > 0) {
+
+      $response=array(
+      "result"	=>true,
+      "data"	=> $index,
+      );
+
+    }else{
+
+      $response=array(
+        "result"	=>false,
+        "data"	=>null
+      );
+
+    }
+
+    return $response;
+  }
+
 }
