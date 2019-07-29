@@ -463,6 +463,7 @@ public function  regitrarPaso1(){
 				"acometida_agua_blanca"		 =>$this->input->post('acometida'),
 				"aceo_urbano"		 		 =>$this->input->post('aseourbano'),
 				"servicio_electrico"		 =>$this->input->post('servicioelectrico'),
+				'vialidad' 					 =>$this->input->post('vialidad'),
 				"servicios_gas"		 		 =>$this->input->post('serviciogas'),
 				"acometida_agua_negra"		 =>$this->input->post('acometidaservidas'),
 			
