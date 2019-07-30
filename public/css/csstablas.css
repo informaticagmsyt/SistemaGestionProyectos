@@ -7,8 +7,8 @@
   
   #tabla td, #tabla th 
   {
-    border: 2px solid #d51b1a;
-    padding: 9px;
+    border: 3px solid #d51b1a;
+    padding: 16px;
     text-align: center;
   }
   
@@ -17,21 +17,20 @@
     background-color: #f2f2f2;
   }
 
-  .float-right
-  {
-    float: right;
-    padding-left: 50%;
-    text-align: right;
-  }
-
   .titulo
   {
-    font-size: 15px;
+    font-size: 17px;
   }
 
   .headt
   {
     background-color: #d51b1a;
+    font-size: 17px;
+  }
+
+  #tabla td
+  {
+    font-size: 17px;
   }
 
   .center

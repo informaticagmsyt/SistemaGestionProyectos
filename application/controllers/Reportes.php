@@ -248,22 +248,30 @@ class Reportes extends CI_Controller
             'maquinas' => '',
             'mobiliario' => ''
         );
-        foreach($dataCom as $com){
-            if($com->id_tipo_complemento == 1){
+        foreach($dataCom as $com)
+        {
+            if($com->id_tipo_complemento == 1)
+            {
                 $htmlCom['insumos'].='
-                <td colspan="5"> '.$com->concepto.'</td>
+                '.$com->concepto.', 
                 ';
-            }else if($com->id_tipo_complemento == 2){
+            }
+            else if($com->id_tipo_complemento == 2)
+            {
                 $htmlCom['herramientas'].='
-                <td colspan="5"> '.$com->concepto.'</td>
+                '.$com->concepto.', 
                 ';
-            }else if($com->id_tipo_complemento == 3){
+            }
+            else if($com->id_tipo_complemento == 3)
+            {
                 $htmlCom['maquinas'].='
-                <td colspan="5"> '.$com->concepto.'</td>
+                '.$com->concepto.', 
                 ';
-            }else if($com->id_tipo_complemento == 4){
+            }
+            else if($com->id_tipo_complemento == 4)
+            {
                 $htmlCom['mobiliario'].='
-                <td colspan="5"> '.$com->concepto.'</td>
+                '.$com->concepto.', 
                 ';
             }
         }
@@ -281,137 +289,127 @@ class Reportes extends CI_Controller
 	   	<table class="tabla" id="tabla">
 		<tbody>	   
 		   	<tr>
-				<th colspan="4" class="headt" style="color: #fff"> Datos del proyecto </th>
+				<th colspan="6" class="headt" style="color: #fff"> Datos del proyecto </th>
 		   	</tr>
 
 		   	<tr>
 			   <th class="titulo" > Nombre del Proyecto: </th>
-			   <td colspan="3"> ' . $datos->nombre . '.</td>
+			   <td colspan="6"> ' . $datos->nombre . '.</td>
 		   	</tr>
 
 		   	<tr>
 			   <th class="titulo" > Codigo: </th>
-			   <td colspan="3">' . $datos->codcaso . '</td>
+			   <td colspan="6">' . $datos->codcaso . '</td>
 		   	</tr>
 
 	 		<tr>
 			   <th class="titulo"> Descripción del Proyecto: </th>
-			   <td colspan="3"> ' . $datos->descripcion . '</td>
+			   <td colspan="6"> ' . $datos->descripcion . '</td>
 			</tr>
 
 			<tr>
-				<th class="titulo"  colspan="2" > Categoria </th>
-				<th class ="titulo" colspan="2"> Ambito </th>
+				<th class="titulo"  colspan="3" > Categoria </th>
+				<th class ="titulo" colspan="3"> Ambito </th>
 			</tr>
 
 			<tr>
-				<td colspan="2">' . $datos->categoria . '</td>
-				<td colspan="2">' . $datos->subcategoria . '</td>
+				<td colspan="3">' . $datos->categoria . '</td>
+				<td colspan="3">' . $datos->subcategoria . '</td>
 			</tr>
 
  			<tr>
- 				<th class="titulo"  colspan="2" > Personas beneficiadas </th>
- 				<th class="titulo" colspan="2"> Población Beneficiada </th>
+ 				<th class="titulo"  colspan="3" > Personas beneficiadas </th>
+ 				<th class="titulo" colspan="3"> Población Beneficiada </th>
 			</tr>
 
 			<tr>
-				<td colspan="2">' . $datos->personas_beneficiadas . '</td>
-				<td colspan="2">' . $datos->poblacion_beneficiada . '</td>
+				<td colspan="3">' . $datos->personas_beneficiadas . '</td>
+				<td colspan="3">' . $datos->poblacion_beneficiada . '</td>
 			</tr>
 
 			<tr>
 			   <th class="titulo">Situación Actual: </th>
-			   <td colspan="3">' . $datos->estatus_proyecto . '</td>
+			   <td colspan="6">' . $datos->estatus_proyecto . '</td>
 		   	</tr>
 
 	 		<tr>
-		   	   <th colspan="4" class="headt" style="color: #fff"> Ubicación Geográfica </th>
+		   	   <th colspan="6" class="headt" style="color: #fff"> Ubicación Geográfica </th>
 			</tr>
 
 	 		<tr>
 		   		<th class="titulo">Estado: ' . $datos->estado . '</th>
 				<th class="titulo">Municipio: ' . $datos->municipio . '</th>
-				<th class="titulo" colspan="2">Parroquia: ' . $datos->parroquia . '</th>
+				<th class="titulo" colspan="6">Parroquia: ' . $datos->parroquia . '</th>
 			</tr>
-		<tr>
+		
 			<tr>
 		   		<th class="titulo">Dirección: </th>
-		   		<td colspan="3">' . $datos->direccion . '</td>
+		   		<td colspan="6">' . $datos->direccion . '</td>
 	 		</tr>
 
 		   	<tr>
-				<th colspan="4" class="headt" style="color: #fff">Datos del productor </th>
+				<th colspan="6" class="headt" style="color: #fff">Datos del productor </th>
 		   	</tr>
 
 			<tr>
 		   		<th class="titulo">Nombres y Apellidos: </th>
-			   	<td colspan="3">' . $datos->nombres . '  ' . $datos->apellidos . '</td>
+			   	<td colspan="6">' . $datos->nombres . '  ' . $datos->apellidos . '</td>
 		   	</tr>
 
 	 		<tr>
 				<th class="titulo">Telefono:  </th>
-			   	<td colspan="3">' . $datos->telefono . '</td>
+			   	<td colspan="6">' . $datos->telefono . '</td>
 	 		</tr>
 	
 	 		<tr>
 		   		<th class="titulo"> Correo: </th>
-			   	<td colspan="3">' . $datos->email . '</td>
+			   	<td colspan="6">' . $datos->email . '</td>
 	  		</tr>
 	
 	  		<tr>
 	  			<th class="titulo">Profesión / Oficio </th>
 				<th class="titulo">Sexo: </th>
-				<th class="titulo" colspan="2"> Fecha de Nacimiento </th>
+				<th class="titulo" colspan="6"> Fecha de Nacimiento </th>
 			</tr>
-		<tr>
+		
 			<tr>
 		   		<td class="titulo">' . $datos->profesion . '</td>
 	 			<td class="titulo">' . $datos->sexo . '</td>
-	 			<td colspan="2">' . $datos->fecha_nac . '</td>
+	 			<td colspan="6">' . $datos->fecha_nac . '</td>
 	 		</tr>
 
 			<tr>
-		   		<th colspan="4" class="headt" style="color: #fff"> Unidad de Producción </th>
+		   		<th colspan="6" class="headt" style="color: #fff"> Unidad de Producción </th>
 			</tr>
 
 		   	<tr>
 		   		<th class="titulo"> Rif:  </th>
-			   	<td colspan="3">' . $datos->codrif . '-' . $datos->numero_rif . '</td>
+			   	<td colspan="6">' . $datos->codrif . '-' . $datos->numero_rif . '</td>
 		   	</tr>
 
 		   	<tr>
 		   		<th class="titulo"> Nombre empresa:  </th>
-			   	<td colspan="3">' . $datos->nombre_empresa . '</td>
+			   	<td colspan="6">' . $datos->nombre_empresa . '</td>
 		   	</tr>
 
 		   	<tr>
 		   		<th class="titulo"> Teléfono:  </th>
-			   	<td colspan="3">' . $datos->telefono . '</td>
+			   	<td colspan="6">' . $datos->telefono . '</td>
 		   	</tr>
 
 			<tr>
 		   		<th class="titulo"> Codigo Situr </th>
 				<th class="titulo">Codigo Sunagro</th>
-	 			<th class="titulo" colspan="2"> Institución Responsable </th>
+	 			<th class="titulo" colspan="6"> Institución Responsable </th>
 	 		</tr>
 
 			<tr>
-	 			<td>   ' .$datos->codigo_situr . ' </td>
-				<td> ' .$datos->codigo_sunagro. '</td>
-				<td colspan="2">   ' .$datos->institucion. '  </td>
+	 			<td>' .$datos->codigo_situr . '</td>
+				<td>' .$datos->codigo_sunagro. '</td>
+				<td colspan="6">' .$datos->institucion. '</td>
 			</tr>
-		</tbody>
-	   	</table>';
 
-		$html .= '  
-		<div>
-		<img src="public/img/banner.png" alt="">
-		</div>
-
-		<table class="table" id="tabla">
-		<tbody>
-
-			<tr>
+            <tr>
 				<th colspan="6" class="headt" style="color: #fff"> Espacios y Edificación </th>
 			</tr>
 
@@ -464,31 +462,24 @@ class Reportes extends CI_Controller
 				<td colspan="3">  ' . $datos->servicios_gas. '</td>
 				<td colspan="4">  ' . $datos->servicio_electrico . '</td>
 			</tr>
-
+        
 			<tr>
 				<th colspan="6" class="headt" style="color: #fff"> Producción y Operatividad </th>
 			</tr>
-		
-			<tr> 
+
+            <tr>
 				<th class="titulo"> Materia Prima e Insumos </th>
-				'.$htmlCom['insumos'].' <!--AGREGAR VARIABLES PARA OBTENER LOS DATOS-->
-			</tr>
-			
-			<tr> 
-				<th class="titulo"> Herramientas y Equipos de Trabajo </th>
-				'.$htmlCom['herramientas'].' <!--AGREGAR VARIABLES PARA OBTENER LOS DATOS-->
-			</tr>
-
-			<tr> 
-				<th class="titulo"> Maquinas y Equipos Tecnologicos </th>
-				'.$htmlCom['maquinas'].' <!--AGREGAR VARIABLES PARA OBTENER LOS DATOS-->
-			</tr>
-
-			<tr>	
-				<th class="titulo"> Mobiliario y Equipos Complementarios </th>
-				'.$htmlCom['mobiliario'].' <!--AGREGAR VARIABLES PARA OBTENER LOS DATOS-->
-			</tr>			
-		
+                <th class="titulo"> Herramientas y Equipos de Trabajo </th>
+                <th class="titulo"> Maquinas y Equipos Tecnologicos </th>
+                <th class="titulo" colspan="3"> Mobiliario y Equipos Complementarios </th>
+                    <tr>
+                        <td>'.$htmlCom['insumos'].'</td>
+                        <td>'.$htmlCom['herramientas'].' </td>
+                        <td>'.$htmlCom['maquinas'].'</td>
+                        <td colspan="3">'.$htmlCom['mobiliario'].'</td>
+                    </tr>
+            </tr>
+        
 			<tr>
 				<th colspan="6" class="headt" style="color: #fff"> Estructura de Costos </th>
 			</tr>
