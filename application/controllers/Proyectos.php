@@ -458,6 +458,7 @@ public function  regitrarPaso1(){
 				'edificacion'        		 =>$this->input->post('edificacion'),
 				'area_terreno'      		 =>$this->input->post('areaterreno'),
 				'area_construccion'      	 =>$this->input->post('areaconstruccion'),
+				'area_almacenamiento'		 =>$this->input->post('areaalmacenamiento'),
 				'servicios_sanitarios'       =>$this->input->post('instalaciones'),
 				"observaciones"				 =>$this->input->post('observaciones'),
 				"acometida_agua_blanca"		 =>$this->input->post('acometida'),

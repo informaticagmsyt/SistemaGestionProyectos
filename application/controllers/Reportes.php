@@ -344,7 +344,7 @@ class Reportes extends CI_Controller
 		
 			<tr>
 		   		<th class="titulo">Dirección: </th>
-		   		<td colspan="6">' . $datos->direccion . '</td>
+		   		<td colspan="6"><strong>' . $datos->direccion . '</strong></td>
 	 		</tr>
 
 		   	<tr>
@@ -417,6 +417,7 @@ class Reportes extends CI_Controller
 				<th class="titulo"> Edificación </th>
 				<th class="titulo"> Area de Terreno (M2) </th>
 				<th class="titulo"> Area de Construcción (M2) </th>
+                <th class="titulo"> Area de Almacenamiento (M2) </th>
 				<th class="titulo" colspan="3"> Instalaciones Sanitarias </th>
 			</tr>
 
@@ -424,7 +425,8 @@ class Reportes extends CI_Controller
 				<td> ' .$datos->edificacion. 	' </td>
 				<td> ' .$datos->area_terreno. 	' </td>
 				<td> ' .$datos->area_construccion. 	' </td>
-				<td colspan="3"> ' .$datos->servicios_sanitarios. ' </td>
+                <td>'.$datos->area_almacenamiento.'</td>
+				<td colspan="3">' .$datos->servicios_sanitarios. '</td>
 			</tr>
 
 			<tr> 
@@ -432,7 +434,7 @@ class Reportes extends CI_Controller
 			</tr>
 
 			<tr> 
-				<td colspan="6">  ' .$datos->observaciones. ' </td>
+				<td colspan="6">' .$datos->observaciones. '</td>
 			</tr>
 
 			<tr>
