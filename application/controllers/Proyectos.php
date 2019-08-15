@@ -31,6 +31,8 @@ class Proyectos extends CI_Controller {
 		$this->load->model('PersonasModel');
 		$this->load->helper('file');
 
+		$this->load->model('ComplementosModel');
+
 		if(!is_logged_in()){
 			redirect('login');
 			
@@ -733,6 +735,7 @@ $result=$this->ProyectoModel->update(	$datapro,$this->input->post('proyecto_id')
 	$id=$data['segmento'] = $this->uri->segment(3);
    if(!empty( $id)){
 
+	$complementos=$this->ComplementosModel->getComplementosProyectoId($id);
 	$imagenes = get_filenames(APPPATH."storage/$id/");
 	$url=base_url()."application/storage/$id/";
 
@@ -746,7 +749,7 @@ $result=$this->ProyectoModel->update(	$datapro,$this->input->post('proyecto_id')
 	   $idproyecyo=$id;
 	   $integrantes=$this->PersonasModel->getIntegrante( $id);
 	   $this->load->view('layout/scriptjs');
-	   $this->load->view('proyectos/verView',compact('datos','integrantes','imagenes','url','idproyecyo'));
+	   $this->load->view('proyectos/verView',compact('datos','integrantes','imagenes','url','idproyecyo','complementos'));
 	      
 	
    }else{

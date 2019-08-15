@@ -28,6 +28,57 @@
                         <form>
                           <div class="form-group row">
 
+                              <?php
+                                   $totalMateriaP=0;                         
+                                if($complementos['result'])
+                                
+                                foreach ($complementos['data'] as $key => $value) {
+
+
+
+                                  if($value->id_tipo_complemento==1) {
+
+                                    $totalMateriaP+=$value->precio* $value->cantidad;
+
+                                  ?> 
+
+                              <div class="col-sm-3">
+                                <label>Concepto (Actividad / Rubro)</label>
+                                <input type="text" name="conceptoInsumo" class="form-control" required value="<?php      echo $value->concepto;?>">
+                              </div>
+
+                              <div class="col-sm-3">
+                                <label>Unidad de Medida</label>
+                                <input type="text" name="conceptoInsumo" class="form-control" required value="<?php      echo $value->unidadMedida;?>">
+                              </div>
+
+                              <div class="col-sm-3">
+                                <label>Precio Unitario(Bs)</label>
+                                <input name="precioinsumos" type="text" class="form-control" required value="<?php      echo $value->precio;?>">
+                              </div>
+
+                              <div class="col-sm-2">
+                                <label>Cantidad</label>
+                                <input name="cantidad" type="text" class="form-control" required  value="<?php      echo $value->cantidad;?>" >
+                              </div>
+                              <div class="col-sm-1">
+                                <label for=""></label>
+                                <br>
+                                <button 
+                                  type="button" 
+                                  class="btn btn-danger" 
+                                  name="btn-rmv-fila" 
+                                  onclick="eleminarForm('#listaInsumos',$(this).parent().parent().parent().parent())"
+                                  > <i class="fa fa-minus"></i> </button>
+                              </div>
+
+
+                          
+
+                               <?php  }} 
+                               
+                              ?> 
+
                               <div class="col-sm-3">
                                 <label>Concepto (Actividad / Rubro)</label>
                                 <input type="text" name="conceptoInsumo" class="form-control" required>
@@ -63,7 +114,10 @@
                                   onclick="eleminarForm('#listaInsumos',$(this).parent().parent().parent().parent())"
                                   > <i class="fa fa-minus"></i> </button>
                               </div>
+
                           </div>
+
+
                         </form>
                       </li>
                     </ul>
@@ -91,6 +145,39 @@
                         <form>
                           <div class="form-group row">
 
+                          <?php
+                                    $totalHerramientas=0;                         
+                                if($complementos['result'])
+                                
+                                foreach ($complementos['data'] as $key => $value) {
+                                  if($value->id_tipo_complemento==2) {
+                                    $totalHerramientas+=$value->precio* $value->cantidad;
+                                  ?>
+                                  <div class="col-sm-4">
+                                <label>Concepto (Herramienta / Equipo)</label>
+                                <input name="conceptoHerramienta" type="text" class="form-control" required value="<?php      echo $value->concepto;?>">
+                              </div>
+
+                              <div class="col-sm-3">
+                                <label>Precio Unitario(Bs)</label>
+                                <input name="precioherramientas" type="text" class="form-control" required value="<?php      echo $value->precio;?>">
+                              </div>
+
+                              <div class="col-sm-2">
+                                <label>Cantidad</label>
+                                <input name="cantidad" type="text" class="form-control" required value="<?php      echo $value->cantidad;?>">
+                              </div>
+                              <div class="col-sm-1">
+                                <label for=""></label>
+                                <br>
+                                <button 
+                                  type="button" 
+                                  class="btn btn-danger" 
+                                  name="btn-rmv-fila" 
+                                  onclick="eleminarForm('#listaEquipostrabajo',$(this).parent().parent().parent().parent())"
+                                  > <i class="fa fa-minus"></i> </button>
+                              </div>
+                            <?php  }}  ?>
                               <div class="col-sm-4">
                                 <label>Concepto (Herramienta / Equipo)</label>
                                 <input name="conceptoHerramienta" type="text" class="form-control" required>
@@ -142,7 +229,40 @@
                       <li>
                         <form>
                           <div class="form-group row">
+                          <?php
+                                                   $totalMaquinarias=0;                          
+                            if($complementos['result'])
+                                                           
+                            foreach ($complementos['data'] as $key => $value) {
+                              if($value->id_tipo_complemento==3) {
 
+                                $totalMaquinarias+=$value->precio* $value->cantidad;
+                                                              ?>
+                                                              <div class="col-sm-4">
+                                <label>Concepto (Maquina / Equipo)</label>
+                                <input name="conceptoMaquina" type="text" class="form-control" required value="<?php      echo $value->concepto;?>">
+                              </div>
+
+                              <div class="col-sm-3">
+                                <label>Precio Unitario(Bs)</label>
+                                <input name="preciomaquinas" type="text" class="form-control" required value="<?php      echo $value->precio;?>">
+                              </div>
+
+                              <div class="col-sm-2">
+                                <label>Cantidad</label>
+                                <input name="cantidad" type="text" class="form-control" required value="<?php      echo $value->cantidad;?>">
+                              </div>
+                              <div class="col-sm-1">
+                                <label for=""></label>
+                                <br>
+                                <button 
+                                  type="button" 
+                                  class="btn btn-danger" 
+                                  name="btn-rmv-fila" 
+                                  onclick="eleminarForm('#listaEquipostecno',$(this).parent().parent().parent().parent())"
+                                  > <i class="fa fa-minus"></i> </button>
+                              </div>
+                            <?php  }}  ?>
                               <div class="col-sm-4">
                                 <label>Concepto (Maquina / Equipo)</label>
                                 <input name="conceptoMaquina" type="text" class="form-control" required>
@@ -195,7 +315,39 @@
                       <li>
                         <form>
                           <div class="form-group row">
+                          <?php
+                               $totalMobiliario=0;                              
+                            if($complementos['result'])
+                                                            
+                            foreach ($complementos['data'] as $key => $value) {
+                              if($value->id_tipo_complemento==4) {
+                                $totalMobiliario+=$value->precio* $value->cantidad;
+                                ?>
+                                 <div class="col-sm-4">
+                                <label>Concepto (Mobiliario / Equipo)</label>
+                                <input name="conceptoMobiliario" type="text" class="form-control" required value="<?php      echo $value->concepto;?>">
+                              </div>
+                              
+                              <div class="col-sm-3">
+                                <label>Precio Unitario(Bs)</label>
+                                <input name="preciomobiliarios" type="text" class="form-control" required value="<?php      echo $value->precio;?>">
+                              </div>
 
+                              <div class="col-sm-2">
+                                <label>Cantidad</label>
+                                <input name="cantidad" type="text" class="form-control" required value="<?php      echo $value->cantidad;?>">
+                              </div>
+                              <div class="col-sm-1">
+                                <label for=""></label>
+                                <br>
+                                <button 
+                                  type="button" 
+                                  class="btn btn-danger" 
+                                  name="btn-rmv-fila" 
+                                  onclick="eleminarForm('#listaEquiposcomp',$(this).parent().parent().parent().parent())"
+                                  > <i class="fa fa-minus"></i> </button>
+                              </div>
+                                                        <?php  }}  ?>
                               <div class="col-sm-4">
                                 <label>Concepto (Mobiliario / Equipo)</label>
                                 <input name="conceptoMobiliario" type="text" class="form-control" required>

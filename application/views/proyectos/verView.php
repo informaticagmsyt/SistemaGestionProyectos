@@ -298,6 +298,7 @@
     <a href="#" class="thumbnail">
         <?php 
 
+                  if(empty(!$imagenes))
                   foreach ($imagenes as $key => $value) {
                     # code...
                 

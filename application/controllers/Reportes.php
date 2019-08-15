@@ -32,7 +32,7 @@ class Reportes extends CI_Controller
         $this->load->model('DatosPersonasModel');
         $this->load->model('PersonasModel');
         $this->load->model('ComplementosModel');
-
+		$this->load->helper('file');
         if (!is_logged_in()) {
             redirect('index.php/login');
 
@@ -276,6 +276,10 @@ class Reportes extends CI_Controller
             }
         }
 
+
+            $imagenes = get_filenames(APPPATH."storage/$id/");
+            $url=base_url()."application/storage/$id/";
+
         $css = file_get_contents('./public/css/csstablas.css');
 
         $mpdf = new \Mpdf\Mpdf();
@@ -511,11 +515,29 @@ class Reportes extends CI_Controller
 			<tr>
 				<td  colspan="6">' . $datos->monto. ' Bs</td>
 			</tr>
+
+                <tr>
+                <th colspan="6" class="headt" style="color: #fff"> Imagenes</th>
+            </tr>
+
+            <tr>';
+
+        
+        foreach ($imagenes as $key => $value) {
+                  
+                
+            $html .=" <tr><td  colspan='6'> <img src='".$url.$value."'   >  </td></tr> ";
+
+
+           } 
+   
+
+    $html .=' </tr>
 		</tbody>
 		</table>';
-        $mpdf->WriteHTML($html);
+     $mpdf->WriteHTML($html);
 
-        $mpdf->Output($datos->nombre . '.pdf', 'I');
+   $mpdf->Output($datos->nombre . '.pdf', 'I');
 
     }
 

@@ -56,7 +56,8 @@
 	          			<label for="insumos" class="control-label"> Materia Prima e Insumos </label>
 	          			<div class="input-group">
 	          				<span class="input-group-addon">Bs</span>
-	          				<input class="form-control" id="costoInsumo" type="number" name="costoInsumo" readonly><!-- Aqui va la sumatoria de la cantidad mas el precio de los insumos en el paso 5 -->
+							  <input class="form-control" id="costoInsumo" type="number" name="costoInsumo" readonly value="<?php if(isset($totalMateriaP ))
+							  echo $totalMateriaP ?>"><!-- Aqui va la sumatoria de la cantidad mas el precio de los insumos en el paso 5 -->
 	          			</div>	
 	          		</div>
 
@@ -64,7 +65,8 @@
 	          			<label for="herramientas" class="control-label"> Herramientas y Equipos de Trabajo </label>
 	          			<div class="input-group">
 	          				<span class="input-group-addon">Bs</span>
-	          				<input class="form-control" id="costoHerramientas" type="number" name="costoHerramientas" readonly><!-- Aqui va la sumatoria de la cantidad mas el precio de las herramientas de trabajo en el paso 5 -->
+	          				<input class="form-control" id="costoHerramientas" type="number" name="costoHerramientas" readonly value="<?php if(isset($totalHerramientas ))
+							  echo $totalHerramientas ?>"><!-- Aqui va la sumatoria de la cantidad mas el precio de las herramientas de trabajo en el paso 5 -->
 	          			</div>	
 	          		</div>
 
@@ -72,7 +74,8 @@
 	          			<label for="maquinas" class="control-label"> Maquinas y Equipos Técnologicos </label>
 	          			<div class="input-group">
 	          				<span class="input-group-addon">Bs</span>
-	          				<input class="form-control" type="number" id="costoMaquinas" name="costoMaquinas" readonly><!-- Aqui va la sumatoria de la cantidad mas el precio de los maquinas tecnologicas en el paso 5 -->
+	          				<input class="form-control" type="number" id="costoMaquinas" name="costoMaquinas" readonly value="<?php if(isset($totalMaquinarias ))
+							  echo $totalMaquinarias ?>"><!-- Aqui va la sumatoria de la cantidad mas el precio de los maquinas tecnologicas en el paso 5 -->
 	          			</div>	
 	          		</div>
 
@@ -80,7 +83,8 @@
 	          			<label for="mobiliario" class="control-label"> Mobiliario y Equipos Complementarios </label>
 	          			<div class="input-group">
 	          				<span class="input-group-addon">Bs</span>
-	          				<input class="form-control" type="number" id="costoMobiliario" name="costoMobiliario" readonly><!-- Aqui va la sumatoria de la cantidad mas el precio de los mobiliario en el paso 5 -->
+	          				<input class="form-control" type="number" id="costoMobiliario" name="costoMobiliario" readonly value="<?php if(isset($totalMobiliario ))
+							  echo $totalMobiliario ?>"> <!-- Aqui va la sumatoria de la cantidad mas el precio de los mobiliario en el paso 5 -->
 	          			</div>	
 	          		</div>
 

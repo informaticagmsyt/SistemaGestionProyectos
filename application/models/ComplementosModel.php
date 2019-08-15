@@ -84,10 +84,13 @@ Class ComplementosModel  extends CI_Model{
   }
  
   function getComplementosProyectoId($id){
-    $this->db->select('proyecto_complementos.*');
-    $this->db->from('proyecto_complementos,proyectos');
-    $this->db->where('proyectos.id',$id);
-
+    $this->db->select('proyecto_complementos.*, tipos_complementos.descripcion as nombrecomplemento');
+    $this->db->from('proyecto_complementos');
+    $this->db->join('proyectos',
+    'proyecto_complementos.id_proyecto=proyectos.id','inner');
+    $this->db->join('tipos_complementos',
+    'tipos_complementos.id=id_tipo_complemento','inner'); 
+    $this->db->where('proyectos.requerimiento_id',$id);
     $query = $this->db->get();
     
     $row=$query->row();
