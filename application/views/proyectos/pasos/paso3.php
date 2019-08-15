@@ -114,14 +114,14 @@
                         <input type="text" 
                         value="<?php if (isset( $datos->codigo_situr)){echo $datos->codigo_situr;}else{ echo 0; }?>"
                         required
-                        class="form-control" id="codigo_situr" name="codigo_situr">
+                        class="form-control" id="codigo_situr" name="codigo_situr" placeholder="ingrese su codigo aqui">
                 </div>
                 <div class="col-md-3">
                         <label for="codigo_sunagro">Codigo Sunagro</label>
                         <input type="text"
                         required
                         value="<?php if (isset( $datos->codigo_sunagro)){echo $datos->codigo_sunagro;}else{ echo 0; }?>"
-                         class="form-control" id="codigo_sunagro" name="codigo_sunagro" placeholder="00000000">
+                         class="form-control" id="codigo_sunagro" name="codigo_sunagro" placeholder="ingrese su codigo aqui">
                 </div>
 
 
