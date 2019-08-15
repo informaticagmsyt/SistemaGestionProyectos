@@ -30,7 +30,7 @@
 
                               <?php
                                    $totalMateriaP=0;                         
-                                if($complementos['result'])
+                                if( isset($complementos) && $complementos['result'])
                                 
                                 foreach ($complementos['data'] as $key => $value) {
 
@@ -96,7 +96,7 @@
                               </div>
 
                               <div class="col-sm-3">
-                                <label>Precio Unitario(Bs)</label>
+                                <label>Precio Unitario(Bsif( isset($complementos) && $complementos['result']))</label>
                                 <input name="precioinsumos" type="text" class="form-control" required>
                               </div>
 
@@ -147,7 +147,7 @@
 
                           <?php
                                     $totalHerramientas=0;                         
-                                if($complementos['result'])
+                              if( isset($complementos) && $complementos['result'])
                                 
                                 foreach ($complementos['data'] as $key => $value) {
                                   if($value->id_tipo_complemento==2) {
@@ -231,7 +231,7 @@
                           <div class="form-group row">
                           <?php
                                                    $totalMaquinarias=0;                          
-                            if($complementos['result'])
+                          if( isset($complementos) && $complementos['result'])
                                                            
                             foreach ($complementos['data'] as $key => $value) {
                               if($value->id_tipo_complemento==3) {
@@ -317,7 +317,7 @@
                           <div class="form-group row">
                           <?php
                                $totalMobiliario=0;                              
-                            if($complementos['result'])
+                          if( isset($complementos) && $complementos['result'])
                                                             
                             foreach ($complementos['data'] as $key => $value) {
                               if($value->id_tipo_complemento==4) {

@@ -455,6 +455,15 @@ public function  regitrarPaso1(){
 				
 		public function  regitrarPaso4(){
 
+			$codigoCaso=	$this->RequerimientosModel->generarCodigoCaso();
+		
+			$datosr = array(
+				"codcaso"	=>	$codigoCaso['codigoCaso'],
+				"tutor_id" 	=>	0,
+	
+		);
+		
+		$this->RequerimientosModel->update($datosr,$_SESSION['requerimiento_id']);
 			$datos = array(
 				
 				'edificacion'        		 =>$this->input->post('edificacion'),
