@@ -22,7 +22,7 @@
 
 	          			<div class="col-md-3">
 	          				<label for="cantidad" class="control-label"> Cantidad </label>
-	          				<input class="form-control" type="number"  id="cantidadperop" name="cantidadperop" required>
+	          				<input class="form-control" type="number"  id="cantidadperop" name="cantidadperop" required value="<?php  ?>">
 	          				<br>
 	          				<input class="form-control" type="number" id="cantidadperman" name="cantidadperman" required>
 	          				<br>

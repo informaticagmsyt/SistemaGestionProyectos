@@ -3,7 +3,7 @@
   
     <div class="navbar-header">
       <a class="navbar-brand px-demo-brand" href="<?php echo base_url();?>">
-          <span class="px-demo-logo bg-primary">Gran Misión Saber Y Trabajo</span>
+          <span class="px-demo-logo bg-primary">INICIO</span>
               <span class="px-demo-logo-1">
 
             </span> - Sistema de Gestión de Proyectos Socio-Productivos</a>
