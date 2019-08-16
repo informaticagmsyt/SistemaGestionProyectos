@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
   
-  <title>Login</title>
+  <title>Sistema Gestion Proyectos</title>
   <!-- Core stylesheets -->
   <link href="<?php echo base_url()?>public/css/bootstrap.min.css" rel="stylesheet" type="text/css">
   <link href="<?php echo base_url()?>public/css/pixeladmin.min.css" rel="stylesheet" type="text/css">
@@ -73,7 +73,7 @@
     <span class="px-demo-logo-3"></span><span class="px-demo-logo-4"></span>
     <span class="px-demo-logo-5"></span><span class="px-demo-logo-6"></span>
     <span class="px-demo-logo-7"></span><span class="px-demo-logo-8"></span>
-    <span class="px-demo-logo-9"></span></span>Gestion de Proyectos
+    <span class="px-demo-logo-9"></span></span>Sistema de Gestión de Proyectos Socio-Productivos
     
   </div>
 

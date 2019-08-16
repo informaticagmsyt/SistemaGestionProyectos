@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 
-<h1 class="text-center text-danger"> Sistema para la Gestión de Proyectos</h1>
+<h1 class="text-center text-danger">Sistema de Gestión de Proyectos Socio-Productivos</h1>
 
 <div class="row">
 <div class="col-md-5 col-md-offset-4">
