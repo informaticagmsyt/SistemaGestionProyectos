@@ -287,12 +287,12 @@ public function  regitrarPaso1(){
 		"poblacion_beneficiada"=>$this->input->post('poblacion'),
 		"estatus_proyecto_id" =>$this->input->post('estatus_proyecto_id'),
 
-		"infraestructurabs"=>$this->input->post('infraestructura'),
-		"maquinariasbs"=>$this->input->post('maquinariasEquipos'),
-		"insumos_materiasbs" =>$this->input->post('insumosMateriaPrima'),
-		"fuerza_trabajo" =>$this->input->post('FuerzaTrabajo'),
-		"servicios" =>$this->input->post('mservicios'),
-		"monto" =>$this->input->post('inversionTotal')
+		//"infraestructurabs"=>$this->input->post('infraestructura'),
+		//"maquinariasbs"=>$this->input->post('maquinariasEquipos'),
+		//"insumos_materiasbs" =>$this->input->post('insumosMateriaPrima'),
+		//"fuerza_trabajo" =>$this->input->post('FuerzaTrabajo'),
+		//"servicios" =>$this->input->post('mservicios'),
+		//"monto" =>$this->input->post('inversionTotal')
 
 	),
 		
@@ -360,12 +360,12 @@ public function  regitrarPaso1(){
 					"personas_beneficiadas" =>$this->input->post('personasbenificiadas'),
 					"poblacion_beneficiada" =>$this->input->post('poblacion'),
 					"estatus_proyecto_id" =>$this->input->post('estatus_proyecto_id'),
-					"infraestructurabs"=>$this->input->post('infraestructura'),
-					"maquinariasbs"=>$this->input->post('maquinariasEquipos'),
-					"insumos_materiasbs" =>$this->input->post('insumosMateriaPrima'),
-					"fuerza_trabajo" =>$this->input->post('FuerzaTrabajo'),
-					"servicios" =>$this->input->post('mservicios'),
-					"monto" =>$this->input->post('inversionTotal'),
+					//"infraestructurabs"=>$this->input->post('infraestructura'),
+					//"maquinariasbs"=>$this->input->post('maquinariasEquipos'),
+					//"insumos_materiasbs" =>$this->input->post('insumosMateriaPrima'),
+					//"fuerza_trabajo" =>$this->input->post('FuerzaTrabajo'),
+					//"servicios" =>$this->input->post('mservicios'),
+					//"monto" =>$this->input->post('inversionTotal'),
 					
 					"requerimiento_id"		=>$idrequerimiento)
 
@@ -581,21 +581,21 @@ public function  regitrarPaso1(){
 			
 			$dato1 = array(
 				"tipo_cargo" => "Personal operativo",
-				"cantidad" => $this->input->post('cantidadperop'),
+				"cant_personal" => $this->input->post('cantidadperop'),
 				"salario" => $salario,
 				"id_proyecto" => $_SESSION['proyecto_id'],
 			);
 
 			$dato2 = array(
 				"tipo_cargo" => "Personal de Mantenimiento",
-				"cantidad" => $this->input->post('cantidadperman'),
+				"cant_personal" => $this->input->post('cantidadperman'),
 				"salario" => $salario,
 				"id_proyecto" => $_SESSION['proyecto_id'],
 			);
 
 			$dato3 = array(
 				"tipo_cargo" => "Personal de Administracion",
-				"cantidad" => $this->input->post('cantidadperadmin'),
+				"cant_personal" => $this->input->post('cantidadperadmin'),
 				"salario" => $salario,
 				"id_proyecto" => $_SESSION['proyecto_id'],
 			);
@@ -769,12 +769,12 @@ public function  GuardarEdit(){
 					'unidad_metrica'       				 =>$this->input->post('unidadmedida'),
 					"funcionamiento_operativo"			 =>$this->input->post('funcionamientooperativo'),
 				
-					"infraestructurabs"=>$this->input->post('infraestructura'),
-					"maquinariasbs"=>$this->input->post('maquinariasEquipos'),
-					"insumos_materiasbs" =>$this->input->post('insumosMateriaPrima'),
-					"fuerza_trabajo" =>$this->input->post('FuerzaTrabajo'),
-					"servicios" =>$this->input->post('mservicios'),
-					"monto" =>$this->input->post('inversionTotal')
+					//"infraestructurabs"=>$this->input->post('infraestructura'),
+					//"maquinariasbs"=>$this->input->post('maquinariasEquipos'),
+					//"insumos_materiasbs" =>$this->input->post('insumosMateriaPrima'),
+					//"fuerza_trabajo" =>$this->input->post('FuerzaTrabajo'),
+					//"servicios" =>$this->input->post('mservicios'),
+					//"monto" =>$this->input->post('inversionTotal')
 			
 );
 	

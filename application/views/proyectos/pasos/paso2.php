@@ -114,7 +114,7 @@
             id="infraestructura" 
             data-msg-required="Ingrese un monto" 
             name="infraestructura" class="form-control" 
-            value="<?php if (isset( $datos->infraestructurabs))echo $datos->infraestructurabs;?>"
+            value="<?php //if (isset( $datos->infraestructurabs))echo $datos->infraestructurabs;?>"
              
              required>
         </div>
@@ -132,7 +132,7 @@
             id="maquinariasEquipos"
              data-msg-required="Ingrese un monto" 
              name="maquinariasEquipos" class="form-control" 
-             value="<?php if (isset( $datos->maquinariasbs))echo $datos->maquinariasbs;?>"
+             value="<?php //if (isset( $datos->maquinariasbs))echo $datos->maquinariasbs;?>"
              
               
               required>
@@ -153,7 +153,7 @@
             id="insumosMateriaPrima"
              data-msg-required="Ingrese un monto" 
              name="insumosMateriaPrima" class="form-control"
-             value="<?php if (isset( $datos->insumos_materiasbs))echo $datos->insumos_materiasbs;?>"
+             value="<?php //if (isset( $datos->insumos_materiasbs))echo $datos->insumos_materiasbs;?>"
 
                 required>
         </div>
@@ -172,7 +172,7 @@
             id="FuerzaTrabajo" 
             data-msg-required="Ingrese un monto" 
             name="FuerzaTrabajo" class="form-control" 
-            value="<?php if (isset( $datos->fuerza_trabajo))echo $datos->fuerza_trabajo;?>"
+            value="<?php //if (isset( $datos->fuerza_trabajo))echo $datos->fuerza_trabajo;?>"
              
              required>
         </div>
@@ -189,7 +189,7 @@
                 id="mservicios"
                  data-msg-required="Ingrese un monto"
                   name="mservicios" class="form-control"
-                  value="<?php if (isset( $datos->servicios))echo $datos->servicios;?>"
+                  value="<?php //if (isset( $datos->servicios))echo $datos->servicios;?>"
                     
                     required>
             </div>
@@ -221,7 +221,7 @@
               id="inversionTotal" 
               data-msg-required="Ingrese un monto" 
               name="inversionTotal" class="form-control" 
-              value="<?php if (isset( $datos->monto))echo $datos->monto;?>"
+              value="<?php //if (isset( $datos->monto))echo $datos->monto;?>"
                
                required>
         </div>
