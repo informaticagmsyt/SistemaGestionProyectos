@@ -13,16 +13,16 @@
 	          		
 	          			<div class="col-md-3">
 	          				<label for="tipocargo" class="control-label"> Tipo de Cargo </label>
-	          				<input class="form-control" type="text" name="personaloperativo" value="Personal Operativo" readonly>
+	          				<input class="form-control" type="text" name="personaloperativo" value="Personal Operativo" disabled>
 	          				<br>
-	          				<input class="form-control" type="text" name="personalmantenimiento" value="Personal de Mantenimiento" readonly>
+	          				<input class="form-control" type="text" name="personalmantenimiento" value="Personal de Mantenimiento" disabled>
 	          				<br>
-	          				<input class="form-control" type="text" name="personaladministrativo" value="Personal de Administración" readonly>
+	          				<input class="form-control" type="text" name="personaladministrativo" value="Personal de Administración" disabled>
 	          			</div>
 
 	          			<div class="col-md-3">
 	          				<label for="cantidad" class="control-label"> Cantidad </label>
-	          				<input class="form-control" type="number"  id="cantidadperop" name="cantidadperop" required value="<?php  ?>">
+	          				<input class="form-control" type="number"  id="cantidadperop" name="cantidadperop" required>
 	          				<br>
 	          				<input class="form-control" type="number" id="cantidadperman" name="cantidadperman" required>
 	          				<br>
@@ -33,17 +33,17 @@
 									<label for="salariominimo" class="control-label"> Salario Minimo </label>
 		          		<div class="input-group">
 	  								<span class="input-group-addon">Bs</span>
-	  								<input class="form-control" id="salariominimo_perop" name="salariominimo" value="65000" type="number" readonly>
+	  								<input class="form-control" id="salariominimo_perop" name="salariominimo" value="65000" type="number" disabled>
 									</div>
 									<br>
 									<div class="input-group">
 	  								<span class="input-group-addon">Bs</span>
-	  								<input class="form-control" id="salariominimo_perman" name="salariominimo" value="65000" type="number" readonly>
+	  								<input class="form-control" id="salariominimo_perman" name="salariominimo" value="65000" type="number" disabled>
 									</div>
 									<br>
 									<div class="input-group">
 	  								<span class="input-group-addon">Bs</span>
-	  								<input class="form-control" id="salariominimo_peradmin" name="salariominimo" value="65000" type="number" readonly>
+	  								<input class="form-control" id="salariominimo_peradmin" name="salariominimo" value="65000" type="number" disabled>
 									</div>
 								</div>
 	         	 </div>
@@ -100,7 +100,7 @@
 	          			<label for="servicios" class="control-label"> Servicios Públicos </label>
 	          			<div class="input-group">
 	          				<span class="input-group-addon">Bs</span>
-	          				<input class="form-control" type="number" name="costoServicio" ><!-- Aqui va la sumatoria de la cantidad mas el precio de los servicios en el paso 4 -->
+	          				<input class="form-control" type="number" name="costoServicio" required><!-- Aqui va la sumatoria de la cantidad mas el precio de los servicios en el paso 4 -->
 	          			</div>	
 	          		</div>
 	          	</div>

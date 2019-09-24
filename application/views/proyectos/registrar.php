@@ -459,15 +459,28 @@ $( "#formpaso2" ).submit(function( e ) {
 
 
 
-           /*****PASO 6 */
-           $("#formpaso6").validate();
-           document.querySelector("#formpaso6").addEventListener("submit", function(e){
-             e.preventDefault();    //stop form from submitting
-         var validate=   $("#formpaso6").valid();
-           if(validate){
-   
-           //regitrarPaso6()
-         }
+    /*****PASO 6 */
+    $("#formpaso6").validate();
+      document.querySelector("#formpaso6").addEventListener("submit", function(e){
+      e.preventDefault();    //stop form from submitting
+      var validate=   $("#formpaso6").valid();
+      if(validate){
+        let data = $("#formpaso6").serialize()
+        //console.log('data :', data);
+        $.ajax({
+          url: urlbase+'Proyectos/registrarPaso6',
+          type:'POST',
+          data,
+          success: function (r){
+            alert('Registro completado con exito')
+            console.log('r :', r);
+            location.href = urlbase 
+          }
+        }).fail(function(e){
+          alert('ERROR INTERNO EN EL SERVIDOR/BACKEND');
+          console.log('error :', e.responseText)
+        })
+      }
         
     });
       

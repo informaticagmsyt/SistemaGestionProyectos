@@ -576,6 +576,59 @@ public function  regitrarPaso1(){
 			
 			
 
+	public function registrarPaso6(){
+			$salario = 65000;
+			
+			$dato1 = array(
+				"tipo_cargo" => "Personal operativo",
+				"cantidad" => $this->input->post('cantidadperop'),
+				"salario" => $salario,
+				"id_proyecto" => $_SESSION['proyecto_id'],
+			);
+
+			$dato2 = array(
+				"tipo_cargo" => "Personal de Mantenimiento",
+				"cantidad" => $this->input->post('cantidadperman'),
+				"salario" => $salario,
+				"id_proyecto" => $_SESSION['proyecto_id'],
+			);
+
+			$dato3 = array(
+				"tipo_cargo" => "Personal de Administracion",
+				"cantidad" => $this->input->post('cantidadperadmin'),
+				"salario" => $salario,
+				"id_proyecto" => $_SESSION['proyecto_id'],
+			);
+
+			$personal = [$dato1,$dato2,$dato3];
+
+			for($i =0; $i < 3; $i++){
+				$this->ProyectoModel->registrarPersonal($personal[$i]);
+			}
+
+			$costos = array(
+				"costoinsumo" => $this->input->post('costoInsumo'),
+				"costoherramientas" => $this->input->post('costoHerramientas'),
+				"costomaquinas" => $this->input->post('costoMaquinas'),
+				"costomobiliario" => $this->input->post('costoMobiliario'),
+				"costomanodeobra" => $this->input->post('costoManodeobra'),
+				"costoservicio" => $this->input->post('costoServicio'),
+			);
+
+			$idproyecto=$this->ProyectoModel->update($costos,$_SESSION['proyecto_id']);
+
+			$obj = new stdClass;
+			$obj->msj = "registro completado";
+
+			$_SESSION['proyecto_id']  = null;
+			$this->output
+				->set_content_type('application/json')
+				->set_output(json_encode($obj));
+	}
+
+
+
+
 		public function getCategoria(){
 			$response=	$this->RequerimientosModel->categoriaGet();
 

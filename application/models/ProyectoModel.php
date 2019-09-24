@@ -154,8 +154,18 @@ Class ProyectoModel  extends CI_Model{
         
     }
 
-
-
+    public function registrarPersonal($data){
+       $result = $this->db->insert('personal_proyecto',$data);
+        
+        $obj = new stdClass;
+        if($result){
+            $obj->registrado = true;
+        }else{
+            $obj->registrado = false;
+        }
+          
+        return $obj;
+    }
         
     function update($data,$id){
 

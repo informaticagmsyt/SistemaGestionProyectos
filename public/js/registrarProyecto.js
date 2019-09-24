@@ -360,7 +360,6 @@ $("#btnpaso5").addClass("disabled")
 }
 /**/
 
-
 function getCategoria(selector) {
 
   var data={
