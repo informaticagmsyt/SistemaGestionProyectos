@@ -486,7 +486,7 @@ class Reportes extends CI_Controller
                     </tr>
             </tr>
         
-			<tr>
+			<!--tr>
 				<th colspan="6" class="headt" style="color: #fff"> Estructura de Costos </th>
 			</tr>
 
@@ -500,12 +500,12 @@ class Reportes extends CI_Controller
 			</tr>
 
 			<tr>
-				<td>' . $datos->infraestructurabs. ' Bs</td>
-				<td>' . $datos->maquinariasbs. ' Bs</td>
-				<td>' . $datos->insumos_materiasbs. ' Bs</td>
-				<td>' . $datos->fuerza_trabajo. ' Bs</td>
-				<td>' . $datos->servicios. ' Bs</td>
-				<td>' . $datos->servicios. ' Bs</td>
+				<td>' . $datos->costoinsumo. ' Bs</td>
+				<td>' . $datos->costoherramientas. ' Bs</td>
+				<td>' . $datos->costomaquinas. ' Bs</td>
+				<td>' . $datos->costomobiliario. ' Bs</td>
+				<td>' . $datos->costomanodeobra. ' Bs</td>
+				<td>' . $datos->costoservicio. ' Bs</td>
 			</tr>
 
 			<tr>
