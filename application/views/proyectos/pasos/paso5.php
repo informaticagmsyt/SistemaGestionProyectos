@@ -96,7 +96,7 @@
                               </div>
 
                               <div class="col-sm-3">
-                                <label>Precio Unitario(Bsif( isset($complementos) && $complementos['result']))</label>
+                                <label>Precio Unitario(Bs)</label>
                                 <input name="precioinsumos" type="text" class="form-control" required>
                               </div>
 
