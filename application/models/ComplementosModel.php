@@ -45,6 +45,13 @@ Class ComplementosModel  extends CI_Model{
     return $query->result();
   }
 
+  function listar_mano_obra($id){
+    $this->db->select('*');
+    $this->db->from('personal_proyecto');
+    $this->db->where('id_proyecto',$id);
+    $query = $this->db->get();
+    return $query->result();
+  }
   function busquedaComplementos($complemento,$id){
   
     $search = $complemento;

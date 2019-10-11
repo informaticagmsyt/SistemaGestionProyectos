@@ -10,7 +10,25 @@
 	          	<hr>
 
 	          	<div class="row">
-	          		
+				  <?php
+						 $cantidadperop ='';
+						 $cantidadperman ='';
+						 $cantidadperadmin ='';
+						 $totalmanoobra = 0;
+						                                                     
+                          if( isset($mano_obra))
+                                                           
+                            foreach ($mano_obra as $key => $value) {
+								if ($value->tipo_cargo == 'Personal operativo'){
+									$cantidadperop = $value->cant_personal;
+								} elseif ($value->tipo_cargo == 'Personal de Mantenimiento'){
+									$cantidadperman = $value->cant_personal;
+								} elseif ($value->tipo_cargo == 'Personal de Administracion'){
+									$cantidadperadmin = $value->cant_personal;
+								}
+							$totalmanoobra +=	$value->cant_personal * $value->salario;
+							}
+                                                              ?>
 	          			<div class="col-md-3">
 	          				<label for="tipocargo" class="control-label"> Tipo de Cargo </label>
 	          				<input class="form-control" type="text" name="personaloperativo" value="Personal Operativo" disabled>
@@ -22,11 +40,11 @@
 
 	          			<div class="col-md-3">
 	          				<label for="cantidad" class="control-label"> Cantidad </label>
-	          				<input class="form-control" type="number"  id="cantidadperop" name="cantidadperop" required>
+	          				<input class="form-control" type="number"  id="cantidadperop" name="cantidadperop" value ='<?php if( isset($mano_obra)) echo $cantidadperop; ?>'  required> 
 	          				<br>
-	          				<input class="form-control" type="number" id="cantidadperman" name="cantidadperman" required>
+	          				<input class="form-control" type="number" id="cantidadperman" name="cantidadperman" value ='<?php if( isset($mano_obra)) echo $cantidadperman; ?>'required>
 	          				<br>
-	          				<input class="form-control" type="number" id="cantidadperadmin" name="cantidadperadmin" required>
+	          				<input class="form-control" type="number" id="cantidadperadmin" name="cantidadperadmin" value ='<?php if( isset($mano_obra)) echo $cantidadperadmin; ?>'required>
 	          			</div>
 
 	          			<div class="col-md-3">
@@ -92,7 +110,7 @@
 	          			<label for="manodeobra" class="control-label"> Mano de Obra </label>
 	          			<div class="input-group">
 	          				<span class="input-group-addon">Bs</span>
-	          				<input class="form-control" type="number" id="costoManodeobra" name="costoManodeobra" readonly><!-- Aqui va la sumatoria de la cantidad mas el precio de la mano de obra en el paso 6 -->
+	          				<input class="form-control" type="number" id="costoManodeobra" name="costoManodeobra" value ='<?php if( isset($mano_obra)) echo $totalmanoobra; ?>' readonly><!-- Aqui va la sumatoria de la cantidad mas el precio de la mano de obra en el paso 6 -->
 	          			</div>	
 	          		</div>
 

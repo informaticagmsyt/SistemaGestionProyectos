@@ -684,11 +684,12 @@ if(!empty( $id)){
 	$response=$this->ProyectoModel->getProyectoId($id);
 	$integrantes=$this->PersonasModel->getIntegrante( $id);
 	$complementos=$this->ComplementosModel->getComplementosProyectoId($id);
+	$mano_obra=$this->ComplementosModel->listar_mano_obra($id);
 	$datos=$response['data'][0];
 	
 
     $this->load->view('layout/scriptjs');
-	$this->load->view('proyectos/editarView',compact('datos','integrantes','complementos'));//compact('datos','integrantes','imagenes','url','idproyecyo','complementos')
+	$this->load->view('proyectos/editarView',compact('datos','integrantes','complementos', 'mano_obra'));//compact('datos','integrantes','imagenes','url','idproyecyo','complementos')
 }else{
 	redirect('/proyectos');
 
@@ -812,8 +813,9 @@ $result=$this->ProyectoModel->update(	$datapro,$this->input->post('proyecto_id')
 	   $datos=$response['data'][0];
 	   $idproyecyo=$id;
 	   $integrantes=$this->PersonasModel->getIntegrante( $id);
+	   $mano_obra=$this->ComplementosModel->listar_mano_obra($id);
 	   $this->load->view('layout/scriptjs');
-	   $this->load->view('proyectos/verView',compact('datos','integrantes','imagenes','url','idproyecyo','complementos'));
+	   $this->load->view('proyectos/verView',compact('datos','integrantes','imagenes','url','idproyecyo','complementos', 'mano_obra'));
 	      
 	
    }else{
