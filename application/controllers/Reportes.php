@@ -253,25 +253,25 @@ class Reportes extends CI_Controller
             if($com->id_tipo_complemento == 1)
             {
                 $htmlCom['insumos'].='
-                '.$com->concepto.', 
+                '.$com->concepto.' <br> <br> 
                 ';
             }
             else if($com->id_tipo_complemento == 2)
             {
                 $htmlCom['herramientas'].='
-                '.$com->concepto.', 
+                '.$com->concepto.' <br> <br>
                 ';
             }
             else if($com->id_tipo_complemento == 3)
             {
                 $htmlCom['maquinas'].='
-                '.$com->concepto.', 
+                '.$com->concepto.' <br> <br> 
                 ';
             }
             else if($com->id_tipo_complemento == 4)
             {
                 $htmlCom['mobiliario'].='
-                '.$com->concepto.', 
+                '.$com->concepto.' <br> <br>
                 ';
             }
         }
@@ -281,13 +281,13 @@ class Reportes extends CI_Controller
             $url=base_url()."application/storage/$id/";
 
         $css = file_get_contents('./public/css/csstablas.css');
-
+        $total=$datos->costoinsumo+$datos->costoherramientas+$datos->costomaquinas+$datos->costomobiliario+$datos->costomanodeobra+$datos->costoservicio;
         $mpdf = new \Mpdf\Mpdf();
 
         $mpdf->writeHTML($css, 1);
         $html = '
 	   	<div>
-	   		<img src="public/img/banner.png">
+	   		<!--img src="public/img/banner.png"-->
 	   	</div>
 
 	   	<table class="tabla" id="tabla">
@@ -486,7 +486,7 @@ class Reportes extends CI_Controller
                     </tr>
             </tr>
         
-			<!--tr>
+			<tr>
 				<th colspan="6" class="headt" style="color: #fff"> Estructura de Costos </th>
 			</tr>
 
@@ -500,12 +500,12 @@ class Reportes extends CI_Controller
 			</tr>
 
 			<tr>
-				<td>' . $datos->costoinsumo. ' Bs</td>
-				<td>' . $datos->costoherramientas. ' Bs</td>
-				<td>' . $datos->costomaquinas. ' Bs</td>
-				<td>' . $datos->costomobiliario. ' Bs</td>
-				<td>' . $datos->costomanodeobra. ' Bs</td>
-				<td>' . $datos->costoservicio. ' Bs</td>
+				<td>' . number_format($datos->costoinsumo,2, ",", "."). ' Bs</td>
+				<td>' . number_format($datos->costoherramientas,2, ",", "."). ' Bs</td>
+				<td>' . number_format($datos->costomaquinas,2, ",", "."). ' Bs</td>
+				<td>' . number_format($datos->costomobiliario,2, ",", "."). ' Bs</td>
+				<td>' . number_format($datos->costomanodeobra,2, ",", "."). ' Bs</td>
+				<td>' . number_format($datos->costoservicio,2, ",", "."). ' Bs</td>
 			</tr>
 
 			<tr>
@@ -513,7 +513,7 @@ class Reportes extends CI_Controller
 			</tr>
 
 			<tr>
-				<td  colspan="6">' . $datos->monto. ' Bs</td>
+                <td  colspan="6">' . number_format($total, 2, ",", ".") .' Bs</td>
 			</tr>
 
                 <tr>
@@ -537,7 +537,7 @@ class Reportes extends CI_Controller
 		</table>';
      $mpdf->WriteHTML($html);
 
-   $mpdf->Output($datos->nombre . '.pdf', 'I');
+  $mpdf->Output($datos->nombre.'.pdf', 'I');
 
     }
 

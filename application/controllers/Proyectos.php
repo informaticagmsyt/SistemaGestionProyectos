@@ -583,21 +583,21 @@ public function  regitrarPaso1(){
 				"tipo_cargo" => "Personal operativo",
 				"cant_personal" => $this->input->post('cantidadperop'),
 				"salario" => $salario,
-				"id_proyecto" => $_SESSION['proyecto_id'],
+				"id_proyecto" => $_SESSION['requerimiento_id'],
 			);
 
 			$dato2 = array(
 				"tipo_cargo" => "Personal de Mantenimiento",
 				"cant_personal" => $this->input->post('cantidadperman'),
 				"salario" => $salario,
-				"id_proyecto" => $_SESSION['proyecto_id'],
+				"id_proyecto" => $_SESSION['requerimiento_id'],
 			);
 
 			$dato3 = array(
 				"tipo_cargo" => "Personal de Administracion",
 				"cant_personal" => $this->input->post('cantidadperadmin'),
 				"salario" => $salario,
-				"id_proyecto" => $_SESSION['proyecto_id'],
+				"id_proyecto" => $_SESSION['requerimiento_id'],
 			);
 
 			$personal = [$dato1,$dato2,$dato3];
@@ -682,11 +682,13 @@ if(!empty( $id)){
     $User['nombreUser']=$nombreUsuario['nombre'];
     $this->load->view('layout/navar',$User);
 	$response=$this->ProyectoModel->getProyectoId($id);
+	$integrantes=$this->PersonasModel->getIntegrante( $id);
+	$complementos=$this->ComplementosModel->getComplementosProyectoId($id);
 	$datos=$response['data'][0];
 	
 
     $this->load->view('layout/scriptjs');
-	$this->load->view('proyectos/editarView',compact('datos'));
+	$this->load->view('proyectos/editarView',compact('datos','integrantes','complementos'));//compact('datos','integrantes','imagenes','url','idproyecyo','complementos')
 }else{
 	redirect('/proyectos');
 
