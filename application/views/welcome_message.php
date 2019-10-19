@@ -10,7 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <div class="row">
 <div class="col-md-5 col-md-offset-4">
 <div class="logo" >
-<img src="public/img/" alt="">
+<img src="public/img/laindiaparaiso.jpg" alt="">
 
 </div>
 
