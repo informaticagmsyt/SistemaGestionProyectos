@@ -64,13 +64,13 @@
       </li>
 
 
-      <!--li class="px-nav-item px-nav-dropdown ">
+      <li class="px-nav-item px-nav-dropdown ">
         <a href="#"><i class="px-nav-icon fas fa-cogs"></i><span class="px-nav-label">Configuración</span></a>
         <ul class="px-nav-dropdown-menu">
           <li class="px-nav-item"><a href="<?php echo base_url("index.php/usuarios/nuevo"); ?>"><i class="px-nav-icon"></i><span class="px-nav-label">Nuevo Usuario </span></a></li>
           <li class="px-nav-item"><a href="<?php echo base_url("index.php/usuarios/listado")?>"><i class="px-nav-icon "></i><span class="px-nav-label">Listar Usuarios</span></a></li>
          </ul>
-      </li-->
+      </li>
       <li class="px-nav-item">
         <a href="<?php echo base_url("index.php/login/logout"); ?>"><i class="px-nav-icon fas fa-sign-out-alt " ></i><span class="px-nav-label">Salir</span></a>
       </li>

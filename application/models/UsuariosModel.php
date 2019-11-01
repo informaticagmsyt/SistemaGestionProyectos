@@ -16,7 +16,7 @@ Class UsuariosModel extends CI_Model{
         $this->db->from('persona_perfil');
         $this->db->join('personas','personas.id=personas_id','inner');
         $this->db->join('perfiles','perfiles.id=perfil_id','inner');
-        $this->db->where('cod_perfil',1);
+        $this->db->where('cod_perfil',2);
         /**/
         $query = $this->db->get();
         return $query->result();
@@ -25,7 +25,7 @@ Class UsuariosModel extends CI_Model{
     function perfiles(){
               
              $this->db->from('perfiles');
-             $this->db->where('cod_perfil',1);
+             $this->db->where('cod_perfil',2);
              $query = $this->db->get();
                
             $obj = new stdClass;
@@ -56,7 +56,7 @@ Class UsuariosModel extends CI_Model{
         public function registrarPersona_perfil($persona_id){
             $datos = array(
                         'personas_id'=> $persona_id,
-                        'perfil_id'=>1
+                        'perfil_id'=>2
                     );
             $this->date     = time();
             $this->db->insert('persona_perfil',$datos);

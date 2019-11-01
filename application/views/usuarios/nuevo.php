@@ -160,6 +160,9 @@
                                     <label for="cargo">Cargo que ejerce</label>
                                     <select class="form-control custom-select" name="cargo" id="cargo">
                                         <option value="0">Seccione Cargo</option>
+                                        <option value="Director">Director</option>
+                                        <option value="Coordinador">Coordinador</option>
+                                        <option value="Empleado">Empleado</option>
                                     </select>
                                 </div>
                             </div>
@@ -213,6 +216,7 @@
 
                             <div class="col-sm-12">
                                 <div class="form-group">
+                                    <label for="direccion">Dirección</label>
                                     <textarea name="direccion" id="direccion" required data-msg-required="Ingrese una Dirección" class="form-control"></textarea>
                                 </div>
                                 <!--End Form-Group-->

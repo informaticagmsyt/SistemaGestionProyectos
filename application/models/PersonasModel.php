@@ -37,6 +37,7 @@ Class PersonasModel  extends CI_Model{
             'telefono2'=>  $data['telefono2'], 
             'profesion' =>$data['profesion'], 
             'institucion_id'=> $data['institucion_id'],
+            'cargo'=> $data['cargo'],
             'principal'=> $data['principal']
             );
             //a
