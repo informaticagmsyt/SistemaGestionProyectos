@@ -1,7 +1,7 @@
 // ===============================================================================
 //
 
-
+  
 $('.form_date').datetimepicker({
 	language:  'es',
 	weekStart: 1,
@@ -163,3 +163,40 @@ function total()
 	$("#costoInsumo").val(total);
 }
 /**/
+
+    var data = {
+      columns: [
+        [ 'Jovenes', 79 ],
+        [ 'Adultos', 91 ],
+    
+	  ],
+	  axes: {
+        data2: 'y2'
+	  },
+	  axis: {
+		y: {
+		  label: {
+			text: 'Y Label',
+			position: 'outer-middle'
+		  },
+		  tick: {
+			format: d3.format("$,") // ADD
+		  }
+		},
+		y2: {
+		  show: true,
+		  label: {
+			text: 'Y2 Label',
+			position: 'outer-middle'
+		  }
+		}
+	},
+      type : 'donut',
+    };
+
+    c3.generate({
+      bindto: '#c3-donut',
+      color: { pattern: [ '#673AB7', '#E040FB'] },
+      data: data,
+      donut: { title: 'Some title' },
+    });

@@ -27,6 +27,11 @@
 
   <!-- Pace.js -->
   <script src="<?php echo base_url()?>public/pace/pace.min.js"></script>
+  <link href="<?php echo base_url()?>public/d3-5.8.2.min.js" rel="stylesheet">
+  <link href="<?php echo base_url()?>public/c3.min.css" rel="stylesheet">
+
+
+
 </head>
 <body>
 

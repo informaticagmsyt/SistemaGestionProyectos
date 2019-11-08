@@ -19,3 +19,6 @@
   <!-- Your scripts -->
   <script src="<?php echo base_url()?>public/js/app.js"></script>
   <script src="<?php echo base_url()?>public/js/dropzone.js"></script>
+
+  <script src="<?php echo base_url()?>public/c3.min.js" charset="utf-8"></script>
+
