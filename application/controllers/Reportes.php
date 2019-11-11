@@ -157,7 +157,7 @@ class Reportes extends CI_Controller
 
         $objPHPExcel->getActiveSheet()->setCellValue('B3', 'REPORTE DE PROYECTOS');
         $objPHPExcel->getActiveSheet()->mergeCells('B3:D3');
-
+/*
         $objPHPExcel->getActiveSheet()->getColumnDimension('A')->setWidth(10);
         $objPHPExcel->getActiveSheet()->setCellValue('A6', 'ID');
 
@@ -211,10 +211,59 @@ class Reportes extends CI_Controller
 
         $objPHPExcel->getActiveSheet()->getColumnDimension('R')->setWidth(10);
         $objPHPExcel->getActiveSheet()->setCellValue('R6', 'Poblacion Beneficiada');
+*/
+        $abecedario=array("A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z");  
+   
+            $key=0;
+            $key2=0;
+            $key3=0;
         //Recorremos los resultados de la consulta y los imprimimos
+        $array = json_decode( json_encode( $data ), true );
+        $arrayColumnas=[];
+        $arrayClave=[];
+        foreach ($array[0] as $clave => $valor) {
+            $arrayClave[]=$clave;
 
-        foreach ($data as $key => $value) {
+            if($key<=25)
+           $columna= $abecedario[$key];
+   
+            if($key>=25){
+                if($key2<=25)
+                $columna="A".$abecedario[$key2];
+                $key2++;
+     
+            }
+            if($key2>=25){
+                if($key3<=25)
+                $columna="B".$abecedario[$key3];
+                $key3++;
+     
+            }
+            $arrayColumnas[]=$columna;
 
+            $objPHPExcel->getActiveSheet()->getColumnDimension($columna)->setWidth(10);
+            $objPHPExcel->getActiveSheet()->setCellValue($columna."6", $clave );
+
+
+          //  print "$abecedario[$key] \n";
+            $key++;
+      
+
+        }
+        $key=0;
+        foreach ($array as $clave => $value) {
+
+            foreach ($arrayClave as $clave => $valor) {
+                
+               $objPHPExcel->getActiveSheet()->setCellValue($arrayColumnas[$key] . $fila, $value[$valor]);
+               $key++;
+            }
+
+            $fila++; //Sumamos 1 para pasar a la siguiente fila
+        }
+       /* foreach ($data as $key => $value) {
+            
+                  
             $objPHPExcel->getActiveSheet()->setCellValue('A' . $fila, $value->id_requerimiento);
             $objPHPExcel->getActiveSheet()->setCellValue('B' . $fila, $value->nombre_proyecto);
             $objPHPExcel->getActiveSheet()->setCellValue('C' . $fila, $value->descripcion);
@@ -235,9 +284,9 @@ class Reportes extends CI_Controller
 
             $fila++; //Sumamos 1 para pasar a la siguiente fila
             # code...
-        }
+        }*/
 
-        header("Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+     header("Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
         header('Content-Disposition: attachment;filename="Proyectos.xlsx"');
         header('Cache-Control: max-age=0');
         $writer = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
