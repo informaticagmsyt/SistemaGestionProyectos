@@ -1,6 +1,6 @@
   <!-- ==============================================================================
   |
-  |  SCRIPTS
+  |  SCRIPTS 
   |
   =============================================================================== -->
 
@@ -22,3 +22,4 @@
 
   <script src="<?php echo base_url()?>public/c3.min.js" charset="utf-8"></script>
 
+  <script> var urlbase="<?php echo base_url("index.php/"); ?>"; </script>

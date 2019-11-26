@@ -12,8 +12,8 @@
         <a href="#"><i class="px-nav-icon far fa-address-card"></i><span class="px-nav-label">Requerimiento</span></a>
 
         <ul class="px-nav-dropdown-menu">
-          <li class="px-nav-item"><a href="#"><i class="px-nav-icon fa fa-edit"></i><span class="px-nav-label">Registrar </span></a></li>
-          <li class="px-nav-item"><a href="#"><i class="px-nav-icon fa fa-search"></i><span class="px-nav-label">Consultar</span></a></li>
+          <li class="px-nav-item"><a href="<?php echo base_url('requerimientos');?>"><i class="px-nav-icon fa fa-edit"></i><span class="px-nav-label">Registrar </span></a></li>
+          <li class="px-nav-item"><a href="<?php echo base_url('requerimientos/verRequerimientos');?>"><i class="px-nav-icon fa fa-search"></i><span class="px-nav-label">Lista de requerimientos</span></a></li>
          
         </ul>
       </li>

@@ -46,12 +46,12 @@ Class RequerimientosModel  extends CI_Model{
         }
 
 
-    function categoriaGet(){
+    function categoriaGet($id){
     
       
         $this->db->select('*');
         $this->db->from('categoria');
-       
+        $this->db->where('requerimiento_id', $id);
      $query = $this->db->get();
 
         $row=$query->row();
@@ -82,6 +82,42 @@ Class RequerimientosModel  extends CI_Model{
               return $obj;
            
         
+    }
+
+    public function getAllRequerimientos(){
+
+$query="SELECT  requerimientos.id, categoria.descripcion as categoria, requerimientos.descripcion, personas.direccion,
+categoria_id, sub_categoria_id, ente_id, personas.estado_id, personas.municipio_id, 
+personas.parroquia_id, estatus_id, accion_id, ciudad, tutor_id, user_id,  nombres, apellidos,personas.cedula,
+codcaso, origen_id, fecha_creacion, fecha_actualizacion, estado,municipio,parroquia,  categoria.requerimiento_id as idrq
+FROM public.requerimientos
+
+INNER JOIN categoria ON 
+
+categoria_id=categoria.id
+
+INNER JOIN requerimiento_persona ON 
+
+requerimientos.id=requerimiento_persona.requerimiento_id
+
+INNER JOIN personas ON 
+personas.id=requerimiento_persona.persona_id
+
+INNER JOIN estados ON
+estados.id_estado=personas.estado_id
+
+INNER JOIN municipios ON
+municipios.id_municipio=personas.municipio_id
+
+INNER JOIN parroquias ON 
+parroquias.id_parroquia=personas.parroquia_id
+WHERE categoria.requerimiento_id =2
+";
+
+$query = $this->db->query($query);
+
+return $query->result() ;
+
     }
 
     function getSubCategoria($id){
@@ -137,5 +173,39 @@ Class RequerimientosModel  extends CI_Model{
         $codigoCaso=array("codigoCaso"=>"CAS-".$fecha.$id);
       return $codigoCaso;
     }
+
+    public function findRequerimientoPersonas($cedula){
+
+
+      $this->db->select('personas.id as id_persona');
+      $this->db->from('personas');
+    
+      
+
+      $this->db->where('cedula', $cedula);
+   
+
+      $query = $this->db->get();
+
+
+      $row=$query->row();
+      if ($query->num_rows() > 0) {
+
+          $response=array(
+      "result"	=>true,
+      "data"	=>$row
+    );
+
+      }else{
+
+          $response=array(
+      "result"	=>false,
+      "data"	=>null
+    );
+      }
+
+      return $response;
+
+  }
 
 }

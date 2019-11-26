@@ -168,6 +168,7 @@ public function  regitrarPaso1(){
 			'telefono'			=> $this->input->post('telefono'), 
 			'telefono2'			=> $this->input->post('telefono2'), 
 			'profesion' 		=> $this->input->post('profesion'), 
+			'cargo'	=> '',
 			'institucion_id'	=> 0,
 			'principal'			=> true
 			);
@@ -217,6 +218,7 @@ public function  regitrarPaso1(){
 		'telefono'			=> $this->input->post('telefono'), 
 		'telefono2'			=> $this->input->post('telefono2'), 
 		'profesion' 		=>$this->input->post('profesion'), 
+		'cargo'	=> '',
 		'institucion_id'	=>0,
 		'principal'			=> true
 		);
@@ -630,7 +632,7 @@ public function  regitrarPaso1(){
 
 
 		public function getCategoria(){
-			$response=	$this->RequerimientosModel->categoriaGet();
+			$response=	$this->RequerimientosModel->categoriaGet(1);
 
 			$this->output
 			->set_content_type('application/json')
@@ -638,6 +640,17 @@ public function  regitrarPaso1(){
 			
 		
 		}
+
+		public function getCategoriaRequerimiento(){
+			$response=	$this->RequerimientosModel->categoriaGet(2);
+
+			$this->output
+			->set_content_type('application/json')
+			->set_output(json_encode($response));
+			
+		
+		}
+
 
 		public function getSubCategoria(){
 			$response=	$this->RequerimientosModel->getSubCategoria($this->input->get('id'));
