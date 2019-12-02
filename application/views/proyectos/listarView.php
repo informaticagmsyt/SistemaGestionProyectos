@@ -20,7 +20,7 @@ color:black;
         <th>Acciones</th>
       </tr>
     </thead>
-   
+
   </table>
 </div>
 <script> var urlbase="<?php echo base_url("index.php/"); ?>"; </script>
@@ -40,7 +40,7 @@ var idioma_espanol = {
             '<option value="40">40</option>'+
             '<option value="50">50</option>'+
             '<option value="-1">All</option>'+
-            '</select> registros',    
+            '</select> registros',
         "sZeroRecords":    "No se encontraron resultados",
         "sEmptyTable":     "Ningún dato disponible en esta tabla",
         "sInfo":           "Mostrando del (_START_ al _END_) de un total de _TOTAL_ registros",
@@ -80,7 +80,7 @@ function listar(idioma_espanol) {
       {"data":"descripcion"},
       {"data":"categoria"},
       {"data":"subcategoria"},
-      { 
+      {
 
 "render":
 function (data, type, row )
@@ -91,9 +91,10 @@ function (data, type, row )
 
 },
 {"data":"codcaso"},
-{"defaultContent":  " <button type='button' class='ver btn btn-primary'><i class='fas fa-search'></i></button> "+
-    " <button type='button' class='editar btn btn-info'><i class='far fa-edit'></i></button> "+
-    " <button type='button' class='verpdf btn btn-default'  ><i class='fas fa-clipboard-list'></i></button> "}
+{"defaultContent":  " <button type='button' class='ver btn btn-primary'  data-toggle='tooltip' data-placement='top' title='Ver Proyecto'><i class='fas fa-search'></i></button> "+
+    " <button type='button' class='editar btn btn-info' data-toggle='tooltip' data-placement='top' title='Editar'><i class='far fa-edit'></i></button> "+
+    " <button type='button' class='verpdf btn btn-default'  data-toggle='tooltip' data-placement='top' title='Reporte PDF' ><i class='fas fa-clipboard-list'></i></button> "+
+    " <button type='button' class='tareas btn btn-default'  data-toggle='tooltip' data-placement='top' title='Tareas'  ><i class='fas fa-address-book'></i></button> "}
 
       ]
     });
@@ -102,11 +103,13 @@ function (data, type, row )
     $('#datatablesProyectos_wrapper .dataTables_filter input').attr('placeholder', 'Buscar...');
 
     data_editar("#datatablesProyectos tbody",table);
-    data_ver ("#datatablesProyectos tbody",table)
-    data_verpdf  ("#datatablesProyectos tbody",table)
+    data_ver ("#datatablesProyectos tbody",table);
+    data_verpdf  ("#datatablesProyectos tbody",table);
+    tareas ("#datatablesProyectos tbody",table);
+ 
   }
 
-  
+
 
 
         function data_editar  (tbody,table){
@@ -115,9 +118,9 @@ function (data, type, row )
 $(tbody).on("click", "button.editar",function(){
 
 //var data=table.row($(this).parents("tr") ).data();
-var id =$(this).parents("tr")[0].children[0].innerText 
+var id =$(this).parents("tr")[0].children[0].innerText
 
-window.location=urlbase+"proyectos/editar/"+id+"";         
+window.location=urlbase+"proyectos/editar/"+id+"";
 
 });
         }
@@ -129,25 +132,42 @@ window.location=urlbase+"proyectos/editar/"+id+"";
 $(tbody).on("click", "button.ver",function(){
 
 //var data=table.row($(this).parents("tr") ).data();
-var id =$(this).parents("tr")[0].children[0].innerText 
+var id =$(this).parents("tr")[0].children[0].innerText
 
-window.location=urlbase+"proyectos/ver/"+id+"";         
+window.location=urlbase+"proyectos/ver/"+id+"";
 
 });
         }
 
 
-        
+
         function data_verpdf (tbody,table){
  var urlbase="<?php echo base_url(""); ?>"
 
 $(tbody).on("click", "button.verpdf",function(){
 
 //var data=table.row($(this).parents("tr") ).data();
-var id =$(this).parents("tr")[0].children[0].innerText 
+var id =$(this).parents("tr")[0].children[0].innerText
 
-window.location=urlbase+"reportes/pdfproyecto/"+id+"";         
+window.location=urlbase+"reportes/pdfproyecto/"+id+"";
+
+});
+
+        }
+
+        function tareas (tbody,table){
+ var urlbase="<?php echo base_url(""); ?>"
+
+$(tbody).on("click", "button.tareas",function(){
+
+//var data=table.row($(this).parents("tr") ).data();
+var id =$(this).parents("tr")[0].children[0].innerText
+
+window.location=urlbase+"tareas?id="+id+"";
 
 });
         }
+        $(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
 </script>
