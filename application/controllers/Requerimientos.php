@@ -34,7 +34,7 @@ class Requerimientos extends CI_Controller {
 			
 		}
 	}
-
+ 
 
 	public function index()
 	{
@@ -46,7 +46,7 @@ class Requerimientos extends CI_Controller {
 		
 		$this->load->view('layout/scriptjs');
 		
-		$this->load->view('requerimiento/requerimientoview');
+		$this->load->view('requerimiento/requerimientoView');
 		$this->load->view('layout/footer');
 	}
 
