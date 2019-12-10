@@ -183,15 +183,7 @@
                 </div>
                 <!--End Col-->
 
-                <div class="col-sm-3">
-                    <div class="form-group">
-                        <label for="cargo">Cargo que ejerce</label>
-                        <select class="form-control custom-select" name="cargo" id="cargo">
-                            <option value="">Seccione Cargo</option>
-                        </select>
-                    </div>
-                </div>
-
+            
             </div>
             <!--End Row-->
 
@@ -314,7 +306,7 @@ $('#formTutor').submit(function(e){
     /* Recorrer y mostrar Data 
     console.log('----------DATA-------------')
     for(var i = 0; i < data.length; i++){
-            console.log(data[i])
+            console.log(data[i]) z
          }
     /**/
     
@@ -329,13 +321,13 @@ $('#formTutor').submit(function(e){
             beforeSend: function(data){
             },
             success: function(res) {
-                if(res != false){
+                if(res.resultado=='false'){
                     $('#modal .modal-title').text('Error al Registrar');
                     $('#modal .modal-body').text('El tutor ya se encuentra registrado');
                     $('#modal').removeClass('modal-success').addClass('modal-danger');
                     $('#modal .fa').removeClass('fa-check-circle').addClass('fa-times-circle');
                     $('#modal .btn').removeClass('btn-success').addClass('btn-danger');
-                    $('#modal').modal('show');
+                   // $('#modal').modal('show');
                     //swal({
                     //    title:"Error al Registrar",
                     //    text: "El tutor ya se encuentra registrado",
@@ -343,7 +335,8 @@ $('#formTutor').submit(function(e){
                     //    button:"Aceptar"
                     //})
                 }else{
-                    $('#modal .modal-body').text(res);
+                   alert('Tutor registrado exitosamente');
+                   location.reload();
                     $('#modal .btn').setAttr('onclick','location.href="<?php echo base_url(); ?>index.php/Tutores/listado"');
                     $('#modal').modal('show');
                     

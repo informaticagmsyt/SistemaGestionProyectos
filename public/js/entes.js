@@ -19,7 +19,7 @@
             
                     for (var i in data) {
                     
-                        html='<option value='+data[i].id+'>'+data[i].descripcion+'</option>';
+                        html='<option value="'+data[i].descripcion+'">'+data[i].descripcion+'</option>';
                         $(selector).append(html)
                     }
                 }

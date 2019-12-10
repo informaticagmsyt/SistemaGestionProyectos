@@ -16,7 +16,7 @@ color:black;
         <th>Categoria</th>
         <th>cedula</th>
         <th>Solicitante</th>
-        <th>Codigo Proyecto</th>
+        <th>Codigo Proyecto</th> 
         <th>Acciones</th>
       </tr>
     </thead>

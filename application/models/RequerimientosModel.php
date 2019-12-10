@@ -84,6 +84,12 @@ Class RequerimientosModel  extends CI_Model{
         
     }
 
+
+    public function asignarTutor($data,$id){
+      $this->db->set($data);
+      $this->db->where('id', $id);
+     return $this->db->update('requerimientos');
+    }
     public function getAllRequerimientos(){
 
 $query="SELECT  requerimientos.id, categoria.descripcion as categoria, requerimientos.descripcion, personas.direccion,

@@ -10,9 +10,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         }
 
         public function listar(){
-            //$this->select('nacionalidad','cedula','nombres','apellidos','cargo','email','telefono','cargo','institucion_id');
+            $this->db->select('personas.id, nacionaliidad, cedula, nombres, sexo, apellidos, email, cargo, 
+            direccion, estado_id, municipio_id, parroquia_id, v_carnet, v_social, 
+            fecha_nac, posee_carnet, telefono, telefono2, profesion, institucion_id, 
+            activo, principal');
             $this->db->from('personas');
             $this->db->join('persona_perfil','personas.id=personas_id','inner');
+
             $this->db->where('perfil_id', 3);
             $query = $this->db->get();
             return $query->result();
@@ -22,7 +26,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $datos = array(
                         'personas_id'=> $persona_id,
                         'perfil_id'=>3
-                    );
+                    ); 
             $this->date     = time();
             $this->db->insert('persona_perfil',$datos);
             return $this->db->insert_id();

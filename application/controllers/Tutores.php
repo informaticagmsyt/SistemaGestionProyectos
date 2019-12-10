@@ -94,7 +94,7 @@
                 
                 $this->output
                 ->set_content_type('application/json')
-                ->set_output(json_encode($result['result']));
+                ->set_output(json_encode(array("resultado"=>false)));
             
             }else{               
 
@@ -104,7 +104,7 @@
                 
                 $this->output
                 ->set_content_type('application/json')
-                ->set_output(json_encode($r));
+                ->set_output(json_encode(array("resultado"=>true)));
     
             }
             
@@ -178,6 +178,20 @@
             $this->output
                 ->set_content_type('application/json')
                 ->set_output(json_encode($registros));
+                    
+        }
+
+        public function proyecto(){
+
+            $nombreUsuario = $this->session->userdata('user_data');
+            $this->load->view('layout/header');
+            $this->load->view('layout/nav');
+            $User['nombreUser']=$nombreUsuario['nombre'];
+            $this->load->view('layout/navar',$User);
+            
+            $this->load->view('layout/scriptjs');
+            $this->load->view('tutores/asignarTutor');
+            $this->load->view('layout/footer');
                     
         }
         

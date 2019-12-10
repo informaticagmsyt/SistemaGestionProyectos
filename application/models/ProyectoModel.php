@@ -56,17 +56,21 @@ Class ProyectoModel  extends CI_Model{
     }
 
 
-    public function getAll($param='ALL'){
+    public function getAll($param='ALL',$tutor=null){
 
             $session = $this->session->userdata('user_data');
             
 
-        $this->db->select(' requerimientos.descripcion, telefono,telefono2, personas.direccion, entes.descripcion as institucion, codcaso, estado,municipio,parroquia, 
+        $this->db->select(" requerimientos.descripcion, telefono,telefono2, personas.direccion, entes.descripcion as institucion, codcaso, estado,municipio,parroquia, 
         proyectos.nombre as nombre_proyecto,estatus_proyecto.descripcion as estatus_proyecto,
         
         categoria.descripcion as categoria,proyectos.*,
         sub_categoria.descripcion as subcategoria, nombres, apellidos,
-         personas.id as id_persona,personas.email, requerimientos.id as id_requerimiento');
+         personas.id as id_persona,personas.email, requerimientos.id as id_requerimiento,
+         COALESCE(NULLIF( (SELECT nombres FROM personas r WHERE requerimientos.tutor_id=r.id LIMIT 1)  ,''),'Sin tutor') as tutor, 
+
+      
+         ");
         $this->db->from('personas');
       
         $this->db->join('requerimiento_persona',
@@ -75,6 +79,8 @@ Class ProyectoModel  extends CI_Model{
 
         $this->db->join('requerimientos',
         'requerimientos.id=requerimiento_persona.requerimiento_id','inner');
+      
+      
       
         $this->db->join('categoria',
         'categoria.id=categoria_id','inner');
@@ -101,10 +107,13 @@ Class ProyectoModel  extends CI_Model{
         $this->db->join('entes','ente_id=entes.id','inner');
        
         $this->db->where('principal', true);
+                if($tutor){
 
+                    $this->db->where('tutor_id', $tutor);
+                }
         if($param<>'ALL'){
 
-            $this->db->where('personas.id', $session['personas_id']);
+            $this->db->where('personas.id', $param);
         }
 
         $query = $this->db->get();

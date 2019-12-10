@@ -14,8 +14,8 @@
                         <th>Apellidos</th>
                         <th>Email</th>
                         <th>Teléfono</th>
-                        <th>Proyectos Asignados</th>
-                        <th>Cargo</th>
+
+                
                         <th>Institución a la que Pertenece</th>
                         <th>Acciones</th>
                     </thead>
@@ -26,16 +26,12 @@
                             <td><?php echo $persona->apellidos?></td>
                             <td><?php echo $persona->email?></td>
                             <td><?php echo $persona->telefono?></td>
-                            <td>
-                                <a href="">Proyecto 1</a>
-                                <br>
-                                <a href="">Proyecto 2</a>
-                            </td>
-                            <td><?php echo $persona->cargo?></td>
+                     
+                       
                             <td><?php echo $persona->institucion_id?></td>
                             <td>
-                            <a href="#" class="btn btn-info"><i class="fas fa-  search"></i></a>
-                            <a href="<?php echo base_url(); ?>index.php/Tutores/editar/<?php echo $persona->personas_id ?>" class="btn btn-info"><i class="fas fa-edit"></i></a>
+                            <a href="<?php echo base_url(); ?>index.php/proyectos?tutor=<?php echo $persona->id ?>"  class="btn btn-info"><i class="fas fa-search">Proyectos</i></a>
+                            <a href="<?php echo base_url(); ?>index.php/Tutores/editar/<?php echo $persona->id ?>" class="btn btn-info"><i class="fas fa-edit"></i></a>
                             </td>
                         </tr>
                         <?php } ?>
